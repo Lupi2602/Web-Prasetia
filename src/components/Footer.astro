@@ -1,0 +1,295 @@
+---
+// src/components/Footer.astro
+---
+
+<footer class="site-footer" aria-label="Site Footer">
+  <div class="footer-inner">
+
+    <div class="footer-top">
+
+      <!-- Brand -->
+      <div class="footer-col footer-brand">
+        <a href="/" class="footer-logo-link" aria-label="PT Prasetia Dwidharma Homepage">
+          <img
+            src="/images/logo-prasetia.png"
+            alt="PT Prasetia Dwidharma"
+            class="footer-logo"
+            loading="lazy"
+          />
+        </a>
+        <p class="footer-tagline">
+          Integrator teknologi dan infrastruktur telekomunikasi yang mendampingi klien sejak 2008.
+        </p>
+        <p class="footer-legal-name">PT Prasetia Dwidharma</p>
+      </div>
+
+      <!-- Kantor -->
+      <div class="footer-col">
+        <h3 class="footer-heading">Kantor</h3>
+        <address class="footer-address">
+          Graha Aruna<br />
+          Jl. Antara No.47, RT.2/RW.1, Ps. Baru,<br />
+          Sawah Besar, Jakarta Pusat 10710
+        </address>
+        <div class="footer-phone-block">
+          <span class="footer-label">Telepon</span>
+          <a href="tel:(021)3524999" class="footer-phone">(021) 3524999</a>
+        </div>
+      </div>
+
+      <!-- Layanan -->
+      <div class="footer-col">
+        <h3 class="footer-heading">Layanan</h3>
+        <nav aria-label="Products and services footer navigation">
+          <ul class="footer-list">
+            <li><a href="/products-services/telecommunication-infrastructure/" class="footer-link">Telecommunication Infrastructure</a></li>
+            <li><a href="/products-services/ict/lark/" class="footer-link">ICT Solution &amp; Smart City</a></li>
+            <li><a href="/products-services/bpo-crm-technology/call-center/" class="footer-link">BPO &ndash; CRM Technology</a></li>
+            <li><a href="/products-services/biotech/imagina/" class="footer-link">Biotech Solutions</a></li>
+          </ul>
+        </nav>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2026 PT Prasetia Dwidharma. </p>
+      <div class="footer-bottom-right">
+
+        <button type="button" id="back-to-top" class="footer-back-to-top">Kembali ke atas</button>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #0d0e11;
+    border-top: 1px solid #26282d;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 1.75rem;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    align-items: start;
+    column-gap: 2.5rem;
+    row-gap: 2.25rem;
+    padding-bottom: 2rem;
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .footer-logo-link {
+    display: inline-block;
+    width: fit-content;
+  }
+
+  .footer-logo {
+    height: 26px;
+    width: auto;
+    display: block;
+  }
+
+  .footer-tagline {
+    margin-top: 1rem;
+    max-width: 30ch;
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: #b4b6bc;
+  }
+
+  .footer-legal-name {
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+    color: #797b82;
+  }
+
+  .footer-heading {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #f5f5f6;
+    margin: 0 0 1rem;
+    line-height: 1;
+  }
+
+  .footer-address {
+    font-style: normal;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: #b4b6bc;
+    padding-left: 0.75rem;
+    border-left: 1px solid #33353b;
+  }
+
+  .footer-phone-block {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .footer-label {
+    font-size: 0.75rem;
+    color: #797b82;
+  }
+
+  .footer-phone {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #ef5852;
+    text-decoration: none;
+    width: fit-content;
+  }
+
+  .footer-phone:hover {
+    text-decoration: underline;
+  }
+
+  .footer-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .footer-link {
+    font-size: 0.875rem;
+    color: #b4b6bc;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .footer-link:hover {
+    color: #ffffff;
+  }
+
+  .footer-link:focus-visible,
+  .footer-phone:focus-visible,
+  .footer-legal-link:focus-visible {
+    outline: 1px solid #ef5852;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .footer-bottom {
+    padding-top: 1.5rem;
+    border-top: 1px solid #1e1f23;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .footer-copyright {
+    font-size: 0.75rem;
+    color: #7f8188;
+    margin: 0;
+  }
+
+  .footer-bottom-right {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.9rem;
+    font-size: 0.75rem;
+  }
+
+  .footer-legal-link {
+    color: #8c8e94;
+    text-decoration: none;
+  }
+
+  .footer-legal-link:hover {
+    color: #ffffff;
+  }
+
+  .footer-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #45474d;
+    flex-shrink: 0;
+  }
+
+  .footer-back-to-top {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: #8c8e94;
+    cursor: pointer;
+    transition: color 0.15s ease;
+  }
+
+  .footer-back-to-top:hover {
+    color: #ffffff;
+  }
+
+  /* Tablet: brand tetap lebar, Kantor & Layanan berdampingan */
+  @media (max-width: 860px) {
+    .footer-top {
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer-brand {
+      grid-column: 1 / -1;
+    }
+    .footer-tagline {
+      max-width: 46ch;
+    }
+  }
+
+  /* Mobile: satu kolom penuh */
+  @media (max-width: 560px) {
+    .footer-inner {
+      padding: 2.5rem 1.25rem 1.5rem;
+    }
+    .footer-top {
+      grid-template-columns: 1fr;
+      row-gap: 2rem;
+    }
+    .footer-brand {
+      grid-column: auto;
+    }
+    .footer-tagline {
+      max-width: none;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .footer-bottom-right {
+      gap: 0.75rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .footer-link,
+    .footer-back-to-top {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const backToTopBtn = document.getElementById('back-to-top');
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+</script>

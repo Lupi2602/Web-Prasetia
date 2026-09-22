@@ -1,0 +1,1130 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const clientLogos = [
+  { src: '/images/client/logo-tower-bersama-group.png', alt: 'Tower Bersama Group' },
+  { src: '/images/client/Logo_Mitratel.png', alt: 'Mitratel' },
+  { src: '/images/client/logo-telkom-infra.jpg', alt: 'Telkom Infra' },
+  { src: '/images/client/logo-protelindo.jpg', alt: 'Protelindo' },
+  { src: '/images/client/logo-msn.png', alt: 'MSN' },
+  { src: '/images/client/logo-MayapadaHospital.png', alt: 'Mayapada Hospital' },
+  { src: '/images/client/logo-IndosatM2.png', alt: 'Indosat M2' },
+  { src: '/images/client/logo-BNI-Life.png', alt: 'BNI Life' },
+  { src: '/images/client/logo-qlue.png', alt: 'Qlue' },
+  { src: '/images/client/logo-Sucofindo.png', alt: 'Sucofindo' },
+];
+
+const divisions = [
+  {
+    number: '01',
+    title: 'Telecommunication & Infrastructure Contractor',
+    description: 'We provide tower construction services, starting from planning up to construction.',
+    image: '/images/card-divisions/tower.jpg',
+    icon: '/images/icons/radio-tower.svg',
+    href: '/products-services/telecommunication-infrastructure/',
+  },
+  {
+    number: '02',
+    title: 'Information & Communication Technology',
+    description: 'We provide ICT products and services to corporates, governments and retails.',
+    image: '/images/card-divisions/ict.jpg',
+    icon: '/images/icons/monitor.svg',
+    href: '/products-services/ict/lark/',
+  },
+  {
+    number: '03',
+    title: 'Business Process Outsourcing',
+    description: 'We provide Outsourcing Services for different sectors like telco and CRM by providing contact center solutions.',
+    image: '/images/card-divisions/bpo.jpg',
+    icon: '/images/icons/headset.svg',
+    href: '/products-services/bpo-crm-technology/call-center/',
+  },
+  {
+    number: '04',
+    title: 'Investments',
+    description: 'An early-stage investment company, has been a part of the initial growth stories of several startups in Southeast Asia.',
+    image: '/images/card-divisions/invesments.jpg',
+    icon: '/images/icons/trending.svg',
+    href: '/investment/',
+  },
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="PT Prasetia Dwidharma — Innovative Technology Integrator & Telecommunications Infrastructure Company. Partnering with customers in reaching their potential through better technology and communications infrastructure." />
+    <title>PT Prasetia Dwidharma | Technology Integrator & Telecommunications</title>
+    <style>
+      /* ======================================================
+         HOMEPAGE STYLES
+      ====================================================== */
+
+      /* ---- Base & Font ---- */
+      *, *::before, *::after { box-sizing: border-box; }
+
+      /* ---- Hero Section ---- */
+      .hero-section {
+        position: relative;
+        width: 100%;
+        min-height: 100svh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background-color: #0f0f0f;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background-image: url('/images/hero/hero4.jpg');
+        background-size: cover;
+        background-position: center 30%;
+        filter: brightness(0.45) saturate(0.8);
+        transform: scale(1.04);
+        animation: heroZoom 18s ease-in-out infinite alternate;
+        will-change: transform;
+      }
+      @keyframes heroZoom {
+        from { transform: scale(1.04); }
+        to   { transform: scale(1.00); }
+      }
+      /* Red accent overlay — subtle left edge */
+      .hero-accent {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        background: #b91c1c;
+        z-index: 2;
+      }
+      /* Bottom fade to white so transition into next section feels seamless */
+      .hero-bottom-fade {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 180px;
+        background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.08));
+        z-index: 2;
+        pointer-events: none;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 140px 40px 100px;
+      }
+      .hero-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+      .hero-eyebrow-line {
+        width: 40px;
+        height: 2px;
+        background: #ef4444;
+        flex-shrink: 0;
+      }
+      .hero-eyebrow-text {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.65);
+      }
+      .hero-headline {
+        font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+        font-weight: 800;
+        line-height: 1.08;
+        letter-spacing: -0.025em;
+        color: #ffffff;
+        max-width: 780px;
+        margin-bottom: 28px;
+      }
+      .hero-headline .accent-word {
+        color: #ef4444;
+        font-style: italic;
+      }
+      .hero-sub {
+        font-size: clamp(1rem, 1.6vw, 1.175rem);
+        line-height: 1.7;
+        color: rgba(255,255,255,0.72);
+        max-width: 520px;
+        margin-bottom: 48px;
+      }
+      .hero-cta-group {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 32px;
+        background: #b91c1c;
+        color: #fff;
+        font-size: 13.5px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 3px;
+        transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+        box-shadow: 0 4px 20px rgba(185,28,28,0.35);
+      }
+      .btn-primary:hover {
+        background: #991b1b;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(185,28,28,0.45);
+      }
+      .btn-primary:focus-visible {
+        outline: 3px solid #ef4444;
+        outline-offset: 3px;
+      }
+      .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        background: rgba(255,255,255,0.08);
+        color: rgba(255,255,255,0.85);
+        font-size: 13.5px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 3px;
+        border: 1px solid rgba(255,255,255,0.2);
+        transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+        backdrop-filter: blur(8px);
+      }
+      .btn-ghost:hover {
+        background: rgba(255,255,255,0.14);
+        border-color: rgba(255,255,255,0.38);
+        color: #fff;
+      }
+      .btn-ghost:focus-visible {
+        outline: 3px solid rgba(255,255,255,0.5);
+        outline-offset: 3px;
+      }
+      /* Scroll indicator */
+      .hero-scroll-indicator {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        opacity: 0.5;
+        animation: scrollPulse 2.5s ease-in-out infinite;
+      }
+      .hero-scroll-indicator span {
+        font-size: 9px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #fff;
+        font-weight: 500;
+      }
+      .scroll-arrow {
+        width: 20px;
+        height: 20px;
+        border-right: 1.5px solid #fff;
+        border-bottom: 1.5px solid #fff;
+        transform: rotate(45deg);
+      }
+      @keyframes scrollPulse {
+        0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.5; }
+        50% { transform: translateX(-50%) translateY(6px); opacity: 0.8; }
+      }
+
+      /* ---- Section Common ---- */
+      .section-label {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+      .section-label-line {
+        width: 32px;
+        height: 2px;
+        background: #b91c1c;
+        flex-shrink: 0;
+      }
+      .section-label-text {
+        font-size: 10.5px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #b91c1c;
+      }
+
+      /* ---- Clients Section ---- */
+      .clients-section {
+        padding: 72px 0;
+        background: #fff;
+        overflow: hidden;
+      }
+      .clients-heading {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .clients-heading h2 {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #9ca3af;
+      }
+      /* Marquee */
+      .marquee-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+      .marquee-wrapper::before,
+      .marquee-wrapper::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 120px;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .marquee-wrapper::before {
+        left: 0;
+        background: linear-gradient(to right, #fff, transparent);
+      }
+      .marquee-wrapper::after {
+        right: 0;
+        background: linear-gradient(to left, #fff, transparent);
+      }
+      .marquee-track {
+        display: flex;
+        align-items: center;
+        width: max-content;
+        animation: marqueeScroll 32s linear infinite;
+        gap: 0;
+      }
+      .marquee-track:hover {
+        animation-play-state: paused;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .marquee-track { animation: none; }
+        .hero-bg { animation: none; }
+      }
+      @keyframes marqueeScroll {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .logo-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 52px;
+        height: 80px;
+        flex-shrink: 0;
+      }
+      .logo-item img {
+        max-height: 44px;
+        max-width: 140px;
+        width: auto;
+        object-fit: contain;
+        filter: none;
+        opacity: 1;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      .logo-item img:hover {
+        transform: scale(1.08);
+        opacity: 0.85;
+      }
+      .logo-divider {
+        width: 1px;
+        height: 28px;
+        background: #e5e7eb;
+        flex-shrink: 0;
+        margin: 0 0;
+      }
+
+      /* ---- Company Intro Section ---- */
+      .intro-section {
+        padding: 120px 40px;
+        background: #fafafa;
+        position: relative;
+        overflow: hidden;
+      }
+      .intro-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background: url('/images/hero/hero3.jpg') center/cover no-repeat;
+        opacity: 0.06;
+        pointer-events: none;
+      }
+      .intro-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+      .intro-stats {
+        display: flex;
+        gap: 48px;
+        margin-top: 48px;
+      }
+      .stat-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .stat-number {
+        font-size: 2.8rem;
+        font-weight: 800;
+        color: #111827;
+        letter-spacing: -0.04em;
+        line-height: 1;
+      }
+      .stat-number sup {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #b91c1c;
+        letter-spacing: 0;
+      }
+      .stat-label {
+        font-size: 12px;
+        font-weight: 500;
+        color: #6b7280;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .stat-divider {
+        width: 1px;
+        background: #e5e7eb;
+        align-self: stretch;
+      }
+      .intro-image-col {
+        position: relative;
+      }
+      .intro-image-frame {
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+        aspect-ratio: 4/3;
+      }
+      .intro-image-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      /* Red border accent */
+      .intro-image-frame::before {
+        content: '';
+        position: absolute;
+        top: -12px;
+        right: -12px;
+        width: 80px;
+        height: 80px;
+        border-top: 3px solid #b91c1c;
+        border-right: 3px solid #b91c1c;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .intro-image-frame::after {
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        left: -12px;
+        width: 80px;
+        height: 80px;
+        border-bottom: 3px solid #b91c1c;
+        border-left: 3px solid #b91c1c;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .intro-year-badge {
+        position: absolute;
+        bottom: 24px;
+        right: -20px;
+        background: #b91c1c;
+        color: #fff;
+        padding: 16px 20px;
+        border-radius: 3px;
+        text-align: center;
+        z-index: 3;
+        box-shadow: 0 8px 30px rgba(185,28,28,0.4);
+      }
+      .intro-year-badge .year-num {
+        font-size: 1.75rem;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.03em;
+      }
+      .intro-year-badge .year-text {
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        opacity: 0.85;
+      }
+      .intro-text h2 {
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
+        font-weight: 800;
+        color: #111827;
+        line-height: 1.15;
+        letter-spacing: -0.025em;
+        margin-bottom: 20px;
+      }
+      .intro-text h2 em {
+        font-style: italic;
+        color: #b91c1c;
+      }
+      .intro-text p {
+        font-size: 1.0625rem;
+        line-height: 1.8;
+        color: #4b5563;
+        max-width: 500px;
+      }
+
+      /* ---- Divisions Section ---- */
+      .divisions-section {
+        padding: 120px 40px;
+        background: #fff;
+      }
+      .divisions-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .divisions-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 64px;
+        gap: 40px;
+        flex-wrap: wrap;
+      }
+      .divisions-header h2 {
+        font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+        font-weight: 800;
+        color: #111827;
+        line-height: 1.15;
+        letter-spacing: -0.025em;
+        max-width: 460px;
+      }
+      .divisions-header p {
+        font-size: 15.5px;
+        line-height: 1.7;
+        color: #6b7280;
+        max-width: 380px;
+      }
+      .divisions-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 1fr;
+        gap: 32px;
+        align-items: stretch;
+      }
+      .division-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 480px;
+        border-radius: 4px;
+        padding: 44px 36px;
+        text-decoration: none;
+        color: #fff;
+        overflow: hidden;
+      }
+      .division-card:focus-visible {
+        outline: 3px solid #b91c1c;
+        outline-offset: 3px;
+      }
+      .division-bg {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+        z-index: 1;
+      }
+      .division-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(10, 15, 25, 0.20) 0%,
+          rgba(10, 15, 25, 0.82) 100%
+        );
+        transition: background 0.7s ease, opacity 0.7s ease;
+        z-index: 2;
+      }
+      .division-content {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 100%;
+        flex-grow: 1;
+      }
+      .division-card:hover .division-bg {
+        transform: scale(1.05);
+      }
+      .division-card:hover .division-overlay {
+        background: linear-gradient(
+          to bottom,
+          rgba(10, 15, 25, 0.15) 0%,
+          rgba(10, 15, 25, 0.90) 100%
+        );
+      }
+      /* Red accent line bottom */
+      .division-card::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: #b91c1c;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 4;
+      }
+      .division-card:hover::after {
+        transform: scaleX(1);
+      }
+
+      .division-icon-wrap {
+        width: 48px;
+        height: 48px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(4px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.4s ease, transform 0.4s ease;
+        margin-bottom: 28px;
+        flex-shrink: 0;
+      }
+      .division-card:hover .division-icon-wrap {
+        background: #b91c1c;
+        transform: translateY(-4px);
+      }
+      .division-icon {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+        display: block;
+      }
+      .division-body {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 0;
+      }
+      .division-title {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: #ffffff;
+        line-height: 1.35;
+        letter-spacing: -0.01em;
+        min-height: 2.7em;
+        margin-bottom: 12px;
+      }
+      .division-desc {
+        font-size: 14.5px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.75);
+        min-height: 4.8em;
+        margin-bottom: 0;
+        transition: color 0.4s ease;
+      }
+      .division-card:hover .division-desc {
+        color: rgba(255, 255, 255, 0.95);
+      }
+      .division-arrow {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12.5px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #ef4444;
+        margin-top: auto;
+        padding-top: 20px;
+        opacity: 0;
+        transform: translateX(-10px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+      }
+      .division-card:hover .division-arrow {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .division-arrow svg {
+        transition: transform 0.3s ease;
+      }
+      .division-card:hover .division-arrow svg {
+        transform: translateX(4px);
+      }
+
+      /* ---- CTA Banner Section ---- */
+      .cta-section {
+        padding: 100px 40px;
+        background: #111827;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-section::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url('/images/hero/hero3.jpg') center/cover no-repeat;
+        opacity: 0.40;
+        pointer-events: none;
+      }
+      /* Red accent line top */
+      .cta-section::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: #b91c1c;
+      }
+      .cta-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 48px;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+      }
+      .cta-text h2 {
+        font-size: clamp(1.75rem, 3vw, 2.4rem);
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.2;
+        letter-spacing: -0.025em;
+        margin-bottom: 12px;
+      }
+      .cta-text p {
+        font-size: 15.5px;
+        line-height: 1.7;
+        color: rgba(255,255,255,0.6);
+        max-width: 520px;
+      }
+      .btn-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 36px;
+        background: #b91c1c;
+        color: #fff;
+        font-size: 13.5px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 3px;
+        transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+        box-shadow: 0 4px 20px rgba(185,28,28,0.4);
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .btn-cta:hover {
+        background: #991b1b;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(185,28,28,0.5);
+      }
+      .btn-cta:focus-visible {
+        outline: 3px solid #ef4444;
+        outline-offset: 3px;
+      }
+
+      /* ---- Scroll Animation ---- */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.65s ease, transform 0.65s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-delay-1 { transition-delay: 0.1s; }
+      .reveal-delay-2 { transition-delay: 0.2s; }
+      .reveal-delay-3 { transition-delay: 0.3s; }
+      .reveal-delay-4 { transition-delay: 0.4s; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+
+      /* ---- Footer Spacing ---- */
+      .footer-spacing {
+        height: 80px;
+        background: #ffffff;
+      }
+
+      /* ---- Responsive ---- */
+      @media (max-width: 1024px) {
+        .hero-content { padding: 130px 32px 90px; }
+        .intro-inner { gap: 56px; }
+        .intro-year-badge { right: -10px; }
+        .divisions-header { flex-direction: column; align-items: flex-start; }
+        .divisions-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+        .division-card { padding: 36px 28px; min-height: 460px; }
+        .division-title { font-size: 1.25rem; }
+      }
+
+      @media (max-width: 768px) {
+        .hero-content { padding: 120px 24px 80px; }
+        .hero-headline { font-size: clamp(2rem, 7.5vw, 2.6rem); }
+        .intro-section { padding: 80px 24px; }
+        .intro-inner {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+        .intro-image-col { order: -1; }
+        .intro-image-frame::before,
+        .intro-image-frame::after { display: none; }
+        .intro-year-badge { right: 16px; bottom: 16px; }
+        .intro-stats { gap: 28px; }
+        .stat-number { font-size: 2.2rem; }
+        .divisions-section { padding: 80px 24px; }
+        .divisions-grid {
+          grid-template-columns: 1fr;
+          grid-auto-rows: auto;
+          gap: 20px;
+        }
+        .division-card {
+          padding: 32px 24px;
+          min-height: auto;
+          height: auto;
+        }
+        .division-icon-wrap { margin-bottom: 20px; }
+        .division-title {
+          min-height: auto;
+          font-size: 1.25rem;
+          margin-bottom: 10px;
+        }
+        .division-desc {
+          min-height: auto;
+        }
+        .division-arrow {
+          margin-top: 16px;
+          padding-top: 0;
+          opacity: 1;
+          transform: none;
+        }
+        .cta-section { padding: 72px 24px; }
+        .cta-inner { flex-direction: column; align-items: flex-start; }
+        .footer-spacing { height: 56px; }
+      }
+
+      @media (max-width: 640px) {
+        .hero-cta-group { flex-direction: column; align-items: flex-start; }
+        .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+        .logo-item { padding: 0 28px; }
+        .marquee-wrapper::before,
+        .marquee-wrapper::after { width: 60px; }
+        .intro-stats { flex-direction: column; gap: 20px; }
+        .stat-divider { display: none; }
+      }
+
+      @media (max-width: 390px) {
+        .hero-content { padding: 110px 20px 70px; }
+      }
+    </style>
+  </head>
+  <body class="flex flex-col min-h-screen text-gray-800 antialiased">
+
+    <!-- NAVBAR -->
+    <Navbar />
+
+    <main class="flex-grow">
+
+      <!-- ============================================================
+           SECTION 1: HERO
+      ============================================================ -->
+      <section class="hero-section" aria-label="Hero">
+        <div class="hero-bg" role="presentation" aria-hidden="true"></div>
+        <div class="hero-accent" aria-hidden="true"></div>
+        <div class="hero-bottom-fade" aria-hidden="true"></div>
+
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <div class="hero-eyebrow-line"></div>
+            <span class="hero-eyebrow-text">PT Prasetia Dwidharma — Est. 2008</span>
+          </div>
+
+          <h1 class="hero-headline">
+            Innovative<br>
+            Technology <span class="accent-word">Integrator</span><br>
+            &amp; Telecommunications<br>
+            Infrastructure Company
+          </h1>
+
+          <p class="hero-sub">
+            Partnering with customers in reaching their potential through better technology and communications infrastructure.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="/products-services/telecommunication-infrastructure/" class="btn-primary">
+              Explore Our Services
+            </a>
+            <a href="/about/contact/" class="btn-ghost">
+              Contact Us
+            </a>
+          </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="hero-scroll-indicator" aria-hidden="true">
+          <span>Scroll</span>
+          <div class="scroll-arrow"></div>
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           SECTION 2: OUR CLIENTS (Marquee)
+      ============================================================ -->
+      <section class="clients-section" aria-label="Our Clients">
+        <div class="clients-heading reveal">
+          <h2>Our Trusted Clients</h2>
+        </div>
+
+        <div class="marquee-wrapper" role="region" aria-label="Client logos carousel">
+          <div class="marquee-track" aria-hidden="true">
+            <!-- First set -->
+            {clientLogos.map((logo, i) => (
+              <>
+                <div class="logo-item">
+                  <img src={logo.src} alt={logo.alt} loading="lazy" />
+                </div>
+                {i < clientLogos.length - 1 && <div class="logo-divider"></div>}
+              </>
+            ))}
+            <!-- Duplicate for seamless loop -->
+            {clientLogos.map((logo, i) => (
+              <>
+                <div class="logo-item">
+                  <img src={logo.src} alt={logo.alt} loading="lazy" />
+                </div>
+                {i < clientLogos.length - 1 && <div class="logo-divider"></div>}
+              </>
+            ))}
+          </div>
+        </div>
+
+        <!-- Accessible static list for screen readers -->
+        <ul class="sr-only">
+          {clientLogos.map((logo) => (
+            <li>{logo.alt}</li>
+          ))}
+        </ul>
+      </section>
+
+
+      <!-- ============================================================
+           SECTION 3: COMPANY INTRODUCTION
+      ============================================================ -->
+      <section class="intro-section" aria-label="About PT Prasetia Dwidharma">
+        <div class="intro-inner">
+
+          <!-- Left: Text -->
+          <div class="intro-text">
+            <div class="section-label reveal">
+              <div class="section-label-line"></div>
+              <span class="section-label-text">About Us</span>
+            </div>
+
+            <h2 class="reveal reveal-delay-1">
+              PT Prasetia<br>
+              <em>Dwidharma</em>
+            </h2>
+
+            <p class="reveal reveal-delay-2">
+              Was founded in 2008. Since then we have grown to become a major player in the industry, currently we have three divisions under our company: 
+              Telecommunication & Infrastructure, ICT (Information & Communication Technology), Call Center BPO (Business Process Outsourcing & Investment).
+            </p>
+
+            <div class="intro-stats reveal reveal-delay-3">
+              <div class="stat-item">
+                <span class="stat-number">2008<sup>+</sup></span>
+                <span class="stat-label">Founded</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-number">4</span>
+                <span class="stat-label">Business Divisions</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-number">10<sup>+</sup></span>
+                <span class="stat-label">Major Clients</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Image -->
+          <div class="intro-image-col reveal reveal-delay-2">
+            <div class="intro-image-frame">
+              <img
+                src="/images/hero/hero1.jpg"
+                alt="Prasetia team in a professional meeting"
+                loading="lazy"
+              />
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           SECTION 4: BUSINESS DIVISIONS
+      ============================================================ -->
+      <section class="divisions-section" aria-label="Our Business Divisions">
+        <div class="divisions-inner">
+
+          <div class="divisions-header">
+            <div>
+              <div class="section-label reveal">
+                <div class="section-label-line"></div>
+                <span class="section-label-text">What We Do</span>
+              </div>
+              <h2 class="reveal reveal-delay-1">
+                Four Divisions,<br>One Vision
+              </h2>
+            </div>
+            <p class="reveal reveal-delay-2">
+              Prasetia operates across four complementary business divisions, each designed to deliver specialized solutions that empower enterprises and communities.
+            </p>
+          </div>
+
+          <div class="divisions-grid" role="list">
+            {divisions.map((div, i) => (
+              <a
+                href={div.href}
+                class={`division-card reveal reveal-delay-${Math.min(i + 1, 4)}`}
+                role="listitem"
+              >
+                <div class="division-bg" style={`background-image: url('${div.image}');`}></div>
+                <div class="division-overlay"></div>
+                <div class="division-content">
+                  <div class="division-icon-wrap">
+                    <img src={div.icon} alt="" aria-hidden="true" class="division-icon" width="24" height="24" loading="lazy" />
+                  </div>
+                  <div class="division-body">
+                    <h3 class="division-title">{div.title}</h3>
+                    <p class="division-desc">{div.description}</p>
+                    <div class="division-arrow">
+                      Learn More
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           SECTION 5: CTA BANNER
+      ============================================================ -->
+      <section class="cta-section" aria-label="Call to action">
+        <div class="cta-inner">
+          <div class="cta-text reveal">
+            <h2>Ready to Build the Future<br>Together?</h2>
+            <p>
+              Whether you need telecommunications infrastructure, ICT solutions, or business process outsourcing — Prasetia is your trusted technology partner.
+            </p>
+          </div>
+          <a href="/about/contact/" class="btn-cta reveal reveal-delay-2">
+            Get in Touch
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <div class="footer-spacing" aria-hidden="true"></div>
+
+    <!-- FOOTER -->
+    <Footer />
+
+    <!-- ============================================================
+         SCRIPTS: Scroll reveal + Navbar init
+    ============================================================ -->
+    <script>
+      // Trigger navbar transparent state immediately (hero is full-height)
+      (function () {
+        const navbar = document.getElementById('site-navbar');
+        if (!navbar) return;
+        if (window.scrollY <= 60) {
+          navbar.classList.remove('nav-solid');
+          navbar.classList.add('nav-transparent');
+        }
+      })();
+
+      // IntersectionObserver-based scroll reveal
+      (function () {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) return;
+
+        const reveals = document.querySelectorAll<HTMLElement>('.reveal');
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+        );
+        reveals.forEach((el) => observer.observe(el));
+      })();
+    </script>
+
+  </body>
+</html>
