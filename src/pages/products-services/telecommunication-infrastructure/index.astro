@@ -1,185 +1,840 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
+
+// Service capabilities data
+const services = [
+  {
+    id: 'service-01',
+    number: '01',
+    title: 'Construction of BTS Towers',
+    description:
+      'End-to-end BTS tower construction covering infrastructure preparation, tower erection, mechanical, and electrical installation.',
+    image: '/images/herotelcom/herotelcom2.jpg',
+    alt: 'Construction of BTS Towers - Steel Lattice Tower Erection',
+    highlights: [
+      'Site preparation & foundation civil works',
+      'Tower structure erection & fabrication',
+      'Mechanical & electrical engineering installation',
+      'Lightning protection & grounding systems',
+    ],
+  },
+  {
+    id: 'service-02',
+    number: '02',
+    title: 'Co-location',
+    description:
+      'Supporting multiple operators and equipment through efficient co-location solutions on existing telecommunications infrastructure.',
+    image: '/images/herotelcom/herotelcom3.jpg',
+    alt: 'Co-location Services - Multi-Operator Equipment Deployment',
+    highlights: [
+      'Tower load analysis & space allocation',
+      'Multi-tenant antenna bracket installation',
+      'Power sharing & backup power integration',
+      'Shelter & transmission equipment hosting',
+    ],
+  },
+  {
+    id: 'service-03',
+    number: '03',
+    title: 'Site Acquisition (SITAC)',
+    description:
+      'Supporting site acquisition and preparation to establish suitable locations for telecommunications infrastructure deployment.',
+    image: '/images/herotelcom/herotelcom4.jpg',
+    alt: 'Site Acquisition SITAC - Survey & Permit Field Engineering',
+    highlights: [
+      'Candidate site survey & technical evaluation',
+      'Landowner negotiation & legal lease clearance',
+      'Community approval & environmental permits',
+      'Government authority licensing & IMB processing',
+    ],
+  },
+  {
+    id: 'service-04',
+    number: '04',
+    title: 'Maintenance & Repair',
+    description:
+      'Reliable maintenance and repair services to help ensure telecommunications infrastructure remains operational and dependable.',
+    image: '/images/herotelcom/herotelcom5.jpg',
+    alt: 'Maintenance & Repair - Field Line and Tower Servicing',
+    highlights: [
+      'Preventive routine inspection & structural testing',
+      'Corrective repair & 24/7 emergency response',
+      'Aviation obstruction light & generator maintenance',
+      'Corrosion treatment & structural reinforcement',
+    ],
+  },
+  {
+    id: 'service-05',
+    number: '05',
+    title: 'Fiber Optic',
+    description:
+      'Fiber optic infrastructure deployment supporting high-speed and reliable telecommunications connectivity.',
+    image: '/images/herotelcom/herotelcom7.jpg',
+    alt: 'Fiber Optic Infrastructure Deployment',
+    highlights: [
+      'Aerial & underground fiber cable deployment',
+      'Optical distribution frame (ODF) termination',
+      'OTDR testing & optical link loss certification',
+      'Last-mile connection to BTS & enterprise nodes',
+    ],
+  },
+];
+
+const statistics = [
+  { value: 1204, suffix: '', label: 'NEW SITE', formatComma: true },
+  { value: 1122, suffix: '', label: 'CO-LOCATION', formatComma: true },
+  { value: 4015, suffix: '', label: 'SITAC', formatComma: true },
+  { value: 8714, suffix: '', label: 'MAINTENANCE', formatComma: true },
+  { value: 450, suffix: 'km', label: 'FIBER OPTIC', formatComma: false },
+];
+
+// Row 1: existing clients
+const clientLogosRow1 = [
+  { name: 'Tower Bersama Group', src: '/images/client/logo-tower-bersama-group.png' },
+  { name: 'Mitratel', src: '/images/client/Logo_Mitratel.png' },
+  { name: 'Telkom Infra', src: '/images/client/logo-telkom-infra.jpg' },
+  { name: 'Protelindo', src: '/images/client/logo-protelindo.jpg' },
+  { name: 'MSN', src: '/images/client/logo-msn.png' },
+];
+
+// Row 2: new operator partners
+const clientLogosRow2 = [
+  { name: 'AXIS', src: '/images/client/axis.png' },
+  { name: 'Bali Tower', src: '/images/client/balitower.png' },
+  { name: 'Indosat', src: '/images/client/indosat.png' },
+  { name: 'Telkomsel', src: '/images/client/telkomsel.png' },
+  { name: 'XL Axiata', src: '/images/client/xl.png' },
+];
+
+const commitments = [
+  {
+    number: '01',
+    title: 'Quality Is Our Priority',
+    description: 'We dedicate ourselves to deliver the highest standard in Quality, Cost, and Delivery across every project.',
+  },
+  {
+    number: '02',
+    title: 'We Connect Everyone',
+    description: 'With uncompromised engineering quality, we contribute directly to expanding connectivity across Indonesia.',
+  },
+  {
+    number: '03',
+    title: 'Our Focus Is Technology',
+    description: 'Leveraging best-in-class technology, safety standards, and modern deployment methods to deliver superior services.',
+  },
+  {
+    number: '04',
+    title: 'We Care About Our Earth',
+    description: 'Committed to responsible construction, environmental safety, and energy-efficient infrastructure solutions.',
+  },
+];
 ---
 
-<MainLayout title="Telecommunication & Infrastructure Contractor | PT Prasetia Dwidharma">
-  <!-- Hero Section -->
-  <section class="bg-gray-900 text-white py-16 lg:py-24 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-25">
+<MainLayout title="Telecommunication & Infrastructure Contractor | PT Prasetia Dwidharma" transparentNavbar={true}>
+
+  <!-- ========================================================
+       1. HERO SECTION
+       Full-bleed, cinematic, corporate. Certification is now
+       fully integrated inside the hero itself — no floating card,
+       no overlap into the next section.
+  ======================================================== -->
+  <section class="hero-section relative min-h-[92vh] lg:min-h-screen flex items-center text-white overflow-hidden bg-slate-950">
+    <!-- Background image -->
+    <div class="absolute inset-0">
       <img
-        src="/images/hero/hero4.jpg"
-        alt="Telecommunication Tower"
-        class="w-full h-full object-cover"
+        src="/images/herotelcom/herotelcom1.jpg"
+        alt="Telecommunication Tower Infrastructure"
+        class="w-full h-full object-cover object-center scale-[1.02] transform transition-transform duration-1000 ease-out"
+        loading="eager"
       />
+      <!-- Cinematic dark navy wash overlay: balances image visibility with crisp typography -->
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/75 to-slate-950/40"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50"></div>
     </div>
-    <div class="container mx-auto px-6 max-w-6xl relative z-10">
-      <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 max-w-3xl leading-tight">
-        Telecommunication &amp; Infrastructure Contractor.
-      </h1>
-      <p class="text-lg md:text-xl text-gray-300 max-w-2xl mb-8 leading-relaxed">
-        We provide tower construction services, starting from planning, construction, mechanical, and electrical.
-      </p>
 
-      <div class="flex items-center gap-6 pt-4 border-t border-gray-700/60 max-w-md">
-        <div class="text-xs text-gray-400 uppercase tracking-widest font-semibold">
-          Certified by:
-        </div>
-        <div class="flex items-center gap-4 text-xs text-gray-300">
-          <span class="border border-gray-500 rounded px-2.5 py-1">ISO 9001 (Lloyd's Register)</span>
-          <span class="border border-gray-500 rounded px-2.5 py-1">UKAS Management Systems 001</span>
+    <!-- Hero Content -->
+    <div class="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10 pt-28 lg:pt-32 pb-16 lg:pb-20">
+      <div class="max-w-3xl">
+        <!-- Main Headline -->
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 text-white">
+          Telecommunication &amp; Infrastructure <span class="text-red-500">Contractor.</span>
+        </h1>
+
+        <!-- Subheading -->
+        <p class="text-lg sm:text-xl lg:text-2xl text-slate-200/90 font-light leading-relaxed max-w-2xl mb-10">
+          We provide end-to-end tower construction services, starting from planning, construction, mechanical, and electrical.
+        </p>
+
+        <!-- Certification — integrated directly into the hero, not a separate floating section -->
+        <div class="inline-flex items-center gap-4 sm:gap-5 px-5 py-4 sm:px-6 sm:py-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg">
+          <div class="p-2 rounded-xl bg-white shrink-0">
+            <img
+              src="/images/herotelcom/iso.png"
+              alt="ISO 9001 Certified Logo"
+              class="h-12 sm:h-14 w-auto object-contain"
+              loading="eager"
+            />
+          </div>
+          <div class="text-left">
+            <p class="text-base sm:text-lg lg:text-xl font-bold text-white leading-snug">
+              ISO 9001 Quality Management Certified
+            </p>
+            <p class="text-xs sm:text-sm text-slate-300">
+              Audited by Lloyd's Register Quality Assurance
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Stats & Scope Section -->
-  <section class="py-16 bg-gray-50 border-b border-gray-200">
-    <div class="container mx-auto px-6 max-w-6xl">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <!-- Left: Stats (5 cols) -->
-        <div class="lg:col-span-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-6">
-          <div class="bg-white p-6 rounded-lg border border-gray-200 text-center shadow-sm">
-            <span class="text-xs uppercase font-bold text-gray-500 block mb-1">New Site</span>
-            <span class="text-3xl lg:text-4xl font-extrabold text-gray-900">1,204</span>
-          </div>
-
-          <div class="bg-white p-6 rounded-lg border border-gray-200 text-center shadow-sm">
-            <span class="text-xs uppercase font-bold text-gray-500 block mb-1">Co-Location</span>
-            <span class="text-3xl lg:text-4xl font-extrabold text-gray-900">1,122</span>
-          </div>
-
-          <div class="bg-white p-6 rounded-lg border border-gray-200 text-center shadow-sm">
-            <span class="text-xs uppercase font-bold text-gray-500 block mb-1">Sitac</span>
-            <span class="text-3xl lg:text-4xl font-extrabold text-gray-900">4,015</span>
-          </div>
-
-          <div class="bg-white p-6 rounded-lg border border-gray-200 text-center shadow-sm">
-            <span class="text-xs uppercase font-bold text-gray-500 block mb-1">Maintenance</span>
-            <span class="text-3xl lg:text-4xl font-extrabold text-gray-900">8,714</span>
-          </div>
-
-          <div class="bg-white p-6 rounded-lg border border-gray-200 text-center shadow-sm sm:col-span-1 lg:col-span-2">
-            <span class="text-xs uppercase font-bold text-gray-500 block mb-1">Fiber Optic</span>
-            <span class="text-3xl lg:text-4xl font-extrabold text-gray-900">450<span class="text-xl font-medium text-gray-600">km</span></span>
-          </div>
-        </div>
-
-        <!-- Right: Scope of Work (7 cols) -->
-        <div class="lg:col-span-7 lg:pl-6">
-          <p class="text-lg text-gray-800 leading-relaxed mb-6 font-medium">
-            We focus our services through our expertise in telecommunication infrastructure, mainly constructing Base Transceiver Station (BTS) towers. The scope of work includes:
-          </p>
-          <ul class="space-y-3">
-            <li class="flex items-center gap-3 text-gray-700">
-              <span class="w-2 h-2 rounded-full bg-red-700 shrink-0"></span>
-              <span>Construction of BTS towers</span>
-            </li>
-            <li class="flex items-center gap-3 text-gray-700">
-              <span class="w-2 h-2 rounded-full bg-red-700 shrink-0"></span>
-              <span>Co-location work of BTS towers</span>
-            </li>
-            <li class="flex items-center gap-3 text-gray-700">
-              <span class="w-2 h-2 rounded-full bg-red-700 shrink-0"></span>
-              <span>Site Acquisition (SITAC)</span>
-            </li>
-            <li class="flex items-center gap-3 text-gray-700">
-              <span class="w-2 h-2 rounded-full bg-red-700 shrink-0"></span>
-              <span>Maintenance and Repair</span>
-            </li>
-            <li class="flex items-center gap-3 text-gray-700">
-              <span class="w-2 h-2 rounded-full bg-red-700 shrink-0"></span>
-              <span>Fiber Optic</span>
-            </li>
-          </ul>
-        </div>
-      </div>
+  <!-- ========================================================
+       2. SECTION INTRO + METRICS
+       Full-bleed background photo with a strong, even dark overlay
+       so headline & body copy stay fully legible over any image.
+  ======================================================== -->
+  <section id="metrics" class="relative py-24 lg:py-32 bg-slate-950 overflow-hidden">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+      <img
+        src="/images/herotelcom/herotelcom6.jpg"
+        alt=""
+        class="w-full h-full object-cover object-center"
+        loading="lazy"
+      />
+      <!-- Strong, even dark scrim — guarantees text contrast regardless of what's behind it -->
+      <div class="absolute inset-0 bg-slate-950/88"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/80 to-slate-950/95"></div>
     </div>
-  </section>
+    <!-- Subtle dot pattern -->
+    <div
+      class="absolute inset-0 opacity-[0.05] pointer-events-none"
+      style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 32px 32px;"
+    ></div>
 
-  <!-- Clients & Partners Section -->
-  <section class="py-16 bg-white border-b border-gray-200">
-    <div class="container mx-auto px-6 max-w-6xl">
-      <!-- Clients -->
-      <div class="mb-12">
-        <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6 text-center">Client</h3>
-        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-          <span class="text-xl font-bold text-gray-600">Telkomsel</span>
-          <span class="text-xl font-bold text-gray-600">Indosat</span>
-          <span class="text-xl font-bold text-gray-600">XL</span>
-          <span class="text-xl font-bold text-gray-600">Axis</span>
+    <div class="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
+      <!-- Section Intro Text -->
+      <div class="max-w-3xl mb-16 lg:mb-20">
+        <div class="reveal-fade flex items-center gap-3 mb-4">
+          <span class="w-8 h-0.5 bg-red-500 rounded-full"></span>
+          <span class="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-red-500">
+            TELECOMMUNICATION INFRASTRUCTURE
+          </span>
         </div>
-      </div>
 
-      <!-- Partners -->
-      <div>
-        <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6 text-center">Partner</h3>
-        <div class="flex flex-wrap items-center justify-center gap-6 md:gap-10">
-          <img src="/images/client/logo-tower-bersama-group.png" alt="Tower Bersama Group" class="h-8 max-w-[120px] object-contain" />
-          <img src="/images/client/Logo_Mitratel.png" alt="Mitratel" class="h-8 max-w-[120px] object-contain" />
-          <img src="/images/client/logo-telkom-infra.jpg" alt="Telkom Infra" class="h-8 max-w-[120px] object-contain" />
-          <img src="/images/client/logo-protelindo.jpg" alt="Protelindo" class="h-8 max-w-[120px] object-contain" />
-          <img src="/images/client/logo-msn.png" alt="MSN" class="h-8 max-w-[120px] object-contain" />
-          <span class="text-lg font-bold text-gray-600">Balitower</span>
-        </div>
-      </div>
-    </div>
-  </section>
+        <h2 class="reveal-fade text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.18] mb-6 drop-shadow-md">
+          Building the infrastructure behind connectivity.
+        </h2>
 
-  <!-- 4 Pillars Section -->
-  <section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-6 max-w-6xl">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-extrabold text-gray-900 mb-3">PT Prasetia Dwidharma</h2>
-        <p class="text-gray-600 max-w-xl mx-auto">
-          We provide tower construction services, starting from planning, construction, mechanical, and electrical
+        <p class="reveal-fade text-base sm:text-lg lg:text-xl text-slate-200 leading-relaxed font-normal">
+          We provide integrated telecommunication infrastructure services, from site acquisition and tower construction to maintenance, co-location, and fiber optic deployment.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- 1 -->
-        <div class="bg-white p-6 rounded-lg border border-gray-200 text-center shadow-sm">
-          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-red-50 text-red-700 flex items-center justify-center text-lg font-bold">
-            1
-          </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-2">Quality Is Our Priority</h3>
-          <p class="text-sm text-gray-600">
-            We dedicate ourselves to have the best Quality, Cost, and Delivery
-          </p>
-        </div>
-
-        <!-- 2 -->
-        <div class="bg-white p-6 rounded-lg border border-gray-200 text-center shadow-sm">
-          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-red-50 text-red-700 flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071a10 10 0 0114.142 0M1.393 9.393a15 15 0 0121.214 0" /></svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-2">We Connect Everyone</h3>
-          <p class="text-sm text-gray-600">
-            With the best quality, we contribute to connecting everyone
-          </p>
-        </div>
-
-        <!-- 3 -->
-        <div class="bg-white p-6 rounded-lg border border-gray-200 text-center shadow-sm">
-          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-red-50 text-red-700 flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-2">Our Focus Is Technology</h3>
-          <p class="text-sm text-gray-600">
-            With the best technology we provide the best services
-          </p>
-        </div>
-
-        <!-- 4 -->
-        <div class="bg-white p-6 rounded-lg border border-gray-200 text-center shadow-sm">
-          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-red-50 text-red-700 flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-2">We Care About Our Earth</h3>
-          <p class="text-sm text-gray-600">
-            We committed to protecting and enhancing the environment
-          </p>
+      <!-- Glass Statistics Block -->
+      <div class="reveal-fade bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-8 lg:p-12 shadow-2xl">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10 divide-y sm:divide-y-0 sm:divide-x divide-white/15">
+          {statistics.map((stat, idx) => (
+            <div class={`flex flex-col justify-center text-center ${idx > 0 ? 'pt-6 sm:pt-0 sm:pl-6 lg:pl-8' : ''}`}>
+              <div class="flex items-baseline justify-center">
+                <span
+                  class="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl font-extrabold text-white tracking-tight"
+                  data-counter={stat.value}
+                  data-format-comma={stat.formatComma ? 'true' : 'false'}
+                >
+                  0
+                </span>
+                {stat.suffix && (
+                  <span class="text-lg sm:text-xl font-bold text-red-400 ml-1">
+                    {stat.suffix}
+                  </span>
+                )}
+              </div>
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-200 mt-2 block">
+                {stat.label}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   </section>
+
+  <!-- ========================================================
+       3. OUR TELECOMMUNICATION SERVICES
+       Scroll Storytelling Experience with Sticky Visual Stage
+       All 5 services have equal importance
+  ======================================================== -->
+  <section id="services" class="py-24 lg:py-32 bg-white relative">
+    <div class="container mx-auto px-6 lg:px-12 max-w-7xl">
+      <!-- Section Header -->
+      <div class="max-w-3xl mb-16 lg:mb-20">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-0.5 bg-red-600 rounded-full"></span>
+          <span class="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-red-600">
+            OUR CAPABILITIES
+          </span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5">
+          Our Telecommunication Services
+        </h2>
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+          End-to-end infrastructure solutions built to connect, maintain, and expand reliable telecommunications networks.
+        </p>
+      </div>
+
+      <!-- DESKTOP SCROLL STORYTELLING LAYOUT (Sticky visual on left, scrolling narratives on right) -->
+      <div class="hidden lg:grid lg:grid-cols-12 gap-12 xl:gap-16 items-start relative">
+
+        <!-- Sticky Left Column: Cinematic Visual Stage -->
+        <div class="lg:col-span-6 sticky top-24 pt-4">
+          <div class="relative w-full aspect-[4/3] rounded-3xl overflow-hidden bg-slate-950 shadow-2xl border border-slate-200">
+            <!-- 5 Service Images Stacked with Crossfade -->
+            {services.map((svc, index) => (
+              <div
+                id={`stage-image-${index}`}
+                class={`stage-image absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  index === 0 ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-95 z-0'
+                }`}
+              >
+                <img
+                  src={svc.image}
+                  alt={svc.alt}
+                  class="w-full h-full object-cover"
+                />
+                <!-- Subtle gradient overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
+              </div>
+            ))}
+
+            <!-- Floating Top Indicator Pill -->
+            <div class="absolute top-6 left-6 z-20">
+              <span
+                id="stage-active-badge"
+                class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-950/80 backdrop-blur-md border border-white/20 text-white font-mono text-xs font-bold tracking-wider shadow-lg"
+              >
+                <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                01 / 05 — BTS TOWERS
+              </span>
+            </div>
+
+            <!-- Bottom Progress Indicators -->
+            <div class="absolute bottom-6 left-6 right-6 z-20 flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                {services.map((svc, index) => (
+                  <button
+                    type="button"
+                    class={`progress-dot h-2 rounded-full transition-all duration-300 ${
+                      index === 0 ? 'w-8 bg-red-600' : 'w-2 bg-white/40'
+                    }`}
+                    data-step={index}
+                    aria-label={`Jump to ${svc.title}`}
+                  ></button>
+                ))}
+              </div>
+              <span id="stage-active-name" class="text-xs font-semibold text-white/90 drop-shadow truncate max-w-[200px]">
+                Construction of BTS Towers
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Scrolling Narrative Chapters -->
+        <div class="lg:col-span-6 space-y-28 xl:space-y-36 pb-20">
+          {services.map((svc, index) => (
+            <div
+              id={svc.id}
+              class="service-scroll-target scroll-mt-32 p-8 xl:p-10 rounded-3xl bg-[#F8FAFC] border border-slate-200/80 hover:border-slate-300 transition-all duration-300"
+              data-index={index}
+            >
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-mono text-sm font-black text-red-600 tracking-wider">
+                  CAPABILITY {svc.number}
+                </span>
+                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">
+                  PT Prasetia Dwidharma
+                </span>
+              </div>
+
+              <h3 class="text-2xl xl:text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
+                {svc.title}
+              </h3>
+
+              <p class="text-base xl:text-lg text-slate-600 leading-relaxed mb-8">
+                {svc.description}
+              </p>
+
+              <!-- Capability Highlights -->
+              <div class="pt-6 border-t border-slate-200/80">
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-4">
+                  Key Scope of Execution
+                </span>
+                <ul class="space-y-3">
+                  {svc.highlights.map((hl) => (
+                    <li class="flex items-start gap-3 text-sm text-slate-700">
+                      <span class="w-1.5 h-1.5 rounded-full bg-red-600 mt-2 shrink-0"></span>
+                      <span>{hl}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- MOBILE & TABLET FALLBACK: Elegant Vertical Sequence -->
+      <div class="lg:hidden space-y-12">
+        {services.map((svc) => (
+          <div class="bg-[#F8FAFC] rounded-3xl border border-slate-200/80 overflow-hidden shadow-sm">
+            <!-- Mobile Image Container -->
+            <div class="relative w-full h-56 sm:h-72 overflow-hidden bg-slate-900">
+              <img
+                src={svc.image}
+                alt={svc.alt}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md border border-white/20 text-white font-mono text-xs font-bold">
+                {svc.number}
+              </span>
+            </div>
+
+            <!-- Mobile Content -->
+            <div class="p-6 sm:p-8">
+              <span class="text-xs font-bold uppercase tracking-widest text-red-600 font-mono block mb-2">
+                SERVICE {svc.number}
+              </span>
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">
+                {svc.title}
+              </h3>
+              <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+                {svc.description}
+              </p>
+
+              <div class="pt-5 border-t border-slate-200">
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-3">
+                  Key Scope
+                </span>
+                <ul class="space-y-2.5">
+                  {svc.highlights.map((hl) => (
+                    <li class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                      <span class="w-1.5 h-1.5 rounded-full bg-red-600 mt-1.5 shrink-0"></span>
+                      <span>{hl}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       4. CLIENTS & PARTNERS SECTION
+       Two rows, larger logos, shown in full color from the start
+       (no grayscale / hover-to-reveal).
+  ======================================================== -->
+  <section class="py-20 lg:py-24 bg-white border-y border-slate-200/70 overflow-hidden">
+    <div class="container mx-auto px-6 lg:px-12 max-w-7xl mb-14 text-center">
+      <div class="inline-flex items-center gap-2 mb-3">
+        <span class="w-2 h-2 rounded-full bg-red-600"></span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+        Our Clients &amp; Partners
+      </h2>
+      <p class="text-sm sm:text-base text-slate-600 max-w-xl mx-auto mt-2.5 leading-relaxed">
+        Powering Indonesia's telecommunications ecosystem alongside leading network operators and infrastructure providers.
+      </p>
+    </div>
+
+    <!-- Row 1: moves left -->
+    <div class="marquee-wrapper relative w-full overflow-hidden py-5">
+      <div class="marquee-track flex items-center">
+        {clientLogosRow1.map((item) => (
+          <div class="marquee-item flex items-center justify-center px-10 sm:px-14 shrink-0">
+            <img
+              src={item.src}
+              alt={item.name}
+              class="h-14 sm:h-16 lg:h-20 max-w-[190px] object-contain transition-transform duration-300 hover:scale-110"
+              loading="lazy"
+            />
+          </div>
+        ))}
+        {clientLogosRow1.map((item) => (
+          <div class="marquee-item flex items-center justify-center px-10 sm:px-14 shrink-0" aria-hidden="true">
+            <img
+              src={item.src}
+              alt={item.name}
+              class="h-14 sm:h-16 lg:h-20 max-w-[190px] object-contain transition-transform duration-300 hover:scale-110"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Row 2: moves right (opposite direction) -->
+    <div class="marquee-wrapper relative w-full overflow-hidden py-5 mt-4">
+      <div class="marquee-track marquee-track-reverse flex items-center">
+        {clientLogosRow2.map((item) => (
+          <div class="marquee-item flex items-center justify-center px-10 sm:px-14 shrink-0">
+            <img
+              src={item.src}
+              alt={item.name}
+              class="h-14 sm:h-16 lg:h-20 max-w-[190px] object-contain transition-transform duration-300 hover:scale-110"
+              loading="lazy"
+            />
+          </div>
+        ))}
+        {clientLogosRow2.map((item) => (
+          <div class="marquee-item flex items-center justify-center px-10 sm:px-14 shrink-0" aria-hidden="true">
+            <img
+              src={item.src}
+              alt={item.name}
+              class="h-14 sm:h-16 lg:h-20 max-w-[190px] object-contain transition-transform duration-300 hover:scale-110"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       5. CORPORATE COMMITMENT
+       Dominant red gradient theme (white kept only as accents)
+  ======================================================== -->
+  <section class="py-24 lg:py-32 bg-gradient-to-br from-red-700 via-red-600 to-red-800 text-white relative overflow-hidden">
+    <!-- Decorative soft blurred shapes -->
+    <div class="absolute -top-32 -right-24 w-[28rem] h-[28rem] bg-red-500/40 rounded-full blur-3xl opacity-70 pointer-events-none"></div>
+    <div class="absolute -bottom-40 -left-24 w-[26rem] h-[26rem] bg-red-900/40 rounded-full blur-3xl opacity-80 pointer-events-none"></div>
+    <!-- Subtle dot pattern -->
+    <div
+      class="absolute inset-0 opacity-[0.06] pointer-events-none"
+      style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 30px 30px;"
+    ></div>
+
+    <div class="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
+      <!-- Section Heading -->
+      <div class="max-w-3xl mb-16 lg:mb-20">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-0.5 bg-white rounded-full"></span>
+          <span class="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-white/90">
+            CORPORATE COMMITMENT
+          </span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-5 text-white">
+          PT Prasetia Dwidharma
+        </h2>
+        <p class="text-base sm:text-lg text-red-50 font-normal leading-relaxed">
+          We provide tower construction services, starting from planning, construction, mechanical, and electrical guided by four core commitments.
+        </p>
+      </div>
+
+      <!-- Asymmetric Editorial Grid (Large Visual Anchor + 4 Narrative Strips) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+
+        <!-- Left: Visual Storytelling Anchor with herotelcom6.jpg -->
+        <div class="lg:col-span-5 relative rounded-3xl overflow-hidden min-h-[380px] lg:min-h-full border border-white/20 shadow-2xl flex flex-col justify-end p-8 sm:p-10 group">
+          <img
+            src="/images/herotelcom/herotelcom6.jpg"
+            alt="Field Linemen Teamwork on Tower Crossarm"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-red-950 via-red-950/60 to-transparent"></div>
+
+          <div class="relative z-10">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-red-700 font-mono text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
+              Values in Action
+            </span>
+            <blockquote class="text-lg sm:text-xl font-semibold text-white leading-snug">
+              "We believe telecommunication is more than steel and signals it is about connecting people and communities across the nation."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Right: 4 Editorial Horizontal Panels -->
+        <div class="lg:col-span-7 flex flex-col justify-between gap-4">
+          {commitments.map((item) => (
+            <div class="group relative p-6 sm:p-8 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 backdrop-blur-sm transition-all duration-300">
+              <div class="flex items-start gap-6">
+                <!-- White number indicator on red bg -->
+                <span class="font-mono text-2xl sm:text-3xl font-black text-white shrink-0">
+                  {item.number}
+                </span>
+
+                <div>
+                  <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p class="text-sm sm:text-base text-red-50 leading-relaxed font-light">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       STYLES
+       Marquee infinite scroll (2 directions) & reveal animations
+  ======================================================== -->
+  <style>
+    /* Marquee styling */
+    .marquee-wrapper::before,
+    .marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-wrapper::before {
+      left: 0;
+      background: linear-gradient(to right, #fff, transparent);
+    }
+    .marquee-wrapper::after {
+      right: 0;
+      background: linear-gradient(to left, #fff, transparent);
+    }
+
+    .marquee-track {
+      width: max-content;
+      animation: marqueeScroll 36s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Second row moves the opposite direction, slightly different pace */
+    .marquee-track-reverse {
+      animation-name: marqueeScroll;
+      animation-duration: 32s;
+      animation-direction: reverse;
+    }
+
+    @keyframes marqueeScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Scroll reveal transitions */
+    .reveal-fade {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-fade.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track,
+      .marquee-track-reverse {
+        animation: none;
+      }
+      .reveal-fade {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+
+  <!-- ========================================================
+       VANILLA JAVASCRIPT
+       - IntersectionObserver for Sticky Service Storytelling
+       - Count-up animation for statistics
+       - Scroll reveal
+  ======================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initScrollReveal();
+      initCounterAnimation();
+      initStickyServiceStorytelling();
+    });
+
+    // 1. Scroll reveal observer
+    function initScrollReveal() {
+      const revealElements = document.querySelectorAll('.reveal-fade');
+      if (!revealElements.length) return;
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) {
+        revealElements.forEach((el) => el.classList.add('is-revealed'));
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      revealElements.forEach((el) => observer.observe(el));
+    }
+
+    // 2. Count-up statistics animation
+    function initCounterAnimation() {
+      const counters = document.querySelectorAll<HTMLElement>('[data-counter]');
+      if (!counters.length) return;
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target as HTMLElement;
+              obs.unobserve(el);
+
+              const target = parseInt(el.getAttribute('data-counter') || '0', 10);
+              const formatComma = el.getAttribute('data-format-comma') === 'true';
+
+              if (prefersReduced) {
+                el.textContent = formatComma ? target.toLocaleString('en-US') : target.toString();
+                return;
+              }
+
+              const duration = 1800;
+              const startTime = performance.now();
+
+              function animate(currentTime: number) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                // Ease out cubic
+                const ease = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(target * ease);
+
+                el.textContent = formatComma ? current.toLocaleString('en-US') : current.toString();
+
+                if (progress < 1) {
+                  requestAnimationFrame(animate);
+                } else {
+                  el.textContent = formatComma ? target.toLocaleString('en-US') : target.toString();
+                }
+              }
+
+              requestAnimationFrame(animate);
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+
+      counters.forEach((el) => observer.observe(el));
+    }
+
+    // 3. Sticky Service Storytelling Observer
+    function initStickyServiceStorytelling() {
+      const targets = document.querySelectorAll<HTMLElement>('.service-scroll-target');
+      const stageImages = document.querySelectorAll<HTMLElement>('.stage-image');
+      const activeBadge = document.getElementById('stage-active-badge');
+      const activeName = document.getElementById('stage-active-name');
+      const progressDots = document.querySelectorAll<HTMLElement>('.progress-dot');
+
+      if (!targets.length || !stageImages.length) return;
+
+      const badgeTitles = [
+        '01 / 05 — BTS TOWERS',
+        '02 / 05 — CO-LOCATION',
+        '03 / 05 — SITAC',
+        '04 / 05 — MAINTENANCE',
+        '05 / 05 — FIBER OPTIC',
+      ];
+
+      const fullTitles = [
+        'Construction of BTS Towers',
+        'Co-location',
+        'Site Acquisition (SITAC)',
+        'Maintenance & Repair',
+        'Fiber Optic',
+      ];
+
+      function setActiveStep(index: number) {
+        // Update images
+        stageImages.forEach((img, i) => {
+          if (i === index) {
+            img.classList.remove('opacity-0', 'scale-95', 'z-0');
+            img.classList.add('opacity-100', 'scale-100', 'z-10');
+          } else {
+            img.classList.remove('opacity-100', 'scale-100', 'z-10');
+            img.classList.add('opacity-0', 'scale-95', 'z-0');
+          }
+        });
+
+        // Update badge & name
+        if (activeBadge && badgeTitles[index]) {
+          activeBadge.innerHTML = `<span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>${badgeTitles[index]}`;
+        }
+        if (activeName && fullTitles[index]) {
+          activeName.textContent = fullTitles[index];
+        }
+
+        // Update progress dots
+        progressDots.forEach((dot, i) => {
+          if (i === index) {
+            dot.classList.remove('w-2', 'bg-white/40');
+            dot.classList.add('w-8', 'bg-red-600');
+          } else {
+            dot.classList.remove('w-8', 'bg-red-600');
+            dot.classList.add('w-2', 'bg-white/40');
+          }
+        });
+      }
+
+      // Intersection observer on scroll chapters
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const idx = parseInt(entry.target.getAttribute('data-index') || '0', 10);
+              setActiveStep(idx);
+            }
+          });
+        },
+        {
+          rootMargin: '-30% 0px -50% 0px',
+          threshold: 0,
+        }
+      );
+
+      targets.forEach((target) => observer.observe(target));
+
+      // Click on dot jumps to that section
+      progressDots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+          const stepIndex = parseInt(dot.getAttribute('data-step') || '0', 10);
+          const target = targets[stepIndex];
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+      });
+    }
+  </script>
+
 </MainLayout>
