@@ -2,18 +2,35 @@
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  transparentNavbar?: boolean;
+}
+
+const { title = 'PT Prasetia Dwidharma', transparentNavbar = false } = Astro.props;
 ---
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Web Prasetia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
   </head>
-  <body class="flex flex-col min-h-screen text-gray-800">
+  <body class="flex flex-col min-h-screen text-gray-800 bg-white">
     <Navbar />
-    <main class="flex-grow container mx-auto px-4 py-8">
+    <main class={`flex-grow ${transparentNavbar ? '' : 'pt-24 lg:pt-28 pb-16'}`}>
       <slot />
     </main>
     <Footer />
+
+    <script>
+      // Ensure navbar is visible with solid background on non-hero pages
+      const nav = document.getElementById('site-navbar');
+      if (nav && !document.querySelector('.hero-section')) {
+        nav.classList.add('nav-solid');
+        nav.classList.remove('nav-transparent');
+      }
+    </script>
   </body>
 </html>

@@ -1,0 +1,114 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Products & Services | PT Prasetia Dwidharma">
+  <div class="container mx-auto px-6 max-w-6xl">
+    <div class="mb-12 text-center">
+      <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight mb-4">Products &amp; Services</h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Prasetia operates across four comprehensive divisions delivering telecommunications infrastructure, ICT solutions, business process outsourcing, and biotechnology.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- 1. Telecommunication Infrastructure -->
+      <div class="border border-gray-200 rounded-lg p-6 bg-white shadow-sm flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-red-700 mb-2 block">Division 01</span>
+          <h2 class="text-2xl font-bold text-gray-900 mb-3">Telecommunication &amp; Infrastructure</h2>
+          <p class="text-gray-600 mb-4">
+            We provide tower construction services, starting from planning, construction, mechanical, and electrical.
+          </p>
+          <ul class="list-disc list-inside text-gray-700 text-sm space-y-1 mb-6">
+            <li>Construction of BTS towers</li>
+            <li>Co-location work of BTS towers</li>
+            <li>Site Acquisition (SITAC)</li>
+            <li>Maintenance and Repair</li>
+            <li>Fiber Optic</li>
+          </ul>
+        </div>
+        <a
+          href="/products-services/telecommunication-infrastructure/"
+          class="inline-flex items-center text-sm font-semibold text-red-700 hover:text-red-800"
+        >
+          View Telecommunication Infrastructure &rarr;
+        </a>
+      </div>
+
+      <!-- 2. ICT -->
+      <div class="border border-gray-200 rounded-lg p-6 bg-white shadow-sm flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-red-700 mb-2 block">Division 02</span>
+          <h2 class="text-2xl font-bold text-gray-900 mb-3">ICT | Solution &amp; Smart City</h2>
+          <p class="text-gray-600 mb-4">
+            We provide ICT products and services to corporates, governments, and retails.
+          </p>
+          <div class="grid grid-cols-2 gap-2 mb-6 text-sm">
+            <a href="/products-services/ict/lark/" class="text-gray-800 hover:text-red-700 font-medium">
+              &bull; Lark
+            </a>
+            <a href="/products-services/ict/oracle-netsuite/" class="text-gray-800 hover:text-red-700 font-medium">
+              &bull; Oracle NetSuite
+            </a>
+            <a href="/products-services/ict/tattile/" class="text-gray-800 hover:text-red-700 font-medium">
+              &bull; Tattile
+            </a>
+            <a href="/products-services/ict/audra/" class="text-gray-800 hover:text-red-700 font-medium">
+              &bull; Audra
+            </a>
+          </div>
+        </div>
+        <span class="text-xs text-gray-400">Select any product above to explore details</span>
+      </div>
+
+      <!-- 3. BPO - CRM Technology -->
+      <div class="border border-gray-200 rounded-lg p-6 bg-white shadow-sm flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-red-700 mb-2 block">Division 03</span>
+          <h2 class="text-2xl font-bold text-gray-900 mb-3">BPO &ndash; CRM Technology</h2>
+          <p class="text-gray-600 mb-4">
+            We provide Outsourcing Services for different sectors like telco and CRM by providing contact center solutions.
+          </p>
+          <div class="grid grid-cols-2 gap-2 mb-6 text-sm">
+            <a href="/products-services/bpo-crm-technology/call-center/" class="text-gray-800 hover:text-red-700 font-medium">
+              &bull; Call Center
+            </a>
+            <a href="/products-services/bpo-crm-technology/pulse/" class="text-gray-800 hover:text-red-700 font-medium">
+              &bull; Pulse
+            </a>
+            <a href="/products-services/bpo-crm-technology/qontak/" class="text-gray-800 hover:text-red-700 font-medium">
+              &bull; Qontak CRM
+            </a>
+          </div>
+        </div>
+        <span class="text-xs text-gray-400">Select any product above to explore details</span>
+      </div>
+
+      <!-- 4. Biotech -->
+      <div class="border border-gray-200 rounded-lg p-6 bg-white shadow-sm flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-red-700 mb-2 block">Division 04</span>
+          <h2 class="text-2xl font-bold text-gray-900 mb-3">Biotech</h2>
+          <p class="text-gray-600 mb-4">
+            Innovative biotechnology applications addressing health, sustainability, and wellness.
+          </p>
+          <div class="grid grid-cols-2 gap-2 mb-6 text-sm">
+            <a href="/products-services/biotech/imagina/" class="text-gray-800 hover:text-red-700 font-medium">
+              &bull; Imagina
+            </a>
+            <a href="/products-services/biotech/protecrop/" class="text-gray-800 hover:text-red-700 font-medium">
+              &bull; Protecrop
+            </a>
+          </div>
+        </div>
+        <a
+          href="/products-services/biotech/"
+          class="inline-flex items-center text-sm font-semibold text-red-700 hover:text-red-800"
+        >
+          View Biotech Overview &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</MainLayout>

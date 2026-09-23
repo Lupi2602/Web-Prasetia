@@ -1,7 +1,41 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
 ---
-<MainLayout>
-  <h1 class="text-3xl font-bold mb-4">Call Center</h1>
-  <p>Halaman Call Center.</p>
+
+<MainLayout title="Call Center Outsourcing | PT Prasetia Dwidharma">
+  <div class="container mx-auto px-6 max-w-4xl py-16 text-center">
+    <span class="inline-block px-3 py-1 border border-gray-400 text-gray-700 text-xs font-semibold uppercase tracking-wider rounded mb-6">
+      Uncategorized
+    </span>
+    <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-12">
+      Call Center Outsourcing
+    </h1>
+
+    <div class="border-t border-b border-gray-200 py-8 my-8 text-gray-600 text-sm max-w-2xl mx-auto">
+      <p class="leading-relaxed">
+        We provide Outsourcing Services for different sectors like telco and CRM by providing contact center solutions.
+      </p>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation: Previous / Next Post -->
+  <section class="border-t border-gray-200 bg-gray-900 text-white">
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      <a
+        href="/about/awards/"
+        class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-gray-800 hover:bg-gray-800/60 transition-colors flex flex-col justify-center"
+      >
+        <span class="text-xs uppercase tracking-wider text-gray-400 mb-1">Previous Post</span>
+        <span class="text-xl font-bold text-white">Awards</span>
+      </a>
+
+      <a
+        href="/investment/"
+        class="p-8 md:p-12 hover:bg-gray-800/60 transition-colors flex flex-col justify-center"
+      >
+        <span class="text-xs uppercase tracking-wider text-gray-400 mb-1">Next Post</span>
+        <span class="text-xl font-bold text-white">Prasetia Investment</span>
+      </a>
+    </div>
+  </section>
 </MainLayout>

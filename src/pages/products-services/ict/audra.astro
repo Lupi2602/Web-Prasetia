@@ -1,7 +1,138 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
 ---
-<MainLayout>
-  <h1 class="text-3xl font-bold mb-4">Audra</h1>
-  <p>Halaman Audra.</p>
+
+<MainLayout title="Audra | PT Prasetia Dwidharma">
+  <!-- Hero Section -->
+  <section class="bg-gray-900 text-white py-16 lg:py-24 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-30">
+      <img
+        src="/images/hero/hero1.jpg"
+        alt="Audra Hero"
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="container mx-auto px-6 max-w-5xl relative z-10 text-center">
+      <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm border border-white/30 text-xs font-semibold uppercase tracking-wider rounded mb-4">
+        Product
+      </span>
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+        Audra
+      </h1>
+    </div>
+  </section>
+
+  <!-- Intro Heading -->
+  <section class="py-16 bg-white border-b border-gray-100">
+    <div class="container mx-auto px-6 max-w-4xl text-center">
+      <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
+        The 1st-Ever DIY Internet Controller, And The Only One You Will Ever Need
+      </h2>
+      <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+        Asia’s 1st D-I-Y Internet Controller, simple (no IT expertise needed), easy (all control in mobile app), and affordable (versus small business or home firewalls) control for their internet
+      </p>
+    </div>
+  </section>
+
+  <!-- Featured Banner -->
+  <section class="py-12 bg-gray-50 border-b border-gray-200">
+    <div class="container mx-auto px-6 max-w-5xl">
+      <div class="bg-teal-600 text-white rounded-xl overflow-hidden shadow-sm grid grid-cols-1 md:grid-cols-2 items-center">
+        <div class="h-64 md:h-80 relative">
+          <img
+            src="/images/hero/hero3.jpg"
+            alt="Enjoy Family Time"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="p-8 lg:p-12">
+          <h3 class="text-xs font-bold uppercase tracking-widest text-teal-200 mb-2">Family Digital Wellness</h3>
+          <h4 class="text-2xl md:text-3xl font-extrabold mb-4">ENJOY FAMILY TIME</h4>
+          <p class="text-teal-50 text-sm md:text-base leading-relaxed">
+            Protect your family from unwanted internet experience &amp; online dangers. Bring Digital Wellness home in just a few clicks with Audra HomeShield.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two Product Columns: Home Shield & Biz Secure -->
+  <section class="py-16 bg-white border-b border-gray-200">
+    <div class="container mx-auto px-6 max-w-5xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Home Shield -->
+        <div class="flex flex-col">
+          <div class="rounded-lg overflow-hidden border border-gray-200 mb-6 relative">
+            <img src="/images/hero/hero2.jpg" alt="Home Shield" class="w-full h-48 object-cover" />
+            <div class="p-4 bg-amber-500 text-white">
+              <h4 class="text-xs font-bold uppercase tracking-wider mb-1">BRING BACK PLAY TIME</h4>
+              <p class="text-xs text-amber-50 leading-relaxed">
+                Encourage offline play time. Stimulate family conversations. Let the laughter of your kids replace your anxieties. Set the right parental controls you have always wanted. Manage study time, play time and bedtime for your kids.
+              </p>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Home Shield</h3>
+          <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
+            Audra brings a state-of-the-art Internet Control solution to protect your loved ones. HomeShield enables customized rules to set internet usage schedules for your family, specially your kids, from dangerous online contents including violence, sexuality, gambling, and much more.
+          </p>
+          <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+            Restore the Digital Wellness of your family. Audra is here for your peace of mind
+          </p>
+        </div>
+
+        <!-- Biz Secure -->
+        <div class="flex flex-col">
+          <div class="rounded-lg overflow-hidden border border-gray-200 mb-6 relative">
+            <img src="/images/hero/hero5.jpg" alt="Biz Secure" class="w-full h-48 object-cover" />
+            <div class="p-4 bg-indigo-700 text-white">
+              <h4 class="text-xs font-bold uppercase tracking-wider mb-1">CARE FOR YOUR WORKPLACE</h4>
+              <p class="text-xs text-indigo-100 leading-relaxed">
+                The perfect and simple solution optimized to implement healthy internet policies, accelerating your business growth.
+              </p>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Biz Secure</h3>
+          <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
+            Small to medium businesses consistently desire an Internet control tool that speaks their language – affordable, simple, yet robust and effective. Audra BizSecure is just the right fit here. Audra Cloud A.I., coupled with a gateway device and a powerful management app, lets you effectively manage your workplace Internet. It puts YOU in control of what your business is supposed to achieve.
+          </p>
+          <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+            Take charge today, with the simple yet powerful Audra BizSecure, your ‘DIY’ Internet Control solution.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Details & Contact Bar -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-6 max-w-5xl">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 border-t border-b border-gray-200 py-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-1">Website</span>
+          <a
+            href="https://www.audra.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm font-semibold text-blue-600 hover:underline"
+          >
+            www.audra.io &nearr;
+          </a>
+        </div>
+
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-1">Product Offering</span>
+          <span class="text-sm font-medium text-gray-700">audra.pdf</span>
+        </div>
+
+        <div>
+          <a
+            href="/about/contact/"
+            class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold text-sm px-6 py-2.5 rounded transition-colors"
+          >
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </MainLayout>

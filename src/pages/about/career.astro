@@ -1,7 +1,257 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
+
+const vacancies = [
+  {
+    title: "ENGINEER ON SITE (EoS)",
+    company: "PT PRASETIA DWIDHARMA TEKNOLOGI",
+    location: "Jabodetabek Area (Jakarta, Bogor, Depok, Tangerang, Bekasi, Karawang, Sukabumi)",
+    qualifications: [
+      "Minimum D3 in Telecommunications Engineering",
+      "Proficient in using measuring instruments (Ampere Meter) and tools (pliers, screwdrivers, etc.)",
+      "Capable of performing fiber optic core (Splicing)",
+      "Able to read Maps",
+      "Skilled in using/operating OTDR (Optical Time Domain Reflectometry) and OPM (Optical Power Meter) devices",
+      "Competent in using/operating GPS devices (Garmin)",
+      "Understands the concept of maintenance for fiber optic networks",
+      "Familiar with fiber optic networks (ISP, OSP)",
+      "Additional value if knowledgeable in CME, AC/DC electrical systems, and generators",
+      "Able to read flow charts, technical drawings, and procedures",
+      "Willing to be placed in the Jabodetabek area"
+    ]
+  },
+  {
+    title: "SALES SPECIALIST",
+    company: "PT PRASETIA QUBE WELLNESS",
+    location: "Bali",
+    qualifications: [
+      "Experience in sales or wellness industry minimum of 2 years",
+      "Proven track record of successful sales experience",
+      "Excellent communication and negotiation skills",
+      "Strong ability to work independently and as part of a team",
+      "Ability to speak English",
+      "Placement in Bali"
+    ]
+  },
+  {
+    title: "SALES ENGINEER IMAGINA",
+    company: "PT PRASETIA DWIDHARMA",
+    location: "Jakarta",
+    qualifications: [
+      "Female, single",
+      "Average height: 160 cm, average weight: 50 kg (considered but not mandatory)",
+      "Fresh graduate from a reputable university",
+      "Chemistry undergraduate (business graduate will be a plus score)",
+      "Minimum GPA: 3.5 out of 4.0",
+      "Minimum TOEFL IBT 90 / TOEFL PBT 550 / IELTS 7",
+      "Academic papers are a plus",
+      "Willing to go on Business Trips",
+      "Placement: Jakarta"
+    ],
+    additionalSections: [
+      {
+        heading: "Additional Working Traits",
+        items: [
+          "Strong table manners and professional demeanor",
+          "Excellent presentation skills",
+          "Proficient in data analysis"
+        ]
+      },
+      {
+        heading: "Personality Traits",
+        items: [
+          "Extroverted, enjoys engaging with people",
+          "Smart and quick to learn",
+          "Talkative and articulate",
+          "Intimate, able to build trust and rapport",
+          "Persuasive in communication"
+        ]
+      }
+    ]
+  },
+  {
+    title: "MARKETING SUPERVISOR",
+    company: "PT PRASETIA DWIDHARMA",
+    location: "Jakarta",
+    qualifications: [
+      "Bachelor Degree or higher in Marketing, Communication, Business Management, or related field",
+      "Minimum 2 years of work experience in related field, such as SaaS company, tech company or any digital related field, preferably in supervisor or equivalent position",
+      "Strong analytical skills to interpret market data, identify opportunities, and measure marketing performance",
+      "Solid skills in marketing planning and strategy, branding, product development, promotion, sales, and brand management",
+      "Event Management"
+    ]
+  },
+  {
+    title: "SALES SUPERVISOR",
+    company: "PT PRASETIA DWIDHARMA TEKNOLOGI (PDT)",
+    location: "Bali",
+    qualifications: [
+      "Education Min. S1",
+      "Experience Min. 3-4 years in the same field",
+      "Max age 40th",
+      "Master Microsoft Office, especially Excel",
+      "Have an interest in the world of Sales",
+      "Target oriented",
+      "Able to establish good relationships with customers",
+      "Have good leadership skills",
+      "Placement in Bali"
+    ]
+  },
+  {
+    title: "BUSINESS DEVELOPMENT",
+    company: "PT PRASETIA DWIDHARMA",
+    location: "Jakarta / Regional",
+    qualifications: [
+      "University degree or equivalent experience. MBA will be an advantage",
+      "Experienced in selling and developing the business portfolio in APAC; focusing on Indonesia market",
+      "Prior sales or business development relevant experience working with SMB, enterprises and/or growth-stage startups for SaaS/IT product",
+      "Problem solving ability in a sales environment including the ability to qualify and close business",
+      "Excellent customer skills and people management skills",
+      "Understanding of competitive landscape for growing the business' revenue and devising strategies / programs for success",
+      "Detail oriented, able to track and organize information, data and communications efficiently to ensure business issues are dealt with promptly and properly",
+      "Ability to negotiate agreements and/or reach consensus with all levels and positions within the organization",
+      "Considerable knowledge of current trends and best practices",
+      "Considerable experience in F&B and Hospitality business will be an advantage",
+      "Excellent written and oral communication skills",
+      "Fluency in English & Bahasa Indonesia will be an added advantage to bridge communication with local Indo customers/partners"
+    ]
+  }
+];
 ---
-<MainLayout>
-  <h1 class="text-3xl font-bold mb-4">Career</h1>
-  <p>Halaman Career.</p>
+
+<MainLayout title="Careers | PT Prasetia Dwidharma">
+  <!-- Hero Section -->
+  <div class="relative bg-gradient-to-r from-red-900 via-gray-900 to-black text-white py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 opacity-25">
+      <img src="/images/hero/hero4.jpg" alt="Career at Prasetia" class="w-full h-full object-cover" />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-600/30 border border-red-500/40 text-red-200 text-xs font-semibold uppercase tracking-wider mb-6">
+        Join Our Team
+      </div>
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+        Maju Dan Berkembang Bersama Kami
+      </h1>
+      <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
+        Kami mencari individu yang tepat dan sesuai harapan. Kami akan memberikan kesempatan pelatihan dan karir, dikombinasikan dengan dorongan positif dari dalam diri untuk menggali lebih dalam potensi Anda.
+      </p>
+    </div>
+  </div>
+
+  <!-- Open Vacancies List -->
+  <div class="py-16 md:py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
+          OPEN VACANCIES
+        </h2>
+        <p class="text-gray-600">
+          Explore current employment opportunities across our business divisions.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+        {vacancies.map((job) => (
+          <div class="bg-white rounded-2xl p-7 border border-gray-200 shadow-sm hover:border-red-200 hover:shadow-md transition-all flex flex-col justify-between h-full">
+            <div>
+              <div class="text-xs font-bold text-red-600 uppercase tracking-wider mb-2">
+                {job.company}
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2 leading-snug">
+                {job.title}
+              </h3>
+              <div class="flex items-center gap-1.5 text-xs text-gray-500 mb-6">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span>{job.location}</span>
+              </div>
+
+              <div class="mb-6">
+                <h4 class="text-xs font-bold text-gray-900 uppercase tracking-wider mb-3">
+                  Qualifications:
+                </h4>
+                <ul class="space-y-2 text-xs text-gray-600">
+                  {job.qualifications.map((q) => (
+                    <li class="flex items-start gap-2 leading-relaxed">
+                      <span class="text-red-500 font-bold mt-0.5">•</span>
+                      <span>{q}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {job.additionalSections && job.additionalSections.map((sec) => (
+                <div class="mb-4 pt-3 border-t border-gray-100">
+                  <h4 class="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2">
+                    {sec.heading}:
+                  </h4>
+                  <ul class="space-y-1.5 text-xs text-gray-600">
+                    {sec.items.map((it) => (
+                      <li class="flex items-start gap-2 leading-relaxed">
+                        <span class="text-red-500 font-bold mt-0.5">•</span>
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-gray-100">
+              <a
+                href="mailto:hrd@prasetia.co.id?subject=Application%20for%20"
+                class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-900 hover:bg-red-600 text-white text-xs font-semibold rounded-lg transition-colors"
+              >
+                Apply via Email
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Application Details & Anti-Fraud Disclaimer -->
+      <div class="mt-16 bg-white rounded-2xl p-8 border border-gray-200 shadow-sm max-w-3xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-gray-200">
+          <div>
+            <div class="text-xs uppercase font-bold text-gray-500 tracking-wider mb-1">
+              Send your CV to E-mail
+            </div>
+            <a href="mailto:hrd@prasetia.co.id" class="text-xl font-bold text-red-600 hover:underline">
+              hrd@prasetia.co.id
+            </a>
+            <div class="text-xs text-gray-500 mt-1">
+              Closing date / Batch: Max. 11 October, 2024 (Rolling recruitment)
+            </div>
+          </div>
+          <div>
+            <a
+              href="[APPLICATION LINK NEEDED]"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg text-sm transition-colors shadow-sm"
+            >
+              Or Apply to this link
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="pt-6 text-center">
+          <div class="inline-flex items-center gap-2 text-xs font-bold text-red-600 bg-red-50 border border-red-200 px-4 py-2 rounded-lg">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+            </svg>
+            PROSES REKRUTMEN PRASETIA GROUP TIDAK DIPUNGUT BIAYA APAPUN
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </MainLayout>

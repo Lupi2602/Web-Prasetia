@@ -1,7 +1,609 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
+
+const TRY_FREE_URL =
+  "https://www.larksuite.com/en_us/paid/partner/prasetia?utm_source=prasetia&utm_medium=partner_portal&utm_campaign=2022+APAC+Partner+Campaign&tracking_code=701BB000000ACKpYAO";
+const CATALOG_URL =
+  "https://prasetia.co.id/new/wp-content/uploads/2023/02/Brosur.pdf";
+
+// single shared photo used across hero, features and CTA backgrounds
+const OFFICE_BG_URL = "/images/herolark/herobglark.jpg";
+
+const pillars = [
+  {
+    num: '01',
+    label: 'Re-design the Workplace',
+    teaser: 'Flexible spaces and hybrid-ready tools for however your team works.',
+    image: '/images/herolark/herolark1.png',
+  },
+  {
+    num: '02',
+    label: 'Re-shape Workforce',
+    teaser: 'Give every employee the tools to collaborate from anywhere.',
+    image: '/images/herolark/herolark2.png',
+  },
+  {
+    num: '03',
+    label: 'Re-invent Work Processes',
+    teaser: 'Automate the approvals and workflows that used to take days.',
+    image: '/images/herolark/herolark3.png',
+  },
+  {
+    num: '04',
+    label: 'Re-envision Business Strategy',
+    teaser: 'Turn scattered data into decisions your leadership can act on.',
+    image: '/images/herolark/herolark4.png',
+  },
+];
+
+const showcase = [
+  { image: '/images/herolark/herolark5.png', caption: 'An All-in-One Digital Platform' },
+  { image: '/images/herolark/herolark6.png', caption: 'Seamless Collaboration Suite' },
+  { image: '/images/herolark/herolark7.png', caption: 'Lark Solution Overview' },
+  { image: '/images/herolark/herolark8.png', caption: 'Digitize Your Workflows & Security' },
+  { image: '/images/herolark/herolark9.png', caption: 'All Your Work In One Place' },
+];
 ---
-<MainLayout>
-  <h1 class="text-3xl font-bold mb-4">Lark</h1>
-  <p>Halaman Lark.</p>
+
+<MainLayout title="Lark | PT Prasetia Dwidharma" transparentNavbar={true}>
+
+  <!-- =============================================================
+       HERO — "hero-section" class lets the navbar go transparent here
+  ============================================================== -->
+  <section id="lark-hero" class="hero-section relative isolate overflow-hidden text-white">
+
+    <div class="absolute inset-0" aria-hidden="true">
+      <img src={OFFICE_BG_URL} alt="" class="h-full w-full object-cover" loading="eager" decoding="async" />
+      <!-- dark-to-blue wash, left to right, keeps text legible -->
+      <div class="absolute inset-0 bg-gradient-to-r from-[#08152F]/85 via-[#0A2472]/55 to-blue-400/20"></div>
+      <!-- top fade so the transparent navbar still reads clearly -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#08152F]/60 via-transparent to-transparent"></div>
+      <!-- bottom fade: bright blue -> white, merges straight into the next section -->
+      <div class="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent via-blue-100/40 to-white"></div>
+    </div>
+
+    <div class="pointer-events-none absolute inset-0 opacity-[0.05]"
+         style="background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px); background-size:64px 64px;"></div>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6 pb-32 pt-32 lg:px-12 lg:pb-40 lg:pt-44">
+      <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
+
+        <div class="lg:col-span-6" data-reveal>
+          <h1 class="font-display font-extrabold leading-[0.85] tracking-tight text-[clamp(4.5rem,10vw,8.5rem)]"
+              data-reveal data-delay="150">
+            LARK<span class="text-sky-300">.</span>
+          </h1>
+
+          <p class="mt-6 max-w-lg text-xl font-medium leading-snug text-white lg:text-2xl"
+             data-reveal data-delay="300">
+            A super app that empowers productive collaboration and improves work efficiency.
+          </p>
+
+          <div class="mt-6 max-w-lg space-y-4 text-[15px] leading-relaxed text-white/75"
+               data-reveal data-delay="400">
+            <p>
+              Prasetia, as a broadly diversified company, has partnered with Lark a ByteDance
+              company to bring a single digital workplace to teams across Indonesia.
+            </p>
+            <p>
+              Messaging, video conferencing, calendar, docs, cloud storage, email and workflow apps,
+              all in one place, on every device.
+            </p>
+          </div>
+
+          <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal data-delay="550">
+            <a href={TRY_FREE_URL} target="_blank" rel="noopener noreferrer"
+               class="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-blue-700 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_rgba(255,255,255,0.5)]">
+              Try for Free
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+            <a href={CATALOG_URL} target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 rounded-full border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:border-white hover:bg-white/10">
+              Download Catalog
+            </a>
+          </div>
+
+          <p class="mt-6 text-xs text-white/50" data-reveal data-delay="650">
+            Official ByteDance partner in Indonesia
+          </p>
+        </div>
+
+        <div class="lg:col-span-6" data-reveal data-delay="500" data-reveal-scale>
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <div class="hero-float absolute -inset-6 rounded-[2rem] bg-white/15 blur-2xl"></div>
+            <div class="hero-float relative overflow-hidden rounded-2xl bg-white/10 p-2 ring-1 ring-white/25 backdrop-blur-sm">
+              <div class="overflow-hidden rounded-xl">
+                <img
+                  src="/images/herolark/lark1.png"
+                  alt="Lark – all the apps you need in one place"
+                  class="h-auto w-full object-contain"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================================
+       FEATURES — bright blue + white, subtle photo texture
+  ============================================================== -->
+  <section class="relative overflow-hidden bg-white py-24 lg:py-32">
+    <div class="pointer-events-none absolute inset-0" aria-hidden="true" style="opacity:0.08;">
+      <img src={OFFICE_BG_URL} alt="" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+    </div>
+    <div class="pointer-events-none absolute inset-0" aria-hidden="true"
+         style="background:radial-gradient(circle at 20% 30%, transparent 0%, white 70%);"></div>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
+      <div class="grid grid-cols-1 gap-16 lg:grid-cols-12">
+
+        <div class="lg:col-span-5" data-reveal>
+          <h2 class="font-display text-[clamp(2.25rem,4.5vw,3.75rem)] font-extrabold leading-[0.95] tracking-tight text-blue-600">
+            All your work
+            <br/>in one place
+          </h2>
+          <p class="mt-6 max-w-sm text-[15px] leading-relaxed text-slate-500">
+            Your work is shaped by the tools you use. Lark brings messaging,
+            meetings, docs and scheduling into a single, seamless workspace
+            wherever your team is sitting.
+          </p>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+
+            <div class="group rounded-2xl border border-blue-100 bg-white/90 p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-[0_20px_40px_-20px_rgba(37,99,235,0.25)] sm:translate-y-4"
+                 data-reveal data-delay="100">
+              <div class="mb-6 flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 transition-transform duration-300 group-hover:scale-110">
+                <svg class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 class="mb-5 text-base font-bold text-slate-900">
+                Efficient Collaboration
+              </h3>
+              <ul class="space-y-3.5">
+                <li class="flex gap-3 text-sm leading-relaxed text-slate-600">
+                  <span class="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-blue-500"></span>
+                  Share and collaborate on Docs without leaving the video call, with Magic Share
+                </li>
+                <li class="flex gap-3 text-sm leading-relaxed text-slate-600">
+                  <span class="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-blue-500"></span>
+                  Schedule meetings instantly from a side-by-side calendar view in a group chat
+                </li>
+                <li class="flex gap-3 text-sm leading-relaxed text-slate-600">
+                  <span class="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-blue-500"></span>
+                  Change view or edit permissions on a chat or email with one click
+                </li>
+                <li class="flex gap-3 text-sm leading-relaxed text-slate-600">
+                  <span class="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-blue-500"></span>
+                  Share emails straight into a group chat for faster follow-up
+                </li>
+              </ul>
+            </div>
+
+            <div class="group rounded-2xl border border-blue-100 bg-white/90 p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-[0_20px_40px_-20px_rgba(37,99,235,0.25)]"
+                 data-reveal data-delay="250">
+              <div class="mb-6 flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 transition-transform duration-300 group-hover:scale-110">
+                <svg class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 004 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 class="mb-5 text-base font-bold text-slate-900">
+                Work With Anyone, Anywhere
+              </h3>
+              <ul class="space-y-3.5">
+                <li class="flex gap-3 text-sm leading-relaxed text-slate-600">
+                  <span class="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-blue-500"></span>
+                  In-doc commenting lets you converse without calls or emails, on your own time
+                </li>
+                <li class="flex gap-3 text-sm leading-relaxed text-slate-600">
+                  <span class="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-blue-500"></span>
+                  Invite anyone into a video call and collaborate live in Docs, even outside teams
+                </li>
+                <li class="flex gap-3 text-sm leading-relaxed text-slate-600">
+                  <span class="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-blue-500"></span>
+                  Break down language barriers with automatic translation across Messenger and Docs
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================================
+       SOLUTION FOR THE NEW NORMAL
+  ============================================================== -->
+  <section id="story" class="relative bg-blue-50/50 py-24 lg:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+      <div class="mb-16 max-w-xl" data-reveal>
+        <h2 class="font-display text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-tight tracking-tight text-slate-900">
+          Lark: Solution for the New Normal
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-7">
+          <div class="lg:sticky lg:top-28">
+            <button type="button" id="story-visual-trigger"
+                    class="story-visual group relative block w-full overflow-hidden rounded-2xl bg-slate-100 shadow-xl ring-1 ring-slate-900/5"
+                    style="aspect-ratio: 16 / 9;" aria-label="Open larger preview">
+              {pillars.map((p, i) => (
+                <img
+                  src={p.image}
+                  alt={p.label}
+                  class="story-image absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-out"
+                  data-story-image={i}
+                  style={i === 0 ? 'opacity:1' : 'opacity:0'}
+                  loading="lazy"
+                  decoding="async"
+                />
+              ))}
+              <span class="pointer-events-none absolute inset-0 flex items-center justify-center bg-slate-900/0 transition-colors duration-300 group-hover:bg-slate-900/25">
+                <span class="rounded-full bg-white/90 px-4 py-2 text-xs font-semibold text-slate-800 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  Click to preview
+                </span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="flex flex-col justify-center lg:col-span-5">
+          <div class="space-y-1">
+            {pillars.map((p, i) => (
+              <button type="button"
+                      class="story-nav-btn group relative flex w-full items-start gap-5 overflow-hidden rounded-xl border border-transparent px-4 py-5 text-left transition-all duration-300 hover:bg-white"
+                      data-story-nav={i}>
+                <span class="story-nav-num text-2xl font-bold text-slate-300 transition-colors duration-300">{p.num}</span>
+                <span class="flex-1">
+                  <span class="story-nav-label block text-base font-semibold text-slate-400 transition-colors duration-300 sm:text-lg">{p.label}</span>
+                  <span class="story-nav-teaser mt-1 block text-sm leading-snug text-slate-400/80">{p.teaser}</span>
+                </span>
+                <span class="story-progress-track absolute inset-x-4 bottom-1.5 h-[3px] overflow-hidden rounded-full bg-slate-200">
+                  <span class="story-progress-fill block h-full w-0 rounded-full bg-blue-600"></span>
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================================
+       SHOWCASE
+  ============================================================== -->
+  <section class="relative overflow-hidden bg-white py-24 lg:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+      <div class="mb-12 flex flex-wrap items-end justify-between gap-6" data-reveal>
+        <h2 class="font-display text-[clamp(1.85rem,3.5vw,2.75rem)] font-extrabold leading-tight tracking-tight text-slate-900">
+          A closer look at the platform
+        </h2>
+        <div class="flex items-center gap-2">
+          <button type="button" id="showcase-prev" aria-label="Previous"
+                  class="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors duration-200 hover:border-blue-300 hover:text-blue-600">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          <button type="button" id="showcase-next" aria-label="Next"
+                  class="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors duration-200 hover:border-blue-300 hover:text-blue-600">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="showcase-track"
+         class="showcase-track flex snap-x snap-mandatory gap-8 overflow-x-auto px-[12vw] pb-10 scrollbar-hide sm:px-[20vw] lg:px-[26vw]"
+         style="scroll-padding-left: 26vw;">
+      {showcase.map((s, i) => (
+        <button type="button" class="showcase-card group w-[72vw] flex-shrink-0 snap-center sm:w-[420px]"
+                data-showcase-card data-index={i} data-reveal data-delay={80 * i}>
+          <div class="relative overflow-hidden rounded-2xl shadow-lg" style="aspect-ratio: 3 / 2;">
+            <img src={s.image} alt={s.caption}
+                 class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                 loading="lazy" decoding="async" />
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/0 to-transparent"></div>
+            <span class="pointer-events-none absolute left-4 top-4 rounded-full bg-white/85 px-2.5 py-1 text-xs font-semibold text-slate-700">
+              {String(i + 1).padStart(2, '0')} / {String(showcase.length).padStart(2, '0')}
+            </span>
+            <p class="pointer-events-none absolute inset-x-4 bottom-4 text-left text-sm font-semibold text-white">{s.caption}</p>
+          </div>
+        </button>
+      ))}
+    </div>
+
+    <div class="mt-2 flex justify-center gap-2">
+      {showcase.map((_, i) => (
+        <span class="showcase-dot h-1.5 w-1.5 rounded-full bg-slate-300 transition-all duration-300" data-showcase-dot={i}></span>
+      ))}
+    </div>
+  </section>
+
+  <!-- =============================================================
+       FINAL CTA — flows straight into the footer (no gap)
+  ============================================================== -->
+  <section class="relative overflow-hidden pt-28 pb-28 text-white lg:pt-36 lg:pb-36">
+    <div class="absolute inset-0" aria-hidden="true">
+      <img src={OFFICE_BG_URL} alt="" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-700/55 via-blue-600/45 to-[#071640]/65"></div>
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-3xl px-6 text-center lg:px-12" data-reveal>
+      <h2 class="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold leading-[1.05] tracking-tight">
+        Your team's next favorite workspace is one click away
+      </h2>
+      <p class="mx-auto mt-5 max-w-lg text-white/85">
+        Stop switching between five different apps to get one thing done.
+        Bring chat, docs, meetings and your calendar into a single workspace —
+        and see how it fits your organization.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <a href={TRY_FREE_URL} target="_blank" rel="noopener noreferrer"
+           class="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-blue-700 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_rgba(255,255,255,0.5)]">
+          Try for Free
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <a href={CATALOG_URL} target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 rounded-full border border-white/40 px-8 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:border-white hover:bg-white/10">
+          Download Catalog
+        </a>
+      </div>
+
+      <p class="mt-8 text-sm text-white/60">
+        Join teams across Indonesia who are already working better, together.
+      </p>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close preview">
+      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <figure class="lightbox-figure">
+      <img id="lightbox-img" src="" alt="" />
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+  </div>
+
 </MainLayout>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap');
+
+  .font-display { font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; }
+
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  [data-reveal][data-reveal-scale] { transform: translateY(24px) scale(0.98); }
+  [data-reveal].is-visible { opacity: 1; transform: translateY(0) scale(1); }
+
+  .hero-float { animation: hero-bob 6s ease-in-out infinite; }
+  @keyframes hero-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+  .story-nav-btn.is-active .story-nav-num { color: #2563eb; }
+  .story-nav-btn.is-active .story-nav-label { color: #0f172a; }
+  .story-nav-btn.is-active .story-nav-teaser { color: #475569; }
+  .story-nav-btn.is-active { background-color: #fff; box-shadow: 0 12px 28px -18px rgba(37,99,235,0.35); }
+  .story-progress-fill { width: 0%; transition: none; }
+  .story-nav-btn.is-active .story-progress-fill.is-animating { animation: story-progress 3s linear forwards; }
+  @keyframes story-progress { from { width: 0%; } to { width: 100%; } }
+
+  .scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .showcase-track { scroll-behavior: smooth; }
+  .showcase-card { transform: scale(0.86); opacity: 0.55; transition: transform 0.4s ease, opacity 0.4s ease; cursor: pointer; }
+  .showcase-card.is-centered { transform: scale(1); opacity: 1; }
+  .showcase-dot.is-active { width: 1.5rem; border-radius: 9999px; background-color: #2563eb; }
+
+  .lightbox {
+    position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center;
+    padding: 5vh 5vw; background: rgba(7,22,64,0.85); backdrop-filter: blur(6px);
+    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+  }
+  .lightbox.is-open { opacity: 1; pointer-events: auto; }
+  .lightbox-figure { max-width: 900px; width: 100%; }
+  .lightbox-figure img { width: 100%; height: auto; border-radius: 1rem; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6); }
+  .lightbox-figure figcaption { margin-top: 1rem; text-align: center; color: rgba(255,255,255,0.85); font-size: 0.9rem; font-weight: 600; }
+  .lightbox-close {
+    position: absolute; top: 1.5rem; right: 1.5rem; display: flex; height: 2.75rem; width: 2.75rem;
+    align-items: center; justify-content: center; border-radius: 9999px; background: rgba(255,255,255,0.1); color: #fff;
+    transition: background 0.2s ease;
+  }
+  .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal], [data-reveal].is-visible { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .hero-float, .story-progress-fill.is-animating { animation: none !important; }
+    .story-image { transition: none !important; }
+  }
+  
+</style>
+
+<script>
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const revealEls = document.querySelectorAll<HTMLElement>('[data-reveal]');
+  if (prefersReducedMotion) {
+    revealEls.forEach((el) => el.classList.add('is-visible'));
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement;
+            const delay = Number(el.dataset.delay || 0);
+            window.setTimeout(() => el.classList.add('is-visible'), delay);
+            revealObserver.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+    );
+    revealEls.forEach((el) => revealObserver.observe(el));
+  }
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  function openLightbox(src: string, caption: string) {
+    if (!lightbox || !lightboxImg || !lightboxCaption) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = caption;
+    lightboxCaption.textContent = caption;
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+  }
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+  }
+  lightboxClose?.addEventListener('click', closeLightbox);
+  lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+  const storyImages = document.querySelectorAll<HTMLElement>('[data-story-image]');
+  const storyNavBtns = document.querySelectorAll<HTMLButtonElement>('[data-story-nav]');
+  const storyVisualTrigger = document.getElementById('story-visual-trigger');
+  const storyData = [
+    { image: '/images/herolark/herolark1.png', caption: 'Re-design the Workplace' },
+    { image: '/images/herolark/herolark2.png', caption: 'Re-shape Workforce' },
+    { image: '/images/herolark/herolark3.png', caption: 'Re-invent Work Processes' },
+    { image: '/images/herolark/herolark4.png', caption: 'Re-envision Business Strategy' },
+  ];
+
+  if (storyImages.length && storyNavBtns.length) {
+    let activeIndex = 0;
+    let storyTimer: number | undefined;
+
+    const setActive = (index: number, restartTimer = true) => {
+      activeIndex = index;
+      storyImages.forEach((img) => {
+        img.style.opacity = Number(img.dataset.storyImage) === index ? '1' : '0';
+      });
+      storyNavBtns.forEach((btn) => {
+        const isActive = Number(btn.dataset.storyNav) === index;
+        btn.classList.toggle('is-active', isActive);
+        const fill = btn.querySelector<HTMLElement>('.story-progress-fill');
+        if (fill) {
+          fill.classList.remove('is-animating');
+          void fill.offsetWidth;
+          fill.style.width = '0%';
+          if (isActive && !prefersReducedMotion) fill.classList.add('is-animating');
+        }
+      });
+      if (restartTimer) startTimer();
+    };
+
+    const startTimer = () => {
+      if (prefersReducedMotion) return;
+      window.clearInterval(storyTimer);
+      storyTimer = window.setInterval(() => {
+        setActive((activeIndex + 1) % storyData.length, false);
+      }, 3000);
+    };
+
+    setActive(0);
+
+    storyNavBtns.forEach((btn) => {
+      btn.addEventListener('click', () => setActive(Number(btn.dataset.storyNav)));
+    });
+
+    storyVisualTrigger?.addEventListener('click', () => {
+      const current = storyData[activeIndex];
+      openLightbox(current.image, current.caption);
+    });
+  }
+
+  const track = document.getElementById('showcase-track');
+  const prevBtn = document.getElementById('showcase-prev');
+  const nextBtn = document.getElementById('showcase-next');
+  const cards = document.querySelectorAll<HTMLButtonElement>('[data-showcase-card]');
+  const dots = document.querySelectorAll<HTMLElement>('[data-showcase-dot]');
+  const showcaseData = [
+    { image: '/images/herolark/herolark5.png', caption: 'An All-in-One Digital Platform' },
+    { image: '/images/herolark/herolark6.png', caption: 'Seamless Collaboration Suite' },
+    { image: '/images/herolark/herolark7.png', caption: 'Lark Solution Overview' },
+    { image: '/images/herolark/herolark8.png', caption: 'Digitize Your Workflows & Security' },
+    { image: '/images/herolark/herolark9.png', caption: 'All Your Work In One Place' },
+  ];
+
+  if (track && cards.length) {
+    const updateCenterState = () => {
+      const trackRect = track.getBoundingClientRect();
+      const center = trackRect.left + trackRect.width / 2;
+      let closestIndex = 0;
+      let closestDist = Infinity;
+
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.left + rect.width / 2;
+        const dist = Math.abs(cardCenter - center);
+        card.classList.toggle('is-centered', dist < rect.width / 2);
+        if (dist < closestDist) { closestDist = dist; closestIndex = Number(card.dataset.index); }
+      });
+
+      dots.forEach((dot) => {
+        dot.classList.toggle('is-active', Number(dot.dataset.showcaseDot) === closestIndex);
+      });
+    };
+
+    let ticking = false;
+    track.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => { updateCenterState(); ticking = false; });
+        ticking = true;
+      }
+    });
+    window.addEventListener('resize', updateCenterState);
+    updateCenterState();
+
+    const scrollByCard = (direction: 1 | -1) => {
+      const card = track.querySelector<HTMLElement>('.showcase-card');
+      const distance = card ? card.getBoundingClientRect().width + 32 : 420;
+      track.scrollBy({ left: distance * direction, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    };
+    prevBtn?.addEventListener('click', () => scrollByCard(-1));
+    nextBtn?.addEventListener('click', () => scrollByCard(1));
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const index = Number(dot.dataset.showcaseDot);
+        cards[index]?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+      });
+    });
+
+    cards.forEach((card) => {
+      card.addEventListener('click', () => {
+        const index = Number(card.dataset.index);
+        const data = showcaseData[index];
+        if (!card.classList.contains('is-centered')) {
+          card.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+          return;
+        }
+        openLightbox(data.image, data.caption);
+      });
+    });
+  }
+</script>

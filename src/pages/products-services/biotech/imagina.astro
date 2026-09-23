@@ -1,7 +1,46 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
 ---
-<MainLayout>
-  <h1 class="text-3xl font-bold mb-4">Imagina</h1>
-  <p>Halaman Imagina.</p>
+
+<MainLayout title="ImagINa - Biotech | PT Prasetia Dwidharma">
+  <div class="py-16 md:py-24 bg-gray-50 border-b border-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-100 text-red-700 text-xs font-semibold uppercase tracking-wider mb-6">
+        Biotech Division
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-6">
+        ImagINa
+      </h1>
+      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed">
+        Innovative agricultural biotechnology solutions empowering modern farming.
+      </p>
+
+      <div class="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-gray-200 max-w-xl mx-auto text-left">
+        <h2 class="text-xl font-bold text-gray-900 mb-3">External Product Portal</h2>
+        <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+          ImagINa is an external product line managed by our biotechnology division. For comprehensive product catalogs, research data, and agricultural technical inquiries, please visit the official website.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 items-center">
+          <a
+            href="[IMAGINA EXTERNAL URL NEEDED]"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors text-sm shadow-sm"
+          >
+            Visit Official Website
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+          <a
+            href="/products-services/biotech"
+            class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors text-sm"
+          >
+            Back to Biotech
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </MainLayout>

@@ -1,7 +1,108 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
+
+const values = [
+  {
+    letter: "C",
+    title: "Customer-centric",
+    description: "Berfokus pada penyediaan solusi sesuai dengan kebutuhan pelanggan."
+  },
+  {
+    letter: "O",
+    title: "Optimistic",
+    description: "Senantiasa berpikiran positif."
+  },
+  {
+    letter: "N",
+    title: "Noble",
+    description: "Menjaga kehormatan diri sendiri dan Perusahaan."
+  },
+  {
+    letter: "F",
+    title: "Focus",
+    description: "Konsisten bekerja dengan tujuan yang jelas."
+  },
+  {
+    letter: "I",
+    title: "Integrity",
+    description: "Sejalan antara kata dan perbuatan."
+  },
+  {
+    letter: "D",
+    title: "Dedication",
+    description: "Kesetiaan pada Perusahaan dengan bekerja secara profesional."
+  },
+  {
+    letter: "E",
+    title: "Efficient",
+    description: "Menyelesaikan pekerjaan dengan cepat dan tepat."
+  },
+  {
+    letter: "N",
+    title: "Nimble",
+    description: "Inovatif & mampu menyesuaikan diri pada perubahan yang cepat."
+  },
+  {
+    letter: "T",
+    title: "Teamwork",
+    description: "Saling menghormati, bekerja sama untuk mencapai tujuan bersama yaitu Visi & Misi Perusahaan."
+  }
+];
 ---
-<MainLayout>
-  <h1 class="text-3xl font-bold mb-4">Core Value</h1>
-  <p>Halaman Core Value.</p>
+
+<MainLayout title="Core Values - CONFIDENT | Good Corporate Governance | PT Prasetia Dwidharma">
+  <!-- Hero Section -->
+  <div class="relative bg-gradient-to-r from-red-900 via-red-800 to-black text-white py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 opacity-20">
+      <img src="/images/hero/hero1.jpg" alt="Core Values" class="w-full h-full object-cover" />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-red-950 via-red-900/80 to-transparent"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-red-200 text-xs font-semibold uppercase tracking-wider mb-6">
+          Good Corporate Governance
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+          Core Value
+        </h1>
+        <p class="text-lg md:text-xl text-gray-200 leading-relaxed font-light">
+          Budaya Perusahaan PT Prasetia Dwidharma adalah <strong>CONFIDENT</strong>, yaitu Senantiasa Percaya Diri (PD) dalam melakukan dan menjalankan pekerjaan masing-masing, penuh integritas dan memberikan pelayanan terbaik bagi para pelanggan dan mitra bisnis Perusahaan yang sesuai dengan nilai-nilai luhur perusahaan.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Values Grid Section -->
+  <div class="py-16 md:py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs font-bold text-red-600 tracking-wider uppercase mb-2">Nilai-Nilai Luhur</h2>
+        <h3 class="text-3xl md:text-4xl font-bold text-gray-900">
+          The 9 Pillars of C-O-N-F-I-D-E-N-T
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {values.map((v) => (
+          <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:border-red-300 hover:shadow-md transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-red-600 text-white font-bold text-2xl flex items-center justify-center mb-6 shadow-sm">
+                {v.letter}
+              </div>
+              <h4 class="text-xl font-bold text-gray-900 mb-3">
+                {v.title}
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                {v.description}
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-gray-100 flex items-center gap-1.5 text-xs text-red-600 font-semibold uppercase tracking-wider">
+              <span>Prasetia Value</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
 </MainLayout>

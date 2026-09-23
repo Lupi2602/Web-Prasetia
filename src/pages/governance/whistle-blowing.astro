@@ -1,7 +1,140 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
+
+const purposes = [
+  "Mewujudkan iklim kerja yang kondusif dan menjadi sarana bagi para pemangku kepentingan (stakeholders) maupun Insan PD untuk melaporkan hal-hal yang dapat menimbulkan kerugian perusahaan baik finansial maupun non finansial yang dapat merusak citra dan keberlangsungan usaha perusahaan.",
+  "Memberikan kesempatan kepada para pemangku kepentingan (stakeholders) maupun Insan PD dalam menyampaikan laporan dugaan pelanggaran berdasarkan bukti-bukti yang dapat dipertanggungjawabkan.",
+  "Mewujudkan tata kelola perusahaan yang bersih, sehat dan baik.",
+  "Menjadi pedoman dan koridor penerapan Pedoman Perilaku & Etika Perusahaan (Code of Conduct).",
+  "Menciptakan iklim bisnis dan kerja yang berlandaskan pada peraturan perundang-undangan, nilai moral dan etika."
+];
+
+const violationScopes = [
+  "Penyimpangan dari peraturan dan perundangan yang berlaku",
+  "Pencurian Penyalagunaan dan pemalsuan data dan/atau pembayaran klaim / tagihan",
+  "Penyalagunaan jabatan untuk kepentingan lain di luar Perseroan",
+  "Pembocoran rahasia Perusahaan.",
+  "Penyelewengan uang Perusahaan",
+  "Pelanggaran terhadap Pedoman Etika & Perilaku Perusahaan PT Prasetia Dwidharma",
+  "Penggelapan aset Perusahaan",
+  "Pemerasan",
+  "Perbuatan curang",
+  "Penipuan",
+  "Benturan Kepentingan",
+  "Gratifikasi",
+  "Pemaksaan yang berujung pada penyimpangan",
+  "Negosiasi kecurangan",
+  "Perbuatan Asusila"
+];
+
+const conditions = [
+  "Identitas pelapor dan terlapor harus jelas.",
+  "Dugaan pelanggaran yang dilaporkan harus jelas dan dilengkapi dengan bukti-bukti yang valid.",
+  "Laporan akan ditangani oleh Tim Pengelola Whistle Blowing System (WBS)."
+];
 ---
-<MainLayout>
-  <h1 class="text-3xl font-bold mb-4">Whistle Blowing</h1>
-  <p>Halaman Whistle Blowing.</p>
+
+<MainLayout title="Whistle Blowing System (WBS) | Good Corporate Governance | PT Prasetia Dwidharma">
+  <!-- Hero Section -->
+  <div class="relative bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 opacity-20">
+      <img src="/images/hero/hero5.jpg" alt="Whistle Blowing System Hero" class="w-full h-full object-cover" />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/80 to-transparent"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-600/30 border border-red-500/40 text-red-200 text-xs font-semibold uppercase tracking-wider mb-6">
+        Good Corporate Governance
+      </div>
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+        Whistle Blowing System (WBS)
+      </h1>
+      <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
+        Sarana pelaporan independen dan terpercaya untuk mewujudkan tata kelola perusahaan yang bersih, transparan, dan akuntabel.
+      </p>
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <div class="py-16 md:py-24 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <!-- Section: Purposes -->
+      <div class="bg-white rounded-2xl p-8 md:p-10 border border-gray-200 shadow-sm">
+        <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+          Pedoman Pelaporan Dugaan Pelanggaran / Whistle Blowing System (WBS)
+        </h2>
+        <h3 class="text-base font-semibold text-red-600 mb-6">
+          Perusahaan Juga Telah Menerapkan Pedoman Pelaporan Dugaan Pelanggaran / Whistle Blowing System (WBS) Yang Bertujuan Untuk:
+        </h3>
+
+        <ul class="space-y-3">
+          {purposes.map((purpose, index) => (
+            <li class="flex items-start gap-3 text-sm text-gray-700 leading-relaxed">
+              <span class="w-6 h-6 rounded-full bg-red-100 text-red-700 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
+                {String.fromCharCode(97 + index)}
+              </span>
+              <span>{purpose}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Section: Ruang Lingkup (15 Violations) -->
+      <div class="bg-white rounded-2xl p-8 md:p-10 border border-gray-200 shadow-sm">
+        <h3 class="text-lg font-bold text-gray-900 mb-2">
+          Ruang Lingkup Pelaporan Dugaan Pelanggaran
+        </h3>
+        <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+          Ruang Lingkup Pedoman Sistem Pelaporan Dugaan Pelanggaran/Whistle Blowing System (WBS) yang akan ditindaklanjuti Tim Pengelola Whistle Blowing System (TPWBS) adalah tindakan yang dapat merugikan Perusahaan, yang meliputi hal-hal sebagai berikut:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-700">
+          {violationScopes.map((scope, index) => (
+            <div class="flex items-start gap-2.5 p-3 rounded-xl bg-gray-50 border border-gray-100">
+              <span class="font-bold text-red-600 text-xs mt-0.5">{index + 1}.</span>
+              <span class="leading-snug">{scope}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Section: Syarat Laporan & Email Reporting -->
+      <div class="bg-white rounded-2xl p-8 md:p-10 border border-gray-200 shadow-sm">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">
+          Syarat Laporan Dugaan Pelanggaran Yang Dapat Diproses:
+        </h3>
+        <ul class="space-y-2 mb-8">
+          {conditions.map((c) => (
+            <li class="flex items-start gap-3 text-sm text-gray-700 leading-relaxed">
+              <svg class="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <span>{c}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="p-6 rounded-xl bg-red-50 border border-red-200 text-center">
+          <div class="text-xs uppercase font-bold text-red-800 tracking-wider mb-1">
+            Sarana Pengaduan Dugaan Pelanggaran
+          </div>
+          <a
+            href="mailto:wbs@prasetia.co.id?subject=Laporan%20Dugaan%20Pelanggaran%20WBS"
+            class="text-2xl font-bold text-red-600 hover:underline inline-flex items-center gap-2"
+          >
+            wbs@prasetia.co.id
+          </a>
+          <p class="text-xs text-red-700 mt-2">
+            Setiap laporan akan dijaga kerahasiaan identitas pelapornya sesuai dengan ketentuan perlindungan saksi internal perusahaan.
+          </p>
+        </div>
+
+        <div class="mt-8 text-center text-xs text-gray-500">
+          Mewujudkan tata kelola bersih dan sehat, WBS Prasetia memberi ruang pelaporan pelanggaran. Info selengkapnya di <span class="font-medium text-gray-700">Kadin Jakarta</span>.
+        </div>
+      </div>
+
+    </div>
+  </div>
 </MainLayout>

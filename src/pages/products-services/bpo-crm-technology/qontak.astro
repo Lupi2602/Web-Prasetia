@@ -1,7 +1,117 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
 ---
-<MainLayout>
-  <h1 class="text-3xl font-bold mb-4">Qontak</h1>
-  <p>Halaman Qontak.</p>
+
+<MainLayout title="Qontak CRM | PT Prasetia Dwidharma">
+  <!-- Hero Section -->
+  <section class="bg-gray-900 text-white py-16 lg:py-24 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-30">
+      <img
+        src="/images/hero/hero1.jpg"
+        alt="Qontak CRM Hero"
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="container mx-auto px-6 max-w-5xl relative z-10 text-center">
+      <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm border border-white/30 text-xs font-semibold uppercase tracking-wider rounded mb-4">
+        Product
+      </span>
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+        Qontak CRM
+      </h1>
+    </div>
+  </section>
+
+  <!-- Intro Heading -->
+  <section class="py-16 bg-white border-b border-gray-100">
+    <div class="container mx-auto px-6 max-w-4xl text-center">
+      <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
+        Social CRM To Manage Sales &amp; Customer Service
+      </h2>
+    </div>
+  </section>
+
+  <!-- Banner Feature -->
+  <section class="py-12 bg-gray-50 border-b border-gray-200">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <div class="bg-cyan-700 text-white rounded-xl p-8 lg:p-12 text-center shadow-sm">
+        <h3 class="text-3xl font-extrabold mb-3">Qontak</h3>
+        <h4 class="text-xl font-bold mb-4">Social CRM to Manage Sales &amp; Customer Service</h4>
+        <p class="text-cyan-100 text-sm md:text-base max-w-2xl mx-auto mb-6 leading-relaxed">
+          Qontak is Equipped with Powerful CRM and Business Tools Connecting you with the People that Matter Most
+        </p>
+        <div class="inline-block bg-white/15 border border-white/30 rounded-full px-4 py-1.5 text-xs font-medium text-white">
+          Official Business Partner of Whatsapp API
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Description Section -->
+  <section class="py-16 bg-white border-b border-gray-200">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <p class="text-base md:text-lg text-gray-700 leading-relaxed text-center">
+        Qontak is an OpenAPI platform allowing movement of data inbound and outbound automatically. Seamlessly connect landing pages and any other software system so that data immediately ports to your system or is pushed out
+      </p>
+    </div>
+  </section>
+
+  <!-- Bottom Details & Contact Bar -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-6 max-w-5xl">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 border-t border-b border-gray-200 py-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-1">Website</span>
+          <a
+            href="https://www.qontak.com/id"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm font-semibold text-blue-600 hover:underline"
+          >
+            www.qontak.com/id &nearr;
+          </a>
+        </div>
+
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-1">Catalog</span>
+          <span class="text-sm font-medium text-gray-700 block">Whatsapp Official Omnichannel.pdf</span>
+        </div>
+
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-1">Catalog</span>
+          <span class="text-sm font-medium text-gray-700 block">Qontak Omnichannel CRM &amp; PBX.pdf</span>
+        </div>
+
+        <div>
+          <a
+            href="/about/contact/"
+            class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold text-sm px-6 py-2.5 rounded transition-colors"
+          >
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Navigation: Previous / Next Post -->
+  <section class="border-t border-gray-200 bg-gray-900 text-white">
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      <a
+        href="/products-services/bpo-crm-technology/pulse/"
+        class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-gray-800 hover:bg-gray-800/60 transition-colors flex flex-col justify-center"
+      >
+        <span class="text-xs uppercase tracking-wider text-gray-400 mb-1">Previous Post</span>
+        <span class="text-xl font-bold text-white">Pulse</span>
+      </a>
+
+      <a
+        href="/about/awards/"
+        class="p-8 md:p-12 hover:bg-gray-800/60 transition-colors flex flex-col justify-center"
+      >
+        <span class="text-xs uppercase tracking-wider text-gray-400 mb-1">Next Post</span>
+        <span class="text-xl font-bold text-white">Awards</span>
+      </a>
+    </div>
+  </section>
 </MainLayout>
