@@ -2,199 +2,303 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 ---
 
-<MainLayout title="Contact Us | PT Prasetia Dwidharma">
-  <!-- Hero Section -->
-  <div class="relative bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white py-20 md:py-28 overflow-hidden">
-    <div class="absolute inset-0 opacity-30">
-      <img src="/images/hero/hero2.jpg" alt="Prasetia Office" class="w-full h-full object-cover" />
-    </div>
-    <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/80 to-transparent"></div>
+<MainLayout title="Contact | PT Prasetia Dwidharma" transparentNavbar={true}>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-600/30 border border-red-500/40 text-red-200 text-xs font-semibold uppercase tracking-wider mb-6">
-        Get In Touch
+  <style>
+    /* ─── Design tokens — putih bersih + merah cerah sebagai aksen ─── */
+    :root {
+      --pd-red: #d81f2a;
+      --pd-red-light: #ef3b40;
+      --pd-red-dark: #a3121a;
+      --pd-ink: #1a1414;
+      --pd-white: #ffffff;
+      --pd-offwhite: #f7f7f7;
+    }
+
+    /* ─── Reveal animation ─── */
+    .contact-reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .contact-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .contact-reveal-d1 { transition-delay: 0.08s; }
+    .contact-reveal-d2 { transition-delay: 0.16s; }
+    .contact-reveal-d3 { transition-delay: 0.24s; }
+    .contact-reveal-d4 { transition-delay: 0.32s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .contact-reveal, .contact-title-line::after {
+        transition: none !important;
+      }
+      .contact-reveal { opacity: 1 !important; transform: none !important; }
+    }
+
+    /* ─── Hero — besar lagi, merah cerah sebagai overlay tipis ─── */
+    .contact-hero {
+      position: relative;
+      min-height: 82vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--pd-ink);
+    }
+    .contact-hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .contact-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(216, 31, 42, 0.38) 0%,
+        rgba(26, 20, 20, 0.55) 55%,
+        rgba(15, 12, 12, 0.82) 100%
+      );
+    }
+    .contact-hero::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 130px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0), var(--pd-white));
+      pointer-events: none;
+    }
+
+    .contact-title-line {
+      display: inline-block;
+      position: relative;
+    }
+    .contact-title-line::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: width 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
+    }
+    .contact-title-line.is-visible::after {
+      width: 100%;
+    }
+
+    /* ─── Intro / info section ─── */
+    .contact-info-section {
+      background: var(--pd-white);
+    }
+    .contact-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--pd-red);
+    }
+    .contact-divider {
+      height: 2px;
+      background: linear-gradient(to right, var(--pd-red), rgba(216,31,42,0));
+    }
+
+    /* ─── WhatsApp CTA — merah cerah, gradient halus tanpa efek aneh ─── */
+    .contact-wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.85rem 1.7rem;
+      background: linear-gradient(135deg, var(--pd-red) 0%, var(--pd-red-light) 100%);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.01em;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    }
+    .contact-wa-btn:hover {
+      filter: brightness(1.06);
+      box-shadow: 0 8px 20px -8px rgba(216, 31, 42, 0.55);
+      transform: translateY(-1px);
+    }
+
+    .contact-phone-link {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.25s ease;
+    }
+    .contact-phone-link:hover {
+      color: var(--pd-red);
+    }
+
+    /* ─── Split layout ─── */
+    .contact-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 380px;
+    }
+    @media (max-width: 768px) {
+      .contact-split { grid-template-columns: 1fr; }
+    }
+
+    .contact-red-panel {
+      background: linear-gradient(135deg, var(--pd-red-dark) 0%, var(--pd-red) 100%);
+      color: #fff;
+      padding: 4rem 2.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .contact-white-panel {
+      background: var(--pd-white);
+      padding: 4rem 2.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    @media (max-width: 1024px) {
+      .contact-red-panel, .contact-white-panel { padding: 3rem 1.75rem; }
+    }
+
+    /* ─── Address block ─── */
+    .contact-address-section {
+      background: var(--pd-offwhite);
+    }
+
+    /* ─── Closing CTA — merah cerah lagi, senada hero ─── */
+    .contact-closing {
+      background: linear-gradient(135deg, var(--pd-ink) 0%, var(--pd-red-dark) 130%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-closing::before {
+      content: '';
+      position: absolute;
+      right: -10%;
+      bottom: -35%;
+      width: 42%;
+      padding-bottom: 42%;
+      background: radial-gradient(circle, rgba(216,31,42,0.3) 0%, rgba(216,31,42,0) 70%);
+      pointer-events: none;
+    }
+
+    /* ─── Tipografi — hero besar lagi, sisanya tetap rapi ─── */
+    .pd-h1 { font-size: clamp(2.2rem, 5.5vw, 4rem); letter-spacing: -0.02em; line-height: 1.05; font-weight: 700; }
+    .pd-h2 { font-size: clamp(1.35rem, 2.2vw, 1.85rem); letter-spacing: -0.01em; line-height: 1.15; font-weight: 600; }
+    .pd-h2-lg { font-size: clamp(1.5rem, 2.6vw, 2.15rem); letter-spacing: -0.01em; line-height: 1.15; font-weight: 600; }
+    .pd-statement { font-size: clamp(1.2rem, 2.1vw, 1.7rem); letter-spacing: -0.005em; line-height: 1.4; font-weight: 500; }
+    .pd-phone { font-size: clamp(1.2rem, 1.8vw, 1.55rem); letter-spacing: -0.005em; font-weight: 600; }
+  </style>
+
+  <section class="contact-hero" aria-label="Contact Hero">
+    <img src="/images/governance/gcg2.jpg" alt="Prasetia professional team" class="contact-hero-img" />
+    <div class="contact-hero-overlay" aria-hidden="true"></div>
+
+    <div class="relative z-10 w-full px-6 sm:px-10 lg:px-20 pb-14 md:pb-20">
+      <div class="max-w-2xl">
+        <p class="contact-reveal contact-label mb-4" style="color: rgba(255,210,210,0.95);">Get in Touch</p>
+        <h1 class="contact-reveal contact-reveal-d1 pd-h1 text-white mb-4">
+          <span class="contact-title-line block">Let's start</span>
+          <span class="contact-title-line block" style="transition-delay:0.1s;">a conversation.</span>
+        </h1>
+        <p class="contact-reveal contact-reveal-d2 text-white/75 text-base md:text-lg font-light max-w-md leading-relaxed">
+          Kami siap mendengarkan kebutuhan Anda dan memberikan solusi terbaik untuk bisnis Anda.
+        </p>
       </div>
-      <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-        Contact Us
-      </h1>
-      <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-light">
-        Reach out to our team for partnerships, enterprise solutions, or business inquiries.
+    </div>
+  </section>
+
+  <section class="contact-info-section py-14 md:py-20 px-6 sm:px-10 lg:px-20">
+    <div class="max-w-7xl mx-auto">
+      <div class="contact-divider mb-8" style="max-width: 56px;"></div>
+      <p class="contact-reveal pd-statement text-gray-900" style="max-width: 600px;">
+        Satu pesan bisa menjadi awal dari kemitraan yang luar biasa.
+      </p>
+      <p class="contact-reveal contact-reveal-d1 text-gray-500 mt-4 text-sm md:text-base font-light max-w-md leading-relaxed">
+        Hubungi tim kami melalui WhatsApp atau telepon — kami akan merespons dengan cepat dan profesional.
       </p>
     </div>
-  </div>
+  </section>
 
-  <!-- Contact Content Section -->
-  <div class="py-16 md:py-24 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        
-        <!-- Left: Speak With Our Sales & Office Info -->
-        <div class="lg:col-span-6 space-y-8">
-          <div class="bg-white rounded-2xl p-8 md:p-10 border border-gray-200 shadow-sm">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">
-              Speak With Our Sales:
-            </h2>
+  <div class="contact-split">
+    <div class="contact-red-panel">
+      <div class="contact-reveal">
+        <p class="contact-label mb-2" style="color: rgba(255,215,215,0.9);">Direct Chat</p>
+        <h2 class="pd-h2-lg text-white mb-3">WhatsApp</h2>
+        <p class="text-white/75 text-sm md:text-base font-light mb-6 max-w-xs leading-relaxed">
+          Chat langsung dengan tim sales kami. Respons cepat, profesional, dan siap membantu kapan pun Anda butuhkan.
+        </p>
+        <a href="https://api.whatsapp.com/send?phone=6281390090338" target="_blank" rel="noopener noreferrer" class="contact-wa-btn" aria-label="Chat with Prasetia on WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>Chat on WhatsApp</span></a>
+      </div>
+    </div>
 
-            <div class="space-y-6">
-              <!-- Chat Only -->
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-xl bg-green-50 text-green-600 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.697c1.002.598 1.956.884 2.806.884 3.181 0 5.767-2.586 5.767-5.766.001-3.18-2.585-5.766-5.767-5.766zm4.186 8.217c-.172.484-.997.925-1.393.963-.38.037-.872.181-2.906-.662-1.727-.716-2.836-2.476-2.922-2.59-.086-.115-.698-.928-.698-1.77 0-.842.441-1.256.598-1.428.157-.172.344-.215.459-.215.115 0 .23 0 .33.007.107.008.25.04.387.369.144.344.488 1.19.53 1.277.043.086.072.187.014.301-.057.115-.086.187-.172.287-.086.1-.181.223-.258.3-.086.086-.176.18-.076.352.1.172.443.731.951 1.184.654.582 1.205.763 1.377.849.172.086.273.072.373-.043.1-.115.43-.502.545-.674.115-.172.23-.143.387-.086.158.057.99.467 1.161.553.172.086.287.129.33.201.043.072.043.416-.129.9z" />
-                  </svg>
-                </div>
-                <div>
-                  <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">
-                    WhatsApp (Chat Only)
-                  </div>
-                  <a
-                    href="http://wa.link/v837x2"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-lg font-bold text-gray-900 hover:text-green-600 transition-colors inline-flex items-center gap-1.5"
-                  >
-                    <span>http://wa.link/v837x2</span>
-                    <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
-              <!-- Phone -->
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                </div>
-                <div>
-                  <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">
-                    Phone
-                  </div>
-                  <a href="tel:+622131141177" class="text-lg font-bold text-gray-900 hover:text-red-600 transition-colors">
-                    +62 21 31141177
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Address -->
-            <div class="mt-8 pt-8 border-t border-gray-100">
-              <h3 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-3">
-                Jakarta Head Office
-              </h3>
-              <p class="text-gray-700 leading-relaxed font-medium">
-                Graha Aruna, Jalan Antara No. 47<br />
-                Kel. Pasar Baru, Sawah Besar<br />
-                Jakarta Pusat 10710
-              </p>
-              
-              <div class="mt-4 pt-4 border-t border-gray-100 text-sm text-gray-600">
-                <span class="font-medium text-gray-900">Telp. (021) 352 4999</span> (Building Management)
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Message Form -->
-        <div class="lg:col-span-6">
-          <div class="bg-white rounded-2xl p-8 md:p-10 border border-gray-200 shadow-sm">
-            <h2 class="text-2xl font-bold text-gray-900 mb-2">
-              Send Us a Message
-            </h2>
-            <p class="text-sm text-gray-600 mb-8">
-              Fill out the form below and our team will get back to you shortly.
-            </p>
-
-            <form class="space-y-5">
-              <div>
-                <label for="name" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  placeholder="Your full name"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
-                />
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label for="email" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    placeholder="name@company.com"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
-                  />
-                </div>
-                <div>
-                  <label for="phone" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="+62 812..."
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label for="division" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">
-                  Business Division / Subject
-                </label>
-                <select
-                  id="division"
-                  name="division"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 bg-white"
-                >
-                  <option value="telco">Telecommunication & Infrastructure Contractor</option>
-                  <option value="ict">Information & Communication Technology (ICT)</option>
-                  <option value="bpo">Business Process Outsourcing (BPO / CRM)</option>
-                  <option value="biotech">Agriculture & Biotech</option>
-                  <option value="investment">Investment & Startup Acceleration</option>
-                  <option value="general">General Inquiries</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="message" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">
-                  Your Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  required
-                  placeholder="How can we help your business?"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
-                ></textarea>
-              </div>
-
-              <div>
-                <button
-                  type="submit"
-                  class="w-full px-6 py-3.5 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg text-sm transition-colors shadow-sm"
-                >
-                  Submit Inquiry
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-
+    <div class="contact-white-panel">
+      <div class="contact-reveal contact-reveal-d1">
+        <p class="contact-label mb-2">Phone</p>
+        <h2 class="pd-h2-lg text-gray-900 mb-3">Call Us</h2>
+        <p class="text-gray-500 text-sm md:text-base font-light mb-5 max-w-xs leading-relaxed">
+          Bicara langsung dengan tim kami melalui telepon untuk konsultasi lebih lanjut.
+        </p>
+        <a href="tel:+622131141177" class="contact-phone-link" aria-label="Call Prasetia at +62 21 31141177"><span class="pd-phone text-gray-900">+62 21 31141177</span></a>
       </div>
     </div>
   </div>
+
+  <section class="contact-address-section py-14 md:py-20 px-6 sm:px-10 lg:px-20">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+        <div class="contact-reveal">
+          <p class="contact-label mb-2">Our Location</p>
+          <h2 class="pd-h2 text-gray-900">Jakarta<br/><span class="text-gray-400">Office</span></h2>
+          <div class="contact-divider mt-5" style="max-width: 40px;"></div>
+        </div>
+
+        <div class="contact-reveal contact-reveal-d1">
+          <address class="not-italic">
+            <p class="text-gray-800 font-medium leading-relaxed mb-1 text-sm md:text-base">Graha Aruna,</p>
+            <p class="text-gray-800 font-medium leading-relaxed mb-4 text-sm md:text-base">Jalan Antara No. 47 / Kel. Pasar Baru,<br/>Sawah Besar, Jakarta Pusat 10710</p>
+            <div class="contact-divider mb-4" style="max-width: 32px;"></div>
+            <p class="text-gray-500 text-xs md:text-sm">Building Management</p>
+            <a href="tel:+622135244999" class="contact-phone-link text-gray-700 font-medium text-sm md:text-base mt-1 inline-block">Telp. (021) 352 4999</a>
+          </address>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-closing py-16 px-6 sm:px-10 lg:px-20">
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="contact-reveal flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div>
+          <p class="contact-label mb-2" style="color: rgba(255,180,180,0.9);">Ready to talk?</p>
+          <h2 class="pd-h2 text-white" style="max-width: 400px;">Mulai percakapan Anda hari ini.</h2>
+        </div>
+        <a href="https://api.whatsapp.com/send?phone=6281390090338" target="_blank" rel="noopener noreferrer" class="contact-wa-btn flex-shrink-0" aria-label="Start a WhatsApp conversation with Prasetia"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>Chat on WhatsApp</span></a>
+      </div>
+    </div>
+  </section>
+
 </MainLayout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -48px 0px' }
+  );
+  document.querySelectorAll('.contact-reveal, .contact-title-line').forEach(el => observer.observe(el));
+</script>

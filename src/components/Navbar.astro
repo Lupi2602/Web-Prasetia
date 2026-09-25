@@ -26,11 +26,12 @@
             </svg>
           </button>
 
-          <div class="dropdown-panel absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[560px] max-w-[90vw]
+          <!-- Centered on its trigger, but clamped so it never exceeds the viewport width -->
+          <div class="dropdown-panel absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[560px] max-w-[calc(100vw-2rem)]
                       opacity-0 invisible translate-y-2
                       group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
                       transition-all duration-300 ease-out">
-            <div class="bg-white rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.25)] ring-1 ring-black/5 p-6 grid grid-cols-2 gap-x-8 gap-y-6 normal-case">
+            <div class="bg-white rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.25)] ring-1 ring-black/5 p-6 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 normal-case">
 
               <div>
                 <p class="text-[11px] font-semibold tracking-widest text-red-700/80 uppercase mb-3">ICT | Solution &amp; Smart City</p>
@@ -56,19 +57,19 @@
                 </div>
               </div>
 
-              <div>
-                <p class="text-[11px] font-semibold tracking-widest text-red-700/80 uppercase mb-3">Biotech</p>
-                <div class="flex flex-col gap-1">
-                  <a href="/products-services/biotech/imagina/" class="dropdown-item">Imagina</a>
-                  <a href="/products-services/biotech/protecrop/" class="dropdown-item">Protecrop</a>
-                </div>
-              </div>
+<div>
+  <p class="text-[11px] font-semibold tracking-widest text-red-700/80 uppercase mb-3">Biotech</p>
+  <div class="flex flex-col gap-1">
+    <a href="https://imagina.prasetia.co.id/" target="_blank" rel="noopener noreferrer" class="dropdown-item">Imagina</a>
+    <a href="https://protecrop.prasetia.co.id/" target="_blank" rel="noopener noreferrer" class="dropdown-item">Protecrop</a>
+  </div>
+</div>
 
             </div>
           </div>
         </div>
 
-        <a href="/investment/" class="nav-link relative py-2">
+        <a href="https://investment.prasetia.co.id/" target="_blank" rel="noopener noreferrer" class="nav-link relative py-2">
           Investment
         </a>
 
@@ -79,7 +80,8 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div class="dropdown-panel absolute left-0 top-full mt-3 w-64
+          <!-- Anchored to the RIGHT edge of its trigger so it can't spill past the right side of the viewport -->
+          <div class="dropdown-panel absolute right-0 top-full mt-3 w-64 max-w-[calc(100vw-2rem)]
                       opacity-0 invisible translate-y-2
                       group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
                       transition-all duration-300 ease-out">
@@ -98,7 +100,9 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div class="dropdown-panel absolute left-0 top-full mt-3 w-48
+          <!-- This is the item closest to the right edge of the screen — right-0 anchoring
+               is what fixes the "offside" panel your boss saw on a narrower/different-resolution screen -->
+          <div class="dropdown-panel absolute right-0 top-full mt-3 w-48 max-w-[calc(100vw-2rem)]
                       opacity-0 invisible translate-y-2
                       group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
                       transition-all duration-300 ease-out">
@@ -153,12 +157,11 @@
           <a href="/products-services/bpo-crm-technology/call-center/" class="mobile-sublink">Call Center</a>
 
           <p class="text-[11px] font-semibold tracking-widest text-red-700/70 uppercase mt-3 mb-1">Biotech</p>
-          <a href="/products-services/biotech/imagina/" class="mobile-sublink">Imagina</a>
-          <a href="/products-services/biotech/protecrop/" class="mobile-sublink">Protecrop</a>
-        </div>
+          <a href="https://imagina.prasetia.co.id/" target="_blank" rel="noopener noreferrer" class="mobile-sublink">Imagina</a>
+          <a href="https://protecrop.prasetia.co.id/" target="_blank" rel="noopener noreferrer" class="mobile-sublink">Protecrop</a>        </div>
       </details>
 
-      <a href="/investment/" class="mobile-link">Investment</a>
+      <a href="https://investment.prasetia.co.id/" target="_blank" rel="noopener noreferrer" class="mobile-link">Investment</a>
 
       <details class="mobile-accordion">
         <summary class="mobile-link flex items-center justify-between cursor-pointer">
@@ -331,15 +334,19 @@
 </style>
 
 <script>
-  const navbar = document.getElementById('site-navbar') as HTMLElement | null;
-  const toggleBtn = document.getElementById('mobile-menu-toggle') as HTMLButtonElement | null;
-  const mobileMenu = document.getElementById('mobile-menu') as HTMLElement | null;
+  // Plain JavaScript (no TypeScript type annotations) so this runs in any browser
+  // without a build/transpile step. If your project DOES compile .astro/.vue/.tsx
+  // files, you can re-add the type annotations there; keep this version for a
+  // plain .html context.
+  var navbar = document.getElementById('site-navbar');
+  var toggleBtn = document.getElementById('mobile-menu-toggle');
+  var mobileMenu = document.getElementById('mobile-menu');
 
-  const heroThreshold = 60;
-  const hoverRevealZone = 80; // px dari atas layar untuk trigger hover reveal
+  var heroThreshold = 60;
+  var hoverRevealZone = 80; // px dari atas layar untuk trigger hover reveal
 
-  let lastScrollY = window.scrollY;
-  let menuOpen = false;
+  var lastScrollY = window.scrollY;
+  var menuOpen = false;
 
   function updateNavbarBackground() {
     if (!navbar) return;
@@ -353,17 +360,17 @@
   }
 
   function showNavbar() {
-    navbar?.classList.remove('nav-hidden');
+    if (navbar) navbar.classList.remove('nav-hidden');
   }
 
   function hideNavbar() {
     // jangan sembunyikan kalau menu mobile lagi kebuka
     if (menuOpen) return;
-    navbar?.classList.add('nav-hidden');
+    if (navbar) navbar.classList.add('nav-hidden');
   }
 
   function handleScroll() {
-    const currentScrollY = window.scrollY;
+    var currentScrollY = window.scrollY;
 
     updateNavbarBackground();
 
@@ -381,41 +388,62 @@
     lastScrollY = currentScrollY;
   }
 
-  // Hover di area paling atas layar -> tampilkan navbar
-  function handleMouseMove(e: MouseEvent) {
+  // Hover di area paling atas layar -> tampilkan navbar (desktop only; harmless on touch)
+  function handleMouseMove(e) {
     if (e.clientY <= hoverRevealZone) {
       showNavbar();
     }
   }
 
+  // Close the mobile panel automatically if the viewport is resized up to
+  // desktop width (e.g. rotating a tablet, or a boss dragging the window wider)
+  function handleResize() {
+    if (window.innerWidth >= 1024 && menuOpen) {
+      closeMobileMenu();
+    }
+    updateNavbarBackground();
+  }
+
+  function closeMobileMenu() {
+    if (!mobileMenu || !navbar || !toggleBtn) return;
+    menuOpen = false;
+    mobileMenu.classList.remove('menu-open');
+    toggleBtn.classList.remove('is-active');
+
+    var lines = toggleBtn.querySelectorAll('.burger-line');
+    lines[0].style.transform = 'none';
+    lines[1].style.opacity = '1';
+    lines[2].style.transform = 'none';
+    document.body.style.overflow = '';
+    updateNavbarBackground();
+  }
+
   updateNavbarBackground();
   window.addEventListener('scroll', handleScroll, { passive: true });
   window.addEventListener('mousemove', handleMouseMove, { passive: true });
+  window.addEventListener('resize', handleResize, { passive: true });
 
-  toggleBtn?.addEventListener('click', () => {
-    if (!mobileMenu || !navbar) return;
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function () {
+      if (!mobileMenu || !navbar) return;
 
-    menuOpen = !menuOpen;
-    mobileMenu.classList.toggle('menu-open', menuOpen);
-    toggleBtn.classList.toggle('is-active', menuOpen);
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('menu-open', menuOpen);
+      toggleBtn.classList.toggle('is-active', menuOpen);
 
-    const lines = toggleBtn.querySelectorAll<HTMLElement>('.burger-line');
+      var lines = toggleBtn.querySelectorAll('.burger-line');
 
-    if (menuOpen) {
-      lines[0].style.transform = 'translateY(6.5px) rotate(45deg)';
-      lines[1].style.opacity = '0';
-      lines[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
-      document.body.style.overflow = 'hidden';
-      navbar.classList.add('nav-solid');
-      navbar.classList.remove('nav-transparent');
-      showNavbar();
-    } else {
-      lines[0].style.transform = 'none';
-      lines[1].style.opacity = '1';
-      lines[2].style.transform = 'none';
-      document.body.style.overflow = '';
-      updateNavbarBackground();
-    }
-    
-  });
+      if (menuOpen) {
+        lines[0].style.transform = 'translateY(6.5px) rotate(45deg)';
+        lines[1].style.opacity = '0';
+        lines[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
+        document.body.style.overflow = 'hidden';
+        navbar.classList.add('nav-solid');
+        navbar.classList.remove('nav-transparent');
+        showNavbar();
+      } else {
+        closeMobileMenu();
+      }
+    });
+  }
 </script>

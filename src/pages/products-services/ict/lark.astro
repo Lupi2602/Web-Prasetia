@@ -43,6 +43,8 @@ const showcase = [
   { image: '/images/herolark/herolark8.png', caption: 'Digitize Your Workflows & Security' },
   { image: '/images/herolark/herolark9.png', caption: 'All Your Work In One Place' },
 ];
+
+const larkLetters = ['L', 'a', 'r', 'k'];
 ---
 
 <MainLayout title="Lark | PT Prasetia Dwidharma" transparentNavbar={true}>
@@ -54,11 +56,8 @@ const showcase = [
 
     <div class="absolute inset-0" aria-hidden="true">
       <img src={OFFICE_BG_URL} alt="" class="h-full w-full object-cover" loading="eager" decoding="async" />
-      <!-- dark-to-blue wash, left to right, keeps text legible -->
       <div class="absolute inset-0 bg-gradient-to-r from-[#08152F]/85 via-[#0A2472]/55 to-blue-400/20"></div>
-      <!-- top fade so the transparent navbar still reads clearly -->
       <div class="absolute inset-0 bg-gradient-to-b from-[#08152F]/60 via-transparent to-transparent"></div>
-      <!-- bottom fade: bright blue -> white, merges straight into the next section -->
       <div class="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent via-blue-100/40 to-white"></div>
     </div>
 
@@ -69,9 +68,14 @@ const showcase = [
       <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
 
         <div class="lg:col-span-6" data-reveal>
-          <h1 class="font-display font-extrabold leading-[0.85] tracking-tight text-[clamp(4.5rem,10vw,8.5rem)]"
-              data-reveal data-delay="150">
-            LARK<span class="text-sky-300">.</span>
+          <h1
+            id="lark-wordmark"
+            class="lark-logo font-display font-extrabold leading-[0.85] tracking-tight text-[clamp(3.25rem,8vw,6.5rem)]"
+            data-reveal data-delay="150" aria-label="Lark"
+          >
+            {larkLetters.map((letter) => (
+              <span class="lark-letter" aria-hidden="true">{letter}</span>
+            ))}
           </h1>
 
           <p class="mt-6 max-w-lg text-xl font-medium leading-snug text-white lg:text-2xl"
@@ -92,15 +96,10 @@ const showcase = [
           </div>
 
           <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal data-delay="550">
-            <a href={TRY_FREE_URL} target="_blank" rel="noopener noreferrer"
-               class="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-blue-700 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_rgba(255,255,255,0.5)]">
+            <a href={TRY_FREE_URL} target="_blank" rel="noopener noreferrer" class="btn-elegant btn-elegant-primary">
               Try for Free
-              <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
             </a>
-            <a href={CATALOG_URL} target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 rounded-full border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:border-white hover:bg-white/10">
+            <a href={CATALOG_URL} target="_blank" rel="noopener noreferrer" class="btn-elegant btn-elegant-outline">
               Download Catalog
             </a>
           </div>
@@ -131,7 +130,7 @@ const showcase = [
   </section>
 
   <!-- =============================================================
-       FEATURES — bright blue + white, subtle photo texture
+       FEATURES
   ============================================================== -->
   <section class="relative overflow-hidden bg-white py-24 lg:py-32">
     <div class="pointer-events-none absolute inset-0" aria-hidden="true" style="opacity:0.08;">
@@ -144,7 +143,7 @@ const showcase = [
       <div class="grid grid-cols-1 gap-16 lg:grid-cols-12">
 
         <div class="lg:col-span-5" data-reveal>
-          <h2 class="font-display text-[clamp(2.25rem,4.5vw,3.75rem)] font-extrabold leading-[0.95] tracking-tight text-blue-600">
+          <h2 class="font-display text-[clamp(1.75rem,3vw,2.75rem)] font-extrabold leading-[1.1] tracking-tight text-blue-600">
             All your work
             <br/>in one place
           </h2>
@@ -225,7 +224,7 @@ const showcase = [
   <section id="story" class="relative bg-blue-50/50 py-24 lg:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <div class="mb-16 max-w-xl" data-reveal>
-        <h2 class="font-display text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-tight tracking-tight text-slate-900">
+        <h2 class="font-display text-[clamp(1.5rem,2.6vw,2.25rem)] font-extrabold leading-tight tracking-tight text-slate-900">
           Lark: Solution for the New Normal
         </h2>
       </div>
@@ -279,12 +278,12 @@ const showcase = [
   </section>
 
   <!-- =============================================================
-       SHOWCASE
+       SHOWCASE — draggable horizontal scroll, left-aligned, autoplay
   ============================================================== -->
   <section class="relative overflow-hidden bg-white py-24 lg:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
-      <div class="mb-12 flex flex-wrap items-end justify-between gap-6" data-reveal>
-        <h2 class="font-display text-[clamp(1.85rem,3.5vw,2.75rem)] font-extrabold leading-tight tracking-tight text-slate-900">
+      <div class="mb-10 flex flex-wrap items-end justify-between gap-6" data-reveal>
+        <h2 class="font-display text-[clamp(1.4rem,2.2vw,2rem)] font-extrabold leading-tight tracking-tight text-slate-900">
           A closer look at the platform
         </h2>
         <div class="flex items-center gap-2">
@@ -305,15 +304,15 @@ const showcase = [
     </div>
 
     <div id="showcase-track"
-         class="showcase-track flex snap-x snap-mandatory gap-8 overflow-x-auto px-[12vw] pb-10 scrollbar-hide sm:px-[20vw] lg:px-[26vw]"
-         style="scroll-padding-left: 26vw;">
+         class="showcase-track flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-10 scrollbar-hide lg:px-12"
+         style="scroll-padding-left: 1.5rem;">
       {showcase.map((s, i) => (
-        <button type="button" class="showcase-card group w-[72vw] flex-shrink-0 snap-center sm:w-[420px]"
+        <button type="button" class="showcase-card group w-[78vw] flex-shrink-0 snap-start sm:w-[380px]"
                 data-showcase-card data-index={i} data-reveal data-delay={80 * i}>
           <div class="relative overflow-hidden rounded-2xl shadow-lg" style="aspect-ratio: 3 / 2;">
             <img src={s.image} alt={s.caption}
                  class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                 loading="lazy" decoding="async" />
+                 loading="lazy" decoding="async" draggable="false" />
             <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/0 to-transparent"></div>
             <span class="pointer-events-none absolute left-4 top-4 rounded-full bg-white/85 px-2.5 py-1 text-xs font-semibold text-slate-700">
               {String(i + 1).padStart(2, '0')} / {String(showcase.length).padStart(2, '0')}
@@ -332,7 +331,7 @@ const showcase = [
   </section>
 
   <!-- =============================================================
-       FINAL CTA — flows straight into the footer (no gap)
+       FINAL CTA
   ============================================================== -->
   <section class="relative overflow-hidden pt-28 pb-28 text-white lg:pt-36 lg:pb-36">
     <div class="absolute inset-0" aria-hidden="true">
@@ -341,7 +340,7 @@ const showcase = [
     </div>
 
     <div class="relative z-10 mx-auto max-w-3xl px-6 text-center lg:px-12" data-reveal>
-      <h2 class="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold leading-[1.05] tracking-tight">
+      <h2 class="font-display text-[clamp(1.6rem,2.8vw,2.5rem)] font-extrabold leading-[1.15] tracking-tight">
         Your team's next favorite workspace is one click away
       </h2>
       <p class="mx-auto mt-5 max-w-lg text-white/85">
@@ -351,15 +350,10 @@ const showcase = [
       </p>
 
       <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-        <a href={TRY_FREE_URL} target="_blank" rel="noopener noreferrer"
-           class="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-blue-700 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_rgba(255,255,255,0.5)]">
+        <a href={TRY_FREE_URL} target="_blank" rel="noopener noreferrer" class="btn-elegant btn-elegant-primary">
           Try for Free
-          <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
         </a>
-        <a href={CATALOG_URL} target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center gap-2 rounded-full border border-white/40 px-8 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:border-white hover:bg-white/10">
+        <a href={CATALOG_URL} target="_blank" rel="noopener noreferrer" class="btn-elegant btn-elegant-outline">
           Download Catalog
         </a>
       </div>
@@ -401,6 +395,26 @@ const showcase = [
   .hero-float { animation: hero-bob 6s ease-in-out infinite; }
   @keyframes hero-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
+  /* ---------- Lark animated wordmark (JS-controlled stagger + hold) ---------- */
+  .lark-logo { display: inline-flex; }
+  .lark-letter {
+    display: inline-block;
+    background-image: linear-gradient(90deg, #60a5fa, #a78bfa, #2dd4bf, #60a5fa);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    animation: lark-gradient-move 7s linear infinite;
+  }
+  .lark-letter.is-visible { opacity: 1; transform: translateY(0); }
+  @keyframes lark-gradient-move {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+  }
+
   .story-nav-btn.is-active .story-nav-num { color: #2563eb; }
   .story-nav-btn.is-active .story-nav-label { color: #0f172a; }
   .story-nav-btn.is-active .story-nav-teaser { color: #475569; }
@@ -411,10 +425,56 @@ const showcase = [
 
   .scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
   .scrollbar-hide::-webkit-scrollbar { display: none; }
-  .showcase-track { scroll-behavior: smooth; }
-  .showcase-card { transform: scale(0.86); opacity: 0.55; transition: transform 0.4s ease, opacity 0.4s ease; cursor: pointer; }
-  .showcase-card.is-centered { transform: scale(1); opacity: 1; }
+
+  /* ---------- Showcase: draggable, left-aligned horizontal scroll ---------- */
+  .showcase-track {
+    scroll-behavior: smooth;
+    cursor: grab;
+  }
+  .showcase-track.is-dragging {
+    scroll-behavior: auto;
+    cursor: grabbing;
+    scroll-snap-type: none;
+    user-select: none;
+  }
+  .showcase-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .showcase-card:hover { transform: translateY(-4px); }
   .showcase-dot.is-active { width: 1.5rem; border-radius: 9999px; background-color: #2563eb; }
+
+  /* ---------- Elegant CTA buttons (no arrow icon) ---------- */
+  .btn-elegant {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    padding: 0.9rem 2.1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
+  }
+  .btn-elegant-primary {
+    background-color: #fff;
+    color: #1d4ed8;
+    box-shadow: 0 8px 20px -10px rgba(255,255,255,0.35);
+  }
+  .btn-elegant-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -12px rgba(255,255,255,0.5);
+  }
+  .btn-elegant-outline {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.4);
+  }
+  .btn-elegant-outline:hover {
+    border-color: rgba(255,255,255,0.85);
+    background-color: rgba(255,255,255,0.08);
+    transform: translateY(-2px);
+  }
 
   .lightbox {
     position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center;
@@ -434,10 +494,10 @@ const showcase = [
 
   @media (prefers-reduced-motion: reduce) {
     [data-reveal], [data-reveal].is-visible { opacity: 1 !important; transform: none !important; transition: none !important; }
-    .hero-float, .story-progress-fill.is-animating { animation: none !important; }
+    .hero-float, .story-progress-fill.is-animating, .lark-letter { animation: none !important; }
     .story-image { transition: none !important; }
+    .lark-letter { opacity: 1 !important; transform: none !important; background-position: 0% 50% !important; }
   }
-  
 </style>
 
 <script>
@@ -484,6 +544,33 @@ const showcase = [
   lightboxClose?.addEventListener('click', closeLightbox);
   lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+  /* ---------- Lark wordmark: smooth stagger-in, hold 3s, fade out, repeat ---------- */
+  const larkLetters = document.querySelectorAll<HTMLElement>('#lark-wordmark .lark-letter');
+  if (larkLetters.length) {
+    if (prefersReducedMotion) {
+      larkLetters.forEach((l) => l.classList.add('is-visible'));
+    } else {
+      const stagger = 420;   // ms between each letter appearing — smooth, not rushed
+      const holdTime = 3000; // stay as the full word "Lark" for ~3s
+      const pauseTime = 700; // brief pause on blank before looping again
+
+      let i = 0;
+      function showNext() {
+        if (i < larkLetters.length) {
+          larkLetters[i].classList.add('is-visible');
+          i++;
+          window.setTimeout(showNext, stagger);
+        } else {
+          window.setTimeout(() => {
+            larkLetters.forEach((l) => l.classList.remove('is-visible'));
+            window.setTimeout(() => { i = 0; showNext(); }, pauseTime);
+          }, holdTime);
+        }
+      }
+      showNext();
+    }
+  }
 
   const storyImages = document.querySelectorAll<HTMLElement>('[data-story-image]');
   const storyNavBtns = document.querySelectorAll<HTMLButtonElement>('[data-story-nav]');
@@ -538,7 +625,8 @@ const showcase = [
     });
   }
 
-  const track = document.getElementById('showcase-track');
+  /* ---------- Showcase: draggable horizontal scroll + autoplay ---------- */
+  const track = document.getElementById('showcase-track') as HTMLElement | null;
   const prevBtn = document.getElementById('showcase-prev');
   const nextBtn = document.getElementById('showcase-next');
   const cards = document.querySelectorAll<HTMLButtonElement>('[data-showcase-card]');
@@ -552,39 +640,35 @@ const showcase = [
   ];
 
   if (track && cards.length) {
-    const updateCenterState = () => {
-      const trackRect = track.getBoundingClientRect();
-      const center = trackRect.left + trackRect.width / 2;
-      let closestIndex = 0;
-      let closestDist = Infinity;
+    const getStep = () => {
+      const first = cards[0];
+      const rect = first.getBoundingClientRect();
+      const style = window.getComputedStyle(track);
+      const gap = parseFloat(style.columnGap || style.gap || '24');
+      return rect.width + gap;
+    };
 
-      cards.forEach((card) => {
-        const rect = card.getBoundingClientRect();
-        const cardCenter = rect.left + rect.width / 2;
-        const dist = Math.abs(cardCenter - center);
-        card.classList.toggle('is-centered', dist < rect.width / 2);
-        if (dist < closestDist) { closestDist = dist; closestIndex = Number(card.dataset.index); }
-      });
+    const maxScroll = () => track.scrollWidth - track.clientWidth;
 
+    const updateActiveDot = () => {
+      const step = getStep();
+      const index = Math.round(track.scrollLeft / step);
       dots.forEach((dot) => {
-        dot.classList.toggle('is-active', Number(dot.dataset.showcaseDot) === closestIndex);
+        dot.classList.toggle('is-active', Number(dot.dataset.showcaseDot) === Math.min(Math.max(index, 0), dots.length - 1));
       });
     };
 
     let ticking = false;
     track.addEventListener('scroll', () => {
       if (!ticking) {
-        window.requestAnimationFrame(() => { updateCenterState(); ticking = false; });
+        window.requestAnimationFrame(() => { updateActiveDot(); ticking = false; });
         ticking = true;
       }
     });
-    window.addEventListener('resize', updateCenterState);
-    updateCenterState();
+    updateActiveDot();
 
     const scrollByCard = (direction: 1 | -1) => {
-      const card = track.querySelector<HTMLElement>('.showcase-card');
-      const distance = card ? card.getBoundingClientRect().width + 32 : 420;
-      track.scrollBy({ left: distance * direction, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+      track.scrollBy({ left: getStep() * direction, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
     };
     prevBtn?.addEventListener('click', () => scrollByCard(-1));
     nextBtn?.addEventListener('click', () => scrollByCard(1));
@@ -592,20 +676,66 @@ const showcase = [
     dots.forEach((dot) => {
       dot.addEventListener('click', () => {
         const index = Number(dot.dataset.showcaseDot);
-        cards[index]?.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+        track.scrollTo({ left: getStep() * index, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
       });
     });
 
+    // autoplay — pauses on hover / drag / touch
+    let autoplayTimer: number | undefined;
+    const startAutoplay = () => {
+      if (prefersReducedMotion) return;
+      window.clearInterval(autoplayTimer);
+      autoplayTimer = window.setInterval(() => {
+        const step = getStep();
+        const next = track.scrollLeft + step;
+        track.scrollTo({ left: next >= maxScroll() - 10 ? 0 : next, behavior: 'smooth' });
+      }, 3500);
+    };
+    const stopAutoplay = () => window.clearInterval(autoplayTimer);
+
+    // click-and-drag to scroll (mouse)
+    let isDown = false;
+    let dragged = false;
+    let startX = 0;
+    let startScroll = 0;
+
+    track.addEventListener('mousedown', (e) => {
+      isDown = true;
+      dragged = false;
+      track.classList.add('is-dragging');
+      startX = e.pageX;
+      startScroll = track.scrollLeft;
+      stopAutoplay();
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      const delta = e.pageX - startX;
+      if (Math.abs(delta) > 4) dragged = true;
+      track.scrollLeft = startScroll - delta;
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (!isDown) return;
+      isDown = false;
+      track.classList.remove('is-dragging');
+      startAutoplay();
+    });
+
+    track.addEventListener('touchstart', stopAutoplay, { passive: true });
+    track.addEventListener('touchend', startAutoplay);
+    track.addEventListener('mouseenter', stopAutoplay);
+    track.addEventListener('mouseleave', () => { if (!isDown) startAutoplay(); });
+
     cards.forEach((card) => {
-      card.addEventListener('click', () => {
+      card.addEventListener('click', (e) => {
+        if (dragged) { e.preventDefault(); return; } // ignore click right after a drag
         const index = Number(card.dataset.index);
         const data = showcaseData[index];
-        if (!card.classList.contains('is-centered')) {
-          card.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
-          return;
-        }
         openLightbox(data.image, data.caption);
       });
     });
+
+    startAutoplay();
   }
 </script>

@@ -1,23 +1,52 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
 
+/* ════════════════════════════════════════════════════════════════
+   🔧 PENGATURAN UMUM — edit bagian ini kalau ada perubahan info
+   lamaran (email, link, batas waktu, dll)
+════════════════════════════════════════════════════════════════ */
+const applyEmail = "hrd@prasetia.co.id";
+const applyLink = "https://prasetia.sg.larksuite.com/share/base/form/shrusRG899ountEjCaWNi29Z5lg"; // link form lamaran — kosongkan "" untuk sembunyikan tombol
+const closingDate = "Rolling Recruitment — lowongan dibuka sampai posisi terisi";
+
+/* ════════════════════════════════════════════════════════════════
+   📋 DAFTAR LOWONGAN — TEMPLATE MUDAH DIEDIT
+   ════════════════════════════════════════════════════════════════
+   CARA TAMBAH LOWONGAN BARU:
+   1. Copy 1 blok "{ ... }," di bawah (dari tanda kurung kurawal
+      pembuka sampai penutup + koma).
+   2. Paste di posisi paling atas/bawah array (di antara tanda [ ]).
+   3. Ganti isi title, company, location, dan qualifications sesuai
+      kebutuhan. Setiap baris qualifications = 1 poin kualifikasi.
+
+   CARA HAPUS LOWONGAN (posisi sudah ditutup):
+   - Hapus 1 blok "{ ... }," secara utuh.
+
+   CATATAN:
+   - "additionalSections" itu OPSIONAL. Kalau lowongan tidak perlu
+     bagian tambahan (misal "Personality Traits"), cukup hapus
+     seluruh baris additionalSections: [ ... ] pada blok itu.
+   - "location" usahakan singkat (1 baris) karena tampil di kanan
+     daftar — detail lokasi lengkap bisa taruh di kualifikasi.
+   - Jangan hapus tanda kutip " " dan koma , supaya kode tidak error.
+════════════════════════════════════════════════════════════════ */
 const vacancies = [
   {
     title: "ENGINEER ON SITE (EoS)",
     company: "PT PRASETIA DWIDHARMA TEKNOLOGI",
-    location: "Jabodetabek Area (Jakarta, Bogor, Depok, Tangerang, Bekasi, Karawang, Sukabumi)",
+    location: "Jabodetabek Area",
     qualifications: [
-      "Minimum D3 in Telecommunications Engineering",
-      "Proficient in using measuring instruments (Ampere Meter) and tools (pliers, screwdrivers, etc.)",
-      "Capable of performing fiber optic core (Splicing)",
-      "Able to read Maps",
-      "Skilled in using/operating OTDR (Optical Time Domain Reflectometry) and OPM (Optical Power Meter) devices",
-      "Competent in using/operating GPS devices (Garmin)",
-      "Understands the concept of maintenance for fiber optic networks",
-      "Familiar with fiber optic networks (ISP, OSP)",
-      "Additional value if knowledgeable in CME, AC/DC electrical systems, and generators",
-      "Able to read flow charts, technical drawings, and procedures",
-      "Willing to be placed in the Jabodetabek area"
+      "Minimum D3 Teknik Telekomunikasi",
+      "Mahir menggunakan alat ukur (Ampere Meter) dan perkakas (tang, obeng, dll)",
+      "Mampu melakukan splicing fiber optic core",
+      "Mampu membaca peta (Maps)",
+      "Terampil mengoperasikan OTDR (Optical Time Domain Reflectometry) dan OPM (Optical Power Meter)",
+      "Kompeten mengoperasikan perangkat GPS (Garmin)",
+      "Memahami konsep maintenance jaringan fiber optic",
+      "Familiar dengan jaringan fiber optic (ISP, OSP)",
+      "Nilai tambah jika memahami CME, sistem elektrikal AC/DC, dan genset",
+      "Mampu membaca flow chart, gambar teknis, dan prosedur",
+      "Bersedia ditempatkan di area Jabodetabek (Jakarta, Bogor, Depok, Tangerang, Bekasi, Karawang, Sukabumi)"
     ]
   },
   {
@@ -25,12 +54,12 @@ const vacancies = [
     company: "PT PRASETIA QUBE WELLNESS",
     location: "Bali",
     qualifications: [
-      "Experience in sales or wellness industry minimum of 2 years",
-      "Proven track record of successful sales experience",
-      "Excellent communication and negotiation skills",
-      "Strong ability to work independently and as part of a team",
-      "Ability to speak English",
-      "Placement in Bali"
+      "Pengalaman di bidang sales atau industri wellness minimal 2 tahun",
+      "Rekam jejak penjualan yang terbukti baik",
+      "Kemampuan komunikasi dan negosiasi yang baik",
+      "Mampu bekerja mandiri maupun dalam tim",
+      "Mampu berbahasa Inggris",
+      "Penempatan di Bali"
     ]
   },
   {
@@ -38,33 +67,31 @@ const vacancies = [
     company: "PT PRASETIA DWIDHARMA",
     location: "Jakarta",
     qualifications: [
-      "Female, single",
-      "Average height: 160 cm, average weight: 50 kg (considered but not mandatory)",
-      "Fresh graduate from a reputable university",
-      "Chemistry undergraduate (business graduate will be a plus score)",
-      "Minimum GPA: 3.5 out of 4.0",
-      "Minimum TOEFL IBT 90 / TOEFL PBT 550 / IELTS 7",
-      "Academic papers are a plus",
-      "Willing to go on Business Trips",
-      "Placement: Jakarta"
+      "Fresh graduate dari universitas terkemuka",
+      "Lulusan Kimia (lulusan bisnis menjadi nilai tambah)",
+      "Minimal IPK 3.5 dari skala 4.0",
+      "Minimal TOEFL IBT 90 / TOEFL PBT 550 / IELTS 7",
+      "Memiliki karya akademik menjadi nilai tambah",
+      "Bersedia melakukan perjalanan dinas",
+      "Penempatan: Jakarta"
     ],
     additionalSections: [
       {
-        heading: "Additional Working Traits",
+        heading: "Kemampuan Kerja Tambahan",
         items: [
-          "Strong table manners and professional demeanor",
-          "Excellent presentation skills",
-          "Proficient in data analysis"
+          "Table manner dan sikap profesional yang baik",
+          "Kemampuan presentasi yang baik",
+          "Mahir dalam analisis data"
         ]
       },
       {
-        heading: "Personality Traits",
+        heading: "Ciri Kepribadian",
         items: [
-          "Extroverted, enjoys engaging with people",
-          "Smart and quick to learn",
-          "Talkative and articulate",
-          "Intimate, able to build trust and rapport",
-          "Persuasive in communication"
+          "Ekstrovert, senang berinteraksi dengan orang lain",
+          "Cerdas dan cepat belajar",
+          "Komunikatif dan mudah bergaul",
+          "Mampu membangun kepercayaan dan hubungan baik",
+          "Persuasif dalam berkomunikasi"
         ]
       }
     ]
@@ -74,11 +101,11 @@ const vacancies = [
     company: "PT PRASETIA DWIDHARMA",
     location: "Jakarta",
     qualifications: [
-      "Bachelor Degree or higher in Marketing, Communication, Business Management, or related field",
-      "Minimum 2 years of work experience in related field, such as SaaS company, tech company or any digital related field, preferably in supervisor or equivalent position",
-      "Strong analytical skills to interpret market data, identify opportunities, and measure marketing performance",
-      "Solid skills in marketing planning and strategy, branding, product development, promotion, sales, and brand management",
-      "Event Management"
+      "Minimal S1 di bidang Marketing, Komunikasi, Manajemen Bisnis, atau bidang terkait",
+      "Minimal 2 tahun pengalaman kerja di bidang terkait, seperti perusahaan SaaS, teknologi, atau digital, lebih disukai pada posisi supervisor atau setara",
+      "Kemampuan analisis kuat untuk membaca data pasar, mengidentifikasi peluang, dan mengukur performa marketing",
+      "Menguasai perencanaan dan strategi marketing, branding, pengembangan produk, promosi, penjualan, dan brand management",
+      "Berpengalaman dalam Event Management"
     ]
   },
   {
@@ -86,15 +113,15 @@ const vacancies = [
     company: "PT PRASETIA DWIDHARMA TEKNOLOGI (PDT)",
     location: "Bali",
     qualifications: [
-      "Education Min. S1",
-      "Experience Min. 3-4 years in the same field",
-      "Max age 40th",
-      "Master Microsoft Office, especially Excel",
-      "Have an interest in the world of Sales",
-      "Target oriented",
-      "Able to establish good relationships with customers",
-      "Have good leadership skills",
-      "Placement in Bali"
+      "Minimal pendidikan S1",
+      "Minimal 3-4 tahun pengalaman di bidang yang sama",
+      "Usia maksimal 40 tahun",
+      "Menguasai Microsoft Office, terutama Excel",
+      "Memiliki minat di bidang sales",
+      "Berorientasi pada target",
+      "Mampu membangun hubungan baik dengan pelanggan",
+      "Memiliki kemampuan leadership yang baik",
+      "Penempatan di Bali"
     ]
   },
   {
@@ -102,156 +129,562 @@ const vacancies = [
     company: "PT PRASETIA DWIDHARMA",
     location: "Jakarta / Regional",
     qualifications: [
-      "University degree or equivalent experience. MBA will be an advantage",
-      "Experienced in selling and developing the business portfolio in APAC; focusing on Indonesia market",
-      "Prior sales or business development relevant experience working with SMB, enterprises and/or growth-stage startups for SaaS/IT product",
-      "Problem solving ability in a sales environment including the ability to qualify and close business",
-      "Excellent customer skills and people management skills",
-      "Understanding of competitive landscape for growing the business' revenue and devising strategies / programs for success",
-      "Detail oriented, able to track and organize information, data and communications efficiently to ensure business issues are dealt with promptly and properly",
-      "Ability to negotiate agreements and/or reach consensus with all levels and positions within the organization",
-      "Considerable knowledge of current trends and best practices",
-      "Considerable experience in F&B and Hospitality business will be an advantage",
-      "Excellent written and oral communication skills",
-      "Fluency in English & Bahasa Indonesia will be an added advantage to bridge communication with local Indo customers/partners"
+      "Gelar universitas atau pengalaman setara. MBA menjadi nilai tambah",
+      "Berpengalaman menjual dan mengembangkan portofolio bisnis di APAC, dengan fokus pasar Indonesia",
+      "Pengalaman relevan di bidang sales atau business development bersama SMB, enterprise, dan/atau startup tahap pertumbuhan untuk produk SaaS/IT",
+      "Kemampuan problem solving dalam lingkungan sales, termasuk kemampuan qualify dan closing bisnis",
+      "Kemampuan layanan pelanggan dan people management yang sangat baik",
+      "Memahami lanskap kompetitif untuk mengembangkan strategi/program peningkatan revenue",
+      "Detail oriented, mampu melacak dan mengorganisir informasi, data, dan komunikasi secara efisien",
+      "Mampu bernegosiasi dan mencapai kesepakatan dengan berbagai level dan posisi dalam organisasi",
+      "Memiliki pengetahuan luas tentang tren dan best practice terkini",
+      "Pengalaman di bisnis F&B dan Hospitality menjadi nilai tambah",
+      "Kemampuan komunikasi tulisan dan lisan yang sangat baik",
+      "Fasih berbahasa Inggris & Indonesia menjadi nilai tambah untuk menjembatani komunikasi dengan klien/mitra lokal"
     ]
   }
+
+  // 👆 Tambahkan/hapus blok lowongan di atas sesuai kebutuhan
 ];
 ---
 
-<MainLayout title="Careers | PT Prasetia Dwidharma">
-  <!-- Hero Section -->
-  <div class="relative bg-gradient-to-r from-red-900 via-gray-900 to-black text-white py-20 md:py-28 overflow-hidden">
-    <div class="absolute inset-0 opacity-25">
-      <img src="/images/hero/hero4.jpg" alt="Career at Prasetia" class="w-full h-full object-cover" />
-    </div>
-    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+<MainLayout title="Careers | PT Prasetia Dwidharma" transparentNavbar={true}>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-600/30 border border-red-500/40 text-red-200 text-xs font-semibold uppercase tracking-wider mb-6">
-        Join Our Team
-      </div>
-      <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-        Maju Dan Berkembang Bersama Kami
-      </h1>
-      <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
-        Kami mencari individu yang tepat dan sesuai harapan. Kami akan memberikan kesempatan pelatihan dan karir, dikombinasikan dengan dorongan positif dari dalam diri untuk menggali lebih dalam potensi Anda.
-      </p>
-    </div>
-  </div>
+  <style>
+    /* ─── Reveal animation (dipakai di semua section) ─── */
+    .career-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .career-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .career-reveal-d1 { transition-delay: 0.08s; }
+    .career-reveal-d2 { transition-delay: 0.16s; }
+    .career-reveal-d3 { transition-delay: 0.24s; }
 
-  <!-- Open Vacancies List -->
-  <div class="py-16 md:py-24 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
-          OPEN VACANCIES
-        </h2>
-        <p class="text-gray-600">
-          Explore current employment opportunities across our business divisions.
+    @media (prefers-reduced-motion: reduce) {
+      .career-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* ─── Cegah scroll horizontal di seluruh halaman career ─── */
+    .career-page-wrap {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    /* ─── HERO ─── */
+    .career-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: #111;
+    }
+    @media (max-width: 640px) {
+      .career-hero { min-height: 86vh; }
+    }
+    .career-hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      transform: scale(1.03);
+    }
+    .career-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(20, 20, 20, 0.12) 0%,
+        rgba(20, 20, 20, 0.35) 55%,
+        rgba(12, 12, 12, 0.72) 100%
+      );
+    }
+    .career-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+    }
+    .career-hero-eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: rgba(255,255,255,0.5);
+    }
+
+    /* ─── DIVIDER ─── */
+    .career-divider {
+      height: 2px;
+      width: 40px;
+      background: #dc2626;
+      border-radius: 2px;
+    }
+
+    /* ─── Section label kecil di atas judul (netral, tidak neon) ─── */
+    .career-eyebrow-red {
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #b91c1c;
+    }
+
+    /* ─── POSITIONS: list minimalis ─── */
+    .career-positions {
+      background: #fff;
+      overflow-x: hidden;
+    }
+    .career-position-row {
+      border-top: 1px solid #ececec;
+      cursor: pointer;
+      transition: background 0.25s ease;
+    }
+    .career-position-row:last-child {
+      border-bottom: 1px solid #ececec;
+    }
+    .career-position-row:hover {
+      background: #fafafa;
+    }
+    .career-position-header {
+      display: grid;
+      grid-template-columns: 1.75rem minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 1.3rem 0;
+    }
+    @media (max-width: 640px) {
+      .career-position-header {
+        grid-template-columns: 1.5rem minmax(0, 1fr) auto;
+        gap: 0.6rem;
+        padding: 1rem 0;
+      }
+    }
+    .career-position-num {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #dc2626;
+      font-variant-numeric: tabular-nums;
+    }
+    .career-position-title-wrap {
+      min-width: 0; /* penting: supaya title bisa wrap/truncate, tidak dorong layout */
+    }
+    .career-position-title {
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #1a1a1a;
+      font-size: 0.98rem;
+      line-height: 1.3;
+      transition: color 0.2s;
+      overflow-wrap: break-word;
+    }
+    @media (max-width: 640px) {
+      .career-position-title { font-size: 0.88rem; }
+    }
+    .career-position-row:hover .career-position-title {
+      color: #b91c1c;
+    }
+    .career-position-company {
+      font-size: 0.74rem;
+      color: #9ca3af;
+      font-weight: 500;
+      margin-top: 0.15rem;
+      overflow-wrap: break-word;
+    }
+    .career-position-meta {
+      font-size: 0.72rem;
+      color: #a9a9a9;
+      font-weight: 500;
+      text-align: right;
+      max-width: 9rem;
+      line-height: 1.4;
+    }
+    @media (min-width: 768px) {
+      .career-position-meta { max-width: 13rem; }
+    }
+    .career-position-arrow {
+      width: 16px;
+      height: 16px;
+      color: #cfcfcf;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
+      flex-shrink: 0;
+    }
+    .career-position-row.is-open .career-position-arrow {
+      transform: rotate(90deg);
+      color: #dc2626;
+    }
+
+    /* ─── Accordion detail panel ─── */
+    .career-detail-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .career-detail-panel.is-open {
+      max-height: 1400px;
+    }
+    .career-detail-inner {
+      padding-bottom: 1.75rem;
+      padding-left: calc(1.75rem + 0.85rem);
+      padding-right: 0.5rem;
+    }
+    @media (max-width: 640px) {
+      .career-detail-inner {
+        padding-left: calc(1.5rem + 0.6rem);
+      }
+    }
+
+    .career-qual-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .career-qual-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      padding: 0.45rem 0;
+      font-size: 0.84rem;
+      color: #555;
+      line-height: 1.55;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    .career-qual-list li:last-child { border-bottom: none; }
+    .career-qual-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #dc2626;
+      flex-shrink: 0;
+      margin-top: 0.5rem;
+    }
+    .career-section-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #b91c1c;
+    }
+
+    /* ─── CTA / Apply section — center, tanpa container, tanpa efek neon ─── */
+    .career-apply-section {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .career-apply-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      z-index: -2;
+    }
+    .career-apply-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(15, 15, 15, 0.6) 0%,
+        rgba(15, 15, 15, 0.5) 50%,
+        rgba(15, 15, 15, 0.68) 100%
+      );
+      z-index: -1;
+    }
+    .career-apply-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.78rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.01em;
+      transition: transform 0.2s ease, background 0.25s, border-color 0.25s;
+      white-space: nowrap;
+    }
+    .career-apply-btn:hover { transform: translateY(-2px); }
+    .career-apply-btn-ghost {
+      border: 1.5px solid rgba(255,255,255,0.4);
+      color: #fff;
+      background: rgba(0,0,0,0.2);
+    }
+    .career-apply-btn-ghost:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.65);
+    }
+    .career-apply-btn-solid {
+      background: #dc2626;
+      color: #fff;
+      border: 1.5px solid #dc2626;
+    }
+    .career-apply-btn-solid:hover { background: #b91c1c; border-color: #b91c1c; }
+
+    .career-antifraud {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: rgba(255,255,255,0.92);
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 8px;
+      padding: 0.6rem 1.05rem;
+      background: rgba(0, 0, 0, 0.35);
+    }
+  </style>
+
+  <div class="career-page-wrap">
+
+  <!-- ════════════════════════════════════
+       HERO
+  ════════════════════════════════════ -->
+  <section class="career-hero" aria-label="Career Hero">
+    <!-- 🖼️ Ganti gambar hero di sini kalau perlu -->
+    <img
+      src="/images/hero/hero1.jpg"
+      alt="Prasetia team working together"
+      class="career-hero-img"
+    />
+    <div class="career-hero-overlay" aria-hidden="true"></div>
+
+    <div class="relative z-10 w-full px-6 sm:px-10 lg:px-20 pb-14 md:pb-20">
+      <div class="max-w-3xl">
+        <p class="career-reveal career-hero-eyebrow mb-5">Open Positions</p>
+        <h1
+          class="career-reveal career-reveal-d1 text-white font-bold leading-tight mb-4"
+          style="font-size: clamp(1.6rem, 3.4vw, 2.6rem); letter-spacing: -0.02em; text-shadow: 0 2px 16px rgba(0,0,0,0.4);"
+        >
+          Bangun Babak<br/>Karir Berikutnya <span class="text-white/50">Bersama Kami.</span>
+        </h1>
+        <p class="career-reveal career-reveal-d2 text-white/80 text-sm md:text-base font-light max-w-lg leading-relaxed" style="text-shadow: 0 1px 8px rgba(0,0,0,0.35);">
+          Kami mencari individu yang tepat dan sesuai harapan — yang ingin tumbuh, belajar, dan memberi dampak nyata.
         </p>
       </div>
+    </div>
+  </section>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-        {vacancies.map((job) => (
-          <div class="bg-white rounded-2xl p-7 border border-gray-200 shadow-sm hover:border-red-200 hover:shadow-md transition-all flex flex-col justify-between h-full">
-            <div>
-              <div class="text-xs font-bold text-red-600 uppercase tracking-wider mb-2">
-                {job.company}
+  <!-- ════════════════════════════════════
+       PHILOSOPHY / INTRO
+  ════════════════════════════════════ -->
+  <section class="bg-white py-16 md:py-20 px-6 sm:px-10 lg:px-20">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
+        <div class="career-reveal">
+          <div class="career-divider mb-5"></div>
+          <h2
+            class="text-gray-900 font-bold leading-snug"
+            style="font-size: clamp(1.25rem, 2.1vw, 1.65rem); letter-spacing: -0.01em;"
+          >
+            Lebih dari sekadar pekerjaan — ini adalah perjalanan karir Anda.
+          </h2>
+        </div>
+        <div class="career-reveal career-reveal-d1 flex flex-col justify-center">
+          <p class="text-gray-500 text-sm md:text-base font-light leading-relaxed mb-4">
+            Di Prasetia, kami percaya bahwa setiap individu membawa potensi unik. Kami memberikan ruang untuk berkembang, lingkungan yang suportif, dan tantangan nyata yang akan membentuk Anda menjadi profesional terbaik.
+          </p>
+          <p class="text-gray-500 text-sm md:text-base font-light leading-relaxed">
+            Bergabunglah dengan tim kami dan jadilah bagian dari cerita besar Prasetia Group.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       OPEN POSITIONS — LIST
+  ════════════════════════════════════ -->
+  <section class="career-positions py-14 md:py-20 px-6 sm:px-10 lg:px-20" id="vacancies">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="career-reveal flex items-end justify-between mb-8 gap-4 flex-wrap">
+        <div>
+          <p class="career-eyebrow-red mb-2">Open Vacancies</p>
+          <h2
+            class="text-gray-900 font-bold leading-tight"
+            style="font-size: clamp(1.3rem, 2.3vw, 1.8rem); letter-spacing: -0.015em;"
+          >
+            Posisi Tersedia
+          </h2>
+        </div>
+        <p class="text-gray-400 text-xs md:text-sm">Klik posisi untuk melihat kualifikasi</p>
+      </div>
+
+      <div class="career-accordion">
+        {vacancies.map((job, idx) => (
+          <div
+            class="career-position-row career-reveal"
+            style={`transition-delay: ${0.06 * idx}s;`}
+            data-row
+          >
+            <div class="career-position-header" data-header>
+              <span class="career-position-num">
+                {String(idx + 1).padStart(2, '0')}
+              </span>
+
+              <div class="career-position-title-wrap">
+                <div class="career-position-title">{job.title}</div>
+                <div class="career-position-company">{job.company}</div>
               </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-2 leading-snug">
-                {job.title}
-              </h3>
-              <div class="flex items-center gap-1.5 text-xs text-gray-500 mb-6">
-                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+
+              <div class="flex items-center gap-2.5">
+                <span class="career-position-meta hidden sm:block">{job.location}</span>
+                <svg class="career-position-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
-                <span>{job.location}</span>
               </div>
+            </div>
 
-              <div class="mb-6">
-                <h4 class="text-xs font-bold text-gray-900 uppercase tracking-wider mb-3">
-                  Qualifications:
-                </h4>
-                <ul class="space-y-2 text-xs text-gray-600">
-                  {job.qualifications.map((q) => (
-                    <li class="flex items-start gap-2 leading-relaxed">
-                      <span class="text-red-500 font-bold mt-0.5">•</span>
+            <div class="career-detail-panel" data-panel>
+              <div class="career-detail-inner">
+                <p class="text-xs text-gray-400 font-medium mb-3 sm:hidden flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  {job.location}
+                </p>
+
+                <p class="career-section-label mb-3">Kualifikasi</p>
+                <ul class="career-qual-list max-w-2xl">
+                  {job.qualifications.map(q => (
+                    <li>
+                      <span class="career-qual-dot" aria-hidden="true"></span>
                       <span>{q}</span>
                     </li>
                   ))}
                 </ul>
+
+                {job.additionalSections && job.additionalSections.map(sec => (
+                  <div class="mt-5">
+                    <p class="career-section-label mb-2.5">{sec.heading}</p>
+                    <ul class="career-qual-list max-w-2xl">
+                      {sec.items.map(it => (
+                        <li>
+                          <span class="career-qual-dot" aria-hidden="true"></span>
+                          <span>{it}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
-
-              {job.additionalSections && job.additionalSections.map((sec) => (
-                <div class="mb-4 pt-3 border-t border-gray-100">
-                  <h4 class="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2">
-                    {sec.heading}:
-                  </h4>
-                  <ul class="space-y-1.5 text-xs text-gray-600">
-                    {sec.items.map((it) => (
-                      <li class="flex items-start gap-2 leading-relaxed">
-                        <span class="text-red-500 font-bold mt-0.5">•</span>
-                        <span>{it}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            <div class="mt-6 pt-4 border-t border-gray-100">
-              <a
-                href="mailto:hrd@prasetia.co.id?subject=Application%20for%20"
-                class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-900 hover:bg-red-600 text-white text-xs font-semibold rounded-lg transition-colors"
-              >
-                Apply via Email
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </a>
             </div>
           </div>
         ))}
       </div>
+    </div>
+  </section>
 
-      <!-- Application Details & Anti-Fraud Disclaimer -->
-      <div class="mt-16 bg-white rounded-2xl p-8 border border-gray-200 shadow-sm max-w-3xl mx-auto">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-gray-200">
-          <div>
-            <div class="text-xs uppercase font-bold text-gray-500 tracking-wider mb-1">
-              Send your CV to E-mail
-            </div>
-            <a href="mailto:hrd@prasetia.co.id" class="text-xl font-bold text-red-600 hover:underline">
-              hrd@prasetia.co.id
-            </a>
-            <div class="text-xs text-gray-500 mt-1">
-              Closing date / Batch: Max. 11 October, 2024 (Rolling recruitment)
-            </div>
-          </div>
-          <div>
-            <a
-              href="[APPLICATION LINK NEEDED]"
-              class="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg text-sm transition-colors shadow-sm"
-            >
-              Or Apply to this link
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <!-- ════════════════════════════════════
+       APPLICATION CTA (center, langsung di atas foto)
+  ════════════════════════════════════ -->
+  <section class="career-apply-section py-24 md:py-32 px-6 sm:px-10 lg:px-20">
+    <!-- 🖼️ Sengaja pakai gambar yang sama dengan hero agar halaman terasa menyatu -->
+    <img src="/images/hero/hero1.jpg" alt="" class="career-apply-img" aria-hidden="true" />
+    <div class="career-apply-overlay" aria-hidden="true"></div>
+
+    <div class="max-w-2xl mx-auto text-center flex flex-col items-center">
+      <div class="career-reveal flex flex-col items-center">
+
+        <p class="career-eyebrow-red mb-4" style="color: rgba(255,255,255,0.7);">Bergabung Dengan Kami</p>
+        <h2
+          class="text-white font-bold leading-snug mb-3"
+          style="font-size: clamp(1.35rem, 2.6vw, 2rem); letter-spacing: -0.015em; text-shadow: 0 2px 14px rgba(0,0,0,0.45);"
+        >
+          Siap untuk bergabung? Kirimkan lamaran Anda.
+        </h2>
+        <p class="text-white/80 text-sm md:text-base font-light mb-8 max-w-md" style="text-shadow: 0 1px 8px rgba(0,0,0,0.4);">
+          Kirim CV terbaik Anda dan jadilah bagian dari perjalanan Prasetia Group.
+        </p>
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-center gap-3 mb-6 w-full sm:w-auto">
+          <a href={`mailto:${applyEmail}`} class="career-apply-btn career-apply-btn-ghost">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            {applyEmail}
+          </a>
+
+          {applyLink && (
+            <a href={applyLink} target="_blank" rel="noopener noreferrer" class="career-apply-btn career-apply-btn-solid">
+              Apply via Link
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
             </a>
-          </div>
+          )}
         </div>
 
-        <div class="pt-6 text-center">
-          <div class="inline-flex items-center gap-2 text-xs font-bold text-red-600 bg-red-50 border border-red-200 px-4 py-2 rounded-lg">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-            </svg>
-            PROSES REKRUTMEN PRASETIA GROUP TIDAK DIPUNGUT BIAYA APAPUN
-          </div>
+        <p class="text-white/60 text-xs mb-7" style="text-shadow: 0 1px 6px rgba(0,0,0,0.35);">{closingDate}</p>
+
+        <div class="career-antifraud">
+          <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+          </svg>
+          PROSES REKRUTMEN PRASETIA GROUP TIDAK DIPUNGUT BIAYA APAPUN
         </div>
       </div>
     </div>
+  </section>
+
   </div>
+
 </MainLayout>
+
+<script>
+  // ─── Scroll reveal ───
+  const revealObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  );
+  document.querySelectorAll('.career-reveal').forEach(el => revealObserver.observe(el));
+
+  // ─── Accordion toggle ───
+  document.querySelectorAll('[data-row]').forEach(row => {
+    const header = row.querySelector('[data-header]') as HTMLElement | null;
+    const panel = row.querySelector('[data-panel]') as HTMLElement | null;
+    if (!header || !panel) return;
+
+    header.addEventListener('click', () => {
+      const isOpen = row.classList.contains('is-open');
+
+      document.querySelectorAll('[data-row].is-open').forEach(openRow => {
+        openRow.classList.remove('is-open');
+        const openPanel = openRow.querySelector('[data-panel]') as HTMLElement | null;
+        if (openPanel) openPanel.classList.remove('is-open');
+      });
+
+      if (!isOpen) {
+        row.classList.add('is-open');
+        panel.classList.add('is-open');
+      }
+    });
+  });
+</script>

@@ -1,176 +1,433 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
 
-const awards = [
-  {
-    issuer: "Mitratel",
-    title: "The Charter of Appreciation",
-    category: "Subcontractor Project Completion",
-    year: "Mitratel Award",
-    description: "Awarded to PT Prasetia Dwidharma in order of milestone project completion during the years operation."
-  },
-  {
-    issuer: "Mitratel",
-    title: "Piagam Penghargaan Kontribusi Terbaik",
-    category: "Regional Office Sumbagsel Merah",
-    year: "Palembang, 2014",
-    description: "Atas kontribusi terhadap keberhasilan Regional Office Sumbagsel Merah (Best Regional Office Award)."
-  },
-  {
-    issuer: "Mitratel",
-    title: "Mitra Project CORE Area 2",
-    category: "Performansi Terbaik",
-    year: "2015",
-    description: "Penghargaan sebagai Mitra Project CORE Area 2 dengan performansi terbaik tahun 2015."
-  },
-  {
-    issuer: "Mitratel",
-    title: "Mitra Project FLM Area 4",
-    category: "Performansi Terbaik",
-    year: "2015",
-    description: "Penghargaan sebagai Mitra Project FLM Area 4 dengan performansi terbaik tahun 2015."
-  },
-  {
-    issuer: "Tower Bersama Group",
-    title: "Best Project Subcontractor",
-    category: "New Build Capacity",
-    year: "TBG Award",
-    description: "Manajemen PT Tower Bersama Infrastructure, Tbk. memberikan penghargaan sebagai Best Project Subcontractor."
-  },
-  {
-    issuer: "Tower Bersama Group",
-    title: "Best Maintenance Subcontractor",
-    category: "Maintenance Vendor",
-    year: "TBG Award",
-    description: "Penghargaan atas kinerja pemeliharaan infrastruktur menara telekomunikasi terbaik secara berkelanjutan."
-  },
-  {
-    issuer: "Yayasan Konservasi",
-    title: "Sertifikat Wali Pohon",
-    category: "Environmental Sustainability",
-    year: "CSR Program",
-    description: "Penghargaan setinggi-tingginya atas partisipasi dan adopsi pohon konservasi hutan."
-  },
-  {
-    issuer: "Telkomsel",
-    title: "Certificate of Appreciation",
-    category: "Best Support NBE Mataram",
-    year: "2015 / 2019",
-    description: "Certificate of appreciation proudly presented to the most 'Made For Mataram' Best Support NBE NS Mataram."
-  },
-  {
-    issuer: "Tower Bersama Group",
-    title: "Most Progressive New Build MSS Application",
-    category: "TBG Yearly Award",
-    year: "Yogyakarta, 2018",
-    description: "Awarded as Most Progressive New Build MSS Application by PT Tower Bersama Infrastructure, Tbk."
-  },
-  {
-    issuer: "Tower Bersama Group",
-    title: "Best Project New Build Area 4",
-    category: "TBG Yearly Award",
-    year: "Yogyakarta, 2018",
-    description: "Awarded as Best Project New Build Area 4 by PT Tower Bersama Infrastructure, Tbk."
-  },
-  {
-    issuer: "Tower Bersama Group",
-    title: "Best Project New Build Area 1",
-    category: "TBG Yearly Award",
-    year: "Yogyakarta, 2018",
-    description: "Awarded as Best Project New Build Area 1 by PT Tower Bersama Infrastructure, Tbk."
-  },
-  {
-    issuer: "Tower Bersama Group",
-    title: "Best Project Microcellpole Area 1",
-    category: "TBG Yearly Award",
-    year: "Yogyakarta, 2018",
-    description: "Awarded as Best Project Microcellpole Area 1 by PT Tower Bersama Infrastructure, Tbk."
-  },
-  {
-    issuer: "Tower Bersama Group",
-    title: "Best Project Collocation Area 4",
-    category: "TBG Yearly Award",
-    year: "Yogyakarta, 2018",
-    description: "Awarded as Best Project Collocation Area 4 by PT Tower Bersama Infrastructure, Tbk."
-  },
-  {
-    issuer: "Tower Bersama Group",
-    title: "Vendor Maintenance Achievement Award",
-    category: "Maintenance Support",
-    year: "2015",
-    description: "Certificate of Appreciation for Medium Capacity Maintenance Subcontractor performance."
-  },
-  {
-    issuer: "Mitratel",
-    title: "Mitra Terbaik V FLM",
-    category: "First Line Maintenance",
-    year: "2016 / 2017",
-    description: "Diberikan kepada PT Prasetia Dwidharma sebagai Mitra Terbaik V FLM oleh Mitratel."
-  }
+const awardsRaw = [
+  { issuer: "Mitratel", title: "The Charter of Appreciation", category: "Subcontractor Project Completion", year: "Mitratel Award", description: "Diberikan kepada PT Prasetia Dwidharma atas pencapaian milestone proyek selama tahun berjalan." },
+  { issuer: "Mitratel", title: "Piagam Penghargaan Kontribusi Terbaik", category: "Regional Office Sumbagsel Merah", year: "Palembang, 2014", description: "Atas kontribusi terhadap keberhasilan Regional Office Sumbagsel Merah (Best Regional Office Award)." },
+  { issuer: "Mitratel", title: "Mitra Project CORE Area 2", category: "Performansi Terbaik", year: "2015", description: "Penghargaan sebagai Mitra Project CORE Area 2 dengan performansi terbaik tahun 2015." },
+  { issuer: "Mitratel", title: "Mitra Project FLM Area 4", category: "Performansi Terbaik", year: "2015", description: "Penghargaan sebagai Mitra Project FLM Area 4 dengan performansi terbaik tahun 2015." },
+  { issuer: "Mitratel", title: "Mitra Terbaik V FLM", category: "First Line Maintenance", year: "2016 / 2017", description: "Diberikan kepada PT Prasetia Dwidharma sebagai Mitra Terbaik V FLM oleh Mitratel." },
+  { issuer: "Tower Bersama Group", title: "Best Project Subcontractor", category: "New Build Capacity", year: "TBG Award", description: "Manajemen PT Tower Bersama Infrastructure, Tbk. memberikan penghargaan sebagai Best Project Subcontractor." },
+  { issuer: "Tower Bersama Group", title: "Best Maintenance Subcontractor", category: "Maintenance Vendor", year: "TBG Award", description: "Penghargaan atas kinerja pemeliharaan infrastruktur menara telekomunikasi terbaik secara berkelanjutan." },
+  { issuer: "Tower Bersama Group", title: "Most Progressive New Build MSS Application", category: "TBG Yearly Award", year: "Yogyakarta, 2018", description: "Awarded as Most Progressive New Build MSS Application by PT Tower Bersama Infrastructure, Tbk." },
+  { issuer: "Tower Bersama Group", title: "Best Project New Build Area 4", category: "TBG Yearly Award", year: "Yogyakarta, 2018", description: "Awarded as Best Project New Build Area 4 by PT Tower Bersama Infrastructure, Tbk." },
+  { issuer: "Tower Bersama Group", title: "Best Project New Build Area 1", category: "TBG Yearly Award", year: "Yogyakarta, 2018", description: "Awarded as Best Project New Build Area 1 by PT Tower Bersama Infrastructure, Tbk." },
+  { issuer: "Tower Bersama Group", title: "Best Project Microcellpole Area 1", category: "TBG Yearly Award", year: "Yogyakarta, 2018", description: "Awarded as Best Project Microcellpole Area 1 by PT Tower Bersama Infrastructure, Tbk." },
+  { issuer: "Tower Bersama Group", title: "Best Project Collocation Area 4", category: "TBG Yearly Award", year: "Yogyakarta, 2018", description: "Awarded as Best Project Collocation Area 4 by PT Tower Bersama Infrastructure, Tbk." },
+  { issuer: "Tower Bersama Group", title: "Vendor Maintenance Achievement Award", category: "Maintenance Support", year: "2015", description: "Certificate of Appreciation untuk performa Medium Capacity Maintenance Subcontractor." },
+  { issuer: "Yayasan Konservasi", title: "Sertifikat Wali Pohon", category: "Environmental Sustainability", year: "CSR Program", description: "Penghargaan atas partisipasi dan adopsi pohon konservasi hutan." },
+  { issuer: "Telkomsel", title: "Certificate of Appreciation", category: "Best Support NBE Mataram", year: "2015 / 2019", description: "Certificate of appreciation untuk dukungan terbaik 'Made For Mataram' Best Support NBE NS Mataram." },
 ];
+
+const awards = awardsRaw.map((a, i) => ({ ...a, image: `/images/awards/aw${i + 1}.jpg` }));
+const marqueeImages = Array.from({ length: 23 }, (_, i) => `/images/awards/aw${i + 1}.jpg`);
+const rowA = marqueeImages.filter((_, i) => i % 2 === 0);
+const rowB = marqueeImages.filter((_, i) => i % 2 === 1);
+
+const groups = [
+  {
+    key: "mitratel",
+    name: "Mitratel",
+    tagline: "Mitra sejak fondasi awal berdiri",
+    text: "Sebagai bagian dari ekosistem Telkom Indonesia, Mitratel mempercayakan proyek-proyek pemeliharaan dan pembangunan menara kepada PT Prasetia Dwidharma sejak 2014 — dan terus mengapresiasi konsistensi kerja di lapangan.",
+    align: "left",
+    items: awards.filter((a) => a.issuer === "Mitratel"),
+  },
+  {
+    key: "tbg",
+    name: "Tower Bersama Group",
+    tagline: "Konsisten di berbagai wilayah proyek",
+    text: "Delapan penghargaan tahunan dari PT Tower Bersama Infrastructure, Tbk. mencerminkan performa yang stabil di berbagai kategori: new build, maintenance, microcellpole, hingga collocation, tersebar di beberapa area kerja.",
+    align: "right",
+    items: awards.filter((a) => a.issuer === "Tower Bersama Group"),
+  },
+  {
+    key: "others",
+    name: "Mitra & Komunitas Lainnya",
+    tagline: "Pengakuan lintas sektor",
+    text: "Dari dukungan jaringan Telkomsel di Mataram hingga kontribusi pada konservasi hutan — bentuk pengakuan yang menunjukkan cakupan kerja PT Prasetia Dwidharma di luar infrastruktur menara semata.",
+    align: "left",
+    items: awards.filter((a) => !["Mitratel", "Tower Bersama Group"].includes(a.issuer)),
+  },
+];
+
+const totalAwards = awards.length;
 ---
 
 <MainLayout title="Awards & Recognitions | PT Prasetia Dwidharma">
-  <!-- Hero Section -->
-  <div class="relative bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white py-20 md:py-28 overflow-hidden">
-    <div class="absolute inset-0 opacity-20">
-      <img src="/images/hero/hero3.jpg" alt="Awards Hero" class="w-full h-full object-cover" />
-    </div>
-    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent"></div>
-
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-600/30 border border-red-500/40 text-red-200 text-xs font-semibold uppercase tracking-wider mb-6">
-        Excellence & Achievements
-      </div>
-      <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-        Awards & Recognitions
-      </h1>
-      <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-        Recognition from our esteemed partners and telecommunications industry leaders for our continuous dedication to high quality engineering, safety, and service excellence.
-      </p>
-    </div>
-  </div>
-
-  <!-- Awards Grid Section -->
-  <div class="py-16 md:py-24 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {awards.map((award) => (
-          <div class="bg-white rounded-2xl p-7 border border-gray-200 shadow-sm hover:shadow-md hover:border-red-200 transition-all flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-50 text-red-700 border border-red-100">
-                  {award.issuer}
-                </span>
-                <span class="text-xs font-medium text-gray-500">
-                  {award.year}
-                </span>
-              </div>
-              <h3 class="text-lg font-bold text-gray-900 mb-2 leading-snug">
-                {award.title}
-              </h3>
-              <div class="text-xs font-semibold text-red-600 mb-3 uppercase tracking-wide">
-                {award.category}
-              </div>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                {award.description}
-              </p>
-            </div>
-            
-            <div class="mt-6 pt-4 border-t border-gray-100 flex items-center gap-2 text-xs text-gray-500">
-              <svg class="w-4 h-4 text-red-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.715-5.349L11 6.477V16h2a1 1 0 110 2H7a1 1 0 110-2h2V6.477L6.237 7.582l1.715 5.349a1 1 0 01-.285 1.05A3.989 3.989 0 015 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L9 4.323V3a1 1 0 011-1z" clip-rule="evenodd" />
-              </svg>
-              <span>Verified Certificate of Merit</span>
-            </div>
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__copy">
+        <span class="eyebrow"><span class="eyebrow__dot"></span>Rekam jejak prestasi</span>
+        <h1 class="hero__title">
+          Setiap menara yang berdiri kokoh<br />
+          adalah bukti kerja yang diakui.
+        </h1>
+        <p class="hero__desc">
+          {totalAwards} sertifikat penghargaan dari mitra-mitra utama industri telekomunikasi
+          Indonesia, atas dedikasi PT Prasetia Dwidharma membangun dan merawat infrastruktur
+          menara sejak 2014.
+        </p>
+        <div class="hero__stats">
+          <div class="stat">
+            <span class="stat__num">{totalAwards}</span>
+            <span class="stat__label">Sertifikat penghargaan</span>
           </div>
+          <div class="stat">
+            <span class="stat__num">{groups.length}</span>
+            <span class="stat__label">Kelompok mitra</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">2014–2019</span>
+            <span class="stat__label">Rentang waktu</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__stack" aria-hidden="true">
+        {awards.slice(0, 4).map((a, i) => (
+          <img src={a.image} alt="" class={`stack__item stack__item--${i}`} loading="eager" />
         ))}
       </div>
+    </div>
+  </section>
 
-      <!-- Upload notice info banner -->
-      <div class="mt-12 bg-white rounded-xl p-6 border border-gray-200 text-center text-sm text-gray-600 max-w-2xl mx-auto">
-        <p>Original high-resolution certificate archive is maintained at PT Prasetia Dwidharma Head Office.</p>
+  <section class="marquee">
+    <p class="marquee__lead">Diakui di seluruh proyek dan wilayah kerja</p>
+    <div class="marquee__row marquee__row--left">
+      <div class="marquee__track">
+        {[...rowA, ...rowA].map((src) => (
+          <img src={src} alt="Sertifikat penghargaan" loading="lazy" />
+        ))}
       </div>
     </div>
-  </div>
+    <div class="marquee__row marquee__row--right">
+      <div class="marquee__track">
+        {[...rowB, ...rowB].map((src) => (
+          <img src={src} alt="Sertifikat penghargaan" loading="lazy" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {groups.map((group, gi) => (
+    <section class={`group group--${group.align} ${gi % 2 === 1 ? "group--tint" : ""}`}>
+      <div class="group__inner">
+        <div class="group__intro reveal">
+          <span class="group__count">{String(group.items.length).padStart(2, "0")}</span>
+          <h2 class="group__name">{group.name}</h2>
+          <p class="group__tagline">{group.tagline}</p>
+          <p class="group__text">{group.text}</p>
+        </div>
+
+        <div class="gallery">
+          <div class="gallery__track">
+            {group.items.map((a, i) => (
+              <figure class={`frame frame--${i % 3}`}>
+                <img src={a.image} alt={a.title} loading="lazy" />
+                <figcaption>
+                  <span class="frame__year">{a.year}</span>
+                  <h3>{a.title}</h3>
+                  <p class="frame__category">{a.category}</p>
+                  <p class="frame__desc">{a.description}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="closing">
+    <div class="closing__inner reveal">
+      <p class="closing__text">
+        Arsip sertifikat resolusi tinggi tersimpan di Kantor Pusat PT Prasetia Dwidharma.
+      </p>
+      <div class="closing__rule"></div>
+      <p class="closing__sub">PT Prasetia Dwidharma — Membangun kepercayaan, satu menara pada satu waktu.</p>
+    </div>
+  </section>
 </MainLayout>
+
+<style>
+  :root {
+    --red: #c8102e;
+    --red-deep: #8e0f24;
+    --red-soft: #fdeef0;
+    --ink: #181818;
+    --ink-soft: #6b6b6e;
+    --line: #ececec;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+  section { font-family: 'Inter', sans-serif; color: var(--ink); }
+  h1, h2, h3, .eyebrow, .stat__num, .group__count { font-family: 'Space Grotesk', sans-serif; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    background: #fff;
+    padding: 5.5rem 1.5rem 7rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--red);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    opacity: 0;
+    animation: rise 0.7s ease forwards;
+  }
+  .eyebrow__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); }
+  .hero__title {
+    font-size: clamp(2.1rem, 4vw, 3.4rem);
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 1.5rem;
+    max-width: 20ch;
+    opacity: 0;
+    animation: rise 0.8s ease 0.1s forwards;
+  }
+  .hero__desc {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin: 0 0 2.5rem;
+    opacity: 0;
+    animation: rise 0.8s ease 0.2s forwards;
+  }
+  .hero__stats {
+    display: flex;
+    gap: 2.5rem;
+    opacity: 0;
+    animation: rise 0.8s ease 0.3s forwards;
+  }
+  .stat { display: flex; flex-direction: column; }
+  .stat__num { font-size: 1.9rem; font-weight: 700; color: var(--red); }
+  .stat__label { font-size: 0.85rem; color: var(--ink-soft); margin-top: 0.15rem; }
+
+  .hero__stack { position: relative; height: 420px; }
+  .stack__item {
+    position: absolute;
+    width: 260px;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    border: 6px solid #fff;
+    opacity: 0;
+    transform: translateY(40px) rotate(0deg);
+    animation: fan 0.9s cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  .stack__item--0 { top: 10px; left: 40px; z-index: 4; animation-delay: 0.35s; --rot: -6deg; }
+  .stack__item--1 { top: 60px; left: 140px; z-index: 3; animation-delay: 0.45s; --rot: 5deg; }
+  .stack__item--2 { top: 140px; left: 10px; z-index: 2; animation-delay: 0.55s; --rot: -12deg; }
+  .stack__item--3 { top: 190px; left: 160px; z-index: 1; animation-delay: 0.65s; --rot: 10deg; }
+
+  @keyframes fan {
+    to { opacity: 1; transform: translateY(0) rotate(var(--rot)); }
+  }
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---------- MARQUEE (diagonal red band) ---------- */
+  .marquee {
+    background: linear-gradient(120deg, var(--red-deep), var(--red));
+    padding: 4rem 0 4.5rem;
+    margin-top: -3rem;
+    clip-path: polygon(0 3rem, 100% 0, 100% 100%, 0 100%);
+    position: relative;
+  }
+  .marquee__lead {
+    text-align: center;
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin: 2rem 0 2rem;
+  }
+  .marquee__row { overflow: hidden; padding: 0.6rem 0; }
+  .marquee__track {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: scrollLeft 55s linear infinite;
+  }
+  .marquee__row--right .marquee__track { animation-name: scrollRight; animation-duration: 65s; }
+  .marquee__track img {
+    height: 130px;
+    width: 190px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 4px solid rgba(255,255,255,0.9);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+  }
+  .marquee__row:hover .marquee__track { animation-play-state: paused; }
+  @keyframes scrollLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes scrollRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
+  /* ---------- GROUP SECTIONS ---------- */
+  .group { background: #fff; padding: 6rem 1.5rem; }
+  .group--tint { background: var(--red-soft); }
+  .group__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 3rem;
+  }
+  .group--right .group__inner { grid-template-columns: 1.2fr 0.8fr; }
+  .group--right .group__intro { order: 2; }
+  .group--right .gallery { order: 1; }
+
+  .group__intro {
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .group__intro.is-visible { opacity: 1; transform: translateY(0); }
+  .group__count {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: var(--red);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .group__name { font-size: 2rem; font-weight: 700; margin: 0 0 0.4rem; }
+  .group__tagline { color: var(--red); font-weight: 500; margin: 0 0 1rem; }
+  .group__text { color: var(--ink-soft); line-height: 1.7; max-width: 34ch; }
+
+  .gallery { overflow: hidden; }
+  .gallery__track {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    padding: 1.5rem 0.5rem 2.5rem;
+    cursor: grab;
+    scrollbar-width: thin;
+    scrollbar-color: var(--red) transparent;
+  }
+  .frame {
+    flex: 0 0 260px;
+    scroll-snap-align: start;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 16px 30px rgba(0,0,0,0.1);
+    padding: 0.6rem;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .frame--0 { transform: rotate(-3deg); }
+  .frame--1 { transform: rotate(2deg) translateY(14px); }
+  .frame--2 { transform: rotate(-1.5deg) translateY(-8px); }
+  .frame:hover { transform: rotate(0deg) translateY(-6px) scale(1.03); box-shadow: 0 24px 40px rgba(200,16,46,0.2); }
+  .frame img { width: 100%; height: 170px; object-fit: cover; border-radius: 2px; display: block; }
+  .frame figcaption { padding: 0.9rem 0.4rem 0.3rem; }
+  .frame__year { font-size: 0.75rem; color: var(--red); font-weight: 600; }
+  .frame h3 { font-size: 1rem; margin: 0.3rem 0; line-height: 1.3; }
+  .frame__category { font-size: 0.8rem; color: var(--ink-soft); margin: 0 0 0.4rem; text-transform: none; }
+  .frame__desc { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.5; display: none; }
+
+  /* ---------- CLOSING ---------- */
+  .closing {
+    background: linear-gradient(120deg, var(--red-deep), var(--red));
+    padding: 5rem 1.5rem;
+    clip-path: polygon(0 0, 100% 2.5rem, 100% 100%, 0 100%);
+    margin-top: -2.5rem;
+  }
+  .closing__inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .closing__inner.is-visible { opacity: 1; transform: translateY(0); }
+  .closing__text { font-size: 1.1rem; font-weight: 500; margin: 0 0 1.2rem; }
+  .closing__rule { width: 46px; height: 2px; background: #fff; opacity: 0.6; margin: 0 auto 1.2rem; }
+  .closing__sub { font-size: 0.9rem; opacity: 0.85; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 960px) {
+    .hero__inner { grid-template-columns: 1fr; }
+    .hero__stack { height: 320px; margin-top: 2rem; }
+    .group__inner, .group--right .group__inner { grid-template-columns: 1fr; }
+    .group__intro, .group--right .group__intro,
+    .gallery, .group--right .gallery { order: initial; position: static; }
+  }
+  @media (max-width: 600px) {
+    .hero { padding: 3.5rem 1.25rem 5rem; }
+    .hero__stats { flex-wrap: wrap; gap: 1.5rem; }
+    .frame__desc { display: block; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .eyebrow, .hero__title, .hero__desc, .hero__stats, .stack__item,
+    .marquee__track, .group__intro, .closing__inner {
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+
+<script>
+  const revealTargets = document.querySelectorAll('.reveal, .group__intro, .closing__inner');
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+  revealTargets.forEach((el) => io.observe(el));
+
+  // Drag-to-scroll for the horizontal galleries
+  document.querySelectorAll('.gallery__track').forEach((track) => {
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    track.addEventListener('mousedown', (e) => {
+      isDown = true;
+      track.style.cursor = 'grabbing';
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+    });
+    ['mouseleave', 'mouseup'].forEach((evt) =>
+      track.addEventListener(evt, () => {
+        isDown = false;
+        track.style.cursor = 'grab';
+      })
+    );
+    track.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      track.scrollLeft = scrollLeft - (x - startX) * 1.2;
+    });
+  });
+</script>
