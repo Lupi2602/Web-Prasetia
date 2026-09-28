@@ -1,26 +1,212 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
 
-const awardsRaw = [
-  { issuer: "Mitratel", title: "The Charter of Appreciation", category: "Subcontractor Project Completion", year: "Mitratel Award", description: "Diberikan kepada PT Prasetia Dwidharma atas pencapaian milestone proyek selama tahun berjalan." },
-  { issuer: "Mitratel", title: "Piagam Penghargaan Kontribusi Terbaik", category: "Regional Office Sumbagsel Merah", year: "Palembang, 2014", description: "Atas kontribusi terhadap keberhasilan Regional Office Sumbagsel Merah (Best Regional Office Award)." },
-  { issuer: "Mitratel", title: "Mitra Project CORE Area 2", category: "Performansi Terbaik", year: "2015", description: "Penghargaan sebagai Mitra Project CORE Area 2 dengan performansi terbaik tahun 2015." },
-  { issuer: "Mitratel", title: "Mitra Project FLM Area 4", category: "Performansi Terbaik", year: "2015", description: "Penghargaan sebagai Mitra Project FLM Area 4 dengan performansi terbaik tahun 2015." },
-  { issuer: "Mitratel", title: "Mitra Terbaik V FLM", category: "First Line Maintenance", year: "2016 / 2017", description: "Diberikan kepada PT Prasetia Dwidharma sebagai Mitra Terbaik V FLM oleh Mitratel." },
-  { issuer: "Tower Bersama Group", title: "Best Project Subcontractor", category: "New Build Capacity", year: "TBG Award", description: "Manajemen PT Tower Bersama Infrastructure, Tbk. memberikan penghargaan sebagai Best Project Subcontractor." },
-  { issuer: "Tower Bersama Group", title: "Best Maintenance Subcontractor", category: "Maintenance Vendor", year: "TBG Award", description: "Penghargaan atas kinerja pemeliharaan infrastruktur menara telekomunikasi terbaik secara berkelanjutan." },
-  { issuer: "Tower Bersama Group", title: "Most Progressive New Build MSS Application", category: "TBG Yearly Award", year: "Yogyakarta, 2018", description: "Awarded as Most Progressive New Build MSS Application by PT Tower Bersama Infrastructure, Tbk." },
-  { issuer: "Tower Bersama Group", title: "Best Project New Build Area 4", category: "TBG Yearly Award", year: "Yogyakarta, 2018", description: "Awarded as Best Project New Build Area 4 by PT Tower Bersama Infrastructure, Tbk." },
-  { issuer: "Tower Bersama Group", title: "Best Project New Build Area 1", category: "TBG Yearly Award", year: "Yogyakarta, 2018", description: "Awarded as Best Project New Build Area 1 by PT Tower Bersama Infrastructure, Tbk." },
-  { issuer: "Tower Bersama Group", title: "Best Project Microcellpole Area 1", category: "TBG Yearly Award", year: "Yogyakarta, 2018", description: "Awarded as Best Project Microcellpole Area 1 by PT Tower Bersama Infrastructure, Tbk." },
-  { issuer: "Tower Bersama Group", title: "Best Project Collocation Area 4", category: "TBG Yearly Award", year: "Yogyakarta, 2018", description: "Awarded as Best Project Collocation Area 4 by PT Tower Bersama Infrastructure, Tbk." },
-  { issuer: "Tower Bersama Group", title: "Vendor Maintenance Achievement Award", category: "Maintenance Support", year: "2015", description: "Certificate of Appreciation untuk performa Medium Capacity Maintenance Subcontractor." },
-  { issuer: "Yayasan Konservasi", title: "Sertifikat Wali Pohon", category: "Environmental Sustainability", year: "CSR Program", description: "Penghargaan atas partisipasi dan adopsi pohon konservasi hutan." },
-  { issuer: "Telkomsel", title: "Certificate of Appreciation", category: "Best Support NBE Mataram", year: "2015 / 2019", description: "Certificate of appreciation untuk dukungan terbaik 'Made For Mataram' Best Support NBE NS Mataram." },
+/**
+ * DATA SERTIFIKAT — bersumber dari pembacaan langsung setiap file gambar aw1–aw23.
+ * Setiap field mencerminkan teks yang terbaca di sertifikat asli.
+ * [perlu verifikasi manual] = teks kurang terbaca jelas di gambar.
+ *
+ * Catatan: beberapa sertifikat merupakan salinan fisik berbeda dari penghargaan
+ * yang sama (mis. aw1, aw17, aw18 sama-sama Best Project Subcontractor TBG 2013).
+ * Semua tetap ditampilkan sebagai dokumen terpisah.
+ */
+const awardsRaw: {
+  issuer: string;
+  title: string;
+  category: string;
+  year: string;
+  description: string;
+  image: string;
+}[] = [
+  {
+    issuer: "Tower Bersama Group",
+    title: "Best Project Subcontractor",
+    category: "for 'BIG' Capacity New Build",
+    year: "Jakarta, 20 Maret 2013",
+    description: "Piagam Penghargaan dari Manajemen PT Tower Bersama Infrastructure, Tbk. sebagai Best Project Subcontractor for 'BIG' Capacity New Build.",
+    image: "/images/awards/aw1.jpeg",
+  },
+  {
+    issuer: "Tower Bersama Group",
+    title: "Best Maintenance Subcontractor",
+    category: "for Sulawesi",
+    year: "Yogyakarta, 22 Oktober 2014",
+    description: "Piagam Penghargaan dari Manajemen PT Tower Bersama Infrastructure, Tbk. sebagai Best Maintenance Subcontractor for Sulawesi.",
+    image: "/images/awards/aw2.jpeg",
+  },
+  {
+    issuer: "Kawasan Konservasi Masigit Kareumbi / WANADRI",
+    title: "Sertifikat Wali Pohon",
+    category: "Program Konservasi Adopsi Pohon, Tanam dan Pelihara",
+    year: "Wali Pohon Masigit-Kareumbi",
+    description: "Penghargaan setinggi-tingginya atas dukungan dan peran serta pada Program Konservasi Adopsi Pohon Masigit Kareumbi.",
+    image: "/images/awards/aw3.jpg",
+  },
+  {
+    issuer: "Telkomsel",
+    title: "Certificate of Appreciation",
+    category: "Best Support NARU 2018/2019 NS Mataram, Lombok Section",
+    year: "2018/2019",
+    description: "Proudly presented as The Most 'Made for Mataram' — Best Support NARU 2018/2019 NS Mataram, for Lombok Section.",
+    image: "/images/awards/aw4.jpg",
+  },
+  {
+    issuer: "Mitratel",
+    title: "The Charter of Appreciation",
+    category: "Mitratel's Project Completion 2010–2011",
+    year: "September 2011",
+    description: "This Charter Given To Your Remarkable Cooperation And Commitment In Order Of Mitratel's Project Completion During The Years 2010-2011.",
+    image: "/images/awards/aw5.jpeg",
+  },
+  {
+    issuer: "Mitratel",
+    title: "Piagam Penghargaan",
+    category: "Best Regional Office Awards 2013, Regional Sumbagsel Merah",
+    year: "Palembang, 13 Januari 2014",
+    description: "Atas Kontribusi Terhadap Keberhasilan Regional Office Sumbagsel Merah — Best Regional Office Awards 2013.",
+    image: "/images/awards/aw6.jpeg",
+  },
+  {
+    issuer: "Mitratel",
+    title: "Piagam Penghargaan",
+    category: "Mitra Project CORE Area 2, Performansi Terbaik 2015",
+    year: "Januari 2016",
+    description: "Sebagai Mitra Project CORE Area 2 Dengan Performansi Terbaik Tahun 2015.",
+    image: "/images/awards/aw7.jpeg",
+  },
+  {
+    issuer: "Mitratel",
+    title: "Piagam Penghargaan",
+    category: "Mitra Project FLM Area 4, Performansi Terbaik 2015",
+    year: "Januari 2016",
+    description: "Sebagai Mitra Project FLM Area 4 Dengan Performansi Terbaik Tahun 2015.",
+    image: "/images/awards/aw8.jpeg",
+  },
+  {
+    issuer: "Tower Bersama Group",
+    title: "Most Progressive New Build MSS Application",
+    category: "TBiG Yearly Project Award",
+    year: "Yogyakarta, 6 September 2018",
+    description: "Certificate of Appreciation — Awarded as Most Progressive New Build MSS Application. PT Tower Bersama Infrastructure, Tbk.",
+    image: "/images/awards/aw9.jpg",
+  },
+  {
+    issuer: "Tower Bersama Group",
+    title: "Best Project New Build Area 4",
+    category: "TBiG Yearly Project Award",
+    year: "Yogyakarta, 6 September 2018",
+    description: "Certificate of Appreciation — Awarded as Best Project New Build Area 4. PT Tower Bersama Infrastructure, Tbk.",
+    image: "/images/awards/aw10.jpg",
+  },
+  {
+    issuer: "Tower Bersama Group",
+    title: "Best Project New Build Area 1",
+    category: "TBiG Yearly Project Award",
+    year: "Yogyakarta, 6 September 2018",
+    description: "Certificate of Appreciation — Awarded as Best Project New Build Area 1. PT Tower Bersama Infrastructure, Tbk.",
+    image: "/images/awards/aw11.jpg",
+  },
+  {
+    issuer: "Tower Bersama Group",
+    title: "Best Project Microcellpole Area 1",
+    category: "TBiG Yearly Project Award",
+    year: "Yogyakarta, 6 September 2018",
+    description: "Certificate of Appreciation — Awarded as Best Project Microcellpole Area 1. PT Tower Bersama Infrastructure, Tbk.",
+    image: "/images/awards/aw12.jpg",
+  },
+  {
+    issuer: "Tower Bersama Group",
+    title: "Best Project Collocation Area 4",
+    category: "TBiG Yearly Project Award",
+    year: "Yogyakarta, 6 September 2018",
+    description: "Certificate of Appreciation — Awarded as Best Project Collocation Area 4. PT Tower Bersama Infrastructure, Tbk.",
+    image: "/images/awards/aw13.jpg",
+  },
+  {
+    issuer: "Tower Bersama Group",
+    title: "Best Maintenance Vendor 2015",
+    category: "Vendor Maintenance Achievement Awards, for Sulawesi",
+    year: "Jakarta, 23 Oktober 2015",
+    description: "Certificate of Appreciation — Awarded as Best Maintenance Vendor 2015 for Sulawesi. PT Tower Bersama Infrastructure, Tbk.",
+    image: "/images/awards/aw14.jpg",
+  },
+  {
+    issuer: "Tower Bersama Group",
+    title: "Best Maintenance Vendor 2015",
+    category: "Vendor Maintenance Achievement Awards, for Medium Capacity",
+    year: "Jakarta, 23 Oktober 2015",
+    description: "Certificate of Appreciation — Awarded as Best Maintenance Vendor 2015 for Medium Capacity. PT Tower Bersama Infrastructure, Tbk.",
+    image: "/images/awards/aw15.jpg",
+  },
+  {
+    issuer: "Tower Bersama Group",
+    title: "Best Maintenance Subcontractor",
+    category: "for Sulawesi",
+    year: "Yogyakarta, 22 Oktober 2014",
+    description: "Piagam Penghargaan dari Manajemen PT Tower Bersama Infrastructure, Tbk. sebagai Best Maintenance Subcontractor for Sulawesi.",
+    image: "/images/awards/aw16.jpg",
+  },
+  {
+    issuer: "Tower Bersama Group",
+    title: "Best Project Subcontractor",
+    category: "for 'BIG' Capacity New Build",
+    year: "Jakarta, 20 Maret 2013",
+    description: "Piagam Penghargaan dari Manajemen PT Tower Bersama Infrastructure, Tbk. sebagai Best Project Subcontractor for 'BIG' Capacity New Build.",
+    image: "/images/awards/aw17.png",
+  },
+  {
+    issuer: "Tower Bersama Group",
+    title: "Best Project Subcontractor",
+    category: "for 'BIG' Capacity New Build",
+    year: "Jakarta, 20 Maret 2013",
+    description: "Piagam Penghargaan dari Manajemen PT Tower Bersama Infrastructure, Tbk. sebagai Best Project Subcontractor for 'BIG' Capacity New Build.",
+    image: "/images/awards/aw18.jpg",
+  },
+  {
+    issuer: "Mitratel",
+    title: "Piagam Penghargaan",
+    category: "Mitra Project FLM Area 4, Performansi Terbaik 2015",
+    year: "Januari 2016",
+    description: "Sebagai Mitra Project FLM Area 4 Dengan Performansi Terbaik Tahun 2015.",
+    image: "/images/awards/aw19.jpg",
+  },
+  {
+    issuer: "Mitratel",
+    title: "The Charter of Appreciation",
+    category: "Mitratel's Project Completion 2010–2011",
+    year: "September 2011",
+    description: "This Charter Given To Your Remarkable Cooperation And Commitment In Order Of Mitratel's Project Completion During The Years 2010-2011.",
+    image: "/images/awards/aw20.png",
+  },
+  {
+    issuer: "Mitratel",
+    title: "Piagam Penghargaan",
+    category: "Best Regional Office Awards 2013, Regional Sumbagsel Merah",
+    year: "Palembang, 13 Januari 2014",
+    description: "Atas Kontribusi Terhadap Keberhasilan Regional Office Sumbagsel Merah — Best Regional Office Awards 2013.",
+    image: "/images/awards/aw21.png",
+  },
+  {
+    issuer: "Mitratel",
+    title: "Piagam Penghargaan",
+    category: "Mitra Project CORE Area 2, Performansi Terbaik 2015",
+    year: "Januari 2016",
+    description: "Sebagai Mitra Project CORE Area 2 Dengan Performansi Terbaik Tahun 2015.",
+    image: "/images/awards/aw22.png",
+  },
+  {
+    issuer: "Mitratel",
+    title: "Piagam Penghargaan",
+    category: "Mitra Terbaik V FLM Tahun 2016",
+    year: "Januari 2017",
+    description: "Sebagai Mitra Terbaik V FLM Tahun 2016.",
+    image: "/images/awards/aw23.jpg",
+  },
 ];
 
-const awards = awardsRaw.map((a, i) => ({ ...a, image: `/images/awards/aw${i + 1}.jpg` }));
-const marqueeImages = Array.from({ length: 23 }, (_, i) => `/images/awards/aw${i + 1}.jpg`);
+const awards = awardsRaw;
+
+const marqueeImages = awardsRaw.map((a) => a.image);
 const rowA = marqueeImages.filter((_, i) => i % 2 === 0);
 const rowB = marqueeImages.filter((_, i) => i % 2 === 1);
 
@@ -29,7 +215,7 @@ const groups = [
     key: "mitratel",
     name: "Mitratel",
     tagline: "Mitra sejak fondasi awal berdiri",
-    text: "Sebagai bagian dari ekosistem Telkom Indonesia, Mitratel mempercayakan proyek-proyek pemeliharaan dan pembangunan menara kepada PT Prasetia Dwidharma sejak 2014 — dan terus mengapresiasi konsistensi kerja di lapangan.",
+    text: "Sebagai bagian dari ekosistem Telkom Indonesia, Mitratel mempercayakan proyek pemeliharaan dan pembangunan menara kepada PT Prasetia Dwidharma sejak 2011 dan terus mengapresiasi konsistensi kerja di lapangan.",
     align: "left",
     items: awards.filter((a) => a.issuer === "Mitratel"),
   },
@@ -37,15 +223,15 @@ const groups = [
     key: "tbg",
     name: "Tower Bersama Group",
     tagline: "Konsisten di berbagai wilayah proyek",
-    text: "Delapan penghargaan tahunan dari PT Tower Bersama Infrastructure, Tbk. mencerminkan performa yang stabil di berbagai kategori: new build, maintenance, microcellpole, hingga collocation, tersebar di beberapa area kerja.",
+    text: "Tiga belas penghargaan dari PT Tower Bersama Infrastructure, Tbk. mencerminkan performa yang stabil di berbagai kategori: new build, maintenance, microcellpole, collocation, dan vendor achievement.",
     align: "right",
     items: awards.filter((a) => a.issuer === "Tower Bersama Group"),
   },
   {
     key: "others",
-    name: "Mitra & Komunitas Lainnya",
+    name: "Mitra dan Komunitas Lainnya",
     tagline: "Pengakuan lintas sektor",
-    text: "Dari dukungan jaringan Telkomsel di Mataram hingga kontribusi pada konservasi hutan — bentuk pengakuan yang menunjukkan cakupan kerja PT Prasetia Dwidharma di luar infrastruktur menara semata.",
+    text: "Dari dukungan jaringan Telkomsel di Mataram hingga kontribusi pada konservasi hutan Masigit Kareumbi, PT Prasetia Dwidharma melampaui batas infrastruktur menara.",
     align: "left",
     items: awards.filter((a) => !["Mitratel", "Tower Bersama Group"].includes(a.issuer)),
   },
@@ -54,212 +240,484 @@ const groups = [
 const totalAwards = awards.length;
 ---
 
-<MainLayout title="Awards & Recognitions | PT Prasetia Dwidharma">
-  <section class="hero">
-    <div class="hero__inner">
-      <div class="hero__copy">
-        <span class="eyebrow"><span class="eyebrow__dot"></span>Rekam jejak prestasi</span>
-        <h1 class="hero__title">
-          Setiap menara yang berdiri kokoh<br />
-          adalah bukti kerja yang diakui.
-        </h1>
-        <p class="hero__desc">
-          {totalAwards} sertifikat penghargaan dari mitra-mitra utama industri telekomunikasi
-          Indonesia, atas dedikasi PT Prasetia Dwidharma membangun dan merawat infrastruktur
-          menara sejak 2014.
-        </p>
-        <div class="hero__stats">
-          <div class="stat">
-            <span class="stat__num">{totalAwards}</span>
-            <span class="stat__label">Sertifikat penghargaan</span>
-          </div>
-          <div class="stat">
-            <span class="stat__num">{groups.length}</span>
-            <span class="stat__label">Kelompok mitra</span>
-          </div>
-          <div class="stat">
-            <span class="stat__num">2014–2019</span>
-            <span class="stat__label">Rentang waktu</span>
-          </div>
-        </div>
-      </div>
+<MainLayout title="Awards & Recognitions | PT Prasetia Dwidharma" transparentNavbar={true}>
 
-      <div class="hero__stack" aria-hidden="true">
-        {awards.slice(0, 4).map((a, i) => (
-          <img src={a.image} alt="" class={`stack__item stack__item--${i}`} loading="eager" />
-        ))}
-      </div>
-    </div>
-  </section>
+<section class="hero">
+  <div class="hero__bg" style={`background-image: url('/images/awards/awards1.jpg');`} aria-hidden="true"></div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="hero__confetti" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span>
+  </div>
 
-  <section class="marquee">
-    <p class="marquee__lead">Diakui di seluruh proyek dan wilayah kerja</p>
-    <div class="marquee__row marquee__row--left">
-      <div class="marquee__track">
-        {[...rowA, ...rowA].map((src) => (
-          <img src={src} alt="Sertifikat penghargaan" loading="lazy" />
-        ))}
-      </div>
-    </div>
-    <div class="marquee__row marquee__row--right">
-      <div class="marquee__track">
-        {[...rowB, ...rowB].map((src) => (
-          <img src={src} alt="Sertifikat penghargaan" loading="lazy" />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {groups.map((group, gi) => (
-    <section class={`group group--${group.align} ${gi % 2 === 1 ? "group--tint" : ""}`}>
-      <div class="group__inner">
-        <div class="group__intro reveal">
-          <span class="group__count">{String(group.items.length).padStart(2, "0")}</span>
-          <h2 class="group__name">{group.name}</h2>
-          <p class="group__tagline">{group.tagline}</p>
-          <p class="group__text">{group.text}</p>
-        </div>
-
-        <div class="gallery">
-          <div class="gallery__track">
-            {group.items.map((a, i) => (
-              <figure class={`frame frame--${i % 3}`}>
-                <img src={a.image} alt={a.title} loading="lazy" />
-                <figcaption>
-                  <span class="frame__year">{a.year}</span>
-                  <h3>{a.title}</h3>
-                  <p class="frame__category">{a.category}</p>
-                  <p class="frame__desc">{a.description}</p>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  ))}
-
-  <section class="closing">
-    <div class="closing__inner reveal">
-      <p class="closing__text">
-        Arsip sertifikat resolusi tinggi tersimpan di Kantor Pusat PT Prasetia Dwidharma.
+  <div class="hero__inner">
+    <div class="hero__copy">
+      <span class="eyebrow"><span class="eyebrow__dot"></span>Rekam jejak prestasi</span>
+      <h1 class="hero__title">
+        Setiap menara<br />yang berdiri kokoh<br />adalah bukti kerja<br />yang diakui.
+      </h1>
+      <p class="hero__desc">
+        {totalAwards} sertifikat penghargaan dari mitra-mitra utama industri telekomunikasi
+        Indonesia, atas dedikasi PT Prasetia Dwidharma membangun dan merawat infrastruktur
+        menara sejak 2011.
       </p>
-      <div class="closing__rule"></div>
-      <p class="closing__sub">PT Prasetia Dwidharma — Membangun kepercayaan, satu menara pada satu waktu.</p>
+      <div class="hero__stats">
+        <div class="stat">
+          <span class="stat__num" data-count={totalAwards}>0</span>
+          <span class="stat__label">Sertifikat</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-count={groups.length}>0</span>
+          <span class="stat__label">Kelompok mitra</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num stat__num--range">2011–2019</span>
+          <span class="stat__label">Rentang waktu</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hero__stack" aria-hidden="true">
+      {awards.slice(0, 4).map((a, i) => (
+        <div
+          class={`stack__card stack__card--${i}`}
+          data-lightbox-trigger
+          data-award-index={awardsRaw.indexOf(a)}
+        >
+          <img src={a.image} alt="" loading="eager" />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="marquee">
+  <p class="marquee__lead">Diakui di seluruh proyek dan wilayah kerja</p>
+  <div class="marquee__row marquee__row--left">
+    <div class="marquee__track">
+      {[...rowA, ...rowA].map((src) => {
+        const origIdx = awardsRaw.findIndex((a) => a.image === src);
+        return (
+          <img
+            src={src}
+            alt="Sertifikat penghargaan"
+            loading="lazy"
+            data-lightbox-trigger
+            data-award-index={origIdx >= 0 ? origIdx : 0}
+          />
+        );
+      })}
+    </div>
+  </div>
+  <div class="marquee__row marquee__row--right">
+    <div class="marquee__track">
+      {[...rowB, ...rowB].map((src) => {
+        const origIdx = awardsRaw.findIndex((a) => a.image === src);
+        return (
+          <img
+            src={src}
+            alt="Sertifikat penghargaan"
+            loading="lazy"
+            data-lightbox-trigger
+            data-award-index={origIdx >= 0 ? origIdx : 0}
+          />
+        );
+      })}
+    </div>
+  </div>
+
+
+</section>
+
+{groups.map((group, gi) => (
+  <section class={`group group--${group.align} ${gi % 2 === 1 ? "group--tint" : ""}`} data-group-key={group.key}>
+    <div class="group__inner">
+      <div class="group__intro reveal">
+        <span class="group__index">0{gi + 1}</span>
+        <h2 class="group__name">{group.name}</h2>
+        <p class="group__tagline">{group.tagline}</p>
+        <p class="group__text">{group.text}</p>
+        <div class="gallery__nav" aria-label="Navigasi galeri">
+          <button class="gallery__btn gallery__btn--prev" aria-label="Sebelumnya">&#8592;</button>
+          <div class="gallery__progress-wrap">
+            <div class="gallery__progress-bar"></div>
+          </div>
+          <button class="gallery__btn gallery__btn--next" aria-label="Berikutnya">&#8594;</button>
+        </div>
+      </div>
+
+      <div class="gallery">
+        <div class="gallery__track">
+          {group.items.map((a, i) => (
+            <figure
+              class={`frame frame--${i % 3}`}
+              data-lightbox-trigger
+              data-award-index={awardsRaw.indexOf(a)}
+              tabindex="0"
+              role="button"
+              aria-label={`Lihat sertifikat: ${a.title}`}
+            >
+              <img src={a.image} alt={a.title} loading="lazy" />
+              <figcaption>
+                <span class="frame__year">{a.year}</span>
+                <h3>{a.title}</h3>
+                <p class="frame__category">{a.category}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
+))}
+
+<!-- GALERI LENGKAP VERTIKAL: semua 23 sertifikat -->
+<section class="vault" id="vault">
+  <div class="vault__inner">
+    <div class="vault__header reveal">
+      <span class="eyebrow eyebrow--dark"><span class="eyebrow__dot"></span>Koleksi lengkap</span>
+      <h2 class="vault__title">Arsip Sertifikat</h2>
+      <p class="vault__desc">
+        Seluruh {totalAwards} penghargaan PT Prasetia Dwidharma dari berbagai mitra, 2011 hingga 2019.
+      </p>
+    </div>
+
+    <div class="vault__grid">
+      {awards.map((a, i) => (
+        <article
+          class="vault__card reveal-pop"
+          data-lightbox-trigger
+          data-award-index={i}
+          tabindex="0"
+          role="button"
+          aria-label={`Lihat sertifikat: ${a.title}`}
+        >
+          <div class="vault__img-wrap">
+            <img src={a.image} alt={a.title} loading="lazy" class="vault__img" />
+            <div class="vault__overlay">
+              <span class="vault__zoom">&#8599;</span>
+            </div>
+          </div>
+          <div class="vault__meta">
+            <span class="vault__issuer">{a.issuer}</span>
+            <h3 class="vault__name">{a.title}</h3>
+            <p class="vault__cat">{a.category}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+
+<!-- LIGHTBOX MODAL -->
+<div
+  id="lightbox"
+  class="lightbox"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Preview sertifikat"
+  aria-hidden="true"
+>
+  <div class="lightbox__backdrop"></div>
+  <div class="lightbox__panel">
+    <button class="lightbox__close" aria-label="Tutup preview">&#10005;</button>
+    <button class="lightbox__arrow lightbox__arrow--prev" aria-label="Sertifikat sebelumnya">&#8592;</button>
+    <div class="lightbox__content">
+      <img class="lightbox__img" src="" alt="" />
+      <div class="lightbox__meta">
+        <span class="lightbox__issuer"></span>
+        <h2 class="lightbox__title"></h2>
+        <p class="lightbox__category"></p>
+        <p class="lightbox__year"></p>
+      </div>
+    </div>
+    <button class="lightbox__arrow lightbox__arrow--next" aria-label="Sertifikat berikutnya">&#8594;</button>
+  </div>
+</div>
+
 </MainLayout>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
   :root {
-    --red: #c8102e;
-    --red-deep: #8e0f24;
-    --red-soft: #fdeef0;
-    --ink: #181818;
-    --ink-soft: #6b6b6e;
-    --line: #ececec;
+    --red: #e4123a;
+    --red-bright: #ff4d6d;
+    --red-deep: #a90f2e;
+    --red-soft: #fff1f3;
+    --red-soft-2: #ffe4e9;
+    --ink: #1b1414;
+    --ink-soft: #746a6b;
+    --line: #f1e4e6;
+    --navbar-h: 84px;
+    --navbar-h-mobile: 64px;
   }
 
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+  section { font-family: 'Inter', sans-serif; color: var(--ink); position: relative; }
+  h1, h2, h3, .eyebrow, .stat__num { font-family: 'Space Grotesk', sans-serif; }
 
-  section { font-family: 'Inter', sans-serif; color: var(--ink); }
-  h1, h2, h3, .eyebrow, .stat__num, .group__count { font-family: 'Space Grotesk', sans-serif; }
-
-  /* ---------- HERO ---------- */
+  /* ================= HERO ================= */
   .hero {
-    background: #fff;
-    padding: 5.5rem 1.5rem 7rem;
     position: relative;
+    isolation: isolate;
     overflow: hidden;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1.5rem;
+    background: linear-gradient(160deg, var(--red-deep), var(--red));
   }
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    animation: bgZoom 18s ease-in-out infinite alternate;
+  }
+  @keyframes bgZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+  }
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(165deg, rgba(169,15,46,0.82) 0%, rgba(228,18,58,0.62) 45%, rgba(255,77,109,0.38) 100%);
+  }
+  .hero__glow {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+      radial-gradient(70% 45% at 12% 8%, rgba(255,255,255,0.22), transparent 60%),
+      radial-gradient(50% 40% at 95% 90%, rgba(255,255,255,0.12), transparent 60%);
+    animation: glowBreathe 7s ease-in-out infinite;
+  }
+  @keyframes glowBreathe {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+
+  /* confetti mengambang di hero */
+  .hero__confetti { position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
+  .hero__confetti span {
+    position: absolute;
+    top: -10%;
+    width: 8px; height: 14px;
+    background: #fff;
+    opacity: 0.85;
+    border-radius: 2px;
+    animation: confettiFall linear infinite;
+  }
+  .hero__confetti span:nth-child(1) { left: 6%;  background: #fff; animation-duration: 9s;  animation-delay: 0s; }
+  .hero__confetti span:nth-child(2) { left: 15%; background: #ffe4e9; animation-duration: 11s; animation-delay: 1s; }
+  .hero__confetti span:nth-child(3) { left: 28%; background: #fff; animation-duration: 8s; animation-delay: 2s; }
+  .hero__confetti span:nth-child(4) { left: 40%; background: #ffd7de; animation-duration: 13s; animation-delay: 0.5s; }
+  .hero__confetti span:nth-child(5) { left: 52%; background: #fff; animation-duration: 10s; animation-delay: 3s; }
+  .hero__confetti span:nth-child(6) { left: 63%; background: #ffe4e9; animation-duration: 9.5s; animation-delay: 1.5s; }
+  .hero__confetti span:nth-child(7) { left: 74%; background: #fff; animation-duration: 12s; animation-delay: 2.5s; }
+  .hero__confetti span:nth-child(8) { left: 83%; background: #ffd7de; animation-duration: 8.5s; animation-delay: 0.8s; }
+  .hero__confetti span:nth-child(9) { left: 91%; background: #fff; animation-duration: 11.5s; animation-delay: 3.5s; }
+  .hero__confetti span:nth-child(10) { left: 35%; background: #fff; animation-duration: 14s; animation-delay: 4s; }
+  .hero__confetti span:nth-child(11) { left: 68%; background: #ffe4e9; animation-duration: 10.5s; animation-delay: 2s; }
+  .hero__confetti span:nth-child(12) { left: 20%; background: #fff; animation-duration: 9s; animation-delay: 4.5s; }
+  @keyframes confettiFall {
+    0%   { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.9; }
+    90%  { opacity: 0.7; }
+    100% { transform: translateY(110vh) rotate(480deg); opacity: 0; }
+  }
+
   .hero__inner {
     max-width: 1180px;
     margin: 0 auto;
+    width: 100%;
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 3rem;
     align-items: center;
+    padding-top: calc(var(--navbar-h) + 2rem);
+    padding-bottom: 3rem;
+    position: relative;
+    z-index: 3;
   }
   .eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--red);
-    font-size: 0.95rem;
+    color: rgba(255,255,255,0.95);
+    font-size: 0.85rem;
     font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     margin-bottom: 1.25rem;
     opacity: 0;
     animation: rise 0.7s ease forwards;
   }
-  .eyebrow__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); }
+  .eyebrow--dark { color: var(--red); }
+  .eyebrow--dark .eyebrow__dot { background: var(--red); }
+  .eyebrow__dot {
+    width: 7px; height: 7px; border-radius: 50%; background: #fff;
+    box-shadow: 0 0 0 0 rgba(255,255,255,0.6);
+    animation: dotPulse 2s ease-in-out infinite;
+  }
+  @keyframes dotPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0.55); }
+    70%  { box-shadow: 0 0 0 8px rgba(255,255,255,0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+  }
+
   .hero__title {
-    font-size: clamp(2.1rem, 4vw, 3.4rem);
-    line-height: 1.15;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    margin: 0 0 1.5rem;
-    max-width: 20ch;
+    font-size: clamp(1.85rem, 3.4vw, 2.75rem);
+    line-height: 1.22;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.25rem;
+    color: #ffffff;
+    text-shadow: 0 2px 24px rgba(142,15,36,0.4);
     opacity: 0;
     animation: rise 0.8s ease 0.1s forwards;
   }
   .hero__desc {
     font-size: 1.05rem;
-    line-height: 1.7;
-    color: var(--ink-soft);
+    line-height: 1.75;
+    color: rgba(255,255,255,0.92);
     max-width: 46ch;
-    margin: 0 0 2.5rem;
+    margin: 0 0 2rem;
     opacity: 0;
-    animation: rise 0.8s ease 0.2s forwards;
+    animation: rise 0.8s ease 0.22s forwards;
   }
   .hero__stats {
     display: flex;
-    gap: 2.5rem;
+    gap: 0;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
     opacity: 0;
-    animation: rise 0.8s ease 0.3s forwards;
+    animation: rise 0.8s ease 0.34s forwards;
   }
-  .stat { display: flex; flex-direction: column; }
-  .stat__num { font-size: 1.9rem; font-weight: 700; color: var(--red); }
-  .stat__label { font-size: 0.85rem; color: var(--ink-soft); margin-top: 0.15rem; }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    padding-right: 2.25rem;
+    margin-right: 2.25rem;
+    border-right: 1px solid rgba(255,255,255,0.3);
+  }
+  .stat:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+  .stat__num { font-size: 1.85rem; font-weight: 800; color: #ffffff; line-height: 1; }
+  .stat__num--range { font-size: 1.35rem; }
+  .stat__label { font-size: 0.85rem; color: rgba(255,255,255,0.78); margin-top: 0.4rem; font-weight: 500; }
 
-  .hero__stack { position: relative; height: 420px; }
-  .stack__item {
+  .hero__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #ffffff;
+    color: var(--red-deep);
+    font-weight: 700;
+    font-size: 0.92rem;
+    padding: 0.85rem 1.4rem;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+    opacity: 0;
+    animation: rise 0.8s ease 0.46s forwards;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .hero__cta:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(0,0,0,0.24); }
+  .hero__cta svg { transition: transform 0.25s ease; }
+  .hero__cta:hover svg { transform: translateY(2px); }
+
+  .hero__stack {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  .stack__card {
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: #fff;
+    border: 4px solid #fff;
+    box-shadow: 0 16px 34px rgba(0,0,0,0.2);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(28px) rotate(0deg);
+    animation: cardRise 0.8s cubic-bezier(.2,.8,.2,1) forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .stack__card:hover {
+    transform: translateY(-6px) rotate(0deg) scale(1.02) !important;
+    box-shadow: 0 22px 44px rgba(0,0,0,0.28);
+  }
+  .stack__card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .stack__card--0 { animation-delay: 0.35s; --rot: -2deg; }
+  .stack__card--1 { animation-delay: 0.48s; --rot: 2deg; }
+  .stack__card--2 { animation-delay: 0.61s; --rot: 1.5deg; }
+  .stack__card--3 { animation-delay: 0.74s; --rot: -1.5deg; }
+
+  @keyframes cardRise { to { opacity: 1; transform: translateY(0) rotate(var(--rot)); } }
+  @keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  .hero__scroll {
     position: absolute;
-    width: 260px;
-    border-radius: 4px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    border: 6px solid #fff;
+    bottom: 1.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    width: 30px;
+    height: 46px;
+    border-radius: 999px;
+    border: 2px solid rgba(255,255,255,0.6);
+    background: transparent;
+    cursor: pointer;
     opacity: 0;
-    transform: translateY(40px) rotate(0deg);
-    animation: fan 0.9s cubic-bezier(.2,.8,.2,1) forwards;
+    animation: rise 0.8s ease 0.6s forwards;
   }
-  .stack__item--0 { top: 10px; left: 40px; z-index: 4; animation-delay: 0.35s; --rot: -6deg; }
-  .stack__item--1 { top: 60px; left: 140px; z-index: 3; animation-delay: 0.45s; --rot: 5deg; }
-  .stack__item--2 { top: 140px; left: 10px; z-index: 2; animation-delay: 0.55s; --rot: -12deg; }
-  .stack__item--3 { top: 190px; left: 160px; z-index: 1; animation-delay: 0.65s; --rot: 10deg; }
+  .hero__scroll span {
+    position: absolute;
+    top: 8px; left: 50%;
+    width: 4px; height: 8px;
+    margin-left: -2px;
+    background: #fff;
+    border-radius: 2px;
+    animation: scrollDot 1.8s ease-in-out infinite;
+  }
+  @keyframes scrollDot {
+    0%   { transform: translateY(0); opacity: 1; }
+    70%  { transform: translateY(14px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 0; }
+  }
 
-  @keyframes fan {
-    to { opacity: 1; transform: translateY(0) rotate(var(--rot)); }
-  }
-  @keyframes rise {
-    to { opacity: 1; transform: translateY(0); }
-  }
+  .wave { display: block; width: 100%; height: 60px; position: relative; z-index: 3; margin-top: -1px; }
+  @media (min-width: 768px) { .wave { height: 90px; } }
 
-  /* ---------- MARQUEE (diagonal red band) ---------- */
+  /* ================= MARQUEE ================= */
   .marquee {
     background: linear-gradient(120deg, var(--red-deep), var(--red));
-    padding: 4rem 0 4.5rem;
-    margin-top: -3rem;
-    clip-path: polygon(0 3rem, 100% 0, 100% 100%, 0 100%);
+    padding: 0 0 4rem;
     position: relative;
   }
   .marquee__lead {
     text-align: center;
-    color: #fff;
-    font-size: 1.05rem;
-    font-weight: 500;
-    margin: 2rem 0 2rem;
+    color: rgba(255,255,255,0.92);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin: 0 0 1.75rem;
+    padding: 2.5rem 1rem 0;
   }
-  .marquee__row { overflow: hidden; padding: 0.6rem 0; }
+  .marquee__row { overflow: hidden; padding: 0.5rem 0; }
   .marquee__track {
     display: flex;
     gap: 1rem;
@@ -268,26 +726,31 @@ const totalAwards = awards.length;
   }
   .marquee__row--right .marquee__track { animation-name: scrollRight; animation-duration: 65s; }
   .marquee__track img {
-    height: 130px;
-    width: 190px;
+    height: 120px;
+    width: 175px;
     object-fit: cover;
-    border-radius: 4px;
-    border: 4px solid rgba(255,255,255,0.9);
-    box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+    border-radius: 6px;
+    border: 3px solid rgba(255,255,255,0.9);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    flex-shrink: 0;
   }
+  .marquee__track img:hover { transform: scale(1.07) translateY(-4px); border-color: #fff; box-shadow: 0 14px 28px rgba(0,0,0,0.3); }
   .marquee__row:hover .marquee__track { animation-play-state: paused; }
   @keyframes scrollLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   @keyframes scrollRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 
-  /* ---------- GROUP SECTIONS ---------- */
-  .group { background: #fff; padding: 6rem 1.5rem; }
-  .group--tint { background: var(--red-soft); }
+  /* ================= GROUP SECTIONS ================= */
+  .group { background: #ffffff; padding: 6rem 1.5rem; }
+  .group--tint { background: linear-gradient(180deg, var(--red-soft) 0%, var(--red-soft-2) 100%); }
   .group__inner {
     max-width: 1180px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
     gap: 3rem;
+    align-items: start;
   }
   .group--right .group__inner { grid-template-columns: 1.2fr 0.8fr; }
   .group--right .group__intro { order: 2; }
@@ -298,100 +761,323 @@ const totalAwards = awards.length;
     top: 6rem;
     align-self: start;
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(.2,.8,.2,1), transform 0.7s cubic-bezier(.2,.8,.2,1);
   }
   .group__intro.is-visible { opacity: 1; transform: translateY(0); }
-  .group__count {
+
+  .group__index {
     display: inline-block;
-    font-size: 0.9rem;
-    color: var(--red);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #fff;
+    background: var(--red);
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    margin-bottom: 0.9rem;
   }
-  .group__name { font-size: 2rem; font-weight: 700; margin: 0 0 0.4rem; }
-  .group__tagline { color: var(--red); font-weight: 500; margin: 0 0 1rem; }
-  .group__text { color: var(--ink-soft); line-height: 1.7; max-width: 34ch; }
+  .group__name { font-size: 1.7rem; font-weight: 800; margin: 0 0 0.4rem; line-height: 1.2; }
+  .group__tagline { color: var(--red); font-weight: 600; margin: 0 0 0.9rem; font-size: 0.95rem; }
+  .group__text { color: var(--ink-soft); line-height: 1.7; max-width: 34ch; margin: 0 0 1.5rem; font-size: 0.95rem; }
+
+  .gallery__nav { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.5rem; }
+  .gallery__btn {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1.5px solid var(--red);
+    background: transparent;
+    color: var(--red);
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .gallery__btn:hover { background: var(--red); color: #fff; transform: scale(1.08); }
+  .gallery__progress-wrap { flex: 1; height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; min-width: 50px; }
+  .gallery__progress-bar { height: 100%; background: linear-gradient(90deg, var(--red), var(--red-bright)); border-radius: 2px; width: 0%; transition: width 0.15s ease; }
 
   .gallery { overflow: hidden; }
   .gallery__track {
     display: flex;
-    gap: 2rem;
+    gap: 1.75rem;
     overflow-x: auto;
     scroll-snap-type: x proximity;
-    padding: 1.5rem 0.5rem 2.5rem;
+    padding: 1.25rem 0.5rem 2rem;
     cursor: grab;
-    scrollbar-width: thin;
-    scrollbar-color: var(--red) transparent;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
   }
+  .gallery__track::-webkit-scrollbar { display: none; }
+  .gallery__track:active { cursor: grabbing; }
+
   .frame {
-    flex: 0 0 260px;
+    flex: 0 0 240px;
     scroll-snap-align: start;
     background: #fff;
-    border-radius: 4px;
-    box-shadow: 0 16px 30px rgba(0,0,0,0.1);
-    padding: 0.6rem;
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    border-radius: 8px;
+    box-shadow: 0 12px 28px rgba(228,18,58,0.08);
+    padding: 0.5rem;
+    transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s ease;
+    cursor: pointer;
   }
-  .frame--0 { transform: rotate(-3deg); }
-  .frame--1 { transform: rotate(2deg) translateY(14px); }
-  .frame--2 { transform: rotate(-1.5deg) translateY(-8px); }
-  .frame:hover { transform: rotate(0deg) translateY(-6px) scale(1.03); box-shadow: 0 24px 40px rgba(200,16,46,0.2); }
-  .frame img { width: 100%; height: 170px; object-fit: cover; border-radius: 2px; display: block; }
-  .frame figcaption { padding: 0.9rem 0.4rem 0.3rem; }
-  .frame__year { font-size: 0.75rem; color: var(--red); font-weight: 600; }
-  .frame h3 { font-size: 1rem; margin: 0.3rem 0; line-height: 1.3; }
-  .frame__category { font-size: 0.8rem; color: var(--ink-soft); margin: 0 0 0.4rem; text-transform: none; }
-  .frame__desc { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.5; display: none; }
+  .frame--0 { transform: rotate(-2.5deg); }
+  .frame--1 { transform: rotate(1.8deg) translateY(12px); }
+  .frame--2 { transform: rotate(-1.2deg) translateY(-6px); }
+  .frame:hover, .frame:focus-visible {
+    transform: rotate(0deg) translateY(-6px) scale(1.03);
+    box-shadow: 0 20px 38px rgba(228,18,58,0.2);
+    outline: none;
+  }
+  .frame:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+  .frame img { width: 100%; height: 165px; object-fit: cover; border-radius: 4px; display: block; }
+  .frame figcaption { padding: 0.75rem 0.4rem 0.25rem; }
+  .frame__year { font-size: 0.72rem; color: var(--red); font-weight: 700; }
+  .frame h3 { font-size: 0.92rem; margin: 0.25rem 0; line-height: 1.3; font-family: 'Space Grotesk', sans-serif; font-weight: 600; }
+  .frame__category { font-size: 0.76rem; color: var(--ink-soft); margin: 0; }
 
-  /* ---------- CLOSING ---------- */
+  /* ================= VAULT ================= */
+  .vault { background: #ffffff; padding: 6rem 1.5rem 0; }
+  .vault__inner { max-width: 1180px; margin: 0 auto; padding-bottom: 6rem; }
+  .vault__header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .vault__header.is-visible { opacity: 1; transform: translateY(0); }
+  .vault__title { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 800; margin: 0.5rem 0 0.75rem; letter-spacing: -0.01em; }
+  .vault__desc { font-size: 0.95rem; color: var(--ink-soft); max-width: 44ch; margin: 0 auto; line-height: 1.65; }
+
+  .vault__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+  .vault__card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 14px rgba(228,18,58,0.07);
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+  .vault__card.is-visible {
+    animation: popIn 0.6s cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  @keyframes popIn { to { opacity: 1; transform: translateY(0) scale(1); } }
+  .vault__card:hover, .vault__card:focus-visible {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 18px 36px rgba(228,18,58,0.16);
+    outline: none;
+  }
+  .vault__card:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+  .vault__img-wrap { position: relative; overflow: hidden; aspect-ratio: 4/3; background: var(--red-soft); }
+  .vault__img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.45s ease; }
+  .vault__card:hover .vault__img { transform: scale(1.06); }
+
+  .vault__overlay {
+    position: absolute; inset: 0;
+    background: rgba(228,18,58,0.0);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.3s ease;
+  }
+  .vault__card:hover .vault__overlay { background: rgba(228,18,58,0.14); }
+  .vault__zoom {
+    color: #fff; font-size: 1.5rem; font-weight: 700;
+    opacity: 0; transform: scale(0.7);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  }
+  .vault__card:hover .vault__zoom { opacity: 1; transform: scale(1); }
+
+  .vault__meta { padding: 0.9rem 0.95rem 1rem; display: flex; flex-direction: column; gap: 0.22rem; flex: 1; }
+  .vault__issuer { font-size: 0.68rem; color: var(--red); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+  .vault__name { font-size: 0.88rem; font-weight: 700; font-family: 'Space Grotesk', sans-serif; margin: 0; line-height: 1.3; color: var(--ink); }
+  .vault__cat { font-size: 0.75rem; color: var(--ink-soft); margin: 0; line-height: 1.4; }
+
+  /* ================= CLOSING ================= */
   .closing {
-    background: linear-gradient(120deg, var(--red-deep), var(--red));
-    padding: 5rem 1.5rem;
-    clip-path: polygon(0 0, 100% 2.5rem, 100% 100%, 0 100%);
-    margin-top: -2.5rem;
+    background: linear-gradient(135deg, var(--red-deep), var(--red) 55%, var(--red-bright));
+    padding: 6rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .closing__glow {
+    position: absolute; inset: 0;
+    background: radial-gradient(60% 60% at 50% 0%, rgba(255,255,255,0.18), transparent 70%);
+    pointer-events: none;
   }
   .closing__inner {
-    max-width: 640px;
+    max-width: 620px;
     margin: 0 auto;
     text-align: center;
     color: #fff;
+    position: relative;
+    z-index: 1;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
   .closing__inner.is-visible { opacity: 1; transform: translateY(0); }
-  .closing__text { font-size: 1.1rem; font-weight: 500; margin: 0 0 1.2rem; }
-  .closing__rule { width: 46px; height: 2px; background: #fff; opacity: 0.6; margin: 0 auto 1.2rem; }
-  .closing__sub { font-size: 0.9rem; opacity: 0.85; }
-
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width: 960px) {
-    .hero__inner { grid-template-columns: 1fr; }
-    .hero__stack { height: 320px; margin-top: 2rem; }
-    .group__inner, .group--right .group__inner { grid-template-columns: 1fr; }
-    .group__intro, .group--right .group__intro,
-    .gallery, .group--right .gallery { order: initial; position: static; }
+  .closing__badge {
+    display: inline-block;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    animation: badgeFloat 3s ease-in-out infinite;
   }
-  @media (max-width: 600px) {
-    .hero { padding: 3.5rem 1.25rem 5rem; }
-    .hero__stats { flex-wrap: wrap; gap: 1.5rem; }
-    .frame__desc { display: block; }
+  @keyframes badgeFloat {
+    0%, 100% { transform: translateY(0) rotate(-4deg); }
+    50% { transform: translateY(-8px) rotate(4deg); }
+  }
+  .closing__text { font-size: 1.05rem; font-weight: 500; margin: 0 0 1.25rem; line-height: 1.65; }
+  .closing__rule { width: 40px; height: 2px; background: #fff; opacity: 0.55; margin: 0 auto 1.1rem; }
+  .closing__sub { font-size: 0.875rem; opacity: 0.85; font-weight: 500; }
+
+  /* ================= REVEAL (generic) ================= */
+  .reveal, .reveal-pop { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.is-visible, .reveal-pop.is-visible { opacity: 1; transform: translateY(0); }
+
+  /* ================= LIGHTBOX ================= */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none; opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .lightbox.is-open { pointer-events: all; opacity: 1; }
+  .lightbox__backdrop { position: absolute; inset: 0; background: rgba(20,10,12,0.92); backdrop-filter: blur(6px); cursor: pointer; }
+  .lightbox__panel {
+    position: relative; z-index: 1;
+    display: flex; align-items: center; gap: 1rem;
+    max-width: min(92vw, 940px); width: 100%;
+    padding: 0 0.5rem;
+  }
+  .lightbox__content {
+    flex: 1; background: #fff; border-radius: 10px; overflow: hidden;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+    display: flex; flex-direction: column; max-height: 88vh;
+    animation: lbPop 0.3s cubic-bezier(.2,.8,.2,1);
+  }
+  @keyframes lbPop { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: scale(1); } }
+  .lightbox__img { width: 100%; max-height: 62vh; object-fit: contain; display: block; background: var(--red-soft); }
+  .lightbox__meta { padding: 1.1rem 1.4rem 1.4rem; border-top: 2px solid var(--red); }
+  .lightbox__issuer { font-size: 0.75rem; color: var(--red); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.3rem; }
+  .lightbox__title { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.25rem; font-family: 'Space Grotesk', sans-serif; color: var(--ink); line-height: 1.25; }
+  .lightbox__category { font-size: 0.875rem; color: var(--ink-soft); margin: 0 0 0.2rem; }
+  .lightbox__year { font-size: 0.8rem; color: var(--red); font-weight: 600; margin: 0; }
+  .lightbox__close {
+    position: absolute; top: -2.75rem; right: 0.5rem;
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.55);
+    background: transparent; color: #fff; font-size: 0.95rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+    line-height: 1;
+  }
+  .lightbox__close:hover { background: var(--red); border-color: var(--red); }
+  .lightbox__arrow {
+    width: 44px; height: 44px; border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.1); color: #fff; font-size: 1.2rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    flex-shrink: 0; line-height: 1;
+  }
+  .lightbox__arrow:hover { background: var(--red); border-color: var(--red); transform: scale(1.06); }
+
+  /* ================= RESPONSIVE ================= */
+  @media (max-width: 1024px) { .group__intro { position: static; } }
+
+  @media (max-width: 960px) {
+    .hero__inner { grid-template-columns: 1fr; padding-top: calc(var(--navbar-h) + 1.5rem); }
+    .hero__stack { max-width: 320px; margin: 2rem auto 0; }
+    .hero__cta { margin: 0 auto; }
+    .hero__copy { text-align: left; }
+
+    .group__inner, .group--right .group__inner { grid-template-columns: 1fr; gap: 1.75rem; }
+    .group__intro, .group--right .group__intro, .gallery, .group--right .gallery { order: initial; position: static; }
+    .group { padding: 4.5rem 1.25rem; }
+    .group__text { max-width: none; }
+
+    .vault__grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 0 1rem; }
+    .hero__inner { padding-top: calc(var(--navbar-h-mobile) + 1.5rem); padding-bottom: 2.5rem; gap: 2rem; }
+    .hero__stack { max-width: 280px; gap: 0.75rem; }
+    .hero__scroll { display: none; }
+
+    .marquee__track img { height: 95px; width: 140px; }
+    .frame { flex: 0 0 210px; }
+    .frame img { height: 135px; }
+
+    .vault__grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+
+    .lightbox__panel { gap: 0.35rem; padding: 0 0.2rem; }
+    .lightbox__arrow { width: 36px; height: 36px; font-size: 1rem; }
+    .lightbox__img { max-height: 52vh; }
+    .lightbox__meta { padding: 0.85rem 1rem 1rem; }
+    .lightbox__title { font-size: 1rem; }
+    .lightbox__close { top: -2.4rem; }
+
+    .closing { padding: 4.5rem 1.25rem; }
+  }
+
+  @media (max-width: 400px) {
+    .hero__title { font-size: 1.65rem; }
+    .hero__stack { max-width: 240px; }
+    .vault__grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  }
+
+  @media (min-width: 1440px) {
+    .hero__inner, .group__inner, .vault__inner { max-width: 1280px; }
+    .vault__grid { grid-template-columns: repeat(5, 1fr); }
+  }
+
+  /* Safe-area untuk device dengan notch / gesture bar */
+  @supports (padding: max(0px)) {
+    .hero { padding-top: env(safe-area-inset-top, 0px); }
+    .closing { padding-bottom: max(6rem, env(safe-area-inset-bottom, 0px)); }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .eyebrow, .hero__title, .hero__desc, .hero__stats, .stack__item,
-    .marquee__track, .group__intro, .closing__inner {
+    .eyebrow, .hero__title, .hero__desc, .hero__stats, .hero__cta, .hero__scroll,
+    .stack__card, .marquee__track, .group__intro, .closing__inner, .vault__header,
+    .vault__card, .reveal, .reveal-pop, .hero__bg, .hero__glow, .closing__badge,
+    .eyebrow__dot, .hero__confetti span {
       animation: none !important;
       transition: none !important;
       opacity: 1 !important;
       transform: none !important;
     }
+    .gallery__track { scroll-behavior: auto; }
   }
 </style>
 
 <script>
-  const revealTargets = document.querySelectorAll('.reveal, .group__intro, .closing__inner');
+  interface AwardData {
+    issuer: string;
+    title: string;
+    category: string;
+    year: string;
+    image: string;
+  }
+  const AWARDS_DATA: AwardData[] = (window as unknown as { __AWARDS_DATA__: AwardData[] }).__AWARDS_DATA__ ?? [];
+
+  // ============================================================
+  // REVEAL ON SCROLL (termasuk vault card staggered pop-in)
+  // ============================================================
+  const revealTargets = document.querySelectorAll(
+    '.reveal, .group__intro, .closing__inner, .vault__header'
+  );
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -401,33 +1087,260 @@ const totalAwards = awards.length;
         }
       });
     },
-    { threshold: 0.2 }
+    { threshold: 0.15 }
   );
   revealTargets.forEach((el) => io.observe(el));
 
-  // Drag-to-scroll for the horizontal galleries
-  document.querySelectorAll('.gallery__track').forEach((track) => {
+  const vaultCards = document.querySelectorAll<HTMLElement>('.vault__card');
+  const vaultIO = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const idx = Array.from(vaultCards).indexOf(el);
+          el.style.animationDelay = `${(idx % 8) * 0.06}s`;
+          el.classList.add('is-visible');
+          vaultIO.unobserve(el);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+  vaultCards.forEach((el) => vaultIO.observe(el));
+
+  // ============================================================
+  // HERO STAT COUNT-UP
+  // ============================================================
+  const statNums = document.querySelectorAll<HTMLElement>('.stat__num[data-count]');
+  function animateCount(el: HTMLElement) {
+    const target = parseInt(el.getAttribute('data-count') ?? '0', 10);
+    if (!target) { el.textContent = '0'; return; }
+    const duration = 1200;
+    const start = performance.now();
+    function tick(now: number) {
+      const progress = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = String(Math.round(eased * target));
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  const statIO = new IntersectionObserver(
+    (entries) => entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animateCount(entry.target as HTMLElement);
+        statIO.unobserve(entry.target);
+      }
+    }),
+    { threshold: 0.4 }
+  );
+  statNums.forEach((el) => statIO.observe(el));
+
+  // ============================================================
+  // HERO SCROLL BUTTON
+  // ============================================================
+  document.querySelector('.hero__scroll')?.addEventListener('click', () => {
+    const next = document.querySelector('.marquee');
+    next?.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // ============================================================
+  // GALLERY: drag-to-scroll + arrow nav + progress bar + auto-scroll
+  // ============================================================
+  function setupGallery(track: HTMLElement) {
+    const section = track.closest('[data-group-key]');
+    const intro = section?.querySelector<HTMLElement>('.group__intro');
+    const progressBar = intro?.querySelector<HTMLElement>('.gallery__progress-bar') ?? null;
+    const prevBtn = intro?.querySelector<HTMLButtonElement>('.gallery__btn--prev') ?? null;
+    const nextBtn = intro?.querySelector<HTMLButtonElement>('.gallery__btn--next') ?? null;
+
     let isDown = false;
     let startX = 0;
-    let scrollLeft = 0;
+    let scrollStart = 0;
+    let autoInterval: number | null = null;
+    let userIdleTimer: number | null = null;
+
+    function updateProgress() {
+      if (!progressBar) return;
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      const pct = maxScroll > 0 ? (track.scrollLeft / maxScroll) * 100 : 0;
+      progressBar.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+    }
+    track.addEventListener('scroll', updateProgress, { passive: true });
+
+    function getScrollStep() {
+      const firstFrame = track.querySelector<HTMLElement>('.frame');
+      return firstFrame ? firstFrame.offsetWidth + 28 : 268;
+    }
+
+    prevBtn?.addEventListener('click', () => {
+      pauseAuto();
+      track.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+      scheduleResume();
+    });
+    nextBtn?.addEventListener('click', () => {
+      pauseAuto();
+      track.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+      scheduleResume();
+    });
 
     track.addEventListener('mousedown', (e) => {
       isDown = true;
-      track.style.cursor = 'grabbing';
       startX = e.pageX - track.offsetLeft;
-      scrollLeft = track.scrollLeft;
+      scrollStart = track.scrollLeft;
+      track.style.cursor = 'grabbing';
+      pauseAuto();
     });
     ['mouseleave', 'mouseup'].forEach((evt) =>
       track.addEventListener(evt, () => {
+        if (!isDown) return;
         isDown = false;
         track.style.cursor = 'grab';
+        scheduleResume();
       })
     );
     track.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - track.offsetLeft;
-      track.scrollLeft = scrollLeft - (x - startX) * 1.2;
+      track.scrollLeft = scrollStart - (x - startX) * 1.2;
+    });
+
+    track.addEventListener('touchstart', () => pauseAuto(), { passive: true });
+    track.addEventListener('touchend', () => scheduleResume(), { passive: true });
+
+    function startAuto() {
+      if (autoInterval !== null) return;
+      autoInterval = window.setInterval(() => {
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        if (track.scrollLeft >= maxScroll - 2) {
+          track.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          track.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+        }
+      }, 3500);
+    }
+    function pauseAuto() {
+      if (autoInterval !== null) { clearInterval(autoInterval); autoInterval = null; }
+    }
+    function scheduleResume() {
+      if (userIdleTimer !== null) clearTimeout(userIdleTimer);
+      userIdleTimer = window.setTimeout(() => { if (!isDown) startAuto(); }, 3000);
+    }
+
+    track.addEventListener('mouseenter', () => pauseAuto());
+    track.addEventListener('mouseleave', () => { if (!isDown) scheduleResume(); });
+
+    const visIO = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) startAuto(); else pauseAuto(); }),
+      { threshold: 0.3 }
+    );
+    visIO.observe(track);
+    updateProgress();
+  }
+
+  document.querySelectorAll<HTMLElement>('.gallery__track').forEach(setupGallery);
+
+  // ============================================================
+  // LIGHTBOX
+  // ============================================================
+  const lightbox = document.getElementById('lightbox')!;
+  const lbBackdrop = lightbox.querySelector<HTMLElement>('.lightbox__backdrop')!;
+  const lbImg = lightbox.querySelector<HTMLImageElement>('.lightbox__img')!;
+  const lbIssuer = lightbox.querySelector<HTMLElement>('.lightbox__issuer')!;
+  const lbTitle = lightbox.querySelector<HTMLElement>('.lightbox__title')!;
+  const lbCategory = lightbox.querySelector<HTMLElement>('.lightbox__category')!;
+  const lbYear = lightbox.querySelector<HTMLElement>('.lightbox__year')!;
+  const lbClose = lightbox.querySelector<HTMLButtonElement>('.lightbox__close')!;
+  const lbPrev = lightbox.querySelector<HTMLButtonElement>('.lightbox__arrow--prev')!;
+  const lbNext = lightbox.querySelector<HTMLButtonElement>('.lightbox__arrow--next')!;
+
+  let currentIndex = 0;
+  let previousFocus: Element | null = null;
+
+  function openLightbox(index: number) {
+    currentIndex = index;
+    renderLightbox();
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    previousFocus = document.activeElement;
+    lbClose.focus();
+    addSwipeListeners();
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (previousFocus instanceof HTMLElement) previousFocus.focus();
+    removeSwipeListeners();
+  }
+  function renderLightbox() {
+    const award = AWARDS_DATA[currentIndex];
+    if (!award) return;
+    lbImg.src = award.image;
+    lbImg.alt = award.title;
+    lbIssuer.textContent = award.issuer;
+    lbTitle.textContent = award.title;
+    lbCategory.textContent = award.category;
+    lbYear.textContent = award.year;
+  }
+  function goNext() { currentIndex = (currentIndex + 1) % AWARDS_DATA.length; renderLightbox(); }
+  function goPrev() { currentIndex = (currentIndex - 1 + AWARDS_DATA.length) % AWARDS_DATA.length; renderLightbox(); }
+
+  lbClose.addEventListener('click', closeLightbox);
+  lbBackdrop.addEventListener('click', closeLightbox);
+  lbNext.addEventListener('click', goNext);
+  lbPrev.addEventListener('click', goPrev);
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') goNext();
+    if (e.key === 'ArrowLeft') goPrev();
+    if (e.key === 'Tab') {
+      const focusable = Array.from(
+        lightbox.querySelectorAll<HTMLElement>('button, [tabindex]:not([tabindex="-1"])')
+      ).filter((el) => !el.hasAttribute('disabled'));
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  let lbTouchStartX = 0;
+  function lbTouchStart(e: TouchEvent) { lbTouchStartX = e.touches[0].clientX; }
+  function lbTouchEnd(e: TouchEvent) {
+    const diff = lbTouchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { diff > 0 ? goNext() : goPrev(); }
+  }
+  function addSwipeListeners() {
+    lightbox.addEventListener('touchstart', lbTouchStart, { passive: true });
+    lightbox.addEventListener('touchend', lbTouchEnd, { passive: true });
+  }
+  function removeSwipeListeners() {
+    lightbox.removeEventListener('touchstart', lbTouchStart);
+    lightbox.removeEventListener('touchend', lbTouchEnd);
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-lightbox-trigger]').forEach((el) => {
+    el.addEventListener('click', () => {
+      const idx = parseInt(el.getAttribute('data-award-index') ?? '0', 10);
+      openLightbox(isNaN(idx) ? 0 : idx);
+    });
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const idx = parseInt(el.getAttribute('data-award-index') ?? '0', 10);
+        openLightbox(isNaN(idx) ? 0 : idx);
+      }
     });
   });
+</script>
+
+<!-- Pass awards data to client-side script -->
+<script is:inline define:vars={{ awardsDataForClient: awardsRaw.map(a => ({ issuer: a.issuer, title: a.title, category: a.category, year: a.year, image: a.image })) }}>
+  window.__AWARDS_DATA__ = awardsDataForClient;
 </script>

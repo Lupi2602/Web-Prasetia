@@ -22,7 +22,7 @@ const word = "CONFIDENT".split("");
 >
 
   <!-- ============ HERO ============ -->
-  <section class="hero-section relative flex h-screen min-h-[640px] w-full items-center justify-center overflow-hidden">
+  <section class="hero-section relative flex h-screen min-h-[560px] w-full items-center justify-center overflow-hidden">
     <div
       id="hero-bg"
       class="absolute inset-0 scale-110 bg-cover bg-center will-change-transform"
@@ -33,7 +33,7 @@ const word = "CONFIDENT".split("");
 
     <div class="relative z-10 flex flex-col items-center px-6 text-center">
 
-      <h1 class="flex flex-wrap justify-center gap-x-1 font-serif text-[15vw] font-black leading-none tracking-tight text-white sm:text-[10vw] md:text-[7.5rem]">
+      <h1 class="flex flex-wrap justify-center gap-x-0.5 font-serif text-4xl font-black leading-none tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
         {word.map((char, i) => (
           <span
             class="hero-letter inline-block translate-y-12 opacity-0 transition-all duration-700 ease-out"
@@ -42,96 +42,103 @@ const word = "CONFIDENT".split("");
         ))}
       </h1>
 
-      <p class="mt-8 max-w-2xl text-base font-light leading-relaxed text-white/90 opacity-0 md:text-lg" id="hero-sub">
+      <p class="mt-6 max-w-2xl text-sm font-light leading-relaxed text-white/90 opacity-0 sm:mt-8 sm:text-base md:text-lg" id="hero-sub">
         Senantiasa <strong class="font-semibold text-white">Percaya Diri</strong> dalam menjalankan pekerjaan,
         penuh integritas, dan memberikan pelayanan terbaik bagi pelanggan serta mitra bisnis Perusahaan.
       </p>
-
 
     </div>
   </section>
 
   <!-- ============ INTRO STRIP ============ -->
-  <section class="bg-white px-6 pb-24 pt-16 md:pb-32">
+  <section class="bg-white px-6 pb-16 pt-14 sm:pb-24 sm:pt-16 md:pb-28">
     <div class="mx-auto max-w-4xl text-center">
       <h2 class="reveal translate-y-8 opacity-0 text-xs font-bold uppercase tracking-[0.3em] text-red-600">
         Nilai-Nilai Luhur
       </h2>
-      <p class="reveal mt-6 translate-y-8 opacity-0 font-serif text-2xl font-medium leading-snug text-gray-900 md:text-4xl">
-        Sembilan pilar yang membentuk identitas kerja kami 
+      <p class="reveal mt-5 translate-y-8 opacity-0 font-serif text-xl font-medium leading-snug text-gray-900 sm:mt-6 sm:text-2xl md:text-3xl">
+        Sembilan pilar yang membentuk identitas kerja kami
         <span class="text-red-600">satu budaya, satu tujuan.</span>
       </p>
-      <div class="reveal mx-auto mt-8 h-px w-16 translate-y-4 bg-red-600 opacity-0"></div>
+      <div class="reveal mx-auto mt-6 h-px w-14 translate-y-4 bg-red-600 opacity-0 sm:mt-8 sm:w-16"></div>
     </div>
   </section>
 
   <!-- ============ CORE VALUES : LETTER-RAIL EDITORIAL LIST ============ -->
-  <section id="values-section" class="relative bg-white px-6 pb-32 pt-8 md:px-12">
-    <div class="mx-auto max-w-6xl">
+  <section id="values-section" class="relative bg-white px-4 pb-20 pt-8 sm:px-6 md:px-12 md:pb-28">
+    <div class="mx-auto max-w-5xl">
 
-      <div class="grid grid-cols-1 gap-4 md:grid-cols-[160px_1fr] md:gap-16">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-[140px_1fr] md:gap-12 lg:grid-cols-[160px_1fr] lg:gap-16">
 
-        <!-- ===== Sticky letter rail (desktop) ===== -->
-        <aside class="hidden md:block">
-          <div class="sticky top-32 flex flex-col gap-4">
-            <span class="mb-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-gray-400">
-              Progres
-            </span>
-            {word.map((char, i) => (
-              <div
-                class="rail-letter flex items-center gap-3 transition-all duration-500"
-                data-index={i}
-              >
-                <span class="rail-dash h-px w-4 bg-gray-300 transition-all duration-500"></span>
-                <span class="rail-char font-serif text-2xl font-black leading-none text-gray-300 transition-all duration-500">
-                  {char}
-                </span>
-              </div>
-            ))}
+        <!-- ===== Rail huruf (desktop only) — sticky native, tidak ada lagi JS penghitung posisi ===== -->
+        <aside id="rail-wrapper" class="relative hidden md:block">
+          <div id="rail-inner" class="sticky top-32 z-10 flex gap-4">
+            <!-- garis progress vertikal -->
+            <div class="relative w-px shrink-0 self-stretch bg-gray-200">
+              <div id="rail-progress-fill" class="absolute left-0 top-0 w-px bg-red-600" style="height: 0%;"></div>
+            </div>
+
+            <div class="flex flex-col gap-3.5">
+              <span class="mb-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-gray-400">
+                Progres
+              </span>
+              {word.map((char, i) => (
+                <div class="rail-letter flex items-center gap-3 transition-all duration-500" data-index={i}>
+                  <span class="rail-dash h-px w-4 bg-gray-300 transition-all duration-500"></span>
+                  <span class="rail-char font-serif text-xl font-black leading-none text-gray-300 transition-all duration-500">
+                    {char}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </aside>
 
-        <!-- ===== Mobile progress bar ===== -->
-        <div class="md:hidden">
-          <div class="mb-8 flex items-center gap-1.5">
-            {word.map((_, i) => (
-              <span class="rail-dot-mobile h-1 flex-1 rounded-full bg-gray-200 transition-all duration-500" data-index={i}></span>
-            ))}
-          </div>
-        </div>
+        <!-- ===== Values list (mobile progress bar sekarang ikut di dalam sini, biar sticky-nya
+               "mengikat" ke tinggi seluruh daftar, bukan cuma tinggi bar itu sendiri) ===== -->
+        <div class="min-w-0">
 
-        <!-- ===== Values list ===== -->
-        <div>
+          <!-- Progress bar mobile/tablet — sticky native, otomatis berhenti pas selesai ===== -->
+          <div id="mobile-progress-bar" class="sticky top-0 z-30 -mx-4 w-[calc(100%+2rem)] bg-white/90 px-4 py-3 backdrop-blur sm:-mx-6 sm:w-[calc(100%+3rem)] sm:px-6 md:hidden">
+            <div class="mb-2 flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.25em] text-gray-400">
+              <span>Progres</span>
+              <span id="mobile-progress-label" class="text-red-600">C</span>
+            </div>
+            <div class="relative h-1 w-full overflow-hidden rounded-full bg-gray-100">
+              <div id="mobile-progress-fill" class="h-full rounded-full bg-red-600" style="width: 0%;"></div>
+            </div>
+          </div>
+
           {values.map((v, i) => (
             <div
               id={`value-${i}`}
               data-index={i}
-              class="value-row group relative border-b border-gray-100 py-10 first:pt-0 md:py-14"
+              data-letter={v.letter}
+              class="value-row group relative min-w-0 border-b border-gray-100 py-6 first:pt-0 sm:py-7 md:py-10"
             >
-              <!-- ghost huruf raksasa di belakang -->
               <span
                 aria-hidden="true"
-                class="pointer-events-none absolute -left-2 top-1/2 -translate-y-1/2 select-none font-serif text-[7rem] font-black leading-none text-gray-50 transition-colors duration-500 group-hover:text-red-50 sm:text-[9rem] md:text-[11rem]"
+                class="pointer-events-none absolute -left-1 top-1/2 hidden -translate-y-1/2 select-none overflow-hidden font-serif font-black leading-none text-gray-50 transition-colors duration-500 group-hover:text-red-50 sm:block sm:text-[4.5rem] md:text-[6rem] lg:text-[7rem]"
               >{v.letter}</span>
 
-              <div class="relative flex items-start gap-6 pl-16 md:pl-24">
+              <div class="relative flex min-w-0 items-start gap-4 sm:gap-5 sm:pl-12 md:pl-16 lg:pl-20">
                 <span class="value-num mt-1 shrink-0 font-serif text-xs font-bold tracking-widest text-gray-300 transition-colors duration-500">
                   {v.id}
                 </span>
 
-                <div class="flex-1">
-                  <h3 class="value-title font-serif text-3xl font-bold leading-tight text-gray-900 transition-colors duration-500 sm:text-4xl md:text-5xl">
+                <div class="min-w-0 flex-1">
+                  <h3 class="value-title break-words font-serif text-lg font-bold leading-tight text-gray-900 transition-colors duration-500 sm:text-xl md:text-2xl lg:text-3xl">
                     {v.title}
                   </h3>
 
-                  <span class="value-underline mt-4 block h-px w-0 bg-red-600 transition-all duration-700 ease-out"></span>
+                  <span class="value-underline mt-3 block h-px w-0 bg-red-600 transition-all duration-700 ease-out"></span>
 
-                  <p class="mt-5 max-w-lg text-sm leading-relaxed text-gray-500 sm:text-base md:text-lg">
+                  <p class="mt-3 max-w-lg break-words text-sm leading-relaxed text-gray-500 sm:mt-4 sm:text-[0.95rem] md:text-base">
                     {v.description}
                   </p>
                 </div>
 
-                <span class="hidden shrink-0 self-center font-serif text-5xl font-black text-gray-100 transition-all duration-500 group-hover:translate-x-1 group-hover:text-red-100 md:block md:text-6xl">
+                <span class="hidden shrink-0 self-center font-serif text-3xl font-black text-gray-100 transition-all duration-500 group-hover:translate-x-1 group-hover:text-red-100 md:block md:text-4xl">
                   {v.letter}
                 </span>
               </div>
@@ -143,7 +150,7 @@ const word = "CONFIDENT".split("");
   </section>
 
   <!-- ============ CLOSING ============ -->
-  <section class="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-gradient-to-b from-white via-red-500 to-red-700 px-6 py-28 md:py-36">
+  <section class="relative flex min-h-[50vh] items-center justify-center overflow-hidden bg-gradient-to-b from-white via-red-500 to-red-700 px-6 py-20 sm:min-h-[60vh] sm:py-28 md:py-32">
     <div
       class="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-overlay"
       style="background-image: url('/images/governance/gcg3.jpg');"
@@ -151,12 +158,12 @@ const word = "CONFIDENT".split("");
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(0,0,0,0.15),transparent_70%)]"></div>
 
     <div class="reveal relative z-10 mx-auto max-w-3xl translate-y-8 text-center opacity-0">
-      <p class="font-serif text-2xl font-medium italic leading-relaxed text-white md:text-4xl">
+      <p class="break-words font-serif text-lg font-medium italic leading-relaxed text-white sm:text-2xl md:text-3xl">
         "Budaya <span class="font-bold not-italic">CONFIDENT</span> adalah fondasi
         setiap langkah kami dalam bekerja, melayani, dan bertumbuh bersama."
       </p>
-      <div class="mx-auto mt-10 h-px w-24 bg-white/60"></div>
-      <p class="mt-6 text-xs font-semibold uppercase tracking-[0.3em] text-white/90">
+      <div class="mx-auto mt-8 h-px w-20 bg-white/60 sm:mt-10 sm:w-24"></div>
+      <p class="mt-5 text-[11px] font-semibold uppercase tracking-[0.3em] text-white/90 sm:mt-6 sm:text-xs">
         PT Prasetia Dwidharma
       </p>
     </div>
@@ -169,14 +176,17 @@ const word = "CONFIDENT".split("");
 <style>
   html {
     scroll-behavior: smooth;
+    /* aman untuk sticky, tidak memicu body jadi scroll-container baru
+       (berbeda dari overflow-x: hidden yang memaksa overflow-y jadi auto) */
+    overflow-x: clip;
   }
 
   /* Values row entrance */
   .value-row {
     opacity: 0;
-    transform: translateY(36px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .value-row.is-visible {
     opacity: 1;
@@ -184,15 +194,9 @@ const word = "CONFIDENT".split("");
   }
 
   /* Active row accents */
-  .value-row.is-active .value-title {
-    color: #dc2626;
-  }
-  .value-row.is-active .value-num {
-    color: #dc2626;
-  }
-  .value-row.is-active .value-underline {
-    width: 3rem;
-  }
+  .value-row.is-active .value-title { color: #dc2626; }
+  .value-row.is-active .value-num { color: #dc2626; }
+  .value-row.is-active .value-underline { width: 3rem; }
 
   /* Rail letter active state */
   .rail-letter.is-active .rail-char {
@@ -203,14 +207,7 @@ const word = "CONFIDENT".split("");
     width: 1.75rem;
     background-color: #dc2626;
   }
-  .rail-letter.is-passed .rail-char {
-    color: #111827;
-  }
-
-  .rail-dot-mobile.is-active,
-  .rail-dot-mobile.is-passed {
-    background-color: #dc2626;
-  }
+  .rail-letter.is-passed .rail-char { color: #111827; }
 </style>
 
 <script>
@@ -223,21 +220,10 @@ const word = "CONFIDENT".split("");
     });
     setTimeout(() => {
       const sub = document.getElementById('hero-sub');
-      const cue = document.getElementById('hero-scroll-cue');
       sub?.classList.add('transition-all', 'duration-700');
       sub?.classList.remove('opacity-0');
-      cue?.classList.add('transition-opacity', 'duration-700');
-      cue?.classList.remove('opacity-0');
     }, 850);
   });
-
-  // ---------- Hero parallax ----------
-  const heroBg = document.getElementById('hero-bg');
-  window.addEventListener('scroll', () => {
-    if (!heroBg) return;
-    const y = window.scrollY;
-    heroBg.style.transform = `translateY(${y * 0.35}px) scale(1.1)`;
-  }, { passive: true });
 
   // ---------- Generic reveal (intro strip & closing) ----------
   const revealEls = document.querySelectorAll('.reveal');
@@ -264,35 +250,78 @@ const word = "CONFIDENT".split("");
   }, { threshold: 0.15 });
   valueRows.forEach((row) => entranceObserver.observe(row));
 
-  // ---------- Values: scrollspy → aktifkan huruf di rail sesuai baris aktif ----------
+  // ---------- Values: scrollspy → aktifkan huruf & label sesuai baris aktif ----------
   const railLetters = document.querySelectorAll('.rail-letter');
-  const railDotsMobile = document.querySelectorAll('.rail-dot-mobile');
+  const mobileLabel = document.getElementById('mobile-progress-label');
 
-  function setActiveIndex(activeIndex) {
+  function setActiveIndex(activeIndex, letter) {
     valueRows.forEach((row) => {
       const idx = Number(row.getAttribute('data-index'));
       row.classList.toggle('is-active', idx === activeIndex);
     });
-    railLetters.forEach((letter) => {
-      const idx = Number(letter.getAttribute('data-index'));
-      letter.classList.toggle('is-active', idx === activeIndex);
-      letter.classList.toggle('is-passed', idx < activeIndex);
+    railLetters.forEach((rail) => {
+      const idx = Number(rail.getAttribute('data-index'));
+      rail.classList.toggle('is-active', idx === activeIndex);
+      rail.classList.toggle('is-passed', idx < activeIndex);
     });
-    railDotsMobile.forEach((dot) => {
-      const idx = Number(dot.getAttribute('data-index'));
-      dot.classList.toggle('is-active', idx === activeIndex);
-      dot.classList.toggle('is-passed', idx < activeIndex);
-    });
+    if (mobileLabel && letter) mobileLabel.textContent = letter;
   }
 
   const spyObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const idx = Number(entry.target.getAttribute('data-index'));
-        setActiveIndex(idx);
+        const letter = entry.target.getAttribute('data-letter');
+        setActiveIndex(idx, letter);
       }
     });
   }, { threshold: 0.5, rootMargin: '-20% 0px -20% 0px' });
 
   valueRows.forEach((row) => spyObserver.observe(row));
+
+  // ---------- Progress fill (garis vertikal desktop & bar horizontal mobile) ----------
+  const railFill = document.getElementById('rail-progress-fill');
+  const mobileFill = document.getElementById('mobile-progress-fill');
+  const valuesSection = document.getElementById('values-section');
+  const heroBg = document.getElementById('hero-bg');
+
+  function updateProgressFill() {
+    if (!valuesSection) return;
+    const rect = valuesSection.getBoundingClientRect();
+    const viewportH = window.innerHeight;
+    const total = rect.height + viewportH;
+    const scrolled = viewportH - rect.top;
+    const percent = Math.min(Math.max((scrolled / total) * 100, 0), 100);
+
+    if (railFill) railFill.style.height = `${percent}%`;
+    if (mobileFill) mobileFill.style.width = `${percent}%`;
+  }
+
+  function updateHeroParallax() {
+    if (!heroBg) return;
+    const y = window.scrollY;
+    heroBg.style.transform = `translateY(${y * 0.35}px) scale(1.1)`;
+  }
+
+  // ---------- Satu handler scroll, di-throttle via requestAnimationFrame ----------
+  // Ini kunci "smooth": semua pembacaan layout (getBoundingClientRect dll.)
+  // digabung jadi satu batch per frame, bukan dieksekusi berkali-kali per
+  // event scroll mentah.
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      updateHeroParallax();
+      updateProgressFill();
+      ticking = false;
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', updateProgressFill);
+  window.addEventListener('load', () => {
+    updateHeroParallax();
+    updateProgressFill();
+  });
 </script>

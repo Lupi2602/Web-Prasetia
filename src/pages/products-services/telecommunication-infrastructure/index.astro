@@ -1,7 +1,6 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
 
-// Service capabilities data
 const services = [
   {
     id: 'service-01',
@@ -88,7 +87,6 @@ const statistics = [
   { value: 450, suffix: 'km', label: 'FIBER OPTIC', formatComma: false },
 ];
 
-// Row 1: existing clients
 const clientLogosRow1 = [
   { name: 'Tower Bersama Group', src: '/images/client/logo-tower-bersama-group.png' },
   { name: 'Mitratel', src: '/images/client/Logo_Mitratel.png' },
@@ -97,7 +95,6 @@ const clientLogosRow1 = [
   { name: 'MSN', src: '/images/client/logo-msn.png' },
 ];
 
-// Row 2: new operator partners
 const clientLogosRow2 = [
   { name: 'AXIS', src: '/images/client/axis.png' },
   { name: 'Bali Tower', src: '/images/client/balitower.png' },
@@ -133,124 +130,101 @@ const commitments = [
 <MainLayout title="Telecommunication & Infrastructure Contractor | PT Prasetia Dwidharma" transparentNavbar={true}>
 
   <!-- ========================================================
-       1. HERO SECTION
-       Full-bleed, cinematic, corporate. Certification is now
-       fully integrated inside the hero itself — no floating card,
-       no overlap into the next section.
+       1. HERO SECTION — headline muncul bertahap (word stagger)
   ======================================================== -->
-  <section class="hero-section relative min-h-[92vh] lg:min-h-screen flex items-center text-white overflow-hidden bg-slate-950">
-    <!-- Background image -->
+  <section class="hero-section relative min-h-[88vh] lg:min-h-screen flex items-center text-white overflow-hidden bg-slate-950">
     <div class="absolute inset-0">
       <img
         src="/images/herotelcom/herotelcom1.jpg"
         alt="Telecommunication Tower Infrastructure"
-        class="w-full h-full object-cover object-center scale-[1.02] transform transition-transform duration-1000 ease-out"
+        class="hero-bg-img w-full h-full object-cover object-center"
         loading="eager"
       />
-      <!-- Cinematic dark navy wash overlay: balances image visibility with crisp typography -->
       <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/75 to-slate-950/40"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50"></div>
     </div>
 
-    <!-- Hero Content -->
-    <div class="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10 pt-28 lg:pt-32 pb-16 lg:pb-20">
-      <div class="max-w-3xl">
-        <!-- Main Headline -->
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 text-white">
-          Telecommunication &amp; Infrastructure <span class="text-red-500">Contractor.</span>
+    <div class="container mx-auto px-5 sm:px-6 lg:px-12 max-w-7xl relative z-10 pt-24 lg:pt-28 pb-14 lg:pb-20">
+      <div class="max-w-2xl">
+        <h1 class="hero-title text-[clamp(1.9rem,6vw,3.75rem)] font-bold tracking-tight leading-[1.15] mb-4 sm:mb-5 text-white">
+          <span class="hero-word" style="animation-delay:0.05s">Telecommunication</span>
+          <span class="hero-word" style="animation-delay:0.15s">&amp;</span>
+          <span class="hero-word" style="animation-delay:0.25s">Infrastructure</span>
+          <span class="hero-word text-red-500" style="animation-delay:0.35s">Contractor.</span>
         </h1>
 
-        <!-- Subheading -->
-        <p class="text-lg sm:text-xl lg:text-2xl text-slate-200/90 font-light leading-relaxed max-w-2xl mb-10">
+        <p class="hero-fade text-[clamp(0.95rem,1.6vw,1.25rem)] text-slate-200/90 font-light leading-relaxed max-w-xl mb-8" style="animation-delay:0.5s">
           We provide end-to-end tower construction services, starting from planning, construction, mechanical, and electrical.
         </p>
 
-        <!-- Certification — integrated directly into the hero, not a separate floating section -->
-        <div class="inline-flex items-center gap-4 sm:gap-5 px-5 py-4 sm:px-6 sm:py-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg">
-          <div class="p-2 rounded-xl bg-white shrink-0">
+        <div class="hero-fade inline-flex items-center gap-3 sm:gap-4 px-4 py-3 sm:px-5 sm:py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg" style="animation-delay:0.65s">
+          <div class="p-1.5 rounded-xl bg-white shrink-0">
             <img
               src="/images/herotelcom/iso.png"
               alt="ISO 9001 Certified Logo"
-              class="h-12 sm:h-14 w-auto object-contain"
+              class="h-9 sm:h-11 w-auto object-contain"
               loading="eager"
             />
           </div>
           <div class="text-left">
-            <p class="text-base sm:text-lg lg:text-xl font-bold text-white leading-snug">
+            <p class="text-sm sm:text-base font-semibold text-white leading-snug">
               ISO 9001 Quality Management Certified
             </p>
-            <p class="text-xs sm:text-sm text-slate-300">
+            <p class="text-[11px] sm:text-xs text-slate-300">
               Audited by Lloyd's Register Quality Assurance
             </p>
           </div>
         </div>
       </div>
     </div>
+
+
   </section>
 
   <!-- ========================================================
-       2. SECTION INTRO + METRICS
-       Full-bleed background photo with a strong, even dark overlay
-       so headline & body copy stay fully legible over any image.
+       2. INTRO + METRICS
   ======================================================== -->
-  <section id="metrics" class="relative py-24 lg:py-32 bg-slate-950 overflow-hidden">
-    <!-- Background image -->
+  <section id="metrics" class="relative py-16 sm:py-20 lg:py-28 bg-slate-950 overflow-hidden">
     <div class="absolute inset-0">
-      <img
-        src="/images/herotelcom/herotelcom6.jpg"
-        alt=""
-        class="w-full h-full object-cover object-center"
-        loading="lazy"
-      />
-      <!-- Strong, even dark scrim — guarantees text contrast regardless of what's behind it -->
+      <img src="/images/herotelcom/herotelcom6.jpg" alt="" class="w-full h-full object-cover object-center" loading="lazy" />
       <div class="absolute inset-0 bg-slate-950/88"></div>
       <div class="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/80 to-slate-950/95"></div>
     </div>
-    <!-- Subtle dot pattern -->
-    <div
-      class="absolute inset-0 opacity-[0.05] pointer-events-none"
-      style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 32px 32px;"
-    ></div>
+    <div class="absolute inset-0 opacity-[0.05] pointer-events-none" style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 32px 32px;"></div>
 
-    <div class="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
-      <!-- Section Intro Text -->
-      <div class="max-w-3xl mb-16 lg:mb-20">
-        <div class="reveal-fade flex items-center gap-3 mb-4">
-          <span class="w-8 h-0.5 bg-red-500 rounded-full"></span>
-          <span class="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-red-500">
+    <div class="container mx-auto px-5 sm:px-6 lg:px-12 max-w-7xl relative z-10">
+      <div class="max-w-2xl mb-10 sm:mb-14 lg:mb-16">
+        <div class="reveal-fade flex items-center gap-3 mb-3">
+          <span class="w-7 h-0.5 bg-red-500 rounded-full"></span>
+          <span class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-red-500">
             TELECOMMUNICATION INFRASTRUCTURE
           </span>
         </div>
-
-        <h2 class="reveal-fade text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.18] mb-6 drop-shadow-md">
+        <h2 class="reveal-fade text-[clamp(1.5rem,4vw,2.75rem)] font-bold text-white tracking-tight leading-[1.2] mb-4">
           Building the infrastructure behind connectivity.
         </h2>
-
-        <p class="reveal-fade text-base sm:text-lg lg:text-xl text-slate-200 leading-relaxed font-normal">
+        <p class="reveal-fade text-[clamp(0.9rem,1.4vw,1.1rem)] text-slate-200 leading-relaxed font-normal">
           We provide integrated telecommunication infrastructure services, from site acquisition and tower construction to maintenance, co-location, and fiber optic deployment.
         </p>
       </div>
 
-      <!-- Glass Statistics Block -->
-      <div class="reveal-fade bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-8 lg:p-12 shadow-2xl">
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10 divide-y sm:divide-y-0 sm:divide-x divide-white/15">
+      <div class="reveal-fade bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-6 sm:p-8 lg:p-12 shadow-2xl">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-10 divide-y sm:divide-y-0 sm:divide-x divide-white/15">
           {statistics.map((stat, idx) => (
-            <div class={`flex flex-col justify-center text-center ${idx > 0 ? 'pt-6 sm:pt-0 sm:pl-6 lg:pl-8' : ''}`}>
+            <div class={`stat-item flex flex-col justify-center text-center ${idx > 0 ? 'pt-5 sm:pt-0 sm:pl-6 lg:pl-8' : ''}`} style={`transition-delay:${idx * 70}ms`}>
               <div class="flex items-baseline justify-center">
                 <span
-                  class="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl font-extrabold text-white tracking-tight"
+                  class="text-[clamp(1.5rem,3.2vw,2.5rem)] font-bold text-white tracking-tight"
                   data-counter={stat.value}
                   data-format-comma={stat.formatComma ? 'true' : 'false'}
                 >
                   0
                 </span>
                 {stat.suffix && (
-                  <span class="text-lg sm:text-xl font-bold text-red-400 ml-1">
-                    {stat.suffix}
-                  </span>
+                  <span class="text-base sm:text-lg font-semibold text-red-400 ml-1">{stat.suffix}</span>
                 )}
               </div>
-              <span class="text-xs font-bold uppercase tracking-wider text-slate-200 mt-2 block">
+              <span class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-slate-200 mt-1.5 block">
                 {stat.label}
               </span>
             </div>
@@ -262,117 +236,79 @@ const commitments = [
 
   <!-- ========================================================
        3. OUR TELECOMMUNICATION SERVICES
-       Scroll Storytelling Experience with Sticky Visual Stage
-       All 5 services have equal importance
   ======================================================== -->
-  <section id="services" class="py-24 lg:py-32 bg-white relative">
-    <div class="container mx-auto px-6 lg:px-12 max-w-7xl">
-      <!-- Section Header -->
-      <div class="max-w-3xl mb-16 lg:mb-20">
-        <div class="flex items-center gap-3 mb-4">
-          <span class="w-8 h-0.5 bg-red-600 rounded-full"></span>
-          <span class="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-red-600">
-            OUR CAPABILITIES
-          </span>
+  <section id="services" class="py-16 sm:py-20 lg:py-28 bg-white relative">
+    <div class="container mx-auto px-5 sm:px-6 lg:px-12 max-w-7xl">
+      <div class="max-w-2xl mb-10 sm:mb-14 lg:mb-16">
+        <div class="reveal-fade flex items-center gap-3 mb-3">
+          <span class="w-7 h-0.5 bg-red-600 rounded-full"></span>
+          <span class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-red-600">OUR CAPABILITIES</span>
         </div>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5">
+        <h2 class="reveal-fade text-[clamp(1.5rem,4vw,2.75rem)] font-bold text-slate-900 tracking-tight leading-[1.2] mb-4">
           Our Telecommunication Services
         </h2>
-        <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+        <p class="reveal-fade text-[clamp(0.9rem,1.4vw,1.05rem)] text-slate-600 leading-relaxed">
           End-to-end infrastructure solutions built to connect, maintain, and expand reliable telecommunications networks.
         </p>
       </div>
 
-      <!-- DESKTOP SCROLL STORYTELLING LAYOUT (Sticky visual on left, scrolling narratives on right) -->
+      <!-- DESKTOP: sticky storytelling -->
       <div class="hidden lg:grid lg:grid-cols-12 gap-12 xl:gap-16 items-start relative">
-
-        <!-- Sticky Left Column: Cinematic Visual Stage -->
-        <div class="lg:col-span-6 sticky top-24 pt-4">
+        <div class="lg:col-span-6 sticky top-24 pt-2">
           <div class="relative w-full aspect-[4/3] rounded-3xl overflow-hidden bg-slate-950 shadow-2xl border border-slate-200">
-            <!-- 5 Service Images Stacked with Crossfade -->
             {services.map((svc, index) => (
               <div
                 id={`stage-image-${index}`}
-                class={`stage-image absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                  index === 0 ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-95 z-0'
-                }`}
+                class={`stage-image absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${index === 0 ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-95 z-0'}`}
               >
-                <img
-                  src={svc.image}
-                  alt={svc.alt}
-                  class="w-full h-full object-cover"
-                />
-                <!-- Subtle gradient overlay -->
+                <img src={svc.image} alt={svc.alt} class="w-full h-full object-cover" />
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
               </div>
             ))}
-
-            <!-- Floating Top Indicator Pill -->
-            <div class="absolute top-6 left-6 z-20">
-              <span
-                id="stage-active-badge"
-                class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-950/80 backdrop-blur-md border border-white/20 text-white font-mono text-xs font-bold tracking-wider shadow-lg"
-              >
-                <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+            <div class="absolute top-5 left-5 z-20">
+              <span id="stage-active-badge" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950/80 backdrop-blur-md border border-white/20 text-white font-mono text-[11px] font-semibold tracking-wider shadow-lg">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
                 01 / 05 — BTS TOWERS
               </span>
             </div>
-
-            <!-- Bottom Progress Indicators -->
-            <div class="absolute bottom-6 left-6 right-6 z-20 flex items-center justify-between gap-2">
+            <div class="absolute bottom-5 left-5 right-5 z-20 flex items-center justify-between gap-2">
               <div class="flex items-center gap-2">
                 {services.map((svc, index) => (
                   <button
                     type="button"
-                    class={`progress-dot h-2 rounded-full transition-all duration-300 ${
-                      index === 0 ? 'w-8 bg-red-600' : 'w-2 bg-white/40'
-                    }`}
+                    class={`progress-dot h-1.5 rounded-full transition-all duration-300 ${index === 0 ? 'w-7 bg-red-600' : 'w-1.5 bg-white/40'}`}
                     data-step={index}
                     aria-label={`Jump to ${svc.title}`}
                   ></button>
                 ))}
               </div>
-              <span id="stage-active-name" class="text-xs font-semibold text-white/90 drop-shadow truncate max-w-[200px]">
+              <span id="stage-active-name" class="text-[11px] font-medium text-white/90 drop-shadow truncate max-w-[200px]">
                 Construction of BTS Towers
               </span>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Scrolling Narrative Chapters -->
-        <div class="lg:col-span-6 space-y-28 xl:space-y-36 pb-20">
+        <div class="lg:col-span-6 space-y-24 xl:space-y-32 pb-16">
           {services.map((svc, index) => (
             <div
               id={svc.id}
-              class="service-scroll-target scroll-mt-32 p-8 xl:p-10 rounded-3xl bg-[#F8FAFC] border border-slate-200/80 hover:border-slate-300 transition-all duration-300"
+              class="service-scroll-target reveal-fade scroll-mt-32 p-7 xl:p-9 rounded-3xl bg-[#F8FAFC] border border-slate-200/80 hover:border-slate-300 hover:-translate-y-1 transition-all duration-300"
               data-index={index}
+              style={`transition-delay:${(index % 3) * 80}ms`}
             >
-              <div class="flex items-center justify-between mb-4">
-                <span class="font-mono text-sm font-black text-red-600 tracking-wider">
-                  CAPABILITY {svc.number}
-                </span>
-                <span class="text-xs font-bold uppercase tracking-widest text-slate-400">
-                  PT Prasetia Dwidharma
-                </span>
+              <div class="flex items-center justify-between mb-3.5">
+                <span class="font-mono text-xs font-bold text-red-600 tracking-wider">CAPABILITY {svc.number}</span>
+                <span class="text-[10px] font-semibold uppercase tracking-widest text-slate-400">PT Prasetia Dwidharma</span>
               </div>
-
-              <h3 class="text-2xl xl:text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
-                {svc.title}
-              </h3>
-
-              <p class="text-base xl:text-lg text-slate-600 leading-relaxed mb-8">
-                {svc.description}
-              </p>
-
-              <!-- Capability Highlights -->
-              <div class="pt-6 border-t border-slate-200/80">
-                <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-4">
-                  Key Scope of Execution
-                </span>
-                <ul class="space-y-3">
+              <h3 class="text-xl xl:text-2xl font-bold text-slate-900 tracking-tight mb-3">{svc.title}</h3>
+              <p class="text-sm xl:text-base text-slate-600 leading-relaxed mb-6">{svc.description}</p>
+              <div class="pt-5 border-t border-slate-200/80">
+                <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-400 block mb-3">Key Scope of Execution</span>
+                <ul class="space-y-2.5">
                   {svc.highlights.map((hl) => (
-                    <li class="flex items-start gap-3 text-sm text-slate-700">
-                      <span class="w-1.5 h-1.5 rounded-full bg-red-600 mt-2 shrink-0"></span>
+                    <li class="flex items-start gap-2.5 text-[13px] sm:text-sm text-slate-700">
+                      <span class="w-1.5 h-1.5 rounded-full bg-red-600 mt-1.5 shrink-0"></span>
                       <span>{hl}</span>
                     </li>
                   ))}
@@ -383,43 +319,29 @@ const commitments = [
         </div>
       </div>
 
-      <!-- MOBILE & TABLET FALLBACK: Elegant Vertical Sequence -->
-      <div class="lg:hidden space-y-12">
-        {services.map((svc) => (
-          <div class="bg-[#F8FAFC] rounded-3xl border border-slate-200/80 overflow-hidden shadow-sm">
-            <!-- Mobile Image Container -->
-            <div class="relative w-full h-56 sm:h-72 overflow-hidden bg-slate-900">
-              <img
-                src={svc.image}
-                alt={svc.alt}
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
+      <!-- MOBILE / TABLET: sekarang tiap kartu punya reveal + stagger, jadi ada "pengalaman scroll" -->
+      <div class="lg:hidden space-y-7 sm:space-y-9">
+        {services.map((svc, index) => (
+          <div
+            class="reveal-fade bg-[#F8FAFC] rounded-3xl border border-slate-200/80 overflow-hidden shadow-sm active:scale-[0.99] transition-transform"
+            style={`transition-delay:${(index % 3) * 90}ms`}
+          >
+            <div class="relative w-full h-48 sm:h-64 overflow-hidden bg-slate-900">
+              <img src={svc.image} alt={svc.alt} class="w-full h-full object-cover" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-              <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md border border-white/20 text-white font-mono text-xs font-bold">
+              <span class="absolute top-3.5 left-3.5 px-2.5 py-1 rounded-full bg-slate-950/80 backdrop-blur-md border border-white/20 text-white font-mono text-[11px] font-bold">
                 {svc.number}
               </span>
             </div>
-
-            <!-- Mobile Content -->
-            <div class="p-6 sm:p-8">
-              <span class="text-xs font-bold uppercase tracking-widest text-red-600 font-mono block mb-2">
-                SERVICE {svc.number}
-              </span>
-              <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">
-                {svc.title}
-              </h3>
-              <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
-                {svc.description}
-              </p>
-
-              <div class="pt-5 border-t border-slate-200">
-                <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-3">
-                  Key Scope
-                </span>
-                <ul class="space-y-2.5">
+            <div class="p-5 sm:p-7">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-red-600 font-mono block mb-2">SERVICE {svc.number}</span>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2.5">{svc.title}</h3>
+              <p class="text-[13px] sm:text-sm text-slate-600 leading-relaxed mb-5">{svc.description}</p>
+              <div class="pt-4 border-t border-slate-200">
+                <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-400 block mb-2.5">Key Scope</span>
+                <ul class="space-y-2">
                   {svc.highlights.map((hl) => (
-                    <li class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                    <li class="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
                       <span class="w-1.5 h-1.5 rounded-full bg-red-600 mt-1.5 shrink-0"></span>
                       <span>{hl}</span>
                     </li>
@@ -434,70 +356,44 @@ const commitments = [
   </section>
 
   <!-- ========================================================
-       4. CLIENTS & PARTNERS SECTION
-       Two rows, larger logos, shown in full color from the start
-       (no grayscale / hover-to-reveal).
+       4. CLIENTS & PARTNERS — marquee dipercepat khusus mobile
   ======================================================== -->
-  <section class="py-20 lg:py-24 bg-white border-y border-slate-200/70 overflow-hidden">
-    <div class="container mx-auto px-6 lg:px-12 max-w-7xl mb-14 text-center">
-      <div class="inline-flex items-center gap-2 mb-3">
+  <section class="py-14 sm:py-16 lg:py-24 bg-white border-y border-slate-200/70 overflow-hidden">
+    <div class="reveal-fade container mx-auto px-5 sm:px-6 lg:px-12 max-w-7xl mb-9 sm:mb-12 text-center">
+      <div class="inline-flex items-center gap-2 mb-2.5">
         <span class="w-2 h-2 rounded-full bg-red-600"></span>
       </div>
-      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-        Our Clients &amp; Partners
-      </h2>
-      <p class="text-sm sm:text-base text-slate-600 max-w-xl mx-auto mt-2.5 leading-relaxed">
+      <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 tracking-tight">Our Clients &amp; Partners</h2>
+      <p class="text-[13px] sm:text-sm lg:text-base text-slate-600 max-w-xl mx-auto mt-2 leading-relaxed">
         Powering Indonesia's telecommunications ecosystem alongside leading network operators and infrastructure providers.
       </p>
     </div>
 
-    <!-- Row 1: moves left -->
-    <div class="marquee-wrapper relative w-full overflow-hidden py-5">
+    <div class="marquee-wrapper relative w-full overflow-hidden py-4">
       <div class="marquee-track flex items-center">
         {clientLogosRow1.map((item) => (
-          <div class="marquee-item flex items-center justify-center px-10 sm:px-14 shrink-0">
-            <img
-              src={item.src}
-              alt={item.name}
-              class="h-14 sm:h-16 lg:h-20 max-w-[190px] object-contain transition-transform duration-300 hover:scale-110"
-              loading="lazy"
-            />
+          <div class="marquee-item flex items-center justify-center px-7 sm:px-14 shrink-0">
+            <img src={item.src} alt={item.name} class="h-11 sm:h-16 lg:h-20 max-w-[140px] sm:max-w-[190px] object-contain transition-transform duration-300 hover:scale-110" loading="lazy" />
           </div>
         ))}
         {clientLogosRow1.map((item) => (
-          <div class="marquee-item flex items-center justify-center px-10 sm:px-14 shrink-0" aria-hidden="true">
-            <img
-              src={item.src}
-              alt={item.name}
-              class="h-14 sm:h-16 lg:h-20 max-w-[190px] object-contain transition-transform duration-300 hover:scale-110"
-              loading="lazy"
-            />
+          <div class="marquee-item flex items-center justify-center px-7 sm:px-14 shrink-0" aria-hidden="true">
+            <img src={item.src} alt={item.name} class="h-11 sm:h-16 lg:h-20 max-w-[140px] sm:max-w-[190px] object-contain transition-transform duration-300 hover:scale-110" loading="lazy" />
           </div>
         ))}
       </div>
     </div>
 
-    <!-- Row 2: moves right (opposite direction) -->
-    <div class="marquee-wrapper relative w-full overflow-hidden py-5 mt-4">
+    <div class="marquee-wrapper relative w-full overflow-hidden py-4 mt-2">
       <div class="marquee-track marquee-track-reverse flex items-center">
         {clientLogosRow2.map((item) => (
-          <div class="marquee-item flex items-center justify-center px-10 sm:px-14 shrink-0">
-            <img
-              src={item.src}
-              alt={item.name}
-              class="h-14 sm:h-16 lg:h-20 max-w-[190px] object-contain transition-transform duration-300 hover:scale-110"
-              loading="lazy"
-            />
+          <div class="marquee-item flex items-center justify-center px-7 sm:px-14 shrink-0">
+            <img src={item.src} alt={item.name} class="h-11 sm:h-16 lg:h-20 max-w-[140px] sm:max-w-[190px] object-contain transition-transform duration-300 hover:scale-110" loading="lazy" />
           </div>
         ))}
         {clientLogosRow2.map((item) => (
-          <div class="marquee-item flex items-center justify-center px-10 sm:px-14 shrink-0" aria-hidden="true">
-            <img
-              src={item.src}
-              alt={item.name}
-              class="h-14 sm:h-16 lg:h-20 max-w-[190px] object-contain transition-transform duration-300 hover:scale-110"
-              loading="lazy"
-            />
+          <div class="marquee-item flex items-center justify-center px-7 sm:px-14 shrink-0" aria-hidden="true">
+            <img src={item.src} alt={item.name} class="h-11 sm:h-16 lg:h-20 max-w-[140px] sm:max-w-[190px] object-contain transition-transform duration-300 hover:scale-110" loading="lazy" />
           </div>
         ))}
       </div>
@@ -506,40 +402,26 @@ const commitments = [
 
   <!-- ========================================================
        5. CORPORATE COMMITMENT
-       Dominant red gradient theme (white kept only as accents)
   ======================================================== -->
-  <section class="py-24 lg:py-32 bg-gradient-to-br from-red-700 via-red-600 to-red-800 text-white relative overflow-hidden">
-    <!-- Decorative soft blurred shapes -->
+  <section class="py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-red-700 via-red-600 to-red-800 text-white relative overflow-hidden">
     <div class="absolute -top-32 -right-24 w-[28rem] h-[28rem] bg-red-500/40 rounded-full blur-3xl opacity-70 pointer-events-none"></div>
     <div class="absolute -bottom-40 -left-24 w-[26rem] h-[26rem] bg-red-900/40 rounded-full blur-3xl opacity-80 pointer-events-none"></div>
-    <!-- Subtle dot pattern -->
-    <div
-      class="absolute inset-0 opacity-[0.06] pointer-events-none"
-      style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 30px 30px;"
-    ></div>
+    <div class="absolute inset-0 opacity-[0.06] pointer-events-none" style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
 
-    <div class="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
-      <!-- Section Heading -->
-      <div class="max-w-3xl mb-16 lg:mb-20">
-        <div class="flex items-center gap-3 mb-4">
-          <span class="w-8 h-0.5 bg-white rounded-full"></span>
-          <span class="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-white/90">
-            CORPORATE COMMITMENT
-          </span>
+    <div class="container mx-auto px-5 sm:px-6 lg:px-12 max-w-7xl relative z-10">
+      <div class="reveal-fade max-w-2xl mb-10 sm:mb-14 lg:mb-16">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="w-7 h-0.5 bg-white rounded-full"></span>
+          <span class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-white/90">CORPORATE COMMITMENT</span>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-5 text-white">
-          PT Prasetia Dwidharma
-        </h2>
-        <p class="text-base sm:text-lg text-red-50 font-normal leading-relaxed">
+        <h2 class="text-[clamp(1.5rem,4vw,2.75rem)] font-bold tracking-tight mb-4 text-white leading-[1.2]">PT Prasetia Dwidharma</h2>
+        <p class="text-[clamp(0.9rem,1.4vw,1.05rem)] text-red-50 font-normal leading-relaxed">
           We provide tower construction services, starting from planning, construction, mechanical, and electrical guided by four core commitments.
         </p>
       </div>
 
-      <!-- Asymmetric Editorial Grid (Large Visual Anchor + 4 Narrative Strips) -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-
-        <!-- Left: Visual Storytelling Anchor with herotelcom6.jpg -->
-        <div class="lg:col-span-5 relative rounded-3xl overflow-hidden min-h-[380px] lg:min-h-full border border-white/20 shadow-2xl flex flex-col justify-end p-8 sm:p-10 group">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-stretch">
+        <div class="reveal-fade lg:col-span-5 relative rounded-3xl overflow-hidden min-h-[300px] sm:min-h-[360px] lg:min-h-full border border-white/20 shadow-2xl flex flex-col justify-end p-6 sm:p-8 lg:p-10 group">
           <img
             src="/images/herotelcom/herotelcom6.jpg"
             alt="Field Linemen Teamwork on Tower Crossarm"
@@ -547,112 +429,127 @@ const commitments = [
             loading="lazy"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-red-950 via-red-950/60 to-transparent"></div>
-
           <div class="relative z-10">
-            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-red-700 font-mono text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
-              Values in Action
-            </span>
-            <blockquote class="text-lg sm:text-xl font-semibold text-white leading-snug">
-              "We believe telecommunication is more than steel and signals it is about connecting people and communities across the nation."
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-red-700 font-mono text-[10px] font-bold uppercase tracking-wider mb-3 shadow-sm">Values in Action</span>
+            <blockquote class="text-base sm:text-lg font-semibold text-white leading-snug">
+              "We believe telecommunication is more than steel and signals — it is about connecting people and communities across the nation."
             </blockquote>
           </div>
         </div>
 
-        <!-- Right: 4 Editorial Horizontal Panels -->
-        <div class="lg:col-span-7 flex flex-col justify-between gap-4">
-          {commitments.map((item) => (
-            <div class="group relative p-6 sm:p-8 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 backdrop-blur-sm transition-all duration-300">
-              <div class="flex items-start gap-6">
-                <!-- White number indicator on red bg -->
-                <span class="font-mono text-2xl sm:text-3xl font-black text-white shrink-0">
-                  {item.number}
-                </span>
-
+        <div class="lg:col-span-7 flex flex-col justify-between gap-3.5">
+          {commitments.map((item, idx) => (
+            <div
+              class="reveal-fade group relative p-5 sm:p-7 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 backdrop-blur-sm transition-all duration-300"
+              style={`transition-delay:${idx * 90}ms`}
+            >
+              <div class="flex items-start gap-5">
+                <span class="font-mono text-xl sm:text-2xl font-black text-white shrink-0">{item.number}</span>
                 <div>
-                  <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p class="text-sm sm:text-base text-red-50 leading-relaxed font-light">
-                    {item.description}
-                  </p>
+                  <h3 class="text-base sm:text-xl font-bold text-white mb-1.5 transition-colors">{item.title}</h3>
+                  <p class="text-[13px] sm:text-sm text-red-50 leading-relaxed font-light">{item.description}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- ========================================================
        STYLES
-       Marquee infinite scroll (2 directions) & reveal animations
   ======================================================== -->
   <style>
-    /* Marquee styling */
+    html { scroll-behavior: smooth; }
+
+    /* ---- Hero entrance ---- */
+    .hero-bg-img {
+      animation: heroZoom 6s ease-out forwards;
+    }
+    @keyframes heroZoom {
+      0% { transform: scale(1.08); opacity: 0.6; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .hero-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: wordUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+    .hero-fade {
+      opacity: 0;
+      transform: translateY(14px);
+      animation: wordUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+    @keyframes wordUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .scroll-cue { animation: fadeIn 1s ease 1.1s forwards; opacity: 0; }
+    @keyframes fadeIn { to { opacity: 1; } }
+    .scroll-cue-dot { animation: cueBounce 1.6s ease-in-out infinite; }
+    @keyframes cueBounce {
+      0%, 100% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(8px); opacity: 0.2; }
+    }
+
+    /* ---- Marquee ---- */
     .marquee-wrapper::before,
     .marquee-wrapper::after {
       content: '';
       position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 100px;
+      top: 0; bottom: 0;
+      width: 60px;
       z-index: 2;
       pointer-events: none;
     }
-    .marquee-wrapper::before {
-      left: 0;
-      background: linear-gradient(to right, #fff, transparent);
-    }
-    .marquee-wrapper::after {
-      right: 0;
-      background: linear-gradient(to left, #fff, transparent);
-    }
+    .marquee-wrapper::before { left: 0; background: linear-gradient(to right, #fff, transparent); }
+    .marquee-wrapper::after { right: 0; background: linear-gradient(to left, #fff, transparent); }
 
     .marquee-track {
       width: max-content;
       animation: marqueeScroll 36s linear infinite;
     }
-    .marquee-track:hover {
-      animation-play-state: paused;
-    }
-
-    /* Second row moves the opposite direction, slightly different pace */
+    .marquee-track:hover { animation-play-state: paused; }
     .marquee-track-reverse {
       animation-name: marqueeScroll;
       animation-duration: 32s;
       animation-direction: reverse;
     }
-
     @keyframes marqueeScroll {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
-    /* Scroll reveal transitions */
+    /* Mobile: marquee dipercepat + kena scroll aktif dipause biar gak "berat" saat scroll */
+    @media (max-width: 767px) {
+      .marquee-wrapper::before,
+      .marquee-wrapper::after { width: 36px; }
+      .marquee-track { animation-duration: 14s; }
+      .marquee-track-reverse { animation-duration: 12s; }
+    }
+
+    /* ---- Scroll reveal (dipakai di semua section) ---- */
     .reveal-fade {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(22px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .reveal-fade.is-revealed {
-      opacity: 1;
-      transform: translateY(0);
+    .reveal-fade.is-revealed { opacity: 1; transform: translateY(0); }
+
+    .stat-item {
+      opacity: 0;
+      transform: translateY(14px) scale(0.96);
+      transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1);
     }
+    .stat-item.is-revealed { opacity: 1; transform: translateY(0) scale(1); }
 
     @media (prefers-reduced-motion: reduce) {
-      .marquee-track,
-      .marquee-track-reverse {
-        animation: none;
-      }
-      .reveal-fade {
+      .marquee-track, .marquee-track-reverse { animation: none; }
+      .reveal-fade, .stat-item, .hero-word, .hero-fade, .hero-bg-img, .scroll-cue, .scroll-cue-dot {
         opacity: 1 !important;
         transform: none !important;
+        animation: none !important;
         transition: none !important;
       }
     }
@@ -660,18 +557,15 @@ const commitments = [
 
   <!-- ========================================================
        VANILLA JAVASCRIPT
-       - IntersectionObserver for Sticky Service Storytelling
-       - Count-up animation for statistics
-       - Scroll reveal
   ======================================================== -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       initScrollReveal();
       initCounterAnimation();
       initStickyServiceStorytelling();
+      initMarqueePauseOnScroll();
     });
 
-    // 1. Scroll reveal observer
     function initScrollReveal() {
       const revealElements = document.querySelectorAll('.reveal-fade');
       if (!revealElements.length) return;
@@ -691,13 +585,12 @@ const commitments = [
             }
           });
         },
-        { threshold: 0.15 }
+        { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
       );
 
       revealElements.forEach((el) => observer.observe(el));
     }
 
-    // 2. Count-up statistics animation
     function initCounterAnimation() {
       const counters = document.querySelectorAll<HTMLElement>('[data-counter]');
       if (!counters.length) return;
@@ -709,6 +602,8 @@ const commitments = [
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               const el = entry.target as HTMLElement;
+              const statItem = el.closest('.stat-item');
+              if (statItem) statItem.classList.add('is-revealed');
               obs.unobserve(el);
 
               const target = parseInt(el.getAttribute('data-counter') || '0', 10);
@@ -719,13 +614,12 @@ const commitments = [
                 return;
               }
 
-              const duration = 1800;
+              const duration = 1600;
               const startTime = performance.now();
 
               function animate(currentTime: number) {
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
-                // Ease out cubic
                 const ease = 1 - Math.pow(1 - progress, 3);
                 const current = Math.round(target * ease);
 
@@ -748,7 +642,6 @@ const commitments = [
       counters.forEach((el) => observer.observe(el));
     }
 
-    // 3. Sticky Service Storytelling Observer
     function initStickyServiceStorytelling() {
       const targets = document.querySelectorAll<HTMLElement>('.service-scroll-target');
       const stageImages = document.querySelectorAll<HTMLElement>('.stage-image');
@@ -765,7 +658,6 @@ const commitments = [
         '04 / 05 — MAINTENANCE',
         '05 / 05 — FIBER OPTIC',
       ];
-
       const fullTitles = [
         'Construction of BTS Towers',
         'Co-location',
@@ -775,7 +667,6 @@ const commitments = [
       ];
 
       function setActiveStep(index: number) {
-        // Update images
         stageImages.forEach((img, i) => {
           if (i === index) {
             img.classList.remove('opacity-0', 'scale-95', 'z-0');
@@ -786,27 +677,24 @@ const commitments = [
           }
         });
 
-        // Update badge & name
         if (activeBadge && badgeTitles[index]) {
-          activeBadge.innerHTML = `<span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>${badgeTitles[index]}`;
+          activeBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>${badgeTitles[index]}`;
         }
         if (activeName && fullTitles[index]) {
           activeName.textContent = fullTitles[index];
         }
 
-        // Update progress dots
         progressDots.forEach((dot, i) => {
           if (i === index) {
-            dot.classList.remove('w-2', 'bg-white/40');
-            dot.classList.add('w-8', 'bg-red-600');
+            dot.classList.remove('w-1.5', 'bg-white/40');
+            dot.classList.add('w-7', 'bg-red-600');
           } else {
-            dot.classList.remove('w-8', 'bg-red-600');
-            dot.classList.add('w-2', 'bg-white/40');
+            dot.classList.remove('w-7', 'bg-red-600');
+            dot.classList.add('w-1.5', 'bg-white/40');
           }
         });
       }
 
-      // Intersection observer on scroll chapters
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -816,24 +704,36 @@ const commitments = [
             }
           });
         },
-        {
-          rootMargin: '-30% 0px -50% 0px',
-          threshold: 0,
-        }
+        { rootMargin: '-30% 0px -50% 0px', threshold: 0 }
       );
 
       targets.forEach((target) => observer.observe(target));
 
-      // Click on dot jumps to that section
       progressDots.forEach((dot) => {
         dot.addEventListener('click', () => {
           const stepIndex = parseInt(dot.getAttribute('data-step') || '0', 10);
           const target = targets[stepIndex];
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
       });
+    }
+
+    // Pause marquee saat user aktif scroll di mobile, biar terasa lebih ringan & tidak "berat"
+    function initMarqueePauseOnScroll() {
+      const isMobile = window.matchMedia('(max-width: 767px)').matches;
+      if (!isMobile) return;
+
+      const tracks = document.querySelectorAll<HTMLElement>('.marquee-track');
+      if (!tracks.length) return;
+
+      let scrollTimeout: ReturnType<typeof setTimeout>;
+      window.addEventListener('scroll', () => {
+        tracks.forEach((t) => (t.style.animationPlayState = 'paused'));
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          tracks.forEach((t) => (t.style.animationPlayState = 'running'));
+        }, 250);
+      }, { passive: true });
     }
   </script>
 
