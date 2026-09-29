@@ -1,0 +1,272 @@
+{
+  "name": "SealSuite Product Page",
+  "version": "1.0.0",
+  "language": "id-ID",
+  "purpose": "Membangun halaman website SealSuite pada project yang sudah ada, menggunakan konten dan asset hasil scraping sebagai sumber utama, dengan pendekatan visual modern yang terinspirasi dari website Lark.",
+  "reference_sources": {
+    "content_source": [
+      "https://www.virtuenet.id/sealsuite",
+      "https://www.sealsuite.com/"
+    ],
+    "design_reference": [
+      "https://www.larksuite.com",
+      "https://www.sealsuite.com/"
+    ],
+    "content_rule": "Gunakan hasil scraping lokal sebagai source of truth untuk teks, gambar, logo, ikon, dan informasi SealSuite. Jangan mengarang informasi produk yang tidak tersedia pada asset/content hasil scraping.",
+    "source_notes": [
+      "Halaman sumber SealSuite berisi hero, positioning Zero Trust, empat pilar keamanan, proses implementasi, alasan memilih Virtuenet, customer logos, FAQ, CTA/demo, dan contact form.",
+      "Website Lark digunakan hanya sebagai referensi visual untuk hierarchy, whitespace, typography, product storytelling, section composition, CTA, card treatment, dan motion."
+    ]
+  },
+  "asset_location": {
+    "root": "references/ICT/sealsuite",
+    "instruction": "Inspect seluruh isi folder ini terlebih dahulu. Identifikasi file JSON, Markdown, TXT, SVG, PNG, JPG, WEBP, GIF, dan asset lain yang relevan. Buat mapping asset sebelum implementation.",
+    "do_not": [
+      "Jangan mengganti asset lokal dengan gambar dari internet jika asset lokal tersedia.",
+      "Jangan menggunakan URL asset dari website sumber secara langsung jika versi lokal tersedia.",
+      "Jangan menghapus atau memindahkan asset scraping."
+    ]
+  },
+  "mandatory_first_step_project_analysis": {
+    "instruction": "Sebelum menulis atau mengubah kode apa pun, analisis project secara menyeluruh.",
+    "inspect": [
+      "package.json dan package manager",
+      "struktur folder src/app/pages/components",
+      "routing yang digunakan",
+      "layout global",
+      "navbar/header dan footer yang sudah ada",
+      "design system/theme",
+      "font yang digunakan",
+      "Tailwind/CSS/module styling",
+      "komponen UI reusable",
+      "icon library",
+      "image handling",
+      "existing page patterns",
+      "public/static/assets",
+      "linting dan formatting configuration"
+    ],
+    "output_before_coding": [
+      "Ringkasan stack project.",
+      "Lokasi route yang paling tepat untuk halaman SealSuite.",
+      "Komponen existing yang dapat digunakan kembali.",
+      "Komponen baru yang perlu dibuat.",
+      "Mapping asset dari references/ICT/sealsuite ke section halaman.",
+      "Potensi konflik dengan design system atau routing.",
+      "Rencana implementasi singkat."
+    ],
+    "rule": "Jangan mengubah konfigurasi project, dependency, routing global, atau komponen existing yang tidak diperlukan."
+  },
+  "page_goal": {
+    "route": "Gunakan routing convention project yang sudah ada; jangan membuat route baru sebelum memeriksa route structure.",
+    "page_type": "Product / Solution Landing Page",
+    "product": "SealSuite",
+    "positioning": "Platform Zero Trust all-in-one untuk keamanan identitas, perangkat, jaringan, dan aplikasi SaaS perusahaan.",
+    "audience": [
+      "IT Manager",
+      "IT Security",
+      "Business Owner",
+      "Enterprise",
+      "Perusahaan multi-cabang"
+    ],
+    "primary_cta": "Demo / Konsultasi",
+    "secondary_cta": "Pelajari SealSuite"
+  },
+  "content_structure": [
+    {
+      "section": "Hero",
+      "requirements": [
+        "Headline kuat dan ringkas berdasarkan konten hasil scraping.",
+        "Subheadline menjelaskan value proposition SealSuite.",
+        "Primary CTA dan secondary CTA.",
+        "Gunakan hero visual/asset SealSuite lokal yang paling relevan.",
+        "Tampilan premium, clean, spacious, enterprise-grade."
+      ]
+    },
+    {
+      "section": "Trust / Value Introduction",
+      "requirements": [
+        "Jelaskan secara singkat konsep Zero Trust SealSuite.",
+        "Gunakan visual produk atau supporting asset.",
+        "Buat transition yang halus dari hero ke product explanation."
+      ]
+    },
+    {
+      "section": "Four Security Pillars",
+      "requirements": [
+        "Tampilkan empat pilar: Identity & Access Management, Endpoint Management & Security, Network Management & Security, SaaS Protection.",
+        "Setiap pilar memiliki judul, deskripsi, key capabilities, dan visual asset jika tersedia.",
+        "Gunakan card/tab/interactive layout hanya jika sesuai dengan design system project.",
+        "Pastikan mobile layout tetap mudah dibaca."
+      ]
+    },
+    {
+      "section": "Implementation Process",
+      "requirements": [
+        "Tampilkan tiga tahap: Konsultasi & Assessment, Konfigurasi & Pilot, Go-live & Optimasi.",
+        "Gunakan visual step-by-step yang jelas.",
+        "Gunakan nomor/indikator visual yang konsisten."
+      ]
+    },
+    {
+      "section": "Why Virtuenet",
+      "requirements": [
+        "Tampilkan alasan implementasi SealSuite bersama Virtuenet berdasarkan konten sumber.",
+        "Jangan mengubah klaim atau menambahkan klaim baru.",
+        "Gunakan icon lokal jika tersedia."
+      ]
+    },
+    {
+      "section": "Customer / Social Proof",
+      "requirements": [
+        "Gunakan logo customer yang tersedia di asset lokal.",
+        "Buat layout logo yang rapi dan tidak mendistorsi rasio gambar.",
+        "Jika menggunakan carousel, pastikan accessible dan tidak mengganggu performance."
+      ]
+    },
+    {
+      "section": "FAQ",
+      "requirements": [
+        "Gunakan pertanyaan dan jawaban dari hasil scraping jika jawaban tersedia.",
+        "Jika data jawaban tidak tersedia, jangan mengarang jawaban.",
+        "Gunakan accordion yang keyboard accessible."
+      ]
+    },
+    {
+      "section": "Final CTA",
+      "requirements": [
+        "Buat CTA kuat untuk demo/konsultasi.",
+        "Ganti formulir kontak menjadi sebuah button.",
+        "Button tersebut harus mengarahkan user ke https://www.virtuenet.id/sealsuite.",
+        "Gunakan background/visual SealSuite yang tersedia.",
+        "CTA harus terlihat jelas pada desktop dan mobile."
+      ]
+    }
+  ],
+  "visual_direction": {
+    "reference": "Lark website",
+    "borrow": [
+      "Strong visual hierarchy",
+      "Large editorial-style hero typography",
+      "Generous whitespace",
+      "Clean enterprise SaaS aesthetic",
+      "Product screenshots integrated into compositions",
+      "Alternating text-and-visual sections",
+      "Soft cards and subtle borders",
+      "Clear CTA hierarchy",
+      "Smooth section transitions",
+      "Subtle motion on scroll"
+    ],
+    "do_not_copy": [
+      "Jangan menyalin layout secara pixel-perfect.",
+      "Jangan menyalin branding Lark.",
+      "Jangan menggunakan logo, warna brand, copywriting, atau asset Lark sebagai asset halaman SealSuite.",
+      "Jangan membuat halaman terlihat seperti clone website Lark."
+    ],
+    "brand_priority": "Identitas visual project/website utama dan branding SealSuite harus tetap menjadi prioritas; Lark hanya sebagai design reference."
+  },
+  "ui_ux_requirements": {
+    "responsive": [
+      "Desktop",
+      "Tablet",
+      "Mobile"
+    ],
+    "accessibility": [
+      "Gunakan semantic HTML.",
+      "Semua button/link harus keyboard accessible.",
+      "Image harus memiliki alt text yang relevan.",
+      "Accordion FAQ harus accessible.",
+      "Pastikan contrast teks memenuhi standar yang wajar.",
+      "Jangan menggunakan animation yang menghambat penggunaan."
+    ],
+    "interaction": [
+      "Hover state pada CTA/card jika relevan.",
+      "Subtle reveal animation saat section masuk viewport.",
+      "Gunakan animation seperlunya; jangan membuat halaman terasa berat.",
+      "Respect prefers-reduced-motion."
+    ]
+  },
+  "technical_requirements": {
+    "rules": [
+      "Ikuti framework dan architecture yang sudah digunakan project.",
+      "Gunakan komponen reusable.",
+      "Jangan menambahkan dependency baru jika kebutuhan dapat dipenuhi dengan dependency yang sudah ada.",
+      "Jika project sudah menggunakan Tailwind, gunakan Tailwind dan design token existing.",
+      "Jika project sudah memiliki Button, Card, Accordion, Navbar, Footer, atau komponen UI sejenis, gunakan kembali.",
+      "Jangan membuat duplicate component yang fungsinya sudah tersedia.",
+      "Gunakan image optimization mechanism bawaan framework bila tersedia.",
+      "Pastikan tidak ada broken image, hydration error, console error, atau unused import."
+    ]
+  },
+  "content_integrity": {
+    "rules": [
+      "Konten SealSuite harus berasal dari hasil scraping lokal atau sumber yang diberikan user.",
+      "Pertahankan makna asli konten.",
+      "Boleh melakukan editing copy minor untuk hierarchy UI, tetapi jangan mengubah fakta atau klaim.",
+      "Jangan mengarang angka, customer, feature, certification, testimonial, pricing, integration, atau security claim.",
+      "Jika informasi tidak tersedia, omit section/content tersebut daripada membuat informasi palsu."
+    ]
+  },
+  "seo": {
+    "requirements": [
+      "Buat title halaman yang relevan dengan SealSuite.",
+      "Buat meta description berdasarkan konten sumber.",
+      "Gunakan satu H1 utama.",
+      "Gunakan H2/H3 secara hierarkis.",
+      "Gunakan descriptive alt text.",
+      "Pastikan URL/route mengikuti struktur SEO project."
+    ]
+  },
+  "performance": {
+    "requirements": [
+      "Optimalkan penggunaan gambar.",
+      "Gunakan lazy loading untuk image yang berada di bawah fold bila framework mendukung.",
+      "Hindari JavaScript untuk interaksi yang tidak diperlukan.",
+      "Jangan preload semua asset.",
+      "Pastikan hero asset diprioritaskan dengan tepat.",
+      "Hindari layout shift."
+    ]
+  },
+  "implementation_workflow": [
+    "1. Inspect project structure dan stack.",
+    "2. Inspect references/ICT/sealsuite dan buat asset/content inventory.",
+    "3. Inspect existing design system dan reusable components.",
+    "4. Tentukan route dan component architecture.",
+    "5. Implement page structure.",
+    "6. Integrasikan asset lokal.",
+    "7. Implement responsive behavior.",
+    "8. Tambahkan subtle interactions/animation.",
+    "9. Implement SEO metadata.",
+    "10. Run lint/typecheck/build jika tersedia.",
+    "11. Perbaiki error yang ditemukan.",
+    "12. Review visual hierarchy dan konsistensi dengan website project."
+  ],
+  "quality_checklist": [
+    "Tidak ada asset yang broken.",
+    "Tidak ada teks placeholder seperti Lorem ipsum.",
+    "Tidak ada konten SealSuite yang dibuat-buat.",
+    "Tidak ada duplicate navigation/footer.",
+    "Tidak ada console error.",
+    "Tidak ada TypeScript error jika project menggunakan TypeScript.",
+    "Tidak ada lint error yang diperkenalkan.",
+    "Desktop responsive.",
+    "Tablet responsive.",
+    "Mobile responsive.",
+    "FAQ dapat digunakan dengan keyboard.",
+    "CTA jelas.",
+    "Typography konsisten dengan project.",
+    "Halaman terasa seperti product landing page enterprise modern.",
+    "Visual mengambil inspirasi dari Lark tetapi tidak menjadi clone Lark."
+  ],
+  "final_response_after_implementation": {
+    "request": [
+      "Laporkan file yang dibuat atau diubah.",
+      "Laporkan route halaman.",
+      "Laporkan asset yang digunakan.",
+      "Laporkan komponen existing yang digunakan kembali.",
+      "Laporkan dependency baru jika ada.",
+      "Laporkan hasil lint/typecheck/build.",
+      "Laporkan issue yang masih tersisa jika ada."
+    ]
+  },
+  "developer_instruction": "Kerjakan secara bertahap. Analisis terlebih dahulu, baru implementasi. Jangan melakukan perubahan besar pada project di luar scope halaman SealSuite. Prioritaskan reuse, konsistensi, accessibility, performance, dan fidelity terhadap konten lokal."
+}
