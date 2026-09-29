@@ -5,44 +5,34 @@ import '../styles/global.css';
 
 interface Props {
   title?: string;
+  description?: string;
   transparentNavbar?: boolean;
 }
 
-const { title = 'PT Prasetia Dwidharma', transparentNavbar = false } = Astro.props;
+const {
+  title = 'PT Prasetia Dwidharma',
+  description = 'PT Prasetia Dwidharma',
+  transparentNavbar = false,
+} = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="icon" type="image/png" href="/images/hero/logoweb.png" />
   </head>
-  <body class="flex flex-col min-h-screen text-gray-800 bg-white">
+  <body
+    class="flex flex-col min-h-screen text-gray-800 bg-white"
+    data-navbar-transparent={transparentNavbar ? 'true' : 'false'}
+  >
     <Navbar />
     <!-- transparentNavbar: hero menangani padding atas sendiri, pb dihapus agar footer menyatu -->
     <main class={`flex-grow ${transparentNavbar ? '' : 'pt-24 lg:pt-28 pb-16'}`}>
       <slot />
     </main>
     <Footer />
-
-    <script>
-      // Ensure navbar starts transparent on hero pages, solid on others
-      const nav = document.getElementById('site-navbar');
-      if (nav) {
-        // Jika tidak ada .hero (hero pages), langsung solid
-        const hasHero = !!document.querySelector('.hero');
-        if (hasHero) {
-          // Akan di-handle oleh Navbar scroll logic secara otomatis
-          // Pastikan dimulai transparan jika scroll = 0
-          if (window.scrollY <= 60) {
-            nav.classList.add('nav-transparent');
-            nav.classList.remove('nav-solid');
-          }
-        } else {
-          nav.classList.add('nav-solid');
-          nav.classList.remove('nav-transparent');
-        }
-      }
-    </script>
   </body>
 </html>

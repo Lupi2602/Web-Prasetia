@@ -16,1113 +16,1576 @@ const clientLogos = [
   { src: '/images/client/logo-Sucofindo.png', alt: 'Sucofindo' },
 ];
 
+// Dibagi jadi 2 baris, tiap baris diulang 4x supaya loop marquee mulus
+const loop = (arr) => [...arr, ...arr, ...arr, ...arr];
+const clientRow1 = loop(clientLogos.slice(0, 5));
+const clientRow2 = loop(clientLogos.slice(5));
+
 const divisions = [
   {
-    number: '01',
-    title: 'Telecommunication & Infrastructure Contractor',
-    description: 'We provide tower construction services, starting from planning up to construction.',
-    image: '/images/card-divisions/tower.jpg',
-    icon: '/images/icons/radio-tower.svg',
+    num: '01',
+    title: 'Telekomunikasi & Infrastruktur',
+    desc: 'Pembangunan tower, co-location, site acquisition, maintenance, dan fiber optic.',
     href: '/products-services/telecommunication-infrastructure/',
   },
   {
-    number: '02',
-    title: 'Information & Communication Technology',
-    description: 'We provide ICT products and services to corporates, governments and retails.',
-    image: '/images/card-divisions/ict.jpg',
-    icon: '/images/icons/monitor.svg',
+    num: '02',
+    title: 'Teknologi Informasi & Komunikasi',
+    desc: 'Solusi teknologi untuk perusahaan, seperti Lark, Oracle NetSuite, dan platform smart city.',
     href: '/products-services/ict/lark/',
   },
   {
-    number: '03',
+    num: '03',
     title: 'Business Process Outsourcing',
-    description: 'We provide Outsourcing Services for different sectors like telco and CRM by providing contact center solutions.',
-    image: '/images/card-divisions/bpo.jpg',
-    icon: '/images/icons/headset.svg',
+    desc: 'Layanan contact center dan teknologi CRM untuk operator telekomunikasi dan perusahaan.',
     href: '/products-services/bpo-crm-technology/call-center/',
   },
   {
-    number: '04',
-    title: 'Investments',
-    description: 'An early-stage investment company, has been a part of the initial growth stories of several startups in Southeast Asia.',
-    image: '/images/card-divisions/invesments.jpg',
-    icon: '/images/icons/trending.svg',
-    href: '/investment/',
+    num: '04',
+    title: 'Biotech',
+    desc: 'Divisi bisnis yang berfokus pada pengembangan solusi inovasi berbasis bahan alami ',
+    href: 'https://imagina.prasetia.co.id//',
+    external: true,
   },
+];
+
+/**
+ * PENGHARGAAN UNGGULAN: dipilih dari sertifikat asli di halaman /about/awards/
+ * (aw1, aw5, aw6, aw7, aw14, aw9). Urut dari yang paling lama.
+ */
+const awards = [
+  {
+    src: '/images/awards/aw5.jpeg',
+    issuer: 'Mitratel',
+    title: 'Charter of Appreciation',
+    note: 'Penyelesaian proyek Mitratel 2010–2011',
+    year: '2011',
+    alt: 'Sertifikat Charter of Appreciation dari Mitratel, September 2011',
+  },
+  {
+    src: '/images/awards/aw1.jpeg',
+    issuer: 'Tower Bersama Group',
+    title: 'Best Project Subcontractor',
+    note: "Kategori 'BIG' Capacity New Build",
+    year: '2013',
+    alt: 'Sertifikat Best Project Subcontractor dari Tower Bersama Group, 2013',
+  },
+  {
+    src: '/images/awards/aw6.jpeg',
+    issuer: 'Mitratel',
+    title: 'Best Regional Office Awards 2013',
+    note: 'Regional Sumbagsel Merah',
+    year: '2014',
+    alt: 'Piagam Best Regional Office Awards 2013 dari Mitratel',
+  },
+  {
+    src: '/images/awards/aw14.jpg',
+    issuer: 'Tower Bersama Group',
+    title: 'Best Maintenance Vendor 2015',
+    note: 'Wilayah Sulawesi',
+    year: '2015',
+    alt: 'Sertifikat Best Maintenance Vendor 2015 untuk Sulawesi dari Tower Bersama Group',
+  },
+  {
+    src: '/images/awards/aw7.jpeg',
+    issuer: 'Mitratel',
+    title: 'Mitra Project CORE Area 2 Terbaik',
+    note: 'Performansi terbaik tahun 2015',
+    year: '2016',
+    alt: 'Piagam Mitra Project CORE Area 2 dari Mitratel',
+  },
+  {
+    src: '/images/awards/aw9.jpg',
+    issuer: 'Tower Bersama Group',
+    title: 'Most Progressive New Build MSS Application',
+    note: 'TBiG Yearly Project Award',
+    year: '2018',
+    alt: 'Sertifikat Most Progressive New Build MSS Application dari Tower Bersama Group, 2018',
+  },
+];
+
+const awardStats = [
+  { num: '23', label: 'Sertifikat' },
+  { num: '3+', label: 'Mitra pemberi' },
+  { num: '2011–2019', label: 'Rentang waktu', small: true },
 ];
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="PT Prasetia Dwidharma — Innovative Technology Integrator & Telecommunications Infrastructure Company. Partnering with customers in reaching their potential through better technology and communications infrastructure." />
-    <title>PT Prasetia Dwidharma | Technology Integrator & Telecommunications</title>
-    <style>
-      /* ======================================================
-         HOMEPAGE STYLES
-      ====================================================== */
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="PT Prasetia Dwidharma menyediakan infrastruktur telekomunikasi dan solusi teknologi untuk perusahaan di Indonesia sejak 2008." />
+    <title>PT Prasetia Dwidharma | Infrastruktur Telekomunikasi & Solusi Teknologi</title>
+    <link rel="icon" type="image/png" href="/images/hero/logoweb.png" />
 
-      /* ---- Base & Font ---- */
+    <!-- ============ GLOBAL: variabel warna + perbaikan NAVBAR ============ -->
+    <style is:global>
       *, *::before, *::after { box-sizing: border-box; }
 
-      /* ---- Hero Section ---- */
-      .hero-section {
-        position: relative;
-        width: 100%;
-        min-height: 100svh;
-        display: flex;
-        align-items: center;
-        overflow: hidden;
-        background-color: #0f0f0f;
+      :root {
+        /* Merah terang, bersih, tidak gelap */
+        --red: #E11D27;
+        --red-2: #EF3B3F;
+        --red-dark: #C8151E;
+        --red-tint: #FDE8E8;
+        --ink: #1F2430;
+        --text: #3D4452;
+        --muted: #6B7280;
+        --line: #F0E4E3;
+        --max: 1200px;
+        --edge: max(24px, calc((100vw - 1200px) / 2));
+        --sec-y: clamp(56px, 8vw, 96px);
+
+        /* Merah flat (tanpa gradient, tanpa bercak) */
+        --grad: #E11D27;
       }
-      .hero-bg {
-        position: absolute;
-        inset: 0;
-        background-image: url('/images/hero/hero4.jpg');
-        background-size: cover;
-        background-position: center 30%;
-        filter: brightness(0.45) saturate(0.8);
-        transform: scale(1.04);
-        animation: heroZoom 18s ease-in-out infinite alternate;
-        will-change: transform;
+
+      html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+      img { max-width: 100%; }
+
+      /* NAVBAR: dibuat solid putih supaya menu selalu terbaca */
+      #site-navbar,
+      #site-navbar.nav-transparent,
+      #site-navbar.nav-solid {
+        background: #fff !important;
+        background-image: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: 0 1px 0 var(--line), 0 8px 24px rgba(31, 36, 48, 0.05) !important;
       }
-      @keyframes heroZoom {
-        from { transform: scale(1.04); }
-        to   { transform: scale(1.00); }
+      #site-navbar a,
+      #site-navbar button,
+      #site-navbar svg {
+        color: var(--ink) !important;
+        text-shadow: none !important;
       }
-      /* Red accent overlay — subtle left edge */
-      .hero-accent {
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 5px;
-        background: #b91c1c;
-        z-index: 2;
-      }
-      /* Bottom fade to white so transition into next section feels seamless */
-      .hero-bottom-fade {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 180px;
-        background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.08));
-        z-index: 2;
-        pointer-events: none;
-      }
-      .hero-content {
-        position: relative;
-        z-index: 10;
-        width: 100%;
-        max-width: 1280px;
+      #site-navbar a:hover,
+      #site-navbar button:hover { color: var(--red) !important; }
+    </style>
+
+    <!-- ============ STYLE HALAMAN ============ -->
+    <style>
+      main { overflow-x: clip; }
+
+      .wrap {
+        max-width: var(--max);
         margin: 0 auto;
-        padding: 140px 40px 100px;
+        padding: 0 24px;
       }
-      .hero-eyebrow {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 28px;
-      }
-      .hero-eyebrow-line {
-        width: 40px;
-        height: 2px;
-        background: #ef4444;
-        flex-shrink: 0;
-      }
-      .hero-eyebrow-text {
-        font-size: 11px;
-        font-weight: 600;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: rgba(255,255,255,0.65);
-      }
-      .hero-headline {
-        font-size: clamp(2.5rem, 5.5vw, 4.25rem);
-        font-weight: 800;
-        line-height: 1.08;
-        letter-spacing: -0.025em;
-        color: #ffffff;
-        max-width: 780px;
-        margin-bottom: 28px;
-      }
-      .hero-headline .accent-word {
-        color: #ef4444;
-        font-style: italic;
-      }
-      .hero-sub {
-        font-size: clamp(1rem, 1.6vw, 1.175rem);
-        line-height: 1.7;
-        color: rgba(255,255,255,0.72);
-        max-width: 520px;
-        margin-bottom: 48px;
-      }
-      .hero-cta-group {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-      .btn-primary {
+
+      /* Tipografi dasar */
+      .label {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        padding: 15px 32px;
-        background: #b91c1c;
-        color: #fff;
-        font-size: 13.5px;
-        font-weight: 600;
-        letter-spacing: 0.04em;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
-        text-decoration: none;
-        border-radius: 3px;
-        transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-        box-shadow: 0 4px 20px rgba(185,28,28,0.35);
+        color: var(--red);
+        margin-bottom: 14px;
       }
-      .btn-primary:hover {
-        background: #991b1b;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 30px rgba(185,28,28,0.45);
+      .label::before {
+        content: '';
+        width: 22px;
+        height: 2px;
+        background: var(--red);
       }
-      .btn-primary:focus-visible {
-        outline: 3px solid #ef4444;
-        outline-offset: 3px;
+      .h2 {
+        font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+        font-weight: 800;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+        margin: 0 0 14px;
       }
-      .btn-ghost {
+      .h2 em { font-style: normal; color: var(--red); }
+      .lead {
+        font-size: 15.5px;
+        line-height: 1.8;
+        color: var(--text);
+        margin: 0;
+      }
+
+      /* ===== Section merah: flat, bersih, tanpa glow ===== */
+      .sec-red {
+        position: relative;
+        overflow: hidden;
+        background: var(--red);
+        color: #fff;
+      }
+      .sec-red .label { color: #fff; }
+      .sec-red .label::before { background: #fff; }
+      .sec-red .h2 { color: #fff; }
+      .sec-red .h2 em { color: #fff; text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; text-decoration-color: rgba(255,255,255,0.55); }
+      .sec-red .lead { color: rgba(255, 255, 255, 0.96); }
+
+      /* Tombol dan link teks */
+      .btn {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
-        padding: 14px 28px;
-        background: rgba(255,255,255,0.08);
-        color: rgba(255,255,255,0.85);
-        font-size: 13.5px;
-        font-weight: 500;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        min-height: 48px;
+        padding: 13px 28px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 700;
+        text-align: center;
         text-decoration: none;
-        border-radius: 3px;
-        border: 1px solid rgba(255,255,255,0.2);
-        transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
-        backdrop-filter: blur(8px);
+        border: 1.5px solid var(--red);
+        background: var(--red);
+        color: #fff;
+        z-index: 0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
       }
-      .btn-ghost:hover {
-        background: rgba(255,255,255,0.14);
-        border-color: rgba(255,255,255,0.38);
+      .btn::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: var(--red-dark);
+        transform: translateY(101%);
+        transition: transform 0.35s ease;
+        z-index: -1;
+      }
+      .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(225, 29, 39, 0.28); }
+      .btn:hover::before { transform: translateY(0); }
+
+      .btn-line { background: transparent; color: var(--red); }
+      .btn-line::before { background: var(--red); }
+      .btn-line:hover { color: #fff; }
+
+      .btn-white { background: #fff; border-color: #fff; color: var(--red); }
+      .btn-white::before { background: var(--red-tint); }
+      .btn-white:hover { color: var(--red-dark); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16); }
+
+      .btn-outline-white {
+        background: transparent;
+        border-color: rgba(255, 255, 255, 0.95);
         color: #fff;
       }
-      .btn-ghost:focus-visible {
-        outline: 3px solid rgba(255,255,255,0.5);
+      .btn-outline-white::before { background: rgba(255, 255, 255, 0.2); }
+
+      .btn:focus-visible, .tlink:focus-visible, .award-row:focus-visible, .award-card:focus-visible {
+        outline: 3px solid rgba(225, 29, 39, 0.4);
         outline-offset: 3px;
       }
-      /* Scroll indicator */
-      .hero-scroll-indicator {
-        position: absolute;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 10;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        opacity: 0.5;
-        animation: scrollPulse 2.5s ease-in-out infinite;
-      }
-      .hero-scroll-indicator span {
-        font-size: 9px;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: #fff;
-        font-weight: 500;
-      }
-      .scroll-arrow {
-        width: 20px;
-        height: 20px;
-        border-right: 1.5px solid #fff;
-        border-bottom: 1.5px solid #fff;
-        transform: rotate(45deg);
-      }
-      @keyframes scrollPulse {
-        0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.5; }
-        50% { transform: translateX(-50%) translateY(6px); opacity: 0.8; }
-      }
+      .sec-red .btn:focus-visible, .sec-red .award-row:focus-visible, .sec-red .award-card:focus-visible { outline-color: rgba(255, 255, 255, 0.85); }
 
-      /* ---- Section Common ---- */
-      .section-label {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 16px;
-      }
-      .section-label-line {
-        width: 32px;
-        height: 2px;
-        background: #b91c1c;
-        flex-shrink: 0;
-      }
-      .section-label-text {
-        font-size: 10.5px;
+      .tlink {
+        display: inline-block;
+        font-size: 14px;
         font-weight: 700;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: #b91c1c;
+        color: var(--red);
+        text-decoration: none;
+        padding-bottom: 3px;
+        background: linear-gradient(var(--red), var(--red)) left bottom / 100% 1.5px no-repeat;
+        transition: background-size 0.35s ease, letter-spacing 0.35s ease;
+      }
+      .tlink:hover { background-size: 40% 1.5px; letter-spacing: 0.02em; }
+
+      /* Animasi muncul saat scroll */
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+      .reveal.visible { opacity: 1; transform: none; }
+      .d1 { transition-delay: 0.08s; }
+      .d2 { transition-delay: 0.16s; }
+      .d3 { transition-delay: 0.24s; }
+      .d4 { transition-delay: 0.32s; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal { opacity: 1; transform: none; transition: none; }
+        .rise, .hero-photo, .hero-photo img, .marquee-track, .hero-dots i { animation: none !important; }
+        .award-slide, .award-cap { transition: none !important; }
+        html { scroll-behavior: auto; }
       }
 
-      /* ---- Clients Section ---- */
-      .clients-section {
-        padding: 72px 0;
+
+      /* 1. HERO (putih) */
+      .hero {
+        padding: 132px 0 var(--sec-y);
         background: #fff;
         overflow: hidden;
       }
-      .clients-heading {
-        text-align: center;
-        margin-bottom: 40px;
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+        gap: 56px;
+        align-items: center;
+        padding-left: var(--edge);
+        padding-right: 0;
       }
-      .clients-heading h2 {
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: 0.18em;
+      .hero-text { max-width: 520px; padding-left: 24px; }
+      .hero-dots { display: flex; gap: 7px; margin-bottom: 22px; }
+      .hero-dots i {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--red);
+        display: block;
+        animation: dotPulse 2.4s ease-in-out infinite;
+      }
+      .hero-dots i:nth-child(2) { animation-delay: 0.25s; opacity: 0.7; }
+      .hero-dots i:nth-child(3) { animation-delay: 0.5s; opacity: 0.4; }
+      @keyframes dotPulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.35); }
+      }
+
+      /* Tulisan selamat datang: tegas, tanpa italic/serif */
+      .hero-welcome {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin: 0 0 22px;
+      }
+      .hw-small {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.28em;
         text-transform: uppercase;
-        color: #9ca3af;
+        color: var(--muted);
       }
-      /* Marquee */
-      .marquee-wrapper {
-        position: relative;
+      .hw-small::before {
+        content: '';
+        width: 36px;
+        height: 2px;
+        background: var(--red);
+      }
+      .hw-name {
+        font-family: inherit;
+        font-style: normal;
+        font-weight: 800;
+        font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+        line-height: 1.2;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--red);
+      }
+
+      .hero h1 {
+        font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+        margin: 0 0 18px;
+      }
+      .hero h1 em { font-style: normal; color: var(--red); }
+      .hero p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: var(--text);
+        margin: 0 0 32px;
+      }
+      .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+      .hero-photo {
         width: 100%;
+        aspect-ratio: 5 / 4;
+        border-radius: 140px 0 0 140px;
+        overflow: hidden;
+        animation: photoReveal 1.3s cubic-bezier(0.22, 1, 0.36, 1) both 0.15s;
+      }
+      .hero-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        animation: photoZoom 2.4s ease-out both;
+      }
+      @keyframes photoReveal {
+        from { clip-path: inset(0 0 0 100%); }
+        to   { clip-path: inset(0 0 0 0); }
+      }
+      @keyframes photoZoom {
+        from { transform: scale(1.12); }
+        to   { transform: scale(1); }
+      }
+      .rise { animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+      .rise.r1 { animation-delay: 0.05s; }
+      .rise.r2 { animation-delay: 0.18s; }
+      .rise.r3 { animation-delay: 0.3s; }
+      .rise.r4 { animation-delay: 0.42s; }
+      .rise.r5 { animation-delay: 0.54s; }
+      @keyframes rise {
+        from { opacity: 0; transform: translateY(22px); }
+        to   { opacity: 1; transform: none; }
+      }
+
+
+      /* 2. PROFIL SINGKAT (merah) */
+      .about-intro { padding: var(--sec-y) 0; }
+      .about-intro-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 72px;
+        align-items: center;
+      }
+      .about-intro .h2 {
+        font-size: clamp(1.7rem, 3vw, 2.4rem);
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 18px;
+      }
+      .about-intro .lead { max-width: 540px; margin-bottom: 28px; }
+      .about-intro-img {
+        border-radius: 20px 20px 100px 20px;
+        overflow: hidden;
+        aspect-ratio: 4 / 3;
+        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.18);
+      }
+      .about-intro-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.9s ease;
+      }
+      .about-intro-img:hover img { transform: scale(1.04); }
+
+      /* Statistik */
+      .stats {
+        display: flex;
+        gap: 44px;
+        padding: 24px 0 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+      }
+      .stat-num {
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1;
+        color: #fff;
+        display: block;
+        margin-bottom: 6px;
+      }
+      .stat-num i { font-style: normal; color: #fff; opacity: 0.8; }
+      .stat-label {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+
+      /* 3. KLIEN (putih, 2 baris) */
+      .clients {
+        padding: clamp(48px, 6vw, 72px) 0 clamp(52px, 7vw, 80px);
+        background: #fff;
         overflow: hidden;
       }
-      .marquee-wrapper::before,
-      .marquee-wrapper::after {
+      .clients-title {
+        text-align: center;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0 0 36px;
+        padding: 0 24px;
+      }
+      .marquee-rows { display: flex; flex-direction: column; gap: 14px; }
+      .marquee { position: relative; overflow: hidden; }
+      .marquee::before, .marquee::after {
         content: '';
         position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 120px;
+        top: 0; bottom: 0;
+        width: 130px;
         z-index: 2;
         pointer-events: none;
       }
-      .marquee-wrapper::before {
-        left: 0;
-        background: linear-gradient(to right, #fff, transparent);
-      }
-      .marquee-wrapper::after {
-        right: 0;
-        background: linear-gradient(to left, #fff, transparent);
-      }
+      .marquee::before { left: 0; background: linear-gradient(to right, #fff, transparent); }
+      .marquee::after { right: 0; background: linear-gradient(to left, #fff, transparent); }
       .marquee-track {
         display: flex;
         align-items: center;
         width: max-content;
-        animation: marqueeScroll 32s linear infinite;
-        gap: 0;
+        animation: marquee 42s linear infinite;
       }
-      .marquee-track:hover {
-        animation-play-state: paused;
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .marquee-track { animation: none; }
-        .hero-bg { animation: none; }
-      }
-      @keyframes marqueeScroll {
-        0%   { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
+      .marquee-track.reverse { animation-direction: reverse; animation-duration: 48s; }
+      .marquee-track:hover { animation-play-state: paused; }
+      @keyframes marquee {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
       }
       .logo-item {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0 52px;
-        height: 80px;
+        padding: 0 54px;
+        height: 88px;
         flex-shrink: 0;
       }
       .logo-item img {
-        max-height: 44px;
-        max-width: 140px;
+        max-height: 46px;
+        max-width: 150px;
         width: auto;
         object-fit: contain;
-        filter: none;
-        opacity: 1;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-      }
-
-      .logo-item img:hover {
-        transform: scale(1.08);
         opacity: 0.85;
+        transition: opacity 0.3s ease, transform 0.3s ease;
       }
-      .logo-divider {
-        width: 1px;
-        height: 28px;
-        background: #e5e7eb;
-        flex-shrink: 0;
-        margin: 0 0;
-      }
+      .logo-item img:hover { opacity: 1; transform: scale(1.08); }
 
-      /* ---- Company Intro Section ---- */
-      .intro-section {
-        padding: 120px 40px;
-        background: #fafafa;
-        position: relative;
-        overflow: hidden;
-      }
-      .intro-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 50%;
-        height: 100%;
-        background: url('/images/hero/hero3.jpg') center/cover no-repeat;
-        opacity: 0.06;
-        pointer-events: none;
-      }
-      .intro-inner {
-        max-width: 1280px;
-        margin: 0 auto;
+
+      /* 4. SEKILAS PRASETIA (merah) */
+      .intro { padding: clamp(52px, 7vw, 68px) 0; }
+      .intro-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 56px;
         align-items: center;
       }
-      .intro-stats {
-        display: flex;
-        gap: 48px;
-        margin-top: 48px;
-      }
-      .stat-item {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-      .stat-number {
-        font-size: 2.8rem;
-        font-weight: 800;
-        color: #111827;
-        letter-spacing: -0.04em;
-        line-height: 1;
-      }
-      .stat-number sup {
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: #b91c1c;
-        letter-spacing: 0;
-      }
-      .stat-label {
-        font-size: 12px;
-        font-weight: 500;
-        color: #6b7280;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-      }
-      .stat-divider {
-        width: 1px;
-        background: #e5e7eb;
-        align-self: stretch;
-      }
-      .intro-image-col {
-        position: relative;
-      }
-      .intro-image-frame {
-        position: relative;
-        border-radius: 4px;
+      .intro-img {
+        border-radius: 80px 20px 20px 20px;
         overflow: hidden;
-        aspect-ratio: 4/3;
+        aspect-ratio: 4 / 4.2;
+        max-height: 400px;
+        width: 100%;
+        box-shadow: 0 20px 44px rgba(0, 0, 0, 0.18);
       }
-      .intro-image-frame img {
+      .intro-img img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         display: block;
+        transition: transform 0.9s ease;
       }
-      /* Red border accent */
-      .intro-image-frame::before {
+      .intro-img:hover img { transform: scale(1.04); }
+      .intro .h2 { font-size: clamp(1.3rem, 2vw, 1.65rem); margin-bottom: 10px; }
+      .intro .lead { max-width: 480px; margin-bottom: 20px; font-size: 14.5px; line-height: 1.7; }
+
+      .div-list { border-top: 1px solid rgba(255, 255, 255, 0.4); }
+      .div-row {
+        display: grid;
+        grid-template-columns: 34px 1fr auto;
+        gap: 14px;
+        align-items: center;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        text-decoration: none;
+        position: relative;
+        transition: padding-left 0.35s ease;
+      }
+      .div-row::after {
         content: '';
         position: absolute;
-        top: -12px;
-        right: -12px;
-        width: 80px;
-        height: 80px;
-        border-top: 3px solid #b91c1c;
-        border-right: 3px solid #b91c1c;
-        z-index: 2;
-        pointer-events: none;
+        left: 0; bottom: -1px;
+        height: 2px;
+        width: 0;
+        background: #fff;
+        transition: width 0.45s ease;
       }
-      .intro-image-frame::after {
-        content: '';
-        position: absolute;
-        bottom: -12px;
-        left: -12px;
-        width: 80px;
-        height: 80px;
-        border-bottom: 3px solid #b91c1c;
-        border-left: 3px solid #b91c1c;
-        z-index: 2;
-        pointer-events: none;
-      }
-      .intro-year-badge {
-        position: absolute;
-        bottom: 24px;
-        right: -20px;
-        background: #b91c1c;
+      .div-row:hover { padding-left: 10px; }
+      .div-row:hover::after { width: 100%; }
+      .div-num { font-size: 12.5px; font-weight: 800; color: #fff; opacity: 0.85; }
+      .div-title {
+        font-size: 15px;
+        font-weight: 700;
         color: #fff;
-        padding: 16px 20px;
-        border-radius: 3px;
-        text-align: center;
-        z-index: 3;
-        box-shadow: 0 8px 30px rgba(185,28,28,0.4);
+        margin: 0 0 2px;
       }
-      .intro-year-badge .year-num {
-        font-size: 1.75rem;
+      .div-desc { font-size: 13px; line-height: 1.55; color: rgba(255, 255, 255, 0.94); margin: 0; }
+      .div-go {
+        font-size: 12.5px;
+        font-weight: 700;
+        color: #fff;
+        opacity: 0;
+        transform: translateX(-8px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        white-space: nowrap;
+      }
+      .div-row:hover .div-go { opacity: 1; transform: none; }
+
+
+      /* 5. UNGGULAN (putih) */
+      .featured { padding: var(--sec-y) 0 56px; background: #fff; }
+      .featured-grid {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: 80px;
+        align-items: start;
+      }
+      .featured-side { position: sticky; top: 120px; }
+      .featured-side .lead { font-size: 14.5px; margin-bottom: 26px; }
+      .feat-nav { list-style: none; margin: 0; padding: 0; }
+      .feat-nav li { margin: 0; }
+      .feat-nav a {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        padding: 10px 0 10px 16px;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--muted);
+        text-decoration: none;
+        border-left: 2px solid var(--line);
+        transition: color 0.3s ease, border-color 0.3s ease, padding-left 0.3s ease;
+      }
+      .feat-nav a span { font-size: 11.5px; letter-spacing: 0.08em; }
+      .feat-nav a.active {
+        color: var(--red);
+        border-left-color: var(--red);
+        padding-left: 22px;
+      }
+
+      .feat {
+        padding-bottom: 72px;
+        margin-bottom: 72px;
+        border-bottom: 1px solid var(--line);
+        scroll-margin-top: 110px;
+      }
+      .feat:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+      .feat-img {
+        overflow: hidden;
+        aspect-ratio: 16 / 9;
+        border-radius: 20px;
+        margin-bottom: 28px;
+      }
+      .feat-img.shape-a { border-radius: 20px 20px 90px 20px; }
+      .feat-img.shape-b { border-radius: 90px 20px 20px 20px; }
+      .feat-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 1s ease;
+      }
+      .feat:hover .feat-img img { transform: scale(1.04); }
+
+      /* Gambar NetSuite: tetap beranimasi, tampil utuh, tidak terpotong */
+      .feat-img.contain {
+        aspect-ratio: 16 / 10;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(31, 36, 48, 0.05);
+        transition: opacity 0.7s ease, transform 0.7s ease, box-shadow 0.5s ease;
+      }
+      .feat-img.contain img {
+        object-fit: contain;
+        padding: 12px;
+        transition: transform 0.8s ease;
+      }
+      .feat:hover .feat-img.contain { box-shadow: 0 18px 40px rgba(225, 29, 39, 0.14); }
+      .feat:hover .feat-img.contain img { transform: scale(1.025); }
+
+      .feat-cat {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--red);
+        margin: 0 0 8px;
+      }
+      .feat h3 {
+        font-size: clamp(1.25rem, 1.9vw, 1.55rem);
+        font-weight: 800;
+        line-height: 1.3;
+        color: var(--ink);
+        margin: 0 0 6px;
+      }
+      .feat-sub { font-size: 15px; font-weight: 600; color: var(--muted); margin: 0 0 14px; }
+      .feat-desc {
+        font-size: 15px;
+        line-height: 1.8;
+        color: var(--text);
+        max-width: 560px;
+        margin: 0 0 16px;
+      }
+      .feat-tags { font-size: 13.5px; color: var(--muted); margin: 0 0 22px; line-height: 1.7; }
+      .feat-tags b { color: var(--red); font-weight: 800; padding: 0 6px; }
+      .feat-cta { font-size: 14px; color: var(--text); margin: 0; }
+      .feat-cta .tlink { margin-left: 4px; }
+
+
+      /* 6. PENGHARGAAN (merah): statistik + daftar + preview sertifikat utuh */
+      .awards { padding: var(--sec-y) 0; }
+      .awards-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+        gap: 64px;
+        align-items: center;
+      }
+      .awards .h2 {
+        font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 12px;
+      }
+      .awards .lead { font-size: 15px; line-height: 1.7; max-width: 480px; margin-bottom: 26px; }
+
+      .award-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 36px;
+        padding: 18px 0;
+        margin-bottom: 8px;
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+      }
+      .award-stat b {
+        display: block;
+        font-size: 1.7rem;
         font-weight: 800;
         line-height: 1;
-        letter-spacing: -0.03em;
-      }
-      .intro-year-badge .year-text {
-        font-size: 9px;
-        font-weight: 600;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        opacity: 0.85;
-      }
-      .intro-text h2 {
-        font-size: clamp(2rem, 3.5vw, 2.75rem);
-        font-weight: 800;
-        color: #111827;
-        line-height: 1.15;
-        letter-spacing: -0.025em;
-        margin-bottom: 20px;
-      }
-      .intro-text h2 em {
-        font-style: italic;
-        color: #b91c1c;
-      }
-      .intro-text p {
-        font-size: 1.0625rem;
-        line-height: 1.8;
-        color: #4b5563;
-        max-width: 500px;
-      }
-
-      /* ---- Divisions Section ---- */
-      .divisions-section {
-        padding: 120px 40px;
-        background: #fff;
-      }
-      .divisions-inner {
-        max-width: 1280px;
-        margin: 0 auto;
-      }
-      .divisions-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        margin-bottom: 64px;
-        gap: 40px;
-        flex-wrap: wrap;
-      }
-      .divisions-header h2 {
-        font-size: clamp(1.9rem, 3.2vw, 2.6rem);
-        font-weight: 800;
-        color: #111827;
-        line-height: 1.15;
-        letter-spacing: -0.025em;
-        max-width: 460px;
-      }
-      .divisions-header p {
-        font-size: 15.5px;
-        line-height: 1.7;
-        color: #6b7280;
-        max-width: 380px;
-      }
-      .divisions-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-auto-rows: 1fr;
-        gap: 32px;
-        align-items: stretch;
-      }
-      .division-card {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        min-height: 480px;
-        border-radius: 4px;
-        padding: 44px 36px;
-        text-decoration: none;
+        letter-spacing: -0.02em;
         color: #fff;
-        overflow: hidden;
+        margin-bottom: 6px;
       }
-      .division-card:focus-visible {
-        outline: 3px solid #b91c1c;
-        outline-offset: 3px;
-      }
-      .division-bg {
-        position: absolute;
-        inset: 0;
-        background-size: cover;
-        background-position: center;
-        transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
-        z-index: 1;
-      }
-      .division-overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          to bottom,
-          rgba(10, 15, 25, 0.20) 0%,
-          rgba(10, 15, 25, 0.82) 100%
-        );
-        transition: background 0.7s ease, opacity 0.7s ease;
-        z-index: 2;
-      }
-      .division-content {
-        position: relative;
-        z-index: 3;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        height: 100%;
-        flex-grow: 1;
-      }
-      .division-card:hover .division-bg {
-        transform: scale(1.05);
-      }
-      .division-card:hover .division-overlay {
-        background: linear-gradient(
-          to bottom,
-          rgba(10, 15, 25, 0.15) 0%,
-          rgba(10, 15, 25, 0.90) 100%
-        );
-      }
-      /* Red accent line bottom */
-      .division-card::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: #b91c1c;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 4;
-      }
-      .division-card:hover::after {
-        transform: scaleX(1);
-      }
-
-      .division-icon-wrap {
-        width: 48px;
-        height: 48px;
-        border-radius: 4px;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(4px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.4s ease, transform 0.4s ease;
-        margin-bottom: 28px;
-        flex-shrink: 0;
-      }
-      .division-card:hover .division-icon-wrap {
-        background: #b91c1c;
-        transform: translateY(-4px);
-      }
-      .division-icon {
-        width: 24px;
-        height: 24px;
-        object-fit: contain;
-        filter: brightness(0) invert(1);
-        display: block;
-      }
-      .division-body {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 0;
-      }
-      .division-title {
-        font-size: 1.35rem;
+      .award-stat b.small { font-size: 1.15rem; padding-top: 0.35rem; }
+      .award-stat span {
+        font-size: 11.5px;
         font-weight: 700;
-        color: #ffffff;
-        line-height: 1.35;
-        letter-spacing: -0.01em;
-        min-height: 2.7em;
-        margin-bottom: 12px;
-      }
-      .division-desc {
-        font-size: 14.5px;
-        line-height: 1.6;
-        color: rgba(255, 255, 255, 0.75);
-        min-height: 4.8em;
-        margin-bottom: 0;
-        transition: color 0.4s ease;
-      }
-      .division-card:hover .division-desc {
-        color: rgba(255, 255, 255, 0.95);
-      }
-      .division-arrow {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 12.5px;
-        font-weight: 600;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: #ef4444;
-        margin-top: auto;
-        padding-top: 20px;
-        opacity: 0;
-        transform: translateX(-10px);
-        transition: opacity 0.4s ease, transform 0.4s ease;
-      }
-      .division-card:hover .division-arrow {
-        opacity: 1;
-        transform: translateX(0);
-      }
-      .division-arrow svg {
-        transition: transform 0.3s ease;
-      }
-      .division-card:hover .division-arrow svg {
-        transform: translateX(4px);
+        color: rgba(255, 255, 255, 0.92);
       }
 
-      /* ---- CTA Banner Section ---- */
-      .cta-section {
-        padding: 100px 40px;
-        background: #111827;
+      .award-list { border-top: 1px solid rgba(255, 255, 255, 0.4); margin-bottom: 28px; }
+      .award-row {
+        display: grid;
+        grid-template-columns: 54px minmax(0, 1fr) 20px;
+        gap: 14px;
+        align-items: center;
+        width: 100%;
+        padding: 13px 0;
+        border: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        background: none;
+        font: inherit;
+        text-align: left;
+        color: #fff;
+        cursor: pointer;
         position: relative;
-        overflow: hidden;
+        opacity: 0.78;
+        transition: opacity 0.35s ease, padding-left 0.35s ease;
       }
-      .cta-section::before {
+      .award-row::after {
         content: '';
+        position: absolute;
+        left: 0; bottom: -1px;
+        height: 2px;
+        width: 0;
+        background: #fff;
+        transition: width 0.5s ease;
+      }
+      .award-row.active,
+      .award-row:hover { opacity: 1; padding-left: 10px; }
+      .award-row.active::after,
+      .award-row:hover::after { width: 100%; }
+      .award-year { font-size: 15px; font-weight: 800; letter-spacing: 0.02em; color: #fff; }
+      .award-issuer {
+        display: block;
+        font-size: 10.5px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 2px;
+      }
+      .award-title { font-size: 15px; font-weight: 700; line-height: 1.35; color: #fff; margin: 0; }
+      .award-arrow {
+        font-size: 16px;
+        color: #fff;
+        opacity: 0;
+        transform: translateX(-8px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+      .award-row.active .award-arrow,
+      .award-row:hover .award-arrow { opacity: 1; transform: none; }
+
+      /* Kartu preview sertifikat */
+      .award-card {
+        display: block;
+        background: #fff;
+        border-radius: 24px;
+        overflow: hidden;
+        text-decoration: none;
+        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.2);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+      .award-card:hover { transform: translateY(-4px); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.26); }
+      .award-frame {
+        position: relative;
+        aspect-ratio: 4 / 3;
+        background: #FBF6F5;
+      }
+      .award-slide {
         position: absolute;
         inset: 0;
-        background: url('/images/hero/hero3.jpg') center/cover no-repeat;
-        opacity: 0.40;
-        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 18px;
+        opacity: 0;
+        transform: scale(1.04);
+        transition: opacity 0.6s ease, transform 0.9s ease;
       }
-      /* Red accent line top */
-      .cta-section::after {
+      .award-slide.active { opacity: 1; transform: scale(1); }
+
+      .award-caps {
+        position: relative;
+        min-height: 92px;
+        border-top: 3px solid var(--red);
+      }
+      .award-cap {
+        position: absolute;
+        inset: 0;
+        padding: 16px 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 3px;
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      .award-cap.active { opacity: 1; transform: none; }
+      .award-cap small {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--red);
+      }
+      .award-cap strong { font-size: 16px; font-weight: 800; line-height: 1.3; color: var(--ink); }
+      .award-cap span { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+
+      /* 7. KENAPA PRASETIA (putih) */
+      .why { padding: var(--sec-y) 0; background: #fff; }
+      .why-head {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 72px;
+        align-items: end;
+        margin-bottom: 52px;
+      }
+      .why-head .h2 { margin: 0; }
+      .why-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 36px;
+      }
+      .why-item {
+        position: relative;
+        padding-top: 26px;
+        border-top: 1px solid rgba(225, 29, 39, 0.25);
+      }
+      .why-item::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: #b91c1c;
+        top: -1px; left: 0;
+        height: 2px;
+        width: 0;
+        background: var(--red);
+        transition: width 1s ease 0.2s;
       }
-      .cta-inner {
-        max-width: 1280px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 48px;
-        flex-wrap: wrap;
-        position: relative;
-        z-index: 1;
-      }
-      .cta-text h2 {
-        font-size: clamp(1.75rem, 3vw, 2.4rem);
+      .why-item.visible::before { width: 44px; }
+      .why-num {
+        font-size: 12px;
         font-weight: 800;
-        color: #fff;
-        line-height: 1.2;
-        letter-spacing: -0.025em;
-        margin-bottom: 12px;
+        letter-spacing: 0.1em;
+        color: var(--red);
+        display: block;
+        margin-bottom: 10px;
       }
-      .cta-text p {
-        font-size: 15.5px;
-        line-height: 1.7;
-        color: rgba(255,255,255,0.6);
-        max-width: 520px;
+      .why-item h3 { font-size: 16px; font-weight: 700; line-height: 1.4; color: var(--ink); margin: 0 0 8px; }
+      .why-item p { font-size: 14px; line-height: 1.75; color: var(--text); margin: 0; }
+
+
+      /* 8. TENTANG KAMI (merah) */
+      .about { padding: var(--sec-y) 0; }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 72px;
+        align-items: center;
       }
-      .btn-cta {
+      .about-img {
+        aspect-ratio: 3 / 2;
+        overflow: hidden;
+        border-radius: 20px 100px 20px 20px;
+        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.18);
+      }
+      .about-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.9s ease;
+      }
+      .about-img:hover img { transform: scale(1.04); }
+      .about .lead { margin-bottom: 30px; max-width: 500px; }
+
+
+      /* 9. CTA: panel merah di kiri, gambar bersih di kanan */
+      .cta { padding: var(--sec-y) 0; background: #fff; }
+      .cta-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        align-items: stretch;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: 0 30px 60px rgba(31, 36, 48, 0.14);
+      }
+      .cta-body {
+        padding: 64px 56px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        background: var(--red);
+      }
+      .cta-eyebrow {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        padding: 16px 36px;
-        background: #b91c1c;
-        color: #fff;
-        font-size: 13.5px;
-        font-weight: 600;
-        letter-spacing: 0.06em;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
-        text-decoration: none;
-        border-radius: 3px;
-        transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-        box-shadow: 0 4px 20px rgba(185,28,28,0.4);
-        white-space: nowrap;
-        flex-shrink: 0;
+        color: #fff;
+        margin: 0 0 18px;
       }
-      .btn-cta:hover {
-        background: #991b1b;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 30px rgba(185,28,28,0.5);
+      .cta-eyebrow::before {
+        content: '';
+        width: 22px;
+        height: 2px;
+        background: #fff;
       }
-      .btn-cta:focus-visible {
-        outline: 3px solid #ef4444;
-        outline-offset: 3px;
+      .cta h2 {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 800;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+        color: #fff;
+        margin: 0 0 16px;
+      }
+      .cta p {
+        font-size: 15.5px;
+        line-height: 1.8;
+        color: #fff;
+        max-width: 460px;
+        margin: 0 0 32px;
+      }
+      .cta-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+      .cta-media {
+        position: relative;
+        min-height: 340px;
+        overflow: hidden;
+        background: #eee;
+      }
+      .cta-media img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 1s ease;
+      }
+      .cta-card:hover .cta-media img { transform: scale(1.04); }
+
+
+      /* ================= RESPONSIF ================= */
+      @media (max-width: 1100px) {
+        .featured-grid { gap: 56px; grid-template-columns: 240px minmax(0, 1fr); }
+        .about-intro-grid, .intro-grid, .about-grid { gap: 48px; }
+        .awards-grid { gap: 44px; }
       }
 
-      /* ---- Scroll Animation ---- */
-      .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.65s ease, transform 0.65s ease;
-      }
-      .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .reveal-delay-1 { transition-delay: 0.1s; }
-      .reveal-delay-2 { transition-delay: 0.2s; }
-      .reveal-delay-3 { transition-delay: 0.3s; }
-      .reveal-delay-4 { transition-delay: 0.4s; }
-
-      @media (prefers-reduced-motion: reduce) {
-        .reveal {
-          opacity: 1;
-          transform: none;
-          transition: none;
-        }
+      @media (max-width: 1000px) {
+        .featured-grid { grid-template-columns: 1fr; gap: 40px; }
+        .featured-side { position: static; }
+        .feat-nav { display: none; }
+        .why-list { grid-template-columns: repeat(2, 1fr); gap: 32px 28px; }
       }
 
-      /* ---- Footer Spacing ---- */
-      .footer-spacing {
-        height: 80px;
-        background: #ffffff;
+      @media (max-width: 900px) {
+        .hero { padding: 104px 0 var(--sec-y); }
+        .hero-grid { grid-template-columns: 1fr; gap: 36px; padding-left: 0; }
+        .hero-text { padding: 0 24px; max-width: none; }
+        .hero-photo {
+          border-radius: 28px;
+          margin: 0 24px;
+          width: auto;
+          aspect-ratio: 16 / 10;
+        }
+        .about-intro-grid, .intro-grid, .about-grid, .why-head { grid-template-columns: 1fr; gap: 36px; }
+        .about-intro-img { border-radius: 16px 16px 64px 16px; aspect-ratio: 16 / 10; }
+        .intro-img { aspect-ratio: 16 / 9; max-height: none; border-radius: 56px 16px 16px 16px; }
+        .about-img { border-radius: 16px 64px 16px 16px; }
+        .feat { padding-bottom: 56px; margin-bottom: 56px; }
+
+        .logo-item { padding: 0 38px; height: 76px; }
+        .logo-item img { max-height: 40px; max-width: 130px; }
+
+        /* Awards: preview di atas, daftar di bawah */
+        .awards-grid { grid-template-columns: 1fr; gap: 32px; }
+        .award-card { order: -1; }
+        .awards .lead { max-width: none; }
+
+        .cta-card { grid-template-columns: 1fr; }
+        .cta-media { order: 1; min-height: 240px; }
+        .cta-body { order: 2; padding: 48px 32px; }
       }
 
-      /* ---- Responsive ---- */
-      @media (max-width: 1024px) {
-        .hero-content { padding: 130px 32px 90px; }
-        .intro-inner { gap: 56px; }
-        .intro-year-badge { right: -10px; }
-        .divisions-header { flex-direction: column; align-items: flex-start; }
-        .divisions-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-        .division-card { padding: 36px 28px; min-height: 460px; }
-        .division-title { font-size: 1.25rem; }
+      @media (max-width: 600px) {
+        .wrap { padding: 0 20px; }
+        .hero { padding-top: 96px; }
+        .hero-text { padding: 0 20px; }
+        .hero-photo { margin: 0 20px; border-radius: 22px; aspect-ratio: 4 / 3; }
+        .hero p, .lead { font-size: 15px; }
+        .hw-small { font-size: 11px; letter-spacing: 0.22em; }
+        .hw-small::before { width: 26px; }
+        .hw-name { letter-spacing: 0.04em; }
+        .hero-actions { flex-direction: column; }
+        .hero-actions .btn { width: 100%; }
+        .stats { gap: 22px; flex-wrap: wrap; }
+        .stat-num { font-size: 1.6rem; }
+        .stat-label { font-size: 11px; }
+        .logo-item { padding: 0 28px; height: 68px; }
+        .logo-item img { max-height: 34px; max-width: 110px; }
+        .marquee::before, .marquee::after { width: 50px; }
+        .marquee-rows { gap: 8px; }
+        .div-row { grid-template-columns: 30px 1fr; gap: 12px; }
+        .div-go { display: none; }
+        .div-row:hover { padding-left: 0; }
+        .feat-img.shape-a { border-radius: 16px 16px 56px 16px; }
+        .feat-img.shape-b { border-radius: 56px 16px 16px 16px; }
+        .feat-img { margin-bottom: 22px; }
+        .feat-cta .tlink { display: block; margin: 6px 0 0; }
+        .why-list { grid-template-columns: 1fr; gap: 28px; }
+
+        .award-card { border-radius: 18px; }
+        .award-slide { padding: 10px; }
+        .award-caps { min-height: 88px; }
+        .award-cap { padding: 14px 18px; }
+        .award-cap strong { font-size: 15px; }
+        .award-stats { gap: 12px 26px; }
+        .award-stat b { font-size: 1.45rem; }
+        .award-stat b.small { font-size: 1.05rem; padding-top: 0.3rem; }
+        .award-row { grid-template-columns: 46px minmax(0, 1fr); gap: 12px; padding: 13px 0; }
+        .award-row:hover { padding-left: 0; }
+        .award-row.active { padding-left: 8px; }
+        .award-arrow { display: none; }
+        .award-title { font-size: 14px; }
+        .awards .btn { width: 100%; }
+
+        .cta-card { border-radius: 20px; }
+        .cta-media { min-height: 200px; }
+        .cta-body { padding: 40px 24px; }
+        .cta-btns { flex-direction: column; width: 100%; }
+        .cta-btns .btn { width: 100%; }
       }
 
-      @media (max-width: 768px) {
-        .hero-content { padding: 120px 24px 80px; }
-        .hero-headline { font-size: clamp(2rem, 7.5vw, 2.6rem); }
-        .intro-section { padding: 80px 24px; }
-        .intro-inner {
-          grid-template-columns: 1fr;
-          gap: 48px;
-        }
-        .intro-image-col { order: -1; }
-        .intro-image-frame::before,
-        .intro-image-frame::after { display: none; }
-        .intro-year-badge { right: 16px; bottom: 16px; }
-        .intro-stats { gap: 28px; }
-        .stat-number { font-size: 2.2rem; }
-        .divisions-section { padding: 80px 24px; }
-        .divisions-grid {
-          grid-template-columns: 1fr;
-          grid-auto-rows: auto;
-          gap: 20px;
-        }
-        .division-card {
-          padding: 32px 24px;
-          min-height: auto;
-          height: auto;
-        }
-        .division-icon-wrap { margin-bottom: 20px; }
-        .division-title {
-          min-height: auto;
-          font-size: 1.25rem;
-          margin-bottom: 10px;
-        }
-        .division-desc {
-          min-height: auto;
-        }
-        .division-arrow {
-          margin-top: 16px;
-          padding-top: 0;
-          opacity: 1;
-          transform: none;
-        }
-        .cta-section { padding: 72px 24px; }
-        .cta-inner { flex-direction: column; align-items: flex-start; }
-        .footer-spacing { height: 56px; }
-      }
-
-      @media (max-width: 640px) {
-        .hero-cta-group { flex-direction: column; align-items: flex-start; }
-        .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
-        .logo-item { padding: 0 28px; }
-        .marquee-wrapper::before,
-        .marquee-wrapper::after { width: 60px; }
-        .intro-stats { flex-direction: column; gap: 20px; }
-        .stat-divider { display: none; }
-      }
-
-      @media (max-width: 390px) {
-        .hero-content { padding: 110px 20px 70px; }
+      @media (max-width: 380px) {
+        .hero h1 { font-size: 1.6rem; }
+        .btn { padding: 12px 20px; font-size: 13.5px; }
+        .stats { gap: 16px; }
+        .stat-num { font-size: 1.4rem; }
+        .award-row { grid-template-columns: 40px minmax(0, 1fr); }
+        .award-year { font-size: 13.5px; }
       }
     </style>
   </head>
+
   <body class="flex flex-col min-h-screen text-gray-800 antialiased">
 
-    <!-- NAVBAR -->
     <Navbar />
 
     <main class="flex-grow">
 
-      <!-- ============================================================
-           SECTION 1: HERO
-      ============================================================ -->
-      <section class="hero-section" aria-label="Hero">
-        <div class="hero-bg" role="presentation" aria-hidden="true"></div>
-        <div class="hero-accent" aria-hidden="true"></div>
-        <div class="hero-bottom-fade" aria-hidden="true"></div>
+      <!-- 1. HERO -->
+      <section class="hero" aria-label="Beranda">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <div class="hero-dots rise r1" aria-hidden="true"><i></i><i></i><i></i></div>
 
-        <div class="hero-content">
-          <div class="hero-eyebrow">
-            <div class="hero-eyebrow-line"></div>
-            <span class="hero-eyebrow-text">PT Prasetia Dwidharma — Est. 2008</span>
+            <div class="hero-welcome rise r2">
+              <span class="hw-small">Selamat datang di</span>
+              <span class="hw-name">PT. Prasetia Dwidharma</span>
+            </div>
+
+            <h1 class="rise r3">
+              Membangun <em>infrastruktur</em>,<br />
+              mendukung bisnis digital.
+            </h1>
+            <p class="rise r4">
+              Sejak 2008, Prasetia membantu perusahaan di Indonesia membangun jaringan telekomunikasi, memakai teknologi yang tepat, dan berkembang lewat transformasi digital.
+            </p>
+            <div class="hero-actions rise r5">
+              <a href="#unggulan" class="btn">Lihat Solusi Kami</a>
+              <a href="/about/contact/" class="btn btn-line">Hubungi Kami</a>
+            </div>
           </div>
 
-          <h1 class="hero-headline">
-            Innovative<br>
-            Technology <span class="accent-word">Integrator</span><br>
-            &amp; Telecommunications<br>
-            Infrastructure Company
-          </h1>
-
-          <p class="hero-sub">
-            Partnering with customers in reaching their potential through better technology and communications infrastructure.
-          </p>
-
-          <div class="hero-cta-group">
-            <a href="/products-services/telecommunication-infrastructure/" class="btn-primary">
-              Explore Our Services
-            </a>
-            <a href="/about/contact/" class="btn-ghost">
-              Contact Us
-            </a>
+          <div class="hero-photo">
+            <img src="/images/hero/hero4.jpg" alt="Tim Prasetia Dwidharma" />
           </div>
-        </div>
-
-        <!-- Scroll indicator -->
-        <div class="hero-scroll-indicator" aria-hidden="true">
-          <span>Scroll</span>
-          <div class="scroll-arrow"></div>
         </div>
       </section>
 
 
-      <!-- ============================================================
-           SECTION 2: OUR CLIENTS (Marquee)
-      ============================================================ -->
-      <section class="clients-section" aria-label="Our Clients">
-        <div class="clients-heading reveal">
-          <h2>Our Trusted Clients</h2>
-        </div>
+      <!-- 2. PROFIL SINGKAT PERUSAHAAN (merah) -->
+      <section class="about-intro sec-red" aria-label="Tentang PT Prasetia Dwidharma">
+        <div class="wrap about-intro-grid">
 
-        <div class="marquee-wrapper" role="region" aria-label="Client logos carousel">
-          <div class="marquee-track" aria-hidden="true">
-            <!-- First set -->
-            {clientLogos.map((logo, i) => (
-              <>
-                <div class="logo-item">
-                  <img src={logo.src} alt={logo.alt} loading="lazy" />
-                </div>
-                {i < clientLogos.length - 1 && <div class="logo-divider"></div>}
-              </>
-            ))}
-            <!-- Duplicate for seamless loop -->
-            {clientLogos.map((logo, i) => (
-              <>
-                <div class="logo-item">
-                  <img src={logo.src} alt={logo.alt} loading="lazy" />
-                </div>
-                {i < clientLogos.length - 1 && <div class="logo-divider"></div>}
-              </>
-            ))}
+          <div>
+            <div class="label reveal">Tentang Kami</div>
+            <h2 class="h2 reveal d1">
+              PT Prasetia <em>Dwidharma</em>
+            </h2>
+            <p class="lead reveal d2">
+              Didirikan pada tahun 2008. Sejak saat itu kami berkembang menjadi salah satu pemain penting di industri ini. Saat ini perusahaan kami memiliki empat divisi: 
+              Telekomunikasi &amp; Infrastruktur, ICT (Information &amp; Communication Technology), Call Center BPO (Business Process Outsourcing), dan Biotech.
+            </p>
+
+            <div class="stats reveal d3">
+              <div>
+                <span class="stat-num">2008<i>+</i></span>
+                <span class="stat-label">Berdiri</span>
+              </div>
+              <div>
+                <span class="stat-num">4</span>
+                <span class="stat-label">Divisi usaha</span>
+              </div>
+              <div>
+                <span class="stat-num">10<i>+</i></span>
+                <span class="stat-label">Klien besar</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-intro-img reveal d2">
+            <img src="/images/hero/hero1.jpg" alt="Tim Prasetia dalam pertemuan profesional" loading="lazy" />
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- 3. KLIEN (2 baris, arah berlawanan) -->
+      <section class="clients" aria-label="Klien kami">
+        <h2 class="clients-title reveal">Dipercaya oleh perusahaan besar</h2>
+        <div class="marquee-rows">
+          <div class="marquee">
+            <div class="marquee-track" aria-hidden="true">
+              {clientRow1.map((logo) => (
+                <div class="logo-item"><img src={logo.src} alt={logo.alt} loading="lazy" /></div>
+              ))}
+            </div>
+          </div>
+          <div class="marquee">
+            <div class="marquee-track reverse" aria-hidden="true">
+              {clientRow2.map((logo) => (
+                <div class="logo-item"><img src={logo.src} alt={logo.alt} loading="lazy" /></div>
+              ))}
+            </div>
           </div>
         </div>
-
-        <!-- Accessible static list for screen readers -->
         <ul class="sr-only">
-          {clientLogos.map((logo) => (
-            <li>{logo.alt}</li>
-          ))}
+          {clientLogos.map((logo) => <li>{logo.alt}</li>)}
         </ul>
       </section>
 
 
-      <!-- ============================================================
-           SECTION 3: COMPANY INTRODUCTION
-      ============================================================ -->
-      <section class="intro-section" aria-label="About PT Prasetia Dwidharma">
-        <div class="intro-inner">
+      <!-- 4. SEKILAS PRASETIA (merah) -->
+      <section class="intro sec-red" aria-label="Sekilas Prasetia">
+        <div class="wrap intro-grid">
+          <div class="intro-img reveal">
+            <img src="/images/hero/hero2.jpg" alt="Tim Prasetia sedang bekerja di lapangan" loading="lazy" />
+          </div>
 
-          <!-- Left: Text -->
-          <div class="intro-text">
-            <div class="section-label reveal">
-              <div class="section-label-line"></div>
-              <span class="section-label-text">About Us</span>
-            </div>
-
-            <h2 class="reveal reveal-delay-1">
-              PT Prasetia<br>
-              <em>Dwidharma</em>
-            </h2>
-
-            <p class="reveal reveal-delay-2">
-              Was founded in 2008. Since then we have grown to become a major player in the industry, currently we have three divisions under our company: 
-              Telecommunication & Infrastructure, ICT (Information & Communication Technology), Call Center BPO (Business Process Outsourcing & Investment).
+          <div>
+            <div class="label reveal">Apa yang Kami Kerjakan</div>
+            <h2 class="h2 reveal d1">Satu perusahaan, empat bidang usaha.</h2>
+            <p class="lead reveal d2">
+              Prasetia bergerak di infrastruktur telekomunikasi, teknologi untuk perusahaan, layanan business process, dan biotech. Semuanya kami jalankan supaya bisnis Anda punya fondasi yang kuat untuk tumbuh.
             </p>
 
-            <div class="intro-stats reveal reveal-delay-3">
-              <div class="stat-item">
-                <span class="stat-number">2008<sup>+</sup></span>
-                <span class="stat-label">Founded</span>
-              </div>
-              <div class="stat-divider"></div>
-              <div class="stat-item">
-                <span class="stat-number">4</span>
-                <span class="stat-label">Business Divisions</span>
-              </div>
-              <div class="stat-divider"></div>
-              <div class="stat-item">
-                <span class="stat-number">10<sup>+</sup></span>
-                <span class="stat-label">Major Clients</span>
-              </div>
+            <div class="div-list reveal d3">
+              {divisions.map((d) => (
+                <a
+                  href={d.href}
+                  class="div-row"
+                  {...(d.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                >
+                  <span class="div-num">{d.num}</span>
+                  <div>
+                    <h3 class="div-title">{d.title}</h3>
+                    <p class="div-desc">{d.desc}</p>
+                  </div>
+                  <span class="div-go">Lihat detail</span>
+                </a>
+              ))}
             </div>
           </div>
-
-          <!-- Right: Image -->
-          <div class="intro-image-col reveal reveal-delay-2">
-            <div class="intro-image-frame">
-              <img
-                src="/images/hero/hero1.jpg"
-                alt="Prasetia team in a professional meeting"
-                loading="lazy"
-              />
-            </div>
-
-          </div>
-
         </div>
       </section>
 
 
-      <!-- ============================================================
-           SECTION 4: BUSINESS DIVISIONS
-      ============================================================ -->
-      <section class="divisions-section" aria-label="Our Business Divisions">
-        <div class="divisions-inner">
+      <!-- 5. SOLUSI UNGGULAN (putih) -->
+      <section class="featured" id="unggulan" aria-label="Solusi unggulan">
+        <div class="wrap featured-grid">
 
-          <div class="divisions-header">
-            <div>
-              <div class="section-label reveal">
-                <div class="section-label-line"></div>
-                <span class="section-label-text">What We Do</span>
-              </div>
-              <h2 class="reveal reveal-delay-1">
-                Four Divisions,<br>One Vision
-              </h2>
-            </div>
-            <p class="reveal reveal-delay-2">
-              Prasetia operates across four complementary business divisions, each designed to deliver specialized solutions that empower enterprises and communities.
+          <aside class="featured-side">
+            <div class="label reveal">Solusi Unggulan</div>
+            <h2 class="h2 reveal d1">Yang paling sering dipercaya klien kami.</h2>
+            <p class="lead reveal d2">
+              Tiga solusi yang jadi kekuatan utama Prasetia. Kalau ada yang menarik, langsung buka halamannya untuk lihat selengkapnya.
             </p>
-          </div>
+            <ul class="feat-nav reveal d3">
+              <li><a href="#feat-1" class="active" data-target="feat-1"><span>01</span>Telekomunikasi</a></li>
+              <li><a href="#feat-2" data-target="feat-2"><span>02</span>Lark</a></li>
+              <li><a href="#feat-3" data-target="feat-3"><span>03</span>Oracle NetSuite</a></li>
+            </ul>
+          </aside>
 
-          <div class="divisions-grid" role="list">
-            {divisions.map((div, i) => (
-              <a
-                href={div.href}
-                class={`division-card reveal reveal-delay-${Math.min(i + 1, 4)}`}
-                role="listitem"
-              >
-                <div class="division-bg" style={`background-image: url('${div.image}');`}></div>
-                <div class="division-overlay"></div>
-                <div class="division-content">
-                  <div class="division-icon-wrap">
-                    <img src={div.icon} alt="" aria-hidden="true" class="division-icon" width="24" height="24" loading="lazy" />
-                  </div>
-                  <div class="division-body">
-                    <h3 class="division-title">{div.title}</h3>
-                    <p class="division-desc">{div.description}</p>
-                    <div class="division-arrow">
-                      Learn More
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </div>
-                  </div>
+          <div class="featured-list">
+
+            <!-- Telekomunikasi -->
+            <article class="feat" id="feat-1">
+              <div class="feat-img reveal">
+                <img src="/images/herotelcom/herotelcom1.jpg" alt="Pembangunan tower telekomunikasi" loading="lazy" />
+              </div>
+              <p class="feat-cat reveal">Telekomunikasi</p>
+              <h3 class="reveal d1">Infrastruktur yang menghubungkan Indonesia.</h3>
+              <p class="feat-sub reveal d1">Dari tower sampai fiber optic.</p>
+              <p class="feat-desc reveal d2">
+                Kami menangani pembangunan infrastruktur telekomunikasi dari awal sampai akhir, mulai dari site acquisition, konstruksi tower, sampai maintenance rutin.
+              </p>
+              <p class="feat-tags reveal d2">
+                Tower Construction<b>·</b>Co-location<b>·</b>Site Acquisition<b>·</b>Maintenance<b>·</b>Fiber Optic
+              </p>
+              <p class="feat-cta reveal d3">
+                Tertarik dengan layanan ini?
+                <a href="/products-services/telecommunication-infrastructure/" class="tlink">Lihat halaman Telekomunikasi</a>
+              </p>
+            </article>
+
+            <!-- Lark -->
+            <article class="feat" id="feat-2">
+              <div class="feat-img shape-a reveal">
+                <img src="/images/herolark/lark1.png" alt="Platform kolaborasi Lark" loading="lazy" />
+              </div>
+              <p class="feat-cat reveal">Enterprise Technology</p>
+              <h3 class="reveal d1">Lark</h3>
+              <p class="feat-sub reveal d1">Kerja tim jadi lebih terhubung.</p>
+              <p class="feat-desc reveal d2">
+                Chat, meeting, dokumen, dan workflow ada di satu tempat. Prasetia membantu perusahaan Anda mulai memakai Lark dan menyesuaikannya dengan cara kerja tim.
+              </p>
+              <p class="feat-tags reveal d2">
+                Collaboration<b>·</b>Komunikasi<b>·</b>Workflow<b>·</b>Operasional Bisnis
+              </p>
+              <p class="feat-cta reveal d3">
+                Ingin tahu lebih banyak?
+                <a href="/products-services/ict/lark/" class="tlink">Kenali Lark bersama Prasetia</a>
+              </p>
+            </article>
+
+            <!-- NetSuite -->
+            <article class="feat" id="feat-3">
+              <div class="feat-img contain reveal">
+                <img src="/images/heronetsuite/nethero1.jpg" alt="Oracle NetSuite cloud ERP" loading="lazy" />
+              </div>
+              <p class="feat-cat reveal">Enterprise Technology</p>
+              <h3 class="reveal d1">Oracle NetSuite</h3>
+              <p class="feat-sub reveal d1">Semua urusan bisnis dalam satu sistem.</p>
+              <p class="feat-desc reveal d2">
+                Platform ERP berbasis cloud yang menyatukan keuangan, operasional, dan proses bisnis, sehingga data lebih rapi dan keputusan lebih cepat diambil.
+              </p>
+              <p class="feat-tags reveal d2">
+                ERP<b>·</b>Keuangan<b>·</b>Operasional<b>·</b>Manajemen Bisnis
+              </p>
+              <p class="feat-cta reveal d3">
+                Sedang cari sistem ERP?
+                <a href="/products-services/ict/oracle-netsuite/" class="tlink">Lihat halaman NetSuite</a>
+              </p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- 6. PENGHARGAAN (merah): sesuai sertifikat asli -->
+      <section class="awards sec-red" id="penghargaan" aria-label="Penghargaan">
+        <div class="wrap awards-grid">
+
+          <div>
+            <div class="label reveal">Penghargaan &amp; Sertifikasi</div>
+            <h2 class="h2 reveal d1">Kerja kami diakui mitra terbesar industri.</h2>
+            <p class="lead reveal d2">
+              Mitratel, Tower Bersama Group, dan Telkomsel telah memberikan penghargaan atas kualitas pembangunan dan pemeliharaan menara kami.
+            </p>
+
+            <div class="award-stats reveal d2">
+              {awardStats.map((s) => (
+                <div class="award-stat">
+                  <b class={s.small ? 'small' : ''}>{s.num}</b>
+                  <span>{s.label}</span>
                 </div>
-              </a>
-            ))}
+              ))}
+            </div>
+
+            <div class="award-list reveal d3" role="list">
+              {awards.map((a, i) => (
+                <button
+                  type="button"
+                  class={`award-row${i === 0 ? ' active' : ''}`}
+                  data-index={i}
+                  role="listitem"
+                  aria-label={`${a.title}, ${a.issuer}, ${a.year}`}
+                >
+                  <span class="award-year">{a.year}</span>
+                  <span>
+                    <span class="award-issuer">{a.issuer}</span>
+                    <p class="award-title">{a.title}</p>
+                  </span>
+                  <span class="award-arrow" aria-hidden="true">→</span>
+                </button>
+              ))}
+            </div>
+
+            <div class="reveal d3">
+              <a href="/about/awards/" class="btn btn-white">Lihat Semua 23 Sertifikat</a>
+            </div>
           </div>
+
+          <a href="/about/awards/" class="award-card reveal d2" aria-label="Lihat semua penghargaan Prasetia">
+            <div class="award-frame">
+              {awards.map((a, i) => (
+                <img
+                  src={a.src}
+                  alt={a.alt}
+                  class={`award-slide${i === 0 ? ' active' : ''}`}
+                  data-index={i}
+                  loading="lazy"
+                />
+              ))}
+            </div>
+            <div class="award-caps" aria-hidden="true">
+              {awards.map((a, i) => (
+                <div class={`award-cap${i === 0 ? ' active' : ''}`} data-index={i}>
+                  <small>{a.issuer} · {a.year}</small>
+                  <strong>{a.title}</strong>
+                  <span>{a.note}</span>
+                </div>
+              ))}
+            </div>
+          </a>
 
         </div>
       </section>
 
 
-      <!-- ============================================================
-           SECTION 5: CTA BANNER
-      ============================================================ -->
-      <section class="cta-section" aria-label="Call to action">
-        <div class="cta-inner">
-          <div class="cta-text reveal">
-            <h2>Ready to Build the Future<br>Together?</h2>
-            <p>
-              Whether you need telecommunications infrastructure, ICT solutions, or business process outsourcing — Prasetia is your trusted technology partner.
+      <!-- 7. KENAPA PRASETIA (putih) -->
+      <section class="why" aria-label="Kenapa Prasetia">
+        <div class="wrap">
+          <div class="why-head">
+            <div>
+              <div class="label reveal">Kenapa Prasetia</div>
+              <h2 class="h2 reveal d1">Satu mitra untuk banyak kebutuhan.</h2>
+            </div>
+            <p class="lead reveal d2">
+              Anda tidak perlu mencari banyak vendor. Prasetia menggabungkan keahlian infrastruktur, teknologi, dan layanan bisnis, dengan hubungan kerja yang dibangun untuk jangka panjang.
             </p>
           </div>
-          <a href="/about/contact/" class="btn-cta reveal reveal-delay-2">
-            Get in Touch
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+
+          <div class="why-list">
+            <div class="why-item reveal">
+              <span class="why-num">01</span>
+              <h3>Infrastruktur yang lengkap</h3>
+              <p>Dari site acquisition dan pembangunan tower sampai maintenance dan fiber optic, semuanya bisa kami tangani.</p>
+            </div>
+            <div class="why-item reveal d1">
+              <span class="why-num">02</span>
+              <h3>Partner resmi teknologi</h3>
+              <p>Kami adalah authorized partner untuk Lark dan Oracle NetSuite, dua platform yang sudah terbukti untuk bisnis.</p>
+            </div>
+            <div class="why-item reveal d2">
+              <span class="why-num">03</span>
+              <h3>Pengalaman lebih dari 17 tahun</h3>
+              <p>Kami sudah lama bekerja bersama operator telekomunikasi dan perusahaan besar di Indonesia.</p>
+            </div>
+            <div class="why-item reveal d3">
+              <span class="why-num">04</span>
+              <h3>Hubungan jangka panjang</h3>
+              <p>Kami ingin jadi partner yang tumbuh bersama klien, bukan sekadar menyelesaikan satu proyek.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- 8. TENTANG KAMI (merah) -->
+      <section class="about sec-red" aria-label="Tentang Prasetia">
+        <div class="wrap about-grid">
+          <div class="about-img reveal">
+            <img src="/images/about/about1.jpg" alt="Tim PT Prasetia Dwidharma" loading="lazy" />
+          </div>
+
+          <div>
+            <div class="label reveal">Tentang Prasetia</div>
+            <h2 class="h2 reveal d1">Berawal dari 2008, terus berkembang sampai sekarang.</h2>
+            <p class="lead reveal d2">
+              Prasetia Dwidharma tumbuh di bidang infrastruktur telekomunikasi, teknologi, business process, dan biotech. Kini kami dipercaya perusahaan, operator telekomunikasi, dan instansi pemerintah di seluruh Indonesia.
+            </p>
+            <div class="reveal d3">
+              <a href="/about/" class="btn btn-white">Kenali Prasetia Lebih Dekat</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- 9. CTA -->
+      <section class="cta" aria-label="Hubungi Prasetia">
+        <div class="wrap">
+          <div class="cta-card reveal">
+            <div class="cta-body">
+              <span class="cta-eyebrow">Mulai Bersama Kami</span>
+              <h2>Cari partner teknologi yang tepat?</h2>
+              <p>Ceritakan kebutuhan Anda, tim kami siap membantu mulai dari membangun infrastruktur sampai merapikan cara kerja bisnis.</p>
+              <div class="cta-btns">
+                <a href="/about/contact/" class="btn btn-white">Hubungi Prasetia</a>
+                <a href="#unggulan" class="btn btn-outline-white">Lihat Solusi</a>
+              </div>
+            </div>
+            <div class="cta-media" aria-hidden="true">
+              <img src="/images/herotelcom/herotelcom1.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
         </div>
       </section>
 
     </main>
 
-    <div class="footer-spacing" aria-hidden="true"></div>
-
-    <!-- FOOTER -->
     <Footer />
 
-    <!-- ============================================================
-         SCRIPTS: Scroll reveal + Navbar init
-    ============================================================ -->
     <script>
-      // Trigger navbar transparent state immediately (hero is full-height)
+      // Navbar dipaksa solid dan dijaga agar tidak kembali transparan saat scroll
       (function () {
         const navbar = document.getElementById('site-navbar');
         if (!navbar) return;
-        if (window.scrollY <= 60) {
-          navbar.classList.remove('nav-solid');
-          navbar.classList.add('nav-transparent');
-        }
+        const solid = () => {
+          if (navbar.classList.contains('nav-transparent') || !navbar.classList.contains('nav-solid')) {
+            navbar.classList.remove('nav-transparent');
+            navbar.classList.add('nav-solid');
+          }
+        };
+        solid();
+        new MutationObserver(solid).observe(navbar, { attributes: true, attributeFilter: ['class'] });
       })();
 
-      // IntersectionObserver-based scroll reveal
+      // Animasi muncul saat scroll
       (function () {
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (prefersReducedMotion) return;
-
-        const reveals = document.querySelectorAll<HTMLElement>('.reveal');
-        const observer = new IntersectionObserver(
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const items = document.querySelectorAll<HTMLElement>('.reveal');
+        if (reduce || !('IntersectionObserver' in window)) {
+          items.forEach((el) => el.classList.add('visible'));
+          return;
+        }
+        const io = new IntersectionObserver(
           (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                io.unobserve(e.target);
               }
             });
           },
           { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
         );
-        reveals.forEach((el) => observer.observe(el));
+        items.forEach((el) => io.observe(el));
+      })();
+
+      // Penanda aktif di daftar unggulan
+      (function () {
+        const links = document.querySelectorAll<HTMLAnchorElement>('.feat-nav a');
+        const sections = document.querySelectorAll<HTMLElement>('.feat');
+        if (!links.length || !sections.length) return;
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                links.forEach((l) =>
+                  l.classList.toggle('active', l.dataset.target === e.target.id)
+                );
+              }
+            });
+          },
+          { rootMargin: '-40% 0px -50% 0px' }
+        );
+        sections.forEach((s) => io.observe(s));
+      })();
+
+      // Penghargaan: preview berganti otomatis, bisa di-hover / di-tap / difokus
+      (function () {
+        const rows = document.querySelectorAll<HTMLElement>('.award-row');
+        const slides = document.querySelectorAll<HTMLElement>('.award-slide');
+        const caps = document.querySelectorAll<HTMLElement>('.award-cap');
+        const card = document.querySelector<HTMLElement>('.award-card');
+        if (!rows.length || !slides.length) return;
+
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let current = 0;
+        let timer: number | undefined;
+
+        const setActive = (i: number) => {
+          current = i;
+          rows.forEach((r, n) => {
+            const on = n === i;
+            r.classList.toggle('active', on);
+            r.setAttribute('aria-current', on ? 'true' : 'false');
+          });
+          slides.forEach((s, n) => s.classList.toggle('active', n === i));
+          caps.forEach((c, n) => c.classList.toggle('active', n === i));
+        };
+        const stop = () => {
+          if (timer !== undefined) {
+            window.clearInterval(timer);
+            timer = undefined;
+          }
+        };
+        const start = () => {
+          if (reduce) return;
+          stop();
+          timer = window.setInterval(() => setActive((current + 1) % rows.length), 4500);
+        };
+
+        rows.forEach((r, i) => {
+          r.addEventListener('mouseenter', () => { setActive(i); stop(); });
+          r.addEventListener('mouseleave', start);
+          r.addEventListener('focus', () => { setActive(i); stop(); });
+          r.addEventListener('blur', start);
+          r.addEventListener('click', () => { setActive(i); start(); });
+        });
+        card?.addEventListener('mouseenter', stop);
+        card?.addEventListener('mouseleave', start);
+
+        // Hanya berjalan saat section terlihat
+        const section = document.getElementById('penghargaan');
+        if (section && 'IntersectionObserver' in window) {
+          new IntersectionObserver(
+            (entries) => entries.forEach((e) => (e.isIntersecting ? start() : stop())),
+            { threshold: 0.2 }
+          ).observe(section);
+        } else {
+          start();
+        }
       })();
     </script>
 

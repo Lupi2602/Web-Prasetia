@@ -1,23 +1,1298 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
+
+const CONTACT_PAGE   = '/about/contact/';
+const CONTACT_PHONE  = '(021) 3524999';
+const CONTACT_ADDRESS = 'Graha Aruna, Jl. Antara No.47, Jakarta Pusat';
+const DEMO_URL       = 'https://www.virtuenet.id/netsuite';
+
+const modules = [
+  { label: 'Finance & Accounting' },
+  { label: 'Human Resources' },
+  { label: 'Inventory Management' },
+  { label: 'CRM' },
+  { label: 'Sales & Marketing' },
+  { label: 'Reporting & Analytics' },
+  { label: 'Production' },
+  { label: 'Planning' },
+];
+
+const challenges = [
+  {
+    num: '01',
+    title: 'Data Terpisah di Mana-mana',
+    body: 'Tim keuangan, operasional, dan sales masing-masing memegang data sendiri. Akibatnya, rekonsiliasi manual jadi rutinitas yang menyita waktu setiap bulannya.',
+  },
+  {
+    num: '02',
+    title: 'Laporan Keuangan Butuh Waktu Lama',
+    body: 'Proses tutup buku bisa memakan berminggu-minggu. Saat laporan selesai, datanya sudah usang dan tidak bisa lagi mendukung keputusan bisnis yang tepat waktu.',
+  },
+  {
+    num: '03',
+    title: 'Sistem Lama Tidak Bisa Scale',
+    body: 'Begitu bisnis berkembang, sistem konvensional mulai kewalahan. Setiap ekspansi cabang atau lini produk baru membawa kompleksitas dan biaya yang kian bertambah.',
+  },
+];
+
+const capabilities = [
+  {
+    path: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Financial Management',
+    desc: 'Kelola general ledger, accounts payable/receivable, budgeting, sampai financial reporting dalam satu sistem terintegrasi. Tutup buku lebih cepat, laporan lebih akurat.',
+  },
+  {
+    path: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4',
+    title: 'Supply Chain & Inventory',
+    desc: 'Pantau stok secara real-time, atur demand forecasting, dan pastikan ketersediaan barang di semua lokasi gudang tanpa risiko overstock atau kekurangan stok.',
+  },
+  {
+    path: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z',
+    title: 'CRM & Sales',
+    desc: 'Dapatkan pandangan 360 derajat terhadap setiap pelanggan. Data penjualan, marketing, dan layanan pelanggan terhubung langsung ke keuangan dan operasional.',
+  },
+  {
+    path: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01',
+    title: 'Order Management',
+    desc: 'Kelola siklus lengkap dari purchase order, sales order, pengadaan, fulfillment, hingga retur, semua terpantau di setiap tahap dalam satu platform.',
+  },
+  {
+    path: 'M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+    title: 'Project Management',
+    desc: 'Rencanakan resource, catat waktu pengerjaan, dan ukur progress proyek secara akurat. Bantu tim bekerja lebih efisien dengan data yang selalu tersinkron.',
+  },
+  {
+    path: 'M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z',
+    title: 'E-Commerce Integration',
+    desc: 'Sistem back-end NetSuite terhubung langsung ke platform e-commerce. Data pelanggan, pesanan, dan stok selalu konsisten di semua saluran penjualan.',
+  },
+];
+
+const values = [
+  {
+    label: 'Financial Management',
+    title: 'Visibilitas Keuangan Real-Time',
+    body1: 'Ketika semua data keuangan tersimpan di satu sistem, tim finance tidak lagi perlu mengumpulkan data dari berbagai spreadsheet atau aplikasi terpisah. Posisi keuangan perusahaan bisa dilihat kapan saja, dengan data yang selalu mutakhir.',
+    body2: 'Proses tutup buku bulanan menjadi jauh lebih singkat karena data transaksi sudah tersusun otomatis. Manajemen bisa akses laporan konsolidasi tanpa perlu menunggu siklus rekonsiliasi manual.',
+    accent: 'teal',
+  },
+  {
+    label: 'Otomatisasi',
+    title: 'Kurangi Pekerjaan Manual',
+    body1: 'Banyak tugas administratif yang berulang di bagian keuangan, operasional, dan sales, mulai dari entri data, persetujuan dokumen, sampai rekonsiliasi, bisa berjalan otomatis di dalam NetSuite.',
+    body2: 'Dengan proses yang terotomatisasi, risiko human error berkurang signifikan. Tim Anda bisa fokus pada hal-hal yang benar-benar membutuhkan analisis dan keputusan strategis.',
+    accent: 'blue',
+  },
+  {
+    label: 'Visibilitas Bisnis',
+    title: 'Kendali Penuh 360 Derajat',
+    body1: 'Karena semua fungsi bisnis terhubung di satu platform, manajemen bisa memantau performa keseluruhan perusahaan, dari keuangan, operasional, hingga penjualan, lewat satu dashboard terpadu.',
+    body2: 'Visibilitas yang menyeluruh ini membantu pengambilan keputusan jadi lebih percaya diri, terutama saat skala bisnis terus berkembang dan kompleksitasnya meningkat.',
+    accent: 'teal',
+  },
+  {
+    label: 'Cloud ERP',
+    title: 'Akses dari Mana Saja, Kapan Saja',
+    body1: 'NetSuite berbasis cloud murni, artinya tim Anda bisa akses data dan menjalankan operasional dari luar kantor sekalipun, dari perangkat apa pun. Cocok untuk perusahaan dengan banyak cabang atau tim yang bekerja secara fleksibel.',
+    body2: 'Tidak perlu lagi investasi besar untuk server on-premise. Pembaruan sistem dan keamanan dikelola otomatis, sehingga beban tim IT jauh lebih ringan.',
+    accent: 'blue',
+  },
+];
+
+const whyItems = [
+  {
+    num: '01',
+    title: 'Satu Platform untuk Semua Divisi',
+    body: 'Tidak perlu lagi mengelola banyak aplikasi terpisah. NetSuite menyatukan keuangan, stok, pelanggan, dan operasional dalam satu sistem. Semua divisi bekerja dari satu sumber data yang sama.',
+    delay: 0,
+  },
+  {
+    num: '02',
+    title: 'Data Real-Time di Seluruh Bisnis',
+    body: 'Manajemen dan tim operasional bisa pantau performa bisnis dari satu dashboard yang selalu diperbarui secara langsung. Keputusan jadi lebih cepat dan lebih berdasarkan fakta.',
+    delay: 80,
+  },
+  {
+    num: '03',
+    title: 'Proses Otomatis, Lebih Sedikit Kesalahan',
+    body: 'Alur kerja mulai dari persetujuan transaksi, pelaporan, hingga pengadaan stok bisa berjalan otomatis. Rutinitas manual yang membuang waktu berkurang, dan risiko salah input ikut turun.',
+    delay: 160,
+  },
+  {
+    num: '04',
+    title: 'Tumbuh Bersama Bisnis Anda',
+    body: 'NetSuite dirancang untuk mendukung pertumbuhan jangka panjang. Buka cabang baru, tambah entitas bisnis, atau ekspansi ke pasar internasional, sistemnya bisa menyesuaikan tanpa perlu ganti platform.',
+    delay: 240,
+  },
+  {
+    num: '05',
+    title: 'Semua Data Sinkron dan Terpusat',
+    body: 'Satu sumber data untuk seluruh tim memastikan informasi selalu konsisten dan terkini. Tidak ada lagi perbedaan angka antar divisi, dan risiko keputusan berdasarkan data yang salah pun hilang.',
+    delay: 320,
+  },
+  {
+    num: '06',
+    title: 'Infrastruktur Lebih Efisien',
+    body: 'Berbasis cloud, tidak ada investasi server on-premise yang mahal. Pembaruan sistem dan keamanan dikelola secara terpusat, sehingga tim IT bisa fokus pada hal yang lebih strategis.',
+    delay: 400,
+  },
+];
+
+const steps = [
+  { step: '01', icon: '/images/heronetsuite/icon1.svg', title: 'Konsultasi Kebutuhan', body: 'Analisis mendalam terhadap proses bisnis, kebutuhan, dan tantangan operasional perusahaan sebelum konfigurasi dimulai.' },
+  { step: '02', icon: '/images/heronetsuite/icon2.svg', title: 'Perancangan Sistem', body: 'Desain modul, alur kerja, dan struktur data yang disesuaikan dengan cara kerja bisnis Anda.' },
+  { step: '03', icon: '/images/heronetsuite/icon3.svg', title: 'Konfigurasi & Pengembangan', body: 'Konfigurasi sistem, migrasi data dari sistem lama, dan integrasi dengan aplikasi yang sudah berjalan.' },
+  { step: '04', icon: '/images/heronetsuite/icon4.svg', title: 'Testing Menyeluruh', body: 'Pemeriksaan dan pengujian sistem secara ketat untuk memastikan semua alur berjalan lancar sebelum go-live.' },
+  { step: '05', icon: '/images/heronetsuite/icon5.svg', title: 'Go-Live', body: 'Peluncuran resmi dengan pendampingan intensif agar transisi berjalan mulus dan stabil di semua divisi.' },
+  { step: '06', icon: '/images/heronetsuite/icon6.svg', title: 'Support Berkelanjutan', body: 'Layanan dukungan teknis dan konsultasi berkala untuk memastikan sistem terus optimal seiring perkembangan bisnis.' },
+];
+
+const aiItems = [
+  { title: 'Invoice Capture', body: 'Faktur dipindai dan diinput otomatis menggunakan teknologi OCR berbasis AI, tanpa perlu entri manual.' },
+  { title: 'Anomaly Detection', body: 'AI memantau data keuangan secara real-time dan mendeteksi ketidakwajaran transaksi sebelum menjadi masalah.' },
+  { title: 'Narasi Laporan Otomatis', body: 'Ringkasan dan narasi laporan keuangan dibuat otomatis langsung dari data transaksi di dalam sistem.' },
+  { title: 'Predictive Planning', body: 'AI mengidentifikasi pola dan tren dari data historis untuk mendukung perencanaan yang lebih akurat.' },
+  { title: 'Forecast Explanations', body: 'Pahami faktor-faktor yang memengaruhi angka proyeksi AI, sehingga tim keuangan lebih percaya pada hasilnya.' },
+  { title: 'Intelligent Recommendations', body: 'Rekomendasi produk personal berdasarkan riwayat pembelian untuk mendukung peningkatan nilai transaksi.' },
+];
 ---
 
-<MainLayout title="Oracle NetSuite | PT Prasetia Dwidharma">
-  <div class="container mx-auto px-6 max-w-4xl py-20 text-center">
-    <span class="inline-block px-3 py-1 bg-gray-100 text-gray-500 text-xs font-semibold uppercase tracking-wider rounded mb-4">
-      ICT Solution
-    </span>
-    <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6">
-      Oracle NetSuite
-    </h1>
+<MainLayout title="Oracle NetSuite | PT Prasetia Dwidharma" transparentNavbar={true}>
 
-    <div class="border border-dashed border-gray-300 rounded-xl p-12 max-w-lg mx-auto bg-gray-50">
-      <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-2">
-        [CONTENT NOT AVAILABLE YET]
+<!-- =================================================================
+     HERO
+================================================================= -->
+<section class="hero-section ns-hero relative isolate overflow-hidden min-h-[90vh] flex items-center text-white">
+  <div class="absolute inset-0" aria-hidden="true">
+    <img src="/images/heronetsuite/nethero2.jpg" alt=""
+      class="h-full w-full object-cover object-center" loading="eager" decoding="async" />
+    <div class="absolute inset-0 bg-black/30"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#1a3a5c]/92 via-[#1e4d6b]/80 to-[#2d6a8f]/50"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#1a3a5c]/50 via-transparent to-transparent"></div>
+    <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[#f8fafc]"></div>
+  </div>
+
+  <div class="relative z-10 mx-auto w-full max-w-7xl px-6 py-36 lg:px-12 lg:pt-52 lg:pb-52">
+    <div class="max-w-2xl" data-reveal>
+      <div class="mb-6 flex items-center gap-3">
+        <img src="/images/heronetsuite/netsuitelogo.png" alt="Oracle NetSuite"
+          class="h-8 brightness-0 invert opacity-90" />
+      </div>
+      <span class="ns-badge-hero mb-6 inline-block">Cloud ERP Terintegrasi</span>
+      <h1 class="font-display text-[clamp(2rem,4.5vw,3.4rem)] font-extrabold leading-[1.1] tracking-tight">
+        Satu Platform.<br />
+        <span class="ns-gold-text">Semua Proses Terhubung.</span>
+      </h1>
+      <p class="mt-5 text-[1rem] leading-relaxed text-white/85 max-w-xl" data-reveal data-delay="100">
+        Oracle NetSuite adalah sistem ERP berbasis cloud yang menyatukan keuangan, inventaris,
+        CRM, dan operasional bisnis Anda dalam satu platform terintegrasi yang bisa diakses dari mana saja.
       </p>
-      <p class="text-xs text-gray-400">
-        Informasi dan konten produk Oracle NetSuite akan diperbarui setelah materi referensi tersedia.
+      <div class="mt-8 flex flex-wrap gap-3" data-reveal data-delay="200">
+        <a href={CONTACT_PAGE} class="ns-btn-primary">Konsultasi Gratis</a>
+        <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" class="ns-btn-outline-hero">Request Demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =================================================================
+     MODULE TICKER (seamless loop)
+================================================================= -->
+<section class="ns-ticker-section overflow-hidden py-4">
+  <div class="ns-ticker-track flex gap-10 items-center">
+    {[...modules, ...modules, ...modules].map((m) => (
+      <span class="ns-ticker-item flex-shrink-0 flex items-center gap-2 text-sm font-semibold text-[#2d6a8f]">
+        <span class="h-1.5 w-1.5 rounded-full bg-[#c9a227] inline-block flex-shrink-0"></span>
+        {m.label}
+      </span>
+    ))}
+  </div>
+</section>
+
+
+<!-- =================================================================
+     APA ITU NETSUITE
+================================================================= -->
+<section id="what-is-netsuite" class="bg-[#f8fafc] py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-6 lg:px-12">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+
+      <div data-reveal>
+        <span class="ns-eyebrow mb-4 block">Apa itu Oracle NetSuite</span>
+        <h2 class="ns-h2 mb-5">Cloud ERP yang Dirancang untuk Menyatukan Bisnis Anda</h2>
+        <div class="space-y-4 text-[15px] leading-relaxed text-slate-600">
+          <p>
+            Oracle NetSuite adalah sistem Enterprise Resource Planning (ERP) berbasis cloud
+            yang membantu perusahaan mengelola fungsi inti bisnis seperti keuangan, inventaris,
+            CRM, dan operasional dalam satu platform terhubung.
+          </p>
+          <p>
+            Karena berjalan di cloud, tidak ada software yang perlu diinstal dan tidak ada
+            infrastruktur server on-premise yang perlu dirawat. Tim Anda bisa akses data dari
+            perangkat apa pun, di mana pun, kapan pun.
+          </p>
+          <p>
+            NetSuite bersifat modular. Perusahaan bisa mulai dari kapabilitas yang paling
+            dibutuhkan sekarang, lalu tambahkan modul baru seiring pertumbuhan bisnis tanpa
+            perlu ganti atau migrasi ke sistem lain.
+          </p>
+        </div>
+        <div class="mt-8 grid grid-cols-2 gap-4">
+          {[
+            { val: '8+', label: 'Modul Terintegrasi' },
+            { val: '100%', label: 'Berbasis Cloud' },
+            { val: 'Real-Time', label: 'Update Data' },
+            { val: 'Scalable', label: 'Siap Tumbuh Bersama Anda' },
+          ].map(s => (
+            <div class="ns-stat-card">
+              <p class="text-xl font-extrabold text-[#1a3a5c]">{s.val}</p>
+              <p class="text-xs text-slate-500 mt-0.5">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="relative" data-reveal data-delay="120">
+        <div class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-[#2d6a8f]/10 to-[#c9a227]/10 -z-10"></div>
+        <div class="overflow-hidden rounded-2xl shadow-xl">
+          <img src="/images/heronetsuite/nethero1.jpg"
+            alt="Oracle NetSuite modul terintegrasi: Finance, HR, CRM, Inventory, dan lainnya"
+            class="w-full object-contain bg-white p-4" loading="lazy" decoding="async" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =================================================================
+     TANTANGAN BISNIS
+================================================================= -->
+<section class="ns-challenge-bg relative overflow-hidden py-20 lg:py-28">
+  <div class="absolute inset-0" aria-hidden="true">
+    <img src="/images/heronetsuite/nethero4.jpg" alt=""
+      class="h-full w-full object-cover object-top" loading="lazy" decoding="async" />
+    <div class="absolute inset-0 bg-[#1a3a5c]/50"></div>
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(circle at 80% 50%, rgba(201,162,39,0.08) 0%, transparent 60%);"></div>
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
+    <div class="mb-14 max-w-xl" data-reveal>
+      <span class="ns-eyebrow-light mb-4 block">Tantangan yang Sering Terjadi</span>
+      <h2 class="ns-h2 text-white">Ketika Bisnis Berkembang Lebih Cepat dari Sistemnya</h2>
+      <p class="mt-4 text-[15px] text-white/80 leading-relaxed">
+        Seiring bisnis tumbuh, celah dari proses yang terpisah dan manual semakin terasa
+        mahal, baik dari sisi waktu, akurasi, maupun kemampuan mengambil keputusan.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-3">
+      {challenges.map((item, i) => (
+        <div class="ns-challenge-card" data-reveal data-delay={String(i * 90)}>
+          <span class="ns-challenge-num">{item.num}</span>
+          <h3 class="text-base font-bold text-white mb-2">{item.title}</h3>
+          <p class="text-[13.5px] leading-relaxed text-white/80">{item.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-14 ns-bridge-box" data-reveal>
+      <img src="/images/heronetsuite/nethero3.gif" alt="Cloud ERP Terintegrasi"
+        class="h-14 w-14 object-contain flex-shrink-0" loading="lazy" />
+      <p class="text-[15px] leading-relaxed text-[#1a3a5c] font-medium">
+        Inilah tantangan nyata yang dirancang untuk dijawab oleh sistem ERP terpadu,
+        menggantikan berbagai perangkat yang terpisah dengan satu sumber data tunggal yang selalu sinkron.
       </p>
     </div>
   </div>
+</section>
+
+
+<!-- =================================================================
+     NETSUITE SEBAGAI SOLUSI
+================================================================= -->
+<section class="bg-white py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-6 lg:px-12">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center">
+
+      <div class="lg:col-span-5" data-reveal>
+        <span class="ns-eyebrow mb-4 block">Solusi Terpadu</span>
+        <h2 class="ns-h2 mb-5">Satukan Semua Bagian Bisnis dalam Satu Sistem</h2>
+        <div class="space-y-4 text-[15px] leading-relaxed text-slate-600">
+          <p>
+            Oracle NetSuite mengonsolidasikan fungsi-fungsi kritis bisnis, mulai dari
+            akuntansi, keuangan, inventaris, order management, CRM, dan lainnya ke
+            dalam satu sistem terintegrasi.
+          </p>
+          <p>
+            Setiap modul berbagi basis data yang sama, sehingga semua tim selalu
+            mengacu pada gambaran bisnis yang konsisten. Perubahan di satu divisi
+            langsung tercermin ke seluruh bagian sistem secara real-time.
+          </p>
+          <p>
+            Hasilnya adalah visibilitas yang lebih jelas, proses manual yang berkurang,
+            dan fondasi yang siap menopang pertumbuhan bisnis Anda ke depan.
+          </p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7" data-reveal data-delay="120">
+        <div class="grid grid-cols-2 gap-4">
+          {[
+            { icon: 'M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z', label: 'Akses Berbasis Cloud', body: 'Tidak perlu instalasi. Akses data bisnis dari browser apa pun, perangkat apa pun, dan dari mana saja.' },
+            { icon: 'M13 10V3L4 14h7v7l9-11h-7z', label: 'Data Real-Time', body: 'Semua informasi diperbarui otomatis di setiap modul, memastikan tim selalu bekerja dengan data terkini.' },
+            { icon: 'M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5', label: 'Modular & Terintegrasi', body: 'Mulai dari modul yang Anda butuhkan, lalu tambahkan kapabilitas baru seiring bisnis berkembang.' },
+            { icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15', label: 'Otomatisasi Proses', body: 'Otomatiskan alur kerja keuangan, operasional, dan administrasi untuk meminimalkan pekerjaan manual.' },
+            { icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z', label: 'Scalable', body: 'Dirancang fleksibel untuk berkembang dari satu entitas hingga multi-cabang atau global.' },
+            { icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', label: 'Keamanan Tinggi', body: 'Standar keamanan enterprise dengan disaster recovery dan uptime andal untuk seluruh perusahaan.' },
+          ].map((item, i) => (
+            <div class="ns-solution-card" data-reveal data-delay={String(i * 55)}>
+              <div class="ns-solution-icon-wrap">
+                <svg class="h-4 w-4 text-[#2d6a8f]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
+                </svg>
+              </div>
+              <p class="text-[13px] font-bold text-[#1a3a5c] mb-1.5">{item.label}</p>
+              <p class="text-[12px] leading-relaxed text-slate-500">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =================================================================
+     KAPABILITAS UTAMA
+================================================================= -->
+<section id="capabilities" class="ns-cap-section py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-6 lg:px-12">
+
+    <div class="mb-14 text-center max-w-2xl mx-auto" data-reveal>
+      <span class="ns-eyebrow mb-4 block">Kapabilitas Utama</span>
+      <h2 class="ns-h2 mb-4">Apa yang Bisa Dilakukan NetSuite untuk Bisnis Anda</h2>
+      <p class="text-[15px] text-slate-500 leading-relaxed">
+        NetSuite menyediakan rangkaian kapabilitas yang bisa dikonfigurasi sesuai kebutuhan operasional
+        perusahaan Anda. Setiap modul terintegrasi langsung, berbagi data, dan menjaga keselarasan antar divisi.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {capabilities.map((cap, i) => (
+        <div class="ns-cap-card group" data-reveal data-delay={String(i * 70)}>
+          <div class="ns-cap-icon-wrap">
+            <svg class="h-6 w-6 text-[#2d6a8f]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d={cap.path} />
+            </svg>
+          </div>
+          <h3 class="text-[15px] font-bold text-[#1a3a5c] mb-3 mt-4">{cap.title}</h3>
+          <p class="text-[13.5px] leading-relaxed text-slate-500">{cap.desc}</p>
+          <div class="ns-cap-card-bar"></div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =================================================================
+     DASHBOARD SHOWCASE
+================================================================= -->
+<section class="bg-white py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-6 lg:px-12">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+
+      <div class="relative" data-reveal>
+        <div class="absolute -inset-6 rounded-3xl bg-gradient-to-br from-[#e8f4f8] to-[#fef9ec] -z-10"></div>
+        <div class="overflow-hidden rounded-2xl shadow-xl border border-slate-100">
+          <img src="/images/heronetsuite/nethero5.jpg"
+            alt="Tampilan dashboard Oracle NetSuite di laptop dan mobile"
+            class="w-full object-cover" loading="lazy" decoding="async" />
+        </div>
+      </div>
+
+      <div data-reveal data-delay="120">
+        <span class="ns-eyebrow mb-4 block">Tampilan Nyata</span>
+        <h2 class="ns-h2 mb-5">Dashboard yang Dirancang untuk Keputusan Lebih Cepat</h2>
+        <div class="space-y-4 text-[15px] leading-relaxed text-slate-600">
+          <p>
+            Tampilan NetSuite dirancang agar semua informasi penting mudah diakses.
+            Key Performance Indicators, status keuangan, hingga reminder transaksi semuanya
+            tampil dalam satu layar tanpa perlu berpindah-pindah sistem.
+          </p>
+          <p>
+            Tersedia di versi desktop maupun mobile, sehingga tim Anda tetap bisa
+            memantau dan mengambil keputusan dari mana saja, tidak hanya dari kantor.
+          </p>
+        </div>
+        <div class="mt-8 space-y-3">
+          {[
+            'KPI Meter dan laporan keuangan dalam satu layar',
+            'Aksesibel di desktop, laptop, dan smartphone',
+            'Dashboard dapat dikustomisasi sesuai peran pengguna',
+            'Notifikasi dan reminder transaksi otomatis',
+          ].map(item => (
+            <div class="flex items-start gap-3 text-[14px] text-slate-700">
+              <span class="mt-1 h-4 w-4 flex-shrink-0 rounded-full bg-[#2d6a8f]/10 flex items-center justify-center">
+                <svg class="h-2.5 w-2.5 text-[#2d6a8f]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =================================================================
+     NILAI BISNIS (Business Impact)
+================================================================= -->
+<section class="ns-value-section py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-6 lg:px-12">
+    <div class="mb-14 max-w-2xl" data-reveal>
+      <span class="ns-eyebrow mb-4 block">Nilai Bisnis</span>
+      <h2 class="ns-h2 mb-4">Lebih dari Sekadar Fitur</h2>
+      <p class="text-[15px] text-slate-500 leading-relaxed">
+        Memiliki fitur yang lengkap itu penting. Tapi yang lebih penting adalah apa yang bisa dihasilkan
+        dari kapabilitas tersebut untuk bisnis Anda sehari-hari.
+      </p>
+    </div>
+
+    <div class="space-y-5">
+      {values.map((v, i) => (
+        <div class={`ns-value-row ${v.accent === 'blue' ? 'ns-value-row-blue' : 'ns-value-row-teal'}`}
+          data-reveal data-delay={String(i * 70)}>
+          <div class="ns-value-left">
+            <p class="text-[10.5px] font-bold uppercase tracking-widest opacity-60 mb-2">{v.label}</p>
+            <p class="text-base font-bold leading-snug">{v.title}</p>
+          </div>
+          <div class="ns-value-right">
+            <p class="text-[14.5px] leading-relaxed text-slate-600 mb-3">{v.body1}</p>
+            <p class="text-[14.5px] leading-relaxed text-slate-600">{v.body2}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+<!-- =================================================================
+     AI CAPABILITIES
+================================================================= -->
+<section class="bg-white py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-6 lg:px-12">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-start">
+
+      <div data-reveal>
+      <span class="inline-flex items-center gap-2 rounded-full border border-[#5AA6CC]/30 bg-[#5AA6CC]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#347FA8] mb-5">
+        Terintegrasi AI
+      </span>
+        <h2 class="ns-h2 mb-5">Kecerdasan Buatan yang Bekerja Langsung di Platform</h2>
+        <p class="text-[15px] text-slate-600 leading-relaxed mb-8">
+          NetSuite menyematkan kemampuan AI ke berbagai modul bisnis, dari operasional keuangan
+          hingga sales dan peramalan tren. Karena menggunakan satu sumber data terpadu, analisis
+          AI yang dihasilkan benar-benar mencerminkan kondisi riil perusahaan Anda.
+        </p>
+
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {aiItems.map((item, i) => (
+            <div class="ns-ai-card" data-reveal data-delay={String(i * 60)}>
+              <div class="ns-ai-dot"></div>
+              <div>
+                <p class="text-[13px] font-bold text-[#1a3a5c] mb-1">{item.title}</p>
+                <p class="text-[12px] leading-relaxed text-slate-500">{item.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="space-y-5 lg:sticky lg:top-28" data-reveal data-delay="150">
+        <div class="overflow-hidden rounded-2xl shadow-lg">
+          <img src="/images/heronetsuite/nethero6.jpg"
+            alt="Dashboard NetSuite CFO view dengan KPI dan laporan keuangan"
+            class="w-full object-cover" loading="lazy" decoding="async" />
+        </div>
+        <div class="ns-ai-info-box">
+          <p class="text-[13px] font-bold text-[#1a3a5c] mb-2">Satu Sistem. Satu Sumber Data.</p>
+          <p class="text-[13px] leading-relaxed text-slate-500 mb-5">
+            Kemampuan AI NetSuite dibangun di atas model data terpadu. Karena semua modul
+            berbagi data yang sama, analisis AI mencerminkan gambaran utuh perusahaan Anda.
+          </p>
+          <div class="grid grid-cols-3 gap-3 pt-4 border-t border-slate-100">
+            {[
+              { label: 'Unified Suite', sub: 'Satu sumber data untuk semua divisi.' },
+              { label: 'Industry-Aware', sub: 'AI disesuaikan kebutuhan industri.' },
+              { label: 'Adaptif', sub: 'Berkembang mengikuti alur kerja Anda.' },
+            ].map(p => (
+              <div class="text-center">
+                <p class="text-[11.5px] font-bold text-[#1a3a5c] mb-1">{p.label}</p>
+                <p class="text-[10.5px] leading-snug text-slate-400">{p.sub}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =================================================================
+     MENGAPA NETSUITE
+================================================================= -->
+<section class="ns-why-section relative overflow-hidden py-20 lg:py-28">
+  <div class="absolute inset-0" aria-hidden="true">
+    <img src="/images/heronetsuite/nethero7.jpg" alt=""
+      class="h-full w-full object-cover object-center" loading="lazy" decoding="async" />
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-[#1a3a5c]/94 via-[#2d6a8f]/88 to-[#1a3a5c]/92"></div>
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
+    <div class="mb-14" data-reveal>
+      <span class="ns-eyebrow-light mb-4 block">Mengapa NetSuite</span>
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-12">
+        <h2 class="ns-h2 text-white lg:col-span-5">Mengapa Perusahaan Memilih Oracle NetSuite</h2>
+        <p class="text-[15px] text-white/75 leading-relaxed lg:col-span-6 lg:col-start-7 self-end">
+          Ada beberapa alasan yang konsisten muncul ketika perusahaan memilih NetSuite
+          dibandingkan cara konvensional mengelola bisnis.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {whyItems.map(item => (
+        <div class="ns-why-card group" data-reveal data-delay={String(item.delay)}>
+          <span class="ns-why-num">{item.num}</span>
+          <h3 class="text-[14.5px] font-bold text-white leading-snug mb-3">{item.title}</h3>
+          <p class="text-[13px] leading-relaxed text-white/75">{item.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+<!-- =================================================================
+     IMPLEMENTASI (WORKFLOW)
+================================================================= -->
+<section class="bg-[#f8fafc] py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-6 lg:px-12">
+
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start mb-16">
+      <div data-reveal>
+        <span class="ns-eyebrow mb-4 block">Proses Implementasi</span>
+        <h2 class="ns-h2">Dari Konsultasi hingga Go-Live, Terstruktur dan Terarah</h2>
+      </div>
+      <div class="self-end" data-reveal data-delay="80">
+        <p class="text-[15px] text-slate-500 leading-relaxed">
+          Proses implementasi NetSuite dijalankan secara terstruktur, mulai dari pemetaan kebutuhan,
+          konfigurasi sistem, testing, deployment, hingga pendampingan berkelanjutan.
+        </p>
+      </div>
+    </div>
+
+    <div class="ns-flow">
+      {steps.map((item, i) => (
+        <div class="ns-flow-item" data-reveal data-delay={String(i * 90)}>
+          <div class="ns-flow-circle-wrap">
+            <div class="ns-flow-circle">
+              <img src={item.icon} alt="" class="ns-flow-icon" loading="lazy" />
+            </div>
+            <span class="ns-flow-badge">{item.step}</span>
+          </div>
+          <div class="ns-flow-content">
+            <h3 class="text-[14px] font-bold text-[#1a3a5c] mb-2">{item.title}</h3>
+            <p class="text-[12.5px] leading-relaxed text-slate-500">{item.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-16 overflow-hidden rounded-2xl shadow-lg" data-reveal>
+      <img src="/images/heronetsuite/nethero8.jpg"
+        alt="Tim profesional menganalisis dan merencanakan implementasi NetSuite"
+        class="w-full object-cover max-h-72 object-top" loading="lazy" decoding="async" />
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =================================================================
+     REQUEST DEMO
+================================================================= -->
+<section class="bg-white py-16 lg:py-20">
+  <div class="mx-auto max-w-7xl px-6 lg:px-12">
+    <div class="ns-demo-box" data-reveal>
+      <div class="flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between">
+        <div class="flex items-start gap-4">
+          <div class="ns-demo-icon-wrap flex-shrink-0">
+            <svg class="h-5 w-5 text-[#2d6a8f]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.069A1 1 0 0121 8.87V15.13a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-[15px] font-bold text-[#1a3a5c] mb-1">Ingin Tahu Lebih Banyak tentang NetSuite?</p>
+            <p class="text-[13.5px] text-slate-500 leading-relaxed max-w-xl">
+              Kunjungi halaman resmi mitra NetSuite kami untuk informasi lebih lengkap,
+              atau langsung request demo untuk lihat NetSuite bekerja secara nyata.
+            </p>
+          </div>
+        </div>
+        <a href={DEMO_URL} target="_blank" rel="noopener noreferrer"
+          class="ns-btn-demo mt-4 lg:mt-0 flex-shrink-0">
+          Kunjungi &amp; Request Demo
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =================================================================
+     CTA
+================================================================= -->
+<section class="ns-cta-section relative overflow-hidden py-24 lg:py-32">
+  <div class="absolute inset-0" aria-hidden="true">
+    <img src="/images/heronetsuite/nethero2.jpg" alt=""
+      class="h-full w-full object-cover object-center" loading="lazy" decoding="async" />
+    <div class="absolute inset-0 bg-gradient-to-br from-[#1a3a5c]/85 via-[#2d6a8f]/ to-[#1a3a5c]/92"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse at center top, rgba(201,162,39,0.12) 0%, transparent 70%);"></div>
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-3xl px-6 text-center lg:px-12" data-reveal>
+    <img src="/images/heronetsuite/netsuitelogo.png" alt="Oracle NetSuite"
+      class="mx-auto mb-7 h-8 brightness-0 invert opacity-80" />
+
+    <h2 class="ns-h2 text-white mb-5 text-[clamp(1.6rem,3vw,2.4rem)]">
+      Eksplorasi Solusi NetSuite<br />
+      <span class="ns-gold-text">untuk Perusahaan Anda</span>
+    </h2>
+
+    <p class="text-[15px] text-white/65 leading-relaxed max-w-xl mx-auto mb-10" data-reveal data-delay="80">
+      PT Prasetia Dwidharma adalah mitra resmi Oracle NetSuite. Tim kami siap membantu
+      Anda memahami apakah NetSuite sesuai dengan kebutuhan bisnis Anda, serta mendampingi
+      dari konsultasi awal hingga implementasi selesai.
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-4" data-reveal data-delay="160">
+      <a href={CONTACT_PAGE} class="ns-btn-cta-primary">Hubungi Tim Kami</a>
+      <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" class="ns-btn-cta-outline">Request Demo</a>
+    </div>
+
+    <p class="mt-10 text-[12.5px] text-white/30" data-reveal data-delay="240">
+      {CONTACT_ADDRESS} &bull; {CONTACT_PHONE}
+    </p>
+  </div>
+</section>
+
 </MainLayout>
+
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+
+  /* ================================================================
+     DESIGN TOKENS
+  ================================================================ */
+  :root {
+  --ns-navy:    #2F6590;
+  --ns-teal:    #4895BC;
+  --ns-teal-lt: #73B8D8;
+  --ns-gold:    #E5C34A;
+  --ns-gold-lt: #F7DD7A;
+  --ns-bg:      #f8fafc;
+}
+
+  .font-display { font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; }
+
+  /* ================================================================
+     TYPOGRAPHY HELPERS
+  ================================================================ */
+  .ns-h2 {
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: clamp(1.45rem, 2.5vw, 2.1rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ns-navy);
+  }
+
+  .ns-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ns-teal);
+  }
+  .ns-eyebrow-light {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(201,162,39,0.85);
+  }
+
+  .ns-gold-text {
+    background: linear-gradient(90deg, #c9a227, #e8c547);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ================================================================
+     HERO
+  ================================================================ */
+  .ns-badge-hero {
+    display: inline-block;
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+    border: 1.5px solid rgba(255,255,255,0.22);
+    background: rgba(255,255,255,0.10);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    backdrop-filter: blur(8px);
+  }
+
+  .ns-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.75rem;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--ns-navy);
+    font-size: 0.875rem;
+    font-weight: 700;
+    box-shadow: 0 4px 18px rgba(26,58,92,0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    white-space: nowrap;
+  }
+  .ns-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(26,58,92,0.32); }
+
+  .ns-btn-outline-hero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.75rem;
+    border-radius: 999px;
+    border: 1.5px solid rgba(255,255,255,0.30);
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 700;
+    backdrop-filter: blur(6px);
+    transition: border-color 0.25s ease, background 0.25s ease;
+    white-space: nowrap;
+  }
+  .ns-btn-outline-hero:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.15); }
+
+  /* ================================================================
+     TICKER
+  ================================================================ */
+  .ns-ticker-section { background: #eaf4f9; border-top: 1px solid #d1e9f5; border-bottom: 1px solid #d1e9f5; }
+
+  .ns-ticker-track {
+    animation: ns-ticker-scroll 28s linear infinite;
+    width: max-content;
+  }
+  .ns-ticker-track:hover { animation-play-state: paused; }
+
+  @keyframes ns-ticker-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-33.3333%); }
+  }
+
+  .ns-ticker-item { padding: 0 0.5rem; }
+
+  /* ================================================================
+     STAT CARDS (intro section)
+  ================================================================ */
+  .ns-stat-card {
+    border-radius: 0.875rem;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(135deg, #eaf4f9 0%, #f8fafc 100%);
+    border: 1.5px solid #d1e9f5;
+  }
+
+  /* ================================================================
+     CHALLENGE SECTION
+  ================================================================ */
+  .ns-challenge-card {
+    border-radius: 1rem;
+    padding: 1.75rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    transition: background 0.25s ease, border-color 0.25s ease;
+  }
+  .ns-challenge-card:hover { background: rgba(255,255,255,0.10); border-color: rgba(201,162,39,0.35); }
+
+  .ns-challenge-num {
+    display: block;
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, rgba(201,162,39,0.6), rgba(232,197,71,0.4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .ns-bridge-box {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    border-radius: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(26,58,92,0.10);
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ================================================================
+     SOLUTION CARDS
+  ================================================================ */
+  .ns-solution-card {
+    border-radius: 0.875rem;
+    padding: 1.25rem;
+    background: #f8fafc;
+    border: 1.5px solid #e2f0f8;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .ns-solution-card:hover { border-color: #a8d4eb; box-shadow: 0 4px 16px rgba(45,106,143,0.12); transform: translateY(-2px); }
+
+  .ns-solution-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.625rem;
+    background: #fff;
+    box-shadow: 0 1px 6px rgba(45,106,143,0.12);
+    border: 1px solid #d1e9f5;
+    margin-bottom: 0.875rem;
+  }
+
+  /* ================================================================
+     CAPABILITIES SECTION
+  ================================================================ */
+  .ns-cap-section {
+    background: linear-gradient(160deg, #eaf4f9 0%, #f8fafc 50%, #fef9ec 100%);
+  }
+
+  .ns-cap-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    padding: 1.75rem;
+    background: #fff;
+    border: 1.5px solid #e2f0f8;
+    box-shadow: 0 2px 12px rgba(45,106,143,0.06);
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  }
+  .ns-cap-card:hover { box-shadow: 0 8px 30px rgba(45,106,143,0.14); transform: translateY(-3px); border-color: #a8d4eb; }
+
+  .ns-cap-icon-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, #eaf4f9, #d1e9f5);
+    border: 1.5px solid #c0dcf0;
+  }
+
+  .ns-cap-card-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--ns-teal), var(--ns-gold));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .ns-cap-card:hover .ns-cap-card-bar { transform: scaleX(1); }
+
+  /* ================================================================
+     VALUE SECTION
+  ================================================================ */
+  .ns-value-section { background: #f8fafc; }
+
+  .ns-value-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  @media (min-width: 1024px) {
+    .ns-value-row { grid-template-columns: 18rem 1fr; }
+  }
+
+  .ns-value-row-teal .ns-value-left {
+    background: linear-gradient(135deg, var(--ns-navy), var(--ns-teal));
+    color: #fff;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .ns-value-row-blue .ns-value-left {
+    background: linear-gradient(135deg, #2d6a8f, #4a90b8);
+    color: #fff;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .ns-value-right {
+    background: #fff;
+    padding: 2rem;
+    border: 1.5px solid #e8f4f8;
+    border-left: none;
+  }
+
+  /* ================================================================
+     AI CARDS
+  ================================================================ */
+  .ns-ai-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+    border-radius: 0.875rem;
+    padding: 1.1rem;
+    background: #f8fafc;
+    border: 1.5px solid #e2f0f8;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .ns-ai-card:hover { border-color: #a8d4eb; box-shadow: 0 4px 16px rgba(45,106,143,0.10); }
+
+  .ns-ai-dot {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--ns-teal), var(--ns-gold));
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+  }
+
+  .ns-ai-info-box {
+    border-radius: 1rem;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border: 1.5px solid #e2f0f8;
+    box-shadow: 0 2px 12px rgba(45,106,143,0.06);
+  }
+
+  /* ================================================================
+     WHY NETSUITE
+  ================================================================ */
+  .ns-why-card {
+    border-radius: 1rem;
+    padding: 1.75rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.10);
+    backdrop-filter: blur(8px);
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  }
+  .ns-why-card:hover { background: rgba(255,255,255,0.10); border-color: rgba(201,162,39,0.40); transform: translateY(-3px); }
+
+  .ns-why-num {
+    display: block;
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.9rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, rgba(201,162,39,0.5), rgba(74,144,184,0.4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: opacity 0.25s ease;
+  }
+  .ns-why-card:hover .ns-why-num { opacity: 0.85; }
+
+  /* ================================================================
+     IMPLEMENTATION WORKFLOW
+  ================================================================ */
+  .ns-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .ns-flow-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.1rem;
+    padding-bottom: 2rem;
+  }
+  .ns-flow-item:last-child { padding-bottom: 0; }
+
+  /* vertical connector (mobile) */
+  .ns-flow-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 3.5rem;
+    bottom: 0;
+    left: calc(1.75rem - 1px);
+    width: 2px;
+    background: linear-gradient(180deg, var(--ns-teal), var(--ns-gold));
+    opacity: 0.45;
+  }
+
+  .ns-flow-circle-wrap {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .ns-flow-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--ns-navy), var(--ns-teal));
+    box-shadow: 0 6px 18px rgba(26,58,92,0.25);
+    border: 3px solid #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .ns-flow-item:hover .ns-flow-circle {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 26px rgba(26,58,92,0.32);
+  }
+
+  .ns-flow-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    filter: brightness(0) invert(1);
+  }
+
+  .ns-flow-badge {
+    position: absolute;
+    top: -0.3rem;
+    right: -0.45rem;
+    min-width: 1.35rem;
+    height: 1.35rem;
+    padding: 0 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--ns-gold), var(--ns-gold-lt));
+    color: var(--ns-navy);
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.62rem;
+    font-weight: 800;
+    border: 2px solid #fff;
+  }
+
+  .ns-flow-content { padding-top: 0.25rem; }
+
+  @media (min-width: 1024px) {
+    .ns-flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
+    }
+
+    .ns-flow-item {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.25rem;
+      padding-bottom: 0;
+    }
+
+    .ns-flow-circle {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+    .ns-flow-icon { width: 1.9rem; height: 1.9rem; }
+
+    /* horizontal connector line (desktop) */
+    .ns-flow-item:not(:last-child)::after {
+      top: 2.25rem;
+      bottom: auto;
+      left: calc(50% + 2.75rem);
+      width: calc(100% - 4.5rem);
+      height: 2px;
+      background: linear-gradient(90deg, var(--ns-teal), var(--ns-gold));
+      opacity: 0.55;
+    }
+
+    /* arrow head */
+    .ns-flow-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      top: calc(2.25rem - 5px);
+      left: calc(150% + 1rem - 2.25rem - 8px);
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 8px solid var(--ns-gold);
+      opacity: 0.85;
+    }
+
+    .ns-flow-content { padding-top: 0; }
+  }
+
+  /* ================================================================
+     DEMO BOX
+  ================================================================ */
+  .ns-demo-box {
+    border-radius: 1.25rem;
+    padding: 1.75rem 2rem;
+    background: linear-gradient(135deg, #eaf4f9, #fef9ec);
+    border: 1.5px solid #c0dcf0;
+    box-shadow: 0 4px 20px rgba(45,106,143,0.10);
+  }
+
+  .ns-demo-icon-wrap {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+    background: #fff;
+    border: 1.5px solid #d1e9f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(45,106,143,0.10);
+  }
+
+  .ns-btn-demo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1.5rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--ns-navy), var(--ns-teal));
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 700;
+    box-shadow: 0 4px 16px rgba(26,58,92,0.20);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    white-space: nowrap;
+  }
+  .ns-btn-demo:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(26,58,92,0.28); }
+
+  /* ================================================================
+     CTA BUTTONS
+  ================================================================ */
+  .ns-btn-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 2rem;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--ns-navy);
+    font-size: 0.9rem;
+    font-weight: 700;
+    box-shadow: 0 4px 18px rgba(26,58,92,0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    white-space: nowrap;
+  }
+  .ns-btn-cta-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(26,58,92,0.35); }
+
+  .ns-btn-cta-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 2rem;
+    border-radius: 999px;
+    border: 1.5px solid rgba(255,255,255,0.28);
+    background: rgba(255,255,255,0.07);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    backdrop-filter: blur(6px);
+    transition: border-color 0.25s ease, background 0.25s ease;
+    white-space: nowrap;
+  }
+  .ns-btn-cta-outline:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.14); }
+
+  /* ================================================================
+     SCROLL REVEAL
+  ================================================================ */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+      transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  }
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal],
+    [data-reveal].is-visible {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    .ns-ticker-track { animation: none !important; }
+  }
+</style>
+
+
+<script>
+  /* ============================================================
+     SCROLL REVEAL
+  ============================================================ */
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealEls = document.querySelectorAll<HTMLElement>('[data-reveal]');
+
+  if (prefersReduced) {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  } else {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement;
+            const delay = Number(el.dataset.delay ?? 0);
+            window.setTimeout(() => el.classList.add('is-visible'), delay);
+            io.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    );
+    revealEls.forEach(el => io.observe(el));
+  }
+</script>
