@@ -1,0 +1,238 @@
+---
+// src/components/PageLoader.astro
+---
+
+<!-- PRELOADER & PAGE TRANSITION OVERLAY -->
+<div
+  id="prasetia-page-loader"
+  class="loader-root loader-active"
+  aria-hidden="false"
+  role="status"
+  aria-live="polite"
+  aria-label="Memuat halaman"
+>
+  <div class="loader-content">
+    <img
+      src="/images/hero/logoweb.png"
+      alt="PT Prasetia Dwidharma"
+      class="loader-logo"
+      width="64"
+      height="64"
+      decoding="async"
+    />
+
+    <p class="loader-name">PT Prasetia Dwidharma</p>
+
+    <div class="loader-track">
+      <div id="loader-progress-bar" class="loader-bar"></div>
+    </div>
+
+    <span id="loader-percent" class="loader-percent">0%</span>
+  </div>
+</div>
+
+<style>
+  /* ============ OVERLAY ============ */
+  .loader-root {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: #ffffff;
+    user-select: none;
+    -webkit-user-select: none;
+    transition:
+      opacity 0.5s ease,
+      visibility 0.5s ease;
+  }
+
+  .loader-root.loader-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .loader-root.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* ============ CONTENT ============ */
+  .loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    animation: loaderFadeIn 0.6s ease both;
+  }
+
+  .loader-logo {
+    width: clamp(48px, 14vw, 64px);
+    height: auto;
+    object-fit: contain;
+  }
+
+  .loader-name {
+    margin: 1.25rem 0 0;
+    font-size: clamp(11px, 2.8vw, 13px);
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    padding-left: 0.28em; /* kompensasi letter-spacing agar tetap center */
+    text-transform: uppercase;
+    color: #374151;
+  }
+
+  /* ============ PROGRESS ============ */
+  .loader-track {
+    width: min(60vw, 160px);
+    height: 2px;
+    margin-top: 1.5rem;
+    background: #e5e7eb;
+    overflow: hidden;
+  }
+
+  .loader-bar {
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    height: 100%;
+    background: #e11d27;
+    will-change: transform;
+  }
+
+  .loader-percent {
+    margin-top: 0.75rem;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    font-variant-numeric: tabular-nums;
+    color: #9ca3af;
+  }
+
+  /* ============ ANIMASI ============ */
+  @keyframes loaderFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ============ REDUCE MOTION ============ */
+  @media (prefers-reduced-motion: reduce) {
+    .loader-root,
+    .loader-content,
+    .loader-bar {
+      animation: none !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const loaderEl = document.getElementById('prasetia-page-loader');
+    const barEl = document.getElementById('loader-progress-bar');
+    const percentEl = document.getElementById('loader-percent');
+
+    if (!loaderEl || !barEl || !percentEl) return;
+
+    const loader: HTMLElement = loaderEl;
+    const bar: HTMLElement = barEl;
+    const percentText: HTMLElement = percentEl;
+
+    const MINIMUM_LOAD_TIME = 1500; // durasi minimal agar tidak berkedip
+    const MAX_WAIT = 4000; // batas aman jika resource lambat
+    const startTime = Date.now();
+
+    let progress = 0;
+    let rafId = 0;
+    let finished = false;
+    let lastPercentStr = '';
+
+    function setProgress(value: number): void {
+      progress = Math.min(100, Math.max(0, value));
+      bar.style.transform = 'scaleX(' + (progress / 100) + ')';
+      
+      const newPercentStr = Math.round(progress) + '%';
+      if (lastPercentStr !== newPercentStr) {
+        percentText.textContent = newPercentStr;
+        lastPercentStr = newPercentStr;
+      }
+    }
+
+    function lockScroll(lock: boolean): void {
+      document.documentElement.style.overflow = lock ? 'hidden' : '';
+    }
+
+    // Progress melambat mendekati 90% sampai halaman selesai dimuat
+    function tick(): void {
+      if (finished) return;
+      const remaining = 90 - progress;
+      setProgress(progress + Math.max(0.15, remaining * 0.035));
+      rafId = requestAnimationFrame(tick);
+    }
+
+    function showLoader(): void {
+      finished = false;
+      cancelAnimationFrame(rafId);
+      loader.classList.remove('loader-hidden');
+      loader.classList.add('loader-active');
+      loader.setAttribute('aria-hidden', 'false');
+      lockScroll(true);
+      setProgress(0);
+      rafId = requestAnimationFrame(tick);
+    }
+
+    function closeLoader(): void {
+      loader.classList.remove('loader-active');
+      loader.classList.add('loader-hidden');
+      loader.setAttribute('aria-hidden', 'true');
+      lockScroll(false);
+    }
+
+    function hideLoader(): void {
+      if (finished) return;
+      finished = true;
+      cancelAnimationFrame(rafId);
+
+      const elapsed = Date.now() - startTime;
+      const remainingTime = Math.max(0, MINIMUM_LOAD_TIME - elapsed);
+
+      setTimeout(() => {
+        setProgress(100);
+        setTimeout(closeLoader, 300);
+      }, remainingTime);
+    }
+
+    // Mulai
+    showLoader();
+
+    if (document.readyState === 'complete') {
+      hideLoader();
+    } else {
+      window.addEventListener('load', hideLoader);
+      setTimeout(hideLoader, MAX_WAIT);
+    }
+
+    // Back/Forward (bfcache): pastikan loader tidak menutupi layar
+    window.addEventListener('pageshow', (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        finished = true;
+        cancelAnimationFrame(rafId);
+        setProgress(100);
+        closeLoader();
+      }
+    });
+
+  })();
+</script>

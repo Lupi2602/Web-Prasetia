@@ -1,6 +1,7 @@
 ---
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import PageLoader from '../components/PageLoader.astro';
 import '../styles/global.css';
 
 const clientLogos = [
@@ -1129,6 +1130,7 @@ const awardStats = [
   </head>
 
   <body class="flex flex-col min-h-screen text-gray-800 antialiased">
+    <PageLoader />
 
     <Navbar />
 
