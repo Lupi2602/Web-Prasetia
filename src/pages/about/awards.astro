@@ -404,8 +404,6 @@ const totalAwards = awards.length;
 </MainLayout>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
-
   :root {
     --red: #e4123a;
     --red-bright: #ff4d6d;
@@ -419,8 +417,8 @@ const totalAwards = awards.length;
     --navbar-h-mobile: 64px;
   }
 
-  section { font-family: 'Inter', sans-serif; color: var(--ink); position: relative; }
-  h1, h2, h3, .eyebrow, .stat__num { font-family: 'Space Grotesk', sans-serif; }
+  section {  color: var(--ink); position: relative; }
+  h1, h2, h3, .eyebrow, .stat__num {  }
 
   /* ================= HERO ================= */
   .hero {
@@ -539,7 +537,7 @@ const totalAwards = awards.length;
   }
 
   .hero__title {
-    font-size: clamp(1.85rem, 3.4vw, 2.75rem);
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
     line-height: 1.22;
     font-weight: 800;
     letter-spacing: -0.02em;
@@ -798,7 +796,7 @@ const totalAwards = awards.length;
   .frame img { width: 100%; height: 165px; object-fit: cover; border-radius: 4px; display: block; }
   .frame figcaption { padding: 0.75rem 0.4rem 0.25rem; }
   .frame__year { font-size: 0.72rem; color: var(--red); font-weight: 700; }
-  .frame h3 { font-size: 0.92rem; margin: 0.25rem 0; line-height: 1.3; font-family: 'Space Grotesk', sans-serif; font-weight: 600; }
+  .frame h3 { font-size: 0.92rem; margin: 0.25rem 0; line-height: 1.3;  font-weight: 600; }
   .frame__category { font-size: 0.76rem; color: var(--ink-soft); margin: 0; }
 
   /* ================= VAULT ================= */
@@ -812,7 +810,7 @@ const totalAwards = awards.length;
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
   .vault__header.is-visible { opacity: 1; transform: translateY(0); }
-  .vault__title { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 800; margin: 0.5rem 0 0.75rem; letter-spacing: -0.01em; }
+  .vault__title {  font-weight: 800; margin: 0.5rem 0 0.75rem; letter-spacing: -0.01em; }
   .vault__desc { font-size: 0.95rem; color: var(--ink-soft); max-width: 44ch; margin: 0 auto; line-height: 1.65; }
 
   .vault__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
@@ -862,7 +860,7 @@ const totalAwards = awards.length;
 
   .vault__meta { padding: 0.9rem 0.95rem 1rem; display: flex; flex-direction: column; gap: 0.22rem; flex: 1; }
   .vault__issuer { font-size: 0.68rem; color: var(--red); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
-  .vault__name { font-size: 0.88rem; font-weight: 700; font-family: 'Space Grotesk', sans-serif; margin: 0; line-height: 1.3; color: var(--ink); }
+  .vault__name { font-size: 0.88rem; font-weight: 700;  margin: 0; line-height: 1.3; color: var(--ink); }
   .vault__cat { font-size: 0.75rem; color: var(--ink-soft); margin: 0; line-height: 1.4; }
 
   /* ================= CLOSING ================= */
@@ -932,7 +930,7 @@ const totalAwards = awards.length;
   .lightbox__img { width: 100%; max-height: 62vh; object-fit: contain; display: block; background: var(--red-soft); }
   .lightbox__meta { padding: 1.1rem 1.4rem 1.4rem; border-top: 2px solid var(--red); }
   .lightbox__issuer { font-size: 0.75rem; color: var(--red); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.3rem; }
-  .lightbox__title { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.25rem; font-family: 'Space Grotesk', sans-serif; color: var(--ink); line-height: 1.25; }
+  .lightbox__title { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.25rem;  color: var(--ink); line-height: 1.25; }
   .lightbox__category { font-size: 0.875rem; color: var(--ink-soft); margin: 0 0 0.2rem; }
   .lightbox__year { font-size: 0.8rem; color: var(--red); font-weight: 600; margin: 0; }
   .lightbox__close {
@@ -995,7 +993,6 @@ const totalAwards = awards.length;
   }
 
   @media (max-width: 400px) {
-    .hero__title { font-size: 1.65rem; }
     .hero__stack { max-width: 240px; }
     .vault__grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
   }

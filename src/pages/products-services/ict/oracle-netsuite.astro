@@ -179,7 +179,7 @@ const aiItems = [
           class="h-8 brightness-0 invert opacity-90" />
       </div>
       <span class="ns-badge-hero mb-6 inline-block">Cloud ERP Terintegrasi</span>
-      <h1 class="font-display text-[clamp(2rem,4.5vw,3.4rem)] font-extrabold leading-[1.1] tracking-tight">
+      <h1 class="font-sans text-hero-title text-white">
         Satu Platform.<br />
         <span class="ns-gold-text">Semua Proses Terhubung.</span>
       </h1>
@@ -246,7 +246,7 @@ const aiItems = [
             { val: 'Scalable', label: 'Siap Tumbuh Bersama Anda' },
           ].map(s => (
             <div class="ns-stat-card">
-              <p class="text-xl font-extrabold text-[#1a3a5c]">{s.val}</p>
+              <p class="text-body-lead font-extrabold text-[#1a3a5c]">{s.val}</p>
               <p class="text-xs text-slate-500 mt-0.5">{s.label}</p>
             </div>
           ))}
@@ -679,7 +679,7 @@ const aiItems = [
     <img src="/images/heronetsuite/netsuitelogo.png" alt="Oracle NetSuite"
       class="mx-auto mb-7 h-8 brightness-0 invert opacity-80" />
 
-    <h2 class="ns-h2 text-white mb-5 text-[clamp(1.6rem,3vw,2.4rem)]">
+    <h2 class="ns-h2 text-white mb-5 text-hero-title">
       Eksplorasi Solusi NetSuite<br />
       <span class="ns-gold-text">untuk Perusahaan Anda</span>
     </h2>
@@ -705,8 +705,6 @@ const aiItems = [
 
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
-
   /* ================================================================
      DESIGN TOKENS
   ================================================================ */
@@ -719,14 +717,13 @@ const aiItems = [
   --ns-bg:      #f8fafc;
 }
 
-  .font-display { font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; }
+  .font-display {  }
 
   /* ================================================================
      TYPOGRAPHY HELPERS
   ================================================================ */
   .ns-h2 {
-    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-    font-size: clamp(1.45rem, 2.5vw, 2.1rem);
+    font-size: clamp(1.4rem, 2.2vw, 1.85rem);
     font-weight: 800;
     line-height: 1.2;
     letter-spacing: -0.02em;
@@ -848,7 +845,7 @@ const aiItems = [
 
   .ns-challenge-num {
     display: block;
-    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    
     font-size: 2.5rem;
     font-weight: 800;
     line-height: 1;
@@ -1026,7 +1023,7 @@ const aiItems = [
 
   .ns-why-num {
     display: block;
-    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    
     font-size: 1.9rem;
     font-weight: 800;
     line-height: 1;
@@ -1110,7 +1107,7 @@ const aiItems = [
     border-radius: 999px;
     background: linear-gradient(135deg, var(--ns-gold), var(--ns-gold-lt));
     color: var(--ns-navy);
-    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    
     font-size: 0.62rem;
     font-weight: 800;
     border: 2px solid #fff;

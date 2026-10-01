@@ -1,151 +1,33 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
+import careerData from '../../data/careers.json';
 
-/* ════════════════════════════════════════════════════════════════
-   🔧 PENGATURAN UMUM — edit bagian ini kalau ada perubahan info
-   lamaran (email, link, batas waktu, dll)
-════════════════════════════════════════════════════════════════ */
-const applyEmail = "hrd@prasetia.co.id";
-const applyLink = "https://prasetia.sg.larksuite.com/share/base/form/shrusRG899ountEjCaWNi29Z5lg"; // link form lamaran — kosongkan "" untuk sembunyikan tombol
-const closingDate = "Rolling Recruitment, lowongan dibuka sampai posisi terisi";
+interface AdditionalSection {
+  heading: string;
+  items: string[];
+}
 
-/* ════════════════════════════════════════════════════════════════
-   📋 DAFTAR LOWONGAN — TEMPLATE MUDAH DIEDIT
-   ════════════════════════════════════════════════════════════════
-   CARA TAMBAH LOWONGAN BARU:
-   1. Copy 1 blok "{ ... }," di bawah (dari tanda kurung kurawal
-      pembuka sampai penutup + koma).
-   2. Paste di posisi paling atas/bawah array (di antara tanda [ ]).
-   3. Ganti isi title, company, location, dan qualifications sesuai
-      kebutuhan. Setiap baris qualifications = 1 poin kualifikasi.
+interface Vacancy {
+  _comment?: string;
+  title: string;
+  company: string;
+  location: string;
+  qualifications: string[];
+  additionalSections?: AdditionalSection[];
+}
 
-   CARA HAPUS LOWONGAN (posisi sudah ditutup):
-   - Hapus 1 blok "{ ... }," secara utuh.
+interface CareerData {
+  _panduan?: string;
+  application: {
+    _comment?: string;
+    email: string;
+    applyLink: string;
+    closingDate: string;
+  };
+  vacancies: Vacancy[];
+}
 
-   CATATAN:
-   - "additionalSections" itu OPSIONAL. Kalau lowongan tidak perlu
-     bagian tambahan (misal "Personality Traits"), cukup hapus
-     seluruh baris additionalSections: [ ... ] pada blok itu.
-   - "location" usahakan singkat (1 baris) karena tampil di kanan
-     daftar — detail lokasi lengkap bisa taruh di kualifikasi.
-   - Jangan hapus tanda kutip " " dan koma , supaya kode tidak error.
-════════════════════════════════════════════════════════════════ */
-const vacancies = [
-  {
-    title: "ENGINEER ON SITE (EoS)",
-    company: "PT PRASETIA DWIDHARMA TEKNOLOGI",
-    location: "Jabodetabek Area",
-    qualifications: [
-      "Minimum D3 Teknik Telekomunikasi",
-      "Mahir menggunakan alat ukur (Ampere Meter) dan perkakas (tang, obeng, dll)",
-      "Mampu melakukan splicing fiber optic core",
-      "Mampu membaca peta (Maps)",
-      "Terampil mengoperasikan OTDR (Optical Time Domain Reflectometry) dan OPM (Optical Power Meter)",
-      "Kompeten mengoperasikan perangkat GPS (Garmin)",
-      "Memahami konsep maintenance jaringan fiber optic",
-      "Familiar dengan jaringan fiber optic (ISP, OSP)",
-      "Nilai tambah jika memahami CME, sistem elektrikal AC/DC, dan genset",
-      "Mampu membaca flow chart, gambar teknis, dan prosedur",
-      "Bersedia ditempatkan di area Jabodetabek (Jakarta, Bogor, Depok, Tangerang, Bekasi, Karawang, Sukabumi)"
-    ]
-  },
-  {
-    title: "SALES SPECIALIST",
-    company: "PT PRASETIA QUBE WELLNESS",
-    location: "Bali",
-    qualifications: [
-      "Pengalaman di bidang sales atau industri wellness minimal 2 tahun",
-      "Rekam jejak penjualan yang terbukti baik",
-      "Kemampuan komunikasi dan negosiasi yang baik",
-      "Mampu bekerja mandiri maupun dalam tim",
-      "Mampu berbahasa Inggris",
-      "Penempatan di Bali"
-    ]
-  },
-  {
-    title: "SALES ENGINEER IMAGINA",
-    company: "PT PRASETIA DWIDHARMA",
-    location: "Jakarta",
-    qualifications: [
-      "Fresh graduate dari universitas terkemuka",
-      "Lulusan Kimia (lulusan bisnis menjadi nilai tambah)",
-      "Minimal IPK 3.5 dari skala 4.0",
-      "Minimal TOEFL IBT 90 / TOEFL PBT 550 / IELTS 7",
-      "Memiliki karya akademik menjadi nilai tambah",
-      "Bersedia melakukan perjalanan dinas",
-      "Penempatan: Jakarta"
-    ],
-    additionalSections: [
-      {
-        heading: "Kemampuan Kerja Tambahan",
-        items: [
-          "Table manner dan sikap profesional yang baik",
-          "Kemampuan presentasi yang baik",
-          "Mahir dalam analisis data"
-        ]
-      },
-      {
-        heading: "Ciri Kepribadian",
-        items: [
-          "Ekstrovert, senang berinteraksi dengan orang lain",
-          "Cerdas dan cepat belajar",
-          "Komunikatif dan mudah bergaul",
-          "Mampu membangun kepercayaan dan hubungan baik",
-          "Persuasif dalam berkomunikasi"
-        ]
-      }
-    ]
-  },
-  {
-    title: "MARKETING SUPERVISOR",
-    company: "PT PRASETIA DWIDHARMA",
-    location: "Jakarta",
-    qualifications: [
-      "Minimal S1 di bidang Marketing, Komunikasi, Manajemen Bisnis, atau bidang terkait",
-      "Minimal 2 tahun pengalaman kerja di bidang terkait, seperti perusahaan SaaS, teknologi, atau digital, lebih disukai pada posisi supervisor atau setara",
-      "Kemampuan analisis kuat untuk membaca data pasar, mengidentifikasi peluang, dan mengukur performa marketing",
-      "Menguasai perencanaan dan strategi marketing, branding, pengembangan produk, promosi, penjualan, dan brand management",
-      "Berpengalaman dalam Event Management"
-    ]
-  },
-  {
-    title: "SALES SUPERVISOR",
-    company: "PT PRASETIA DWIDHARMA TEKNOLOGI (PDT)",
-    location: "Bali",
-    qualifications: [
-      "Minimal pendidikan S1",
-      "Minimal 3-4 tahun pengalaman di bidang yang sama",
-      "Usia maksimal 40 tahun",
-      "Menguasai Microsoft Office, terutama Excel",
-      "Memiliki minat di bidang sales",
-      "Berorientasi pada target",
-      "Mampu membangun hubungan baik dengan pelanggan",
-      "Memiliki kemampuan leadership yang baik",
-      "Penempatan di Bali"
-    ]
-  },
-  {
-    title: "BUSINESS DEVELOPMENT",
-    company: "PT PRASETIA DWIDHARMA",
-    location: "Jakarta / Regional",
-    qualifications: [
-      "Gelar universitas atau pengalaman setara. MBA menjadi nilai tambah",
-      "Berpengalaman menjual dan mengembangkan portofolio bisnis di APAC, dengan fokus pasar Indonesia",
-      "Pengalaman relevan di bidang sales atau business development bersama SMB, enterprise, dan/atau startup tahap pertumbuhan untuk produk SaaS/IT",
-      "Kemampuan problem solving dalam lingkungan sales, termasuk kemampuan qualify dan closing bisnis",
-      "Kemampuan layanan pelanggan dan people management yang sangat baik",
-      "Memahami lanskap kompetitif untuk mengembangkan strategi/program peningkatan revenue",
-      "Detail oriented, mampu melacak dan mengorganisir informasi, data, dan komunikasi secara efisien",
-      "Mampu bernegosiasi dan mencapai kesepakatan dengan berbagai level dan posisi dalam organisasi",
-      "Memiliki pengetahuan luas tentang tren dan best practice terkini",
-      "Pengalaman di bisnis F&B dan Hospitality menjadi nilai tambah",
-      "Kemampuan komunikasi tulisan dan lisan yang sangat baik",
-      "Fasih berbahasa Inggris & Indonesia menjadi nilai tambah untuk menjembatani komunikasi dengan klien/mitra lokal"
-    ]
-  }
-
-  // 👆 Tambahkan/hapus blok lowongan di atas sesuai kebutuhan
-];
+const { application, vacancies } = careerData as CareerData;
 ---
 
 <MainLayout title="Careers | PT Prasetia Dwidharma" transparentNavbar={true}>
@@ -618,15 +500,15 @@ const vacancies = [
         </p>
 
         <div class="flex flex-col sm:flex-row sm:items-center justify-center gap-3 mb-6 w-full sm:w-auto">
-          <a href={`mailto:${applyEmail}`} class="career-apply-btn career-apply-btn-ghost">
+          <a href={`mailto:${application.email}`} class="career-apply-btn career-apply-btn-ghost">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            {applyEmail}
+            {application.email}
           </a>
 
-          {applyLink && (
-            <a href={applyLink} target="_blank" rel="noopener noreferrer" class="career-apply-btn career-apply-btn-solid">
+          {application.applyLink && (
+            <a href={application.applyLink} target="_blank" rel="noopener noreferrer" class="career-apply-btn career-apply-btn-solid">
               Apply via Link
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -635,7 +517,7 @@ const vacancies = [
           )}
         </div>
 
-        <p class="text-white/60 text-xs mb-7" style="text-shadow: 0 1px 6px rgba(0,0,0,0.35);">{closingDate}</p>
+        <p class="text-white/60 text-xs mb-7" style="text-shadow: 0 1px 6px rgba(0,0,0,0.35);">{application.closingDate}</p>
 
         <div class="career-antifraud">
           <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">

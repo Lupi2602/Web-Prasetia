@@ -1,0 +1,706 @@
+[
+  {
+    "name": "Alta",
+    "description": "Alta, formerly known as Fundnel, is Southeast Asia’s largest digital securities exchange for alternative investments. Alta gives investors direct access to invest and trade in a wide range of curated alternative assets, from direct investment into early to late-stage private companies, PE/VC funds, asset-backed securities of luxury assets, real estate and more.",
+    "website": "https://alta.exchange/",
+    "industry": "Financial Tech",
+    "sector": "Financial",
+    "country": "Singapore"
+  },
+  {
+    "name": "Ampotech",
+    "description": "Ampotech is an Singapore-based tech company that focuses on real-time energy monitoring and optimization through AI-enabled Internet of Things (IoT) solutions. They develop hardware and software solutions to help businesses manage electricity consumption, detect anomalies, and implement data-driven strategies for optimization and cost savings. Their solutions are used across multiple countries in Asia, helping organizations meet ESG targets and advance towards sustainability goals.",
+    "website": "https://www.ampotech.com/",
+    "industry": "IoT",
+    "sector": "Energy",
+    "country": "Singapore"
+  },
+  {
+    "name": "Apprentice Health",
+    "description": "The smart assistant for your clinical workflow - Apprentice Health helps clinical teams deliver exceptional care to more patients by improving the usage of their most valuable resources - clinical time, space, and equipment",
+    "website": "https://www.apprenticehealth.com",
+    "industry": "SaaS",
+    "sector": "Enterprise & SME Solution",
+    "country": "USA"
+  },
+  {
+    "name": "Aspire",
+    "description": "Aspire is the all-in-one finance operating system for growing businesses. It helps companies pay, manage, and earn smarter - by doing more than a bank, bookkeeper, or rewards program could ever do alone.",
+    "website": "https://aspireapp.com/",
+    "industry": "Financial Tech",
+    "sector": "Financial",
+    "country": "Singapore"
+  },
+  {
+    "name": "Bamms",
+    "description": "BAMMS is a building management solution provider, that facilitates Building Management to manage building operations efficiently while ensuring proficient communication between tenant relations, tenants and related third parties.",
+    "website": "https://bybamms.com/",
+    "industry": "SaaS",
+    "sector": "Enterprise & SME Solution",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Baskit",
+    "description": "Baskit makes supply chains more efficient by powering wholesalers and distributors with technology, revenue support, and financing.",
+    "website": "https://www.baskit.app/",
+    "industry": "E-Commerce",
+    "sector": "E-procurement",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Bhumi Varta Technology",
+    "description": "Bhumi Varta Technology (BVT) is a leading provider of location intelligence and business intelligence software in Indonesia. They use big data and machine learning to provide predictive analytics, helping businesses make data-driven decisions related to site selection, market planning, logistics, and more. BVT's solutions are tailored for the Indonesian market and offer insights into various aspects of location, including Points of Interest (POI), demographic data, and mobile device data.",
+    "website": "https://bvarta.com/",
+    "industry": "Deep Tech",
+    "sector": "Enterprise & SME Solution",
+    "country": "Indonesia"
+  },
+  {
+    "name": "BrainKey",
+    "description": "BrainKey is an AI-driven digital healthcare company with a mission to create a world free from dementia. The company specializes in developing advanced clinical technologies that empower longevity physicians to detect and prevent cognitive decline. By analyzing brain MRI and biomedical data, BrainKey provides highly accurate and personalized brain health insights, supporting physicians in delivering tailored care for brain longevity.",
+    "website": "https://www.brainkey.ai/",
+    "industry": "Deep Tech",
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Brick",
+    "description": "One Brick (Brick) is a Southeast Asia-based financial API provider focused on building an open finance ecosystem, according to their website. They offer financial services and APIs that enable businesses to integrate and manage financial transactions more efficiently. Brick also provides tools for payment processing, financial data aggregation, and user verification.",
+    "website": "https://www.onebrick.io/",
+    "industry": "Financial Tech",
+    "sector": "Financial",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Bridgefy",
+    "description": "Bridgefy allows nearby users to communicate offline without data network or SMS services. The Bridgefy SDK makes mobile apps work using mesh networks instead of Internet, letting your users engage with your app during large events, natural disasters, schools, and much more.",
+    "website": "https://www.bridgefy.me/",
+    "industry": "SaaS",
+    "sector": "Communication",
+    "country": "USA"
+  },
+  {
+    "name": "Cakap",
+    "description": "Cakap is an online school created to reinvent the language-learning experience. Through live instruction with native speaking teachers and multimedia learning content customized to each learner, it allows students to study from home or the office and to avoid inconvenient scheduling, long commute times, high tuition costs, and outdated books.",
+    "website": "https://cakap.com/",
+    "industry": "Consumers",
+    "sector": "Education",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Casion",
+    "description": "Casion is Indonesia's leading Electric vehicle charging service provider. Casion deploys, manages and maintains our stations. Providing an end-to-end service to landlords and end users.",
+    "website": "https://cas-ion.com/",
+    "industry": "Retail",
+    "sector": "Energy",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Codestream (Acquired by New Relic)",
+    "description": "CodeStream supercharges development workflows by putting collaboration tools in your IDE. It supports pull requests from GitHub, BitBucket and GitLab, issue management from Jira, Trello, Asana and 9 others, and provides code discussion that ties it all together, integrated with Slack, MS Teams, email, and in-editor notifications.",
+    "website": "https://codestream.com/",
+    "industry": "SaaS",
+    "sector": "Web Development",
+    "country": "USA"
+  },
+  {
+    "name": "Collabit",
+    "description": "CollaBit empowers Fish, Ocean, and People. It converts undervalued marine by-products into high-value marine ingredients with circular blue economy and marine biotechnology.",
+    "website": "https://collabit.id/",
+    "industry": "Consumers",
+    "sector": "Supply Chain",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Comika Company",
+    "description": "Comika Company is a media and entertainment company founded by Pandji Pragiwaksono in Indonesia. They focus on creating content, particularly audio-based content, and have established a workspace called Markas Comika (Comika Space) for their creative activities.",
+    "website": "https://comika.company/en",
+    "industry": "Retail",
+    "sector": "Entertainment",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Dagangan",
+    "description": "Dagangan is a demand aggregation platform for small towns and villages in Indonesia. Leveraging the power of community and social network of influencers, Dagangan aims to solve production and accessibility issues, enabling households in the rural areas to get their daily needs delivered to them, with cheaper price and much less effort.",
+    "website": "https://www.dagangan.com/",
+    "industry": "E-Commerce",
+    "sector": "E-Commerce",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Danamart",
+    "description": "Danamart is Indonesia's first crowdfunding platform, connecting entrepreneurs with investors. It focuses on ESG (Environmental, Social, and Governance) principles and Sustainable Development Goals (SDGs). Danamart helps businesses raise capital while enabling investors to earn returns with a positive impact on society and the environment.",
+    "website": "https://danamart.id/",
+    "industry": "Financial Tech",
+    "sector": "Financial",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Dataform (Acquired by Google)",
+    "description": "Dataform is data management for modern data teams that offers s a software for data teams where they can collaborate to prepare their data once and use it for all their analytics purposes across the their entire business",
+    "website": "https://dataform.co/",
+    "industry": "SaaS",
+    "sector": "Big Data",
+    "country": "USA"
+  },
+  {
+    "name": "Daya AI",
+    "description": "Daya AI is an AI sales Intelligence software platform designed to revolutionize sales and operations within companies",
+    "website": "https://www.daya.ai/",
+    "industry": "SaaS",
+    "sector": "Enterprise and SME Solution",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Decentro",
+    "description": "Simple & automated API platform for banking integrations in India and Asia. Open banking APIs to launch your products 10X faster.",
+    "website": "https://decentro.tech/",
+    "industry": "Financial Tech",
+    "sector": "Financial",
+    "country": "India"
+  },
+  {
+    "name": "Delman Data Lab",
+    "description": "Delman is an abbreviation of “Data Excavation Learning and Management.” We dedicated ourselves to providing data science solutions focused on data preparation. We aspire to efficiently accelerate digital transformation by integrating and warehousing gazillion data sources. Industry leaders have trusted us with their data problems: enterprises, conglomerates, and the Indonesian government.",
+    "website": "https://delman.io/",
+    "industry": "SaaS",
+    "sector": "Big Data",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Doogether",
+    "description": "DOOgether is a comprehensive fitness and wellness platform in Indonesia, offering a digital solution to access a network of fitness studios, gyms, nutritionists, and more. It allows users to easily book online and offline classes, purchase memberships, and manage their healthy lifestyle activities through its app",
+    "website": "https://web.doogether.id/",
+    "industry": "Consumers",
+    "sector": "Health & Wellness",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Dropee",
+    "description": "Dropee is SEA B2B eProcurement marketplace. It powers small and large businesses to operate more efficiently. Dropee connects buyers to wholesale sellers in a quicker, more transparent way, and empower them to serve their customers better.",
+    "website": "https://www.dropee.com/",
+    "industry": "E-Commerce",
+    "sector": "E-procurement",
+    "country": "Malaysia"
+  },
+  {
+    "name": "Endovision",
+    "description": "Endovision is an AI driven diagnostic software, which makes endoscopy cheaper, faster and more accurate",
+    "website": "http://www.endovisionai.com/",
+    "industry": "SaaS",
+    "sector": "Healthcare",
+    "country": "Singapore"
+  },
+  {
+    "name": "EPP",
+    "description": "EPP (Employee Purchase Program) is an HR benefit platform that provides employees of participating companies with exclusive personal-use discounts of up to 50% from leading brands.",
+    "website": "https://epp.co.id",
+    "industry": "SaaS",
+    "sector": "SaaS",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Evie AI",
+    "description": "AI scheduling assistant that optimizes resource utilization and increase productivity. Evie helps recruiters and businesses to deploy and integrate with all major enterprise scheduling, messaging and meeting applications, from Zoom to Slack to Microsoft Teams.",
+    "website": "https://evie.ai/",
+    "industry": "SaaS",
+    "sector": "Enterprise & SME Solution",
+    "country": "Singapore"
+  },
+  {
+    "name": "Fast8",
+    "description": "Fast8 Group is an Indonesian company focused on providing an integrated ecosystem of solutions to support businesses, individuals, and communities. Their mission is to bridge business success with well-being through services like productivity monitoring, HR and payroll management, skills training, and a financial/work-life balance marketplace.",
+    "website": "https://www.gadjian.com/",
+    "industry": "SaaS",
+    "sector": "HR Tech",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Fazpass",
+    "description": "Fazpass is a passwordless authentication solution that offers a seamless and secure way to authenticate users. It provides a fuss-free alternative to traditional passwords, with a focus on enhanced security and a streamlined user experience. Fazpass aims to solve OTP-related issues and offers a variety of connectors for different platforms and services.",
+    "website": "https://fazpass.com/",
+    "industry": "SaaS",
+    "sector": "Communication",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Flokq",
+    "description": "Flokq advocates for simple solutions and aim is to provide beautiful yet affordable homes to city dwellers. Flokq offers its members the opportunity to become a part of something bigger than themselves, something that makes us who they are - the community, our flock.",
+    "website": "https://www.flokq.com/",
+    "industry": "Consumers",
+    "sector": "Property",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Flow Tech",
+    "description": "Flow is a credit management company that is transforming the business of unsecured consumer finance through AI technologies and ethical practices in Asia. Flow’s data-driven collection strategies have proven, remarkable recovery rates for top financial institutions and technology companies and have supported over 2.8 million customers to date.",
+    "website": "https://www.flow-tech.ai/",
+    "industry": "Financial Tech",
+    "sector": "Financial",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Forstok",
+    "description": "Forstok, multi-channel inventory management that helps retailers increase revenue, move inventory faster and simplify operation by automatically synchronize inventory, orders, customers and financial data across multiple sales channels",
+    "website": "https://www.forstok.com/",
+    "industry": "SaaS",
+    "sector": "Enterprise & SME Solution",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Fresh Factory",
+    "description": "Hyperlocal, Cold Chain Fulfillment & Enabler company which helps businesses to reach their customers faster and more efficient and enables businesses to expand the sales distribution through e-commerce",
+    "website": "http://freshfactory.id/",
+    "industry": "Retail",
+    "sector": "Supply Chain",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Gigacover",
+    "description": "Gigacover makes affinity insurance programs simple and flexible. Business models, workforces and operational risks are rapidly evolving as the world heads into the future of work. We collaborate with insurers to co-create new products in the lines of worker benefits, health insurance, personal accident, indemnity and liability. We leverage our software and services to protect people, operations and assets of our clients in the most cost-efficient way.",
+    "website": "https://gigacover.com/",
+    "industry": "Financial Tech",
+    "sector": "Insuretech",
+    "country": "Singapore"
+  },
+  {
+    "name": "Goama",
+    "description": "Goama delivers competitive fun games on a single platform where we can come together, learn, earn, and be entertained. We help people develop skills, bond together, and bring out the best version of themselves through games",
+    "website": "https://goama.com/",
+    "industry": "SaaS",
+    "sector": "Gaming",
+    "country": "Singapore"
+  },
+  {
+    "name": "Goers App",
+    "description": "GOERS enables experience business owners to let their customers have an unforgettable experience through our seamless ticketing technology. Founded in 2015, GOERS now offers end-to-end solutions and has extended its product to GOERS Web, GOERS Point of Sales and our latest, GOERS Experience Manager with extra services such as widget, real-time settlement and digital promotion.",
+    "website": "https://goersapp.com/",
+    "industry": "Consumers",
+    "sector": "Lifestyle",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Gotrade",
+    "description": "Gotrade is a mobile brokerage which allows people from over 170 countries to invest in the US stock market from just $1.",
+    "website": "http://www.heygotrade.com/",
+    "industry": "Financial Tech",
+    "sector": "Financial",
+    "country": "Indonesia"
+  },
+  {
+    "name": "GoWork",
+    "description": "Go-work is Indonesia’s leading premium coworking space with a mission to provides world-class workspaces that are inspiring and fully equipped with amenities and tools to help companies thrive",
+    "website": "https://go-work.com/",
+    "industry": "Others",
+    "sector": "Property",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Hacktiv8",
+    "description": "Hacktiv8 Prepares Professionals for high-growth careers in the Digital Economy. It helps an absolute beginner to a job ready developer.",
+    "website": "https://hacktiv8.com/",
+    "industry": "Consumers",
+    "sector": "Education",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Happy 5",
+    "description": "The AI performance management tool that turns execution into outcome. It helps companies to align goals, projects, and reviews in one AI-powered platform that's fully customizable to your organization's needs.",
+    "website": "https://www.happy5.co/",
+    "industry": "SaaS",
+    "sector": "Enterprise and SME Solution",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Haus!",
+    "description": "Haus! Indonesia is a beverage outlet that provides all kinds of contemporary drinks at affordable price which currently operates with more than 200+ branches spread across the Jabodetabek and Bandung areas.",
+    "website": "http://haus.co.id/",
+    "industry": "Retail",
+    "sector": "Lifestyle",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Horangi (Acquired by Bitdefender)",
+    "description": "Horangi Cyber Security is a cloud security company that was acquired by Bitdefender. Horangi’s cloud security platform, Horangi Warden, being integrated into Bitdefender's GravityZone unified risk and security analytics platform.",
+    "website": "https://horangi.com/",
+    "industry": "SaaS",
+    "sector": "Cybersecurity",
+    "country": "Singapore"
+  },
+  {
+    "name": "Igloohome",
+    "description": "The Igloohome Smart Lock and Smart Keybox allow access to be granted remotely via mobile app - PIN codes or bluetooth virtual keys can be created",
+    "website": "https://www.igloohome.co/",
+    "industry": "IoT",
+    "sector": "Hardware",
+    "country": "Singapore"
+  },
+  {
+    "name": "Interviewer AI",
+    "description": "An audiovisual interviewing platform that uses human psychological research, computer vision, voice analytics, and natural language processing to automatically assess and shortlist candidates with the help of AI-driven technology. It helps Hiring Managers and recruiters spot top quality talent, from 100s of applications, in seconds.",
+    "website": "https://interviewer.ai/",
+    "industry": "SaaS",
+    "sector": "HR Tech",
+    "country": "Singapore"
+  },
+  {
+    "name": "Jago",
+    "description": "A mobile convenience cart that meets customers whenever they want, ‍wherever they are. A personal barista brewing you coffee at home, at work—wherever.",
+    "website": "https://www.jagocoffee.com/",
+    "industry": "Retail",
+    "sector": "Consumers",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Jendela 360",
+    "description": "Jendela360 is property startup that serves all apartment renting needs and offers complete services from the online and offline side such as: transparency, 360 virtual tour, customer service, offline visitation and installment services",
+    "website": "https://jendela360.com/",
+    "industry": "Consumers",
+    "sector": "Property",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Khatabook",
+    "description": "Khatabook is a mobile app that helps small shopkeepers and Kirana store owners in India manage their books by helping them track the money owed to them through the means of a digital ledger.",
+    "website": "https://khatabook.com/",
+    "industry": "Financial Tech",
+    "sector": "Enterprise & SME Solution",
+    "country": "India"
+  },
+  {
+    "name": "Kinexcs",
+    "description": "Kinexcs is an AI-driven health platform and wearables company focused on improving mobility and quality of life, particularly for those recovering from orthopedic surgeries or experiencing musculoskeletal issues. They offer personalized digital therapy and continuous monitoring through a combination of wearable devices and AI, aiming to accelerate recovery and empower patients. Their flagship product, KIMIA Recover, is a comprehensive recovery management system for knee surgery patients.",
+    "website": "http://www.kinexcs.com/",
+    "industry": "IoT",
+    "sector": "Healthcare",
+    "country": "Singapore"
+  },
+  {
+    "name": "Laba.id",
+    "description": "Laba.id is a cloud-based accounting and business operational software designed specifically for Micro, Small, and Medium Enterprises (UMKM) in Indonesia.",
+    "website": "https://laba.id/",
+    "industry": "SaaS",
+    "sector": "Enterprise and SME Solutions",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Leena AI",
+    "description": "Leena AI is an autonomous conversational AI-backed platform that helps enterprises better employee experience. The platform is powerful, flexible, and made to meets the needs of any enterprise.",
+    "website": "https://leena.ai/",
+    "industry": "SaaS",
+    "sector": "HR Tech",
+    "country": "USA"
+  },
+  {
+    "name": "Lemonbox",
+    "description": "LemonBox is a company that provides personalized daily vitamin packs and dietary advice to Chinese consumers. They use a monthly subscription model, and their products are manufactured in the U.S. LemonBox leverages big data and US-registered dietitians to offer nutritional and lifestyle recommendations. They also have a WeChat-based app and are expanding to other e-commerce platforms like Alibaba's Tmall.",
+    "website": "http://www.lemonbox.me/",
+    "industry": "Consumers",
+    "sector": "Healthcare",
+    "country": "China"
+  },
+  {
+    "name": "Little Joy",
+    "description": "Little Joy Indonesia is the fastest-growing Mom and Baby brand providing the holistic ecosystem for the first 1000 days of children’s development and growth.",
+    "website": "http://www.instagram.com/littlejoyindonesia",
+    "industry": "Retail",
+    "sector": "Consumers",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Lumiere32",
+    "description": "Lumiere32 is an online B2B marketplace and platform primarily focused on dental and medical products and supplies. It connects manufacturers, dealers, and dental/medical professionals, offering a wide range of products, equipment, and accessories, with a focus on simplifying the buying process.",
+    "website": "https://www.lumiere32.sg/",
+    "industry": "E-Commerce",
+    "sector": "Healthcare",
+    "country": "Singapore"
+  },
+  {
+    "name": "Lunapos",
+    "description": "Luna POS is a cloud-based Point of Sale (POS) and accounting system designed for Small and Medium-sized Enterprises (SMEs). It offers features like offline mode, inventory management, and a comprehensive accounting system with reporting tools, making it suitable for various businesses.",
+    "website": "https://lunapos.id/",
+    "industry": "Retail",
+    "sector": "SaaS",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Mapan",
+    "description": "MAPAN is a digital community-based company whose mission is to increase access, status, and income for the Indonesian people. Mapan's main service is to help customers get quality and affordable household products with the arisan system.",
+    "website": "https://mapan.id/",
+    "industry": "SaaS",
+    "sector": "Lifestyle",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Mekari",
+    "description": "Mekari empowers the progress of businesses and professionals by providing HR and Accounting products (Talenta, Sleekr, Jurnal, KlikPajak) that have been used by tens of thousands of businesses in Indonesia",
+    "website": "https://www.mekari.com",
+    "industry": "SaaS",
+    "sector": "Enterprise & SME Solution",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Mtarget",
+    "description": "MTARGET is an email marketing and automation platform with additional tools like social media management and landing page builders. It allows users to send customized emails, manage contacts, track campaign performance, and offers features like email templates, A/B testing, and email scheduling. Essentially, MTARGET provides a comprehensive solution for businesses to manage their email marketing efforts.",
+    "website": "https://mtarget.co/",
+    "industry": "SaaS",
+    "sector": "Enterprise & SME Solution",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Myrobin",
+    "description": "MyRobin is an Indonesian outsourcing company specializing in providing on-demand, pre-screened workers for businesses. They offer a platform that connects businesses with flexible, experienced, and reliable workers, handling everything from recruitment and documentation to attendance, payroll, and even worker insurance. MyRobin aims to simplify workforce management for businesses and provide job opportunities and professional development for i",
+    "website": "https://myrobin.id/",
+    "industry": "HR Tech",
+    "sector": "SaaS",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Neurobit Technologies",
+    "description": "Neurobit Technologies leverages technology to make high quality sleep health accessible and affordable to the billion+ people suffering from sleep disorders.",
+    "website": "https://www.neurobit.io/",
+    "industry": "SaaS",
+    "sector": "Healthcare",
+    "country": "Singapore"
+  },
+  {
+    "name": "Newcraft",
+    "description": "NewCraft makes it easy for developers to connect to employee platforms like Workday, ADP, and Paylocity with a single API. To get access to these systems, some companies have spent over $10M in development costs alongside years of business development efforts. We believe innovators can build the future of employment faster with simplified access. On top of standardizing data across employee systems into a universal API, we offer a modern developer experience with test environments, documentation, and security.",
+    "website": "http://www.newcraft.io",
+    "industry": "SaaS",
+    "sector": "HR Tech",
+    "country": "USA"
+  },
+  {
+    "name": "Nimbly",
+    "description": "Nimbly Technologies is a Software-as-a-Service (SaaS) company that provides mobile solutions to automate and improve the operational efficiency of businesses, particularly for front-line workers. They focus on enabling organizations to digitize manual processes, automate workflows, and gain real-time visibility into operations.",
+    "website": "https://hellonimbly.com",
+    "industry": "SaaS",
+    "sector": "Retail",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Nodeflux",
+    "description": "Nodeflux provide computer vision with deep learning to solve many challenging problems by extending vision using Artificial Intelligence",
+    "website": "https://www.nodeflux.io/",
+    "industry": "Deep Tech",
+    "sector": "Artificial Intelligence",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Ouptos",
+    "description": "Outpos provides the unified platform for independent and isolated street food cart vendors to expand their reach with a mobile micro-kitchen fleet. Outpos upskills operators and integrate them directly into a trusted supply chain and digital ecosystem to be part of the larger modern economy.",
+    "website": "https://outpos.co/",
+    "industry": "SaaS",
+    "sector": "Enterprise and SME Solution",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Pina",
+    "description": "PINA designs and builds the future of personal finance with a mission to help everyone achieve financial freedom by providing products and advice that make complicated financial decisions simple and relevant. PINA empowers people to invest smarter through personalized expert advice and powerful online investing and money management tools.",
+    "website": "https://pina.id/",
+    "industry": "Financial Tech",
+    "sector": "Financial",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Populix",
+    "description": "Populix is a consumer insights platform that helps businesses and researchers connect with a large network of Indonesian respondents to conduct research and surveys. It offers end-to-end research services, from question compilation and respondent recruitment to data analysis and recommendations, all accessible through its mobile app.",
+    "website": "https://www.info.populix.co/",
+    "industry": "SaaS",
+    "sector": "Enterprise & SME Solution",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Qiscus",
+    "description": "Qiscus is a multichannel conversation platform that helps businesses embrace the new expectations of excellent Customer Experience (CX), through the ability to engage in timely conversations at scale.",
+    "website": "https://www.qiscus.com/",
+    "industry": "SaaS",
+    "sector": "Communication",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Qontak (Acquired by Mekari)",
+    "description": "Qontak is a Social CRM technology firm providing intuitive growth solutions. We provide Sales & Customer Service CRM Systems, KPI & Task Management Solutions, HR Live GPS Tracking Technology, along with WhatsApp, Chat & Call Center Integrations. Qontak is an Official WhatsApp Business API partner.",
+    "website": "https://qontak.com/",
+    "industry": "SaaS",
+    "sector": "Enterprise & SME Solution",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Recharge",
+    "description": "ReCharge Indonesia is an IoT (Internet of Things) company that provides the first application-based power bank rental service in Indonesia.",
+    "website": "https://web.recharge.id/#",
+    "industry": "Consumers",
+    "sector": "Retail",
+    "country": "Indonesia"
+  },
+  {
+    "name": "RedKendi",
+    "description": "Redkendi is a B2B catering marketplace in Indonesia that connects customers with catering businesses, helping them find and order food for events or daily meals. It focuses on connecting customers with caterers who offer various cuisines and services, like Comfort Food, Spicy Spices, and Taste of Asia. Redkendi also supports catering businesses by helping them manage orders and find customers.",
+    "website": "https://www.redkendi.com/",
+    "industry": "Consumers",
+    "sector": "Food",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Reelables",
+    "description": "Reelables offers thin-film, smart labels with Bluetooth or 5G capabilities, allowing for real-time tracking and inventory management in supply chains. Their labels are designed to be printed on off-the-shelf barcode printers and are flexible enough to be easily applied. This technology eliminates the need for manual scanning and provides detailed data on item location and inventory counts.",
+    "website": "https://www.reelables.com/",
+    "industry": "IoT",
+    "sector": "Hardware",
+    "country": "USA"
+  },
+  {
+    "name": "Resync",
+    "description": "Resync is an AI-powered intelligent energy cloud platform that optimizes energy generation, distribution, and consumption in smart buildings and systems. It leverages machine learning and data analytics to enhance energy efficiency, reduce operational costs, and contribute to sustainability goals.",
+    "website": "https://www.resynctech.com/",
+    "industry": "SaaS",
+    "sector": "Energy",
+    "country": "Singapore"
+  },
+  {
+    "name": "Runchise",
+    "description": "Runchise is a technology company providing F&B management solutions for restaurants and franchises. It offers a platform to optimize operations, improve efficiency, and enhance customer satisfaction through various features like Point of Sale (POS), QR Dine In, and Online Ordering. Runchise's technology helps businesses manage multiple outlets, track data, and improve profitability.",
+    "website": "https://runchise.com/",
+    "industry": "SaaS",
+    "sector": "SaaS",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Sensa IO",
+    "description": "SensaIO offers IoT application for real-time machine data and advanced analytics to optimise business process, differentiate products and services, and create new revenue streams",
+    "website": "https://www.sensa.io/",
+    "industry": "IoT",
+    "sector": "Hardware",
+    "country": "Singapore"
+  },
+  {
+    "name": "Switchboard",
+    "description": "Switchboard offers cloud-based platform designed to streamline fleet and logistics operations for trucking businesses. It offers features like driver management, compliance tracking, and real-time vehicle tracking, enabling businesses to improve efficiency and reduce costs.",
+    "website": "https://www.onswitchboard.com/",
+    "industry": "SaaS",
+    "sector": "Logistics",
+    "country": "USA"
+  },
+  {
+    "name": "Synchro",
+    "description": "Synchro is a platform that consolidates, distributes, and integrates data for businesses, acting as a reliable and secure solution for data management. It offers services like data integration, migration, and cloud solutions, ultimately helping businesses streamline their data operations. Synchro can be used as an ETL tool, enabling integration of data from various sources into data warehouses.",
+    "website": "https://synchro.co.id/",
+    "industry": "Deep Tech",
+    "sector": "Enterprise & SME Solution",
+    "country": "Indonesia"
+  },
+  {
+    "name": "The Buttermilk Co (Acquired)",
+    "description": "Buttermilk Co offers you instant, fresh ethnic food shipped to your door",
+    "website": "https://thebuttermilkco.com/",
+    "industry": "Retail",
+    "sector": "Mitra Raman",
+    "country": "USA"
+  },
+  {
+    "name": "Titipku",
+    "description": "Titipku digitizes local wet market merchants into our apps and provide personal shoppers. It aims to enable every household to buy groceries from multiple merchants at one local market in one single order. There are 16.000 local markets in Indonesia with 8.000.000 merchants inside.",
+    "website": "https://titipku.com/",
+    "industry": "Retail",
+    "sector": "Supply Chain",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Toybox (Acquired)",
+    "description": "Toybox offers a new approach to Quality Assurance that acts as an extension of your app, which allows your team to communicate effectively and build quality software",
+    "website": "https://www.toyboxsystems.com/",
+    "industry": "SaaS",
+    "sector": "Web Development",
+    "country": "USA"
+  },
+  {
+    "name": "Trace Technologies",
+    "description": "TracePlus (or Trace+) is a multifaceted platform, encompassing both enterprise SaaS solutions for productivity and safety, and mobile RFID scanning software for various applications. Its enterprise platform focuses on workplace safety and productivity through real-time data analysis and risk management, while the mobile software simplifies RFID implementation and enables real-time data collection for asset tracking and inventory management.",
+    "website": "https://traceplus.ai/",
+    "industry": "SaaS",
+    "sector": "SaaS",
+    "country": "Indonesia"
+  },
+  {
+    "name": "TraktorHub",
+    "description": "Traktor is a digital platform that adopts conventional construction business concepts into digital form. Through this platform, the Project Owner can book projects and get the best local partners as soon as possible to work on the project and Partners can choose which projects to work on according to the criteria that match their capabilities",
+    "website": "https://traktorhub.com/",
+    "industry": "E-Commerce",
+    "sector": "Marketplace",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Ultrastok",
+    "description": "AI-powered Conversational Analytics Platform that enables users to ask questions and get instant answers, transforming complex data into clear, actionable insights within seconds.",
+    "website": "https://ultrastok.com/",
+    "industry": "SaaS",
+    "sector": "SaaS",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Upmesh",
+    "description": "Upmesh aims to reinvent how people shop, starting with shoppable livestreaming, Upmesh merges entertainment with shopping to create new shared experiences, and grows new communities where people buy, sell and connect in exciting new ways.",
+    "website": "https://upmesh.io/",
+    "industry": "Retail",
+    "sector": "Consumers",
+    "country": "Singapore"
+  },
+  {
+    "name": "VibiCloud",
+    "description": "ViBiCloud (PT Awan Integrasi Sandidata) is a leading Managed Cloud Solution Provider in Indonesia specializing in cloud services and digital transformation. They offer end-to-end solutions to help businesses leverage cloud technology for various needs. ViBiCloud is known for its expertise in Microsoft Azure, AWS, Google Cloud, and other cloud platforms.",
+    "website": "https://www.vibicloud.com/",
+    "industry": "SaaS",
+    "sector": "Enterprise & SME Solution",
+    "country": "Indonesia"
+  },
+  {
+    "name": "VR Collab",
+    "description": "VRcollab is a collaborative Virtual Design and Construction (VDC) software that utilizes Virtual Reality (VR) to facilitate design reviews, approvals, and construction coordination by converting BIM models for immersive, multi-user exploration and collaboration. It aims to streamline project workflows, enhance communication, and accelerate decision-making processes within the Architecture, Engineering, and Construction (AEC) industry.",
+    "website": "https://vrcollab.com/",
+    "industry": "Deep Tech",
+    "sector": "Building Information Modeling",
+    "country": "Singapore"
+  },
+  {
+    "name": "Wallex (Acquired by M-DAQ)",
+    "description": "Wallex is a platform that simplifies cross-border payments and collections for businesses, offering a variety of services like multi-currency payments, collections, and FX conversions. It provides competitive exchange rates, lower fees, and round-the-clock support. Wallex supports payments in 47 currencies, collections in 35 currencies, and allows users to hold 13 currencies in a multi-currency wallet.",
+    "website": "https://wallex.asia/",
+    "industry": "Financial Tech",
+    "sector": "Financial",
+    "country": "Singapore"
+  },
+  {
+    "name": "WebTrace",
+    "description": "WebTrace provides sustainable IoT solution provider that will enable your fleets/assets to generate more profits for you",
+    "website": "https://webtrace.co.id/web/index.php",
+    "industry": "IoT",
+    "sector": "Logistics",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Xurya",
+    "description": "Xurya is a leading renewable energy company in Indonesia, specializing in rooftop solar power systems. They offer various solutions, including rooftop solar rental with no initial costs, engineering design, installation, and maintenance services, aiming to incentivize commercial and industrial companies to switch to solar energy. Xurya is also a pioneer in integrating IoT for rooftop solar monitoring and is recognized as a B Corp Certified company.",
+    "website": "https://www.xurya.com/",
+    "industry": "Others",
+    "sector": "Energy",
+    "country": "Indonesia"
+  },
+  {
+    "name": "Yummy Corp",
+    "description": "Innovative corporate food and cloud kitchen management company, in partnership with the most exciting food brands. Yummy Corp provides delicious, fresh, and creative food solutions for everyday corporate and group needs. It gives a new spin on food facility management and our signature MICE catering, delivering you a noteworthy experience while helping corporates manage costs.",
+    "website": "https://www.yummycorp.com/",
+    "industry": "Consumers",
+    "sector": "Food",
+    "country": "Indonesia"
+  },
+  {
+    "name": "ZendMoney",
+    "description": "ZendMoney is a financial service focused on both domestic and international money transfers, or remittances. It aims to provide a fast, secure, and transparent way to send money, particularly for Indonesian migrant workers and small and medium-sized businesses.",
+    "website": "https://www.zendmoney.com/",
+    "industry": "Financial Tech",
+    "sector": "Financial",
+    "country": "Indonesia"
+  }
+]

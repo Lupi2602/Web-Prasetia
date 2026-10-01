@@ -1,90 +1,605 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import investments from '../data/investments.json';
+
+interface InvestmentItem {
+  name: string;
+  description: string;
+  website: string;
+  industry: string;
+  sector: string;
+  country: string;
+}
+
+const portfolioList: InvestmentItem[] = investments;
+const totalCount = portfolioList.length;
+
+// Extract unique values for filtering
+const countries = [...new Set(portfolioList.map((item) => item.country))].sort();
+const industries = [...new Set(portfolioList.map((item) => item.industry))].sort();
+const sectors = [...new Set(portfolioList.map((item) => item.sector))].sort();
+
+// Helper to determine country label
+const countryMeta: Record<string, { label: string; code: string }> = {
+  Indonesia: { label: 'Indonesia', code: 'ID' },
+  Singapore: { label: 'Singapore', code: 'SG' },
+  USA: { label: 'United States', code: 'US' },
+  India: { label: 'India', code: 'IN' },
+  Malaysia: { label: 'Malaysia', code: 'MY' },
+  China: { label: 'China', code: 'CN' },
+};
 ---
 
-<MainLayout title="Investment | PT Prasetia Dwidharma">
-  <!-- Hero Section -->
-  <div class="relative bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white py-20 md:py-28 overflow-hidden">
-    <div class="absolute inset-0 opacity-25">
-      <img src="/images/card-divisions/invesments.jpg" alt="Prasetia Investment" class="w-full h-full object-cover" />
+<MainLayout title="Investment Portfolio | PT Prasetia Dwidharma" transparentNavbar={true}>
+  <!-- ============================================================
+       1. HERO SECTION (Consistent with About & Governance)
+  ============================================================ -->
+  <section class="about-hero relative min-h-[85vh] lg:min-h-[90vh] flex items-end overflow-hidden bg-slate-950">
+    <div class="absolute inset-0">
+      <img
+        src="/images/card-divisions/invesments.jpg"
+        alt="Prasetia Investment"
+        class="w-full h-full object-cover object-center"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-950/35"></div>
     </div>
-    <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/80 to-transparent"></div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-600/30 border border-red-500/40 text-red-200 text-xs font-semibold uppercase tracking-wider mb-6">
-        Venture & Ecosystem
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pb-20 lg:pb-24 pt-36">
+      <div class="about-reveal flex items-center gap-3 mb-5">
+        <span class="w-10 h-px bg-red-500"></span>
+        <span class="text-xs font-bold uppercase tracking-[0.25em] text-red-400">Venture & Strategic Ecosystem</span>
       </div>
-      <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-        Investment
+
+      <h1 class="about-reveal about-reveal-d1 font-extrabold text-white leading-[1.2] tracking-tight mb-5 max-w-3xl text-hero-title">
+        Prasetia <span class="text-red-500 italic">Investment</span>
       </h1>
-      <p class="text-lg md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed font-light">
-        An early-stage investment company, has been a part of the initial growth stories of several startups in Southeast Asia.
+
+      <p class="about-reveal about-reveal-d2 text-[15.5px] text-slate-200/90 font-normal leading-relaxed max-w-2xl mb-10">
+        Prasetia Ventures, the investment division of PT Prasetia Dwidharma, supporting early-stage startups across Southeast Asia and the United States.
       </p>
+
+      <!-- Quick Metrics -->
+      <div class="about-reveal about-reveal-d3 flex flex-wrap items-center gap-x-8 gap-y-4 pt-2 border-t border-white/10">
+        <div class="flex flex-col">
+          <span class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            {totalCount}<span class="text-red-500">+</span>
+          </span>
+          <span class="text-xs uppercase tracking-widest text-slate-400 mt-1">Portfolio Companies</span>
+        </div>
+        <div class="w-px h-10 bg-white/15 self-center hidden sm:block"></div>
+        <div class="flex flex-col">
+          <span class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            {countries.length}
+          </span>
+          <span class="text-xs uppercase tracking-widest text-slate-400 mt-1">Global Markets</span>
+        </div>
+        <div class="w-px h-10 bg-white/15 self-center hidden sm:block"></div>
+        <div class="flex flex-col">
+          <span class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            {industries.length}
+          </span>
+          <span class="text-xs uppercase tracking-widest text-slate-400 mt-1">Tech Industries</span>
+        </div>
+
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Investment Overview & Thesis -->
-  <div class="py-16 md:py-24 bg-gray-50">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-white rounded-2xl p-8 md:p-12 border border-gray-200 shadow-sm space-y-8">
-        <div>
-          <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-            Empowering Next-Generation Innovators
+  <!-- ============================================================
+       2. ABOUT PRASETIA VENTURES
+  ============================================================ -->
+  <section class="py-16 md:py-20 bg-white border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+        <!-- Heading -->
+        <div class="lg:col-span-4">
+          <div class="about-reveal flex items-center gap-2 mb-3">
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-red-600">Prasetia Investment</span>
+          </div>
+          <h2 class="about-reveal about-reveal-d1 font-extrabold text-slate-900 tracking-tight text-section-title mb-6">
+            Prasetia Ventures
           </h2>
-          <p class="text-gray-700 leading-relaxed text-base md:text-lg">
-            PT Prasetia Dwidharma actively participates in technology and startup ecosystems across Indonesia and Southeast Asia. We support passionate founders building high-impact technological solutions from early stage through rapid scaling.
+
+          <!-- Key facts -->
+          <div class="about-reveal about-reveal-d2 grid grid-cols-3 lg:grid-cols-1 gap-3">
+            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+              <p class="text-xl font-extrabold text-slate-900 tracking-tight">2016</p>
+              <p class="text-xs uppercase tracking-wider font-semibold text-slate-400 mt-1">Established</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+              <p class="text-xl font-extrabold text-slate-900 tracking-tight">100<span class="text-red-600">+</span></p>
+              <p class="text-xs uppercase tracking-wider font-semibold text-slate-400 mt-1">Startups Funded</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+              <p class="text-xl font-extrabold text-slate-900 tracking-tight">Series A</p>
+              <p class="text-xs uppercase tracking-wider font-semibold text-slate-400 mt-1">From Pre-Seed</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="lg:col-span-8 space-y-5">
+          <p class="about-reveal text-[15.5px] leading-relaxed text-slate-600">
+            Prasetia Ventures, the investment division of PT Prasetia Dwidharma, was established in 2016 by Arya and Ardi Setiadharma. Initially a telecommunications infrastructure contractor since 2008, the company expanded into venture capital to support early-stage startups in SEA and the United States.
           </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-          <div class="p-6 rounded-xl bg-gray-50 border border-gray-100">
-            <div class="text-2xl font-bold text-red-600 mb-2">Early-Stage</div>
-            <div class="text-xs uppercase tracking-wider font-semibold text-gray-500 mb-2">Stage Focus</div>
-            <p class="text-xs text-gray-600 leading-relaxed">
-              Partnering with seed and pre-series A ventures displaying strong product-market fit and technological depth.
-            </p>
-          </div>
-
-          <div class="p-6 rounded-xl bg-gray-50 border border-gray-100">
-            <div class="text-2xl font-bold text-red-600 mb-2">Southeast Asia</div>
-            <div class="text-xs uppercase tracking-wider font-semibold text-gray-500 mb-2">Geographic Scope</div>
-            <p class="text-xs text-gray-600 leading-relaxed">
-              Primarily centered in Indonesia and growing markets across the Southeast Asian regional startup corridor.
-            </p>
-          </div>
-
-          <div class="p-6 rounded-xl bg-gray-50 border border-gray-100">
-            <div class="text-2xl font-bold text-red-600 mb-2">Strategic</div>
-            <div class="text-xs uppercase tracking-wider font-semibold text-gray-500 mb-2">Synergy & Value-Add</div>
-            <p class="text-xs text-gray-600 leading-relaxed">
-              Providing portfolio companies with enterprise networks, telecom infrastructure access, and market integration.
-            </p>
-          </div>
-        </div>
-
-        <!-- Placeholder note for specific portfolio list -->
-        <div class="p-6 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-sm">
-          <div class="font-bold mb-1 flex items-center gap-2">
-            <svg class="w-5 h-5 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-            </svg>
-            [MORE INVESTMENT CONTENT & PORTFOLIO LOGOS NEEDED]
-          </div>
-          <p class="text-xs text-amber-800 leading-relaxed">
-            Detailed startup portfolio directory, investment thesis deck, and pitch submission forms can be updated here upon receipt of current portfolio assets.
+          <p class="about-reveal about-reveal-d1 text-[15.5px] leading-relaxed text-slate-600">
+            Focusing on pre-seed to Series A funding, Prasetia Ventures has invested in over 100 startups across various sectors, including B2B SaaS, fintech, healthtech, edtech, AI/ML, logistics, and Web3. The firm emphasizes a founder-friendly approach, offering mentorship and strategic guidance to help startups scale effectively.
           </p>
-        </div>
-
-        <div class="pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span class="text-sm text-gray-600">Interested in pitching or exploring investment partnership?</span>
-          <a
-            href="mailto:contact@prasetia.co.id?subject=Investment%20Pitch%20Inquiry"
-            class="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg text-sm transition-colors shadow-sm"
-          >
-            Contact Investment Team
-          </a>
+          <p class="about-reveal about-reveal-d2 text-[15.5px] leading-relaxed text-slate-600">
+            Arya Setiadharma, serving as CEO, was appointed as the first venture partner at MDI Ventures in 2019, reflecting the firm's growing influence in the investment landscape.
+          </p>
+          <p class="about-reveal about-reveal-d3 text-[15.5px] leading-relaxed text-slate-600">
+            With a commitment to fostering innovation and entrepreneurship, Prasetia Ventures continues to play a significant role in nurturing the startup ecosystem in Indonesia and beyond.
+          </p>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- ============================================================
+       3. COMPLETE INVESTMENT DIRECTORY
+  ============================================================ -->
+  <section id="portfolio" class="py-16 md:py-24 bg-slate-50/70">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <!-- Section Header -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+        <div>
+          <div class="about-reveal flex items-center gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-red-600">Complete Directory</span>
+          </div>
+          <h2 class="about-reveal about-reveal-d1 font-extrabold text-slate-900 tracking-tight text-section-title">
+            Portfolio Companies
+          </h2>
+          <p class="about-reveal about-reveal-d2 text-[14.5px] text-slate-500 mt-1 max-w-xl">
+            Explore the comprehensive list of {totalCount} startups and technology businesses backed by Prasetia Ventures. Tap a company to see its details.
+          </p>
+        </div>
+
+        <!-- Counter Badge -->
+        <div class="about-reveal about-reveal-d2 flex items-center gap-2.5">
+          <span class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-slate-800 border border-slate-200/90 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
+            <span id="portfolio-counter">Showing all {totalCount} companies</span>
+          </span>
+          <button
+            id="reset-filters-btn"
+            type="button"
+            class="hidden text-xs font-semibold text-red-600 hover:text-red-700 underline underline-offset-4"
+          >
+            Reset filter
+          </button>
+        </div>
+      </div>
+
+      <!-- Filter & Search Bar -->
+      <div class="about-reveal bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-sm mb-8 space-y-4">
+        <!-- Search -->
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+          <input
+            id="search-input"
+            type="text"
+            placeholder="Search by company name, industry, sector, or keyword..."
+            class="w-full pl-10 pr-4 py-2.5 text-[14px] bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 transition-all"
+          />
+        </div>
+
+        <!-- Dropdown filters with labels -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+          <div>
+            <label for="country-filter" class="block text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Country</label>
+            <select
+              id="country-filter"
+              class="w-full px-3.5 py-2.5 text-[14px] bg-slate-50 border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 transition-all"
+            >
+              <option value="">All Countries ({countries.length})</option>
+              {countries.map((c) => (
+                <option value={c}>{c}</option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label for="industry-filter" class="block text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Industry</label>
+            <select
+              id="industry-filter"
+              class="w-full px-3.5 py-2.5 text-[14px] bg-slate-50 border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 transition-all"
+            >
+              <option value="">All Industries ({industries.length})</option>
+              {industries.map((ind) => (
+                <option value={ind}>{ind}</option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label for="sector-filter" class="block text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Sector</label>
+            <select
+              id="sector-filter"
+              class="w-full px-3.5 py-2.5 text-[14px] bg-slate-50 border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 transition-all"
+            >
+              <option value="">All Sectors ({sectors.length})</option>
+              {sectors.map((s) => (
+                <option value={s}>{s}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <!-- Quick filter pills (Countries) -->
+        <div class="flex flex-wrap items-center gap-2 pt-3 border-t border-slate-100 text-xs">
+          <span class="text-slate-400 font-medium mr-1">Quick country:</span>
+          <button
+            type="button"
+            data-filter-country=""
+            class="country-pill active px-2.5 py-1 rounded-lg border text-xs font-medium transition-all"
+          >
+            All
+          </button>
+          {countries.map((c) => (
+            <button
+              type="button"
+              data-filter-country={c}
+              class="country-pill px-2.5 py-1 rounded-lg border text-xs font-medium transition-all"
+            >
+              {c}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- No Results Message -->
+      <div id="no-results" class="hidden text-center py-16 bg-white rounded-2xl border border-slate-200 p-8">
+        <div class="w-12 h-12 rounded-full bg-red-50 text-red-500 flex items-center justify-center mx-auto mb-3">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h3 class="text-base font-bold text-slate-900 mb-1">No investments match your search</h3>
+        <p class="text-xs text-slate-500 max-w-sm mx-auto mb-4">
+          Try adjusting your search query, or clearing country, industry, and sector filters.
+        </p>
+        <button
+          id="clear-filter-btn"
+          type="button"
+          class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-semibold transition-colors"
+        >
+          Reset All Filters
+        </button>
+      </div>
+
+      <!-- Portfolio Grid (compact, expandable cards) -->
+      <div
+        id="portfolio-grid"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-start"
+      >
+        {portfolioList.map((item, index) => {
+          const isAcquired = item.name.toLowerCase().includes('acquired');
+          const countryInfo = countryMeta[item.country] || { label: item.country, code: item.country.slice(0, 2).toUpperCase() };
+
+          return (
+            <article
+              class="portfolio-card bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md hover:border-red-500/40 transition-all duration-300 group"
+              data-name={item.name.toLowerCase()}
+              data-industry={item.industry}
+              data-sector={item.sector}
+              data-country={item.country}
+              data-description={item.description.toLowerCase()}
+            >
+              <!-- Clickable summary -->
+              <button
+                type="button"
+                class="card-toggle w-full text-left p-5 flex items-start gap-3 rounded-2xl"
+                aria-expanded="false"
+                aria-controls={`desc-${index}`}
+              >
+                <div class="flex-1 min-w-0">
+                  <!-- Country & Acquired -->
+                  <div class="flex items-center flex-wrap gap-2 mb-3">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100/90 text-slate-700 text-[11.5px] font-semibold tracking-wide">
+                      <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                      <span>{countryInfo.label}</span>
+                    </span>
+                    {isAcquired && (
+                      <span class="inline-flex items-center px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 text-[11px] font-semibold">
+                        Acquired
+                      </span>
+                    )}
+                  </div>
+
+                  <!-- Company Name -->
+                  <h3 class="text-[17px] font-bold text-slate-900 group-hover:text-red-600 transition-colors duration-200 leading-snug mb-4">
+                    {item.name}
+                  </h3>
+
+                  <!-- Industry & Sector (labelled) -->
+                  <dl class="grid grid-cols-2 gap-3">
+                    <div class="min-w-0">
+                      <dt class="text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-1">Industry</dt>
+                      <dd class="text-[12.5px] font-semibold text-red-700 leading-snug break-words">{item.industry}</dd>
+                    </div>
+                    <div class="min-w-0">
+                      <dt class="text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-1">Sector</dt>
+                      <dd class="text-[12.5px] font-semibold text-slate-700 leading-snug break-words">{item.sector}</dd>
+                    </div>
+                  </dl>
+                </div>
+
+                <!-- Chevron -->
+                <span class="chevron shrink-0 mt-1 w-7 h-7 rounded-full bg-slate-50 border border-slate-200 text-slate-400 flex items-center justify-center transition-all duration-300 group-hover:text-red-600 group-hover:border-red-200">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </button>
+
+              <!-- Expandable description -->
+              <div id={`desc-${index}`} class="card-desc">
+                <div class="card-desc-inner">
+                  <div class="px-5 pb-5">
+                    <div class="pt-4 border-t border-slate-100">
+                      <p class="text-[13.5px] text-slate-600 leading-relaxed font-normal mb-4">
+                        {item.description}
+                      </p>
+                      <div class="flex items-center justify-between">
+                        <a
+                          href={item.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Visit ${item.name} website`}
+                          class="inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-red-600 hover:text-red-700 group/link transition-colors"
+                        >
+                          <span>Visit Website</span>
+                          <svg
+                            class="w-3.5 h-3.5 transition-transform duration-200 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </a>
+                        <span class="text-[11px] font-medium text-slate-400">
+                          #{String(index + 1).padStart(2, '0')}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+
+  <style>
+    /* ─── Reveal animation ─── */
+    .about-reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .about-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .about-reveal-d1 { transition-delay: 0.08s; }
+    .about-reveal-d2 { transition-delay: 0.16s; }
+    .about-reveal-d3 { transition-delay: 0.24s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .about-reveal {
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .card-desc,
+      .chevron {
+        transition: none !important;
+      }
+    }
+
+    /* ─── Country pills ─── */
+    .country-pill {
+      background: #f8fafc;
+      border-color: #e2e8f0;
+      color: #64748b;
+    }
+    .country-pill:hover {
+      background: #f1f5f9;
+      color: #1e293b;
+    }
+    .country-pill.active {
+      background: #dc2626;
+      border-color: #dc2626;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* ─── Expandable card ─── */
+    .card-toggle:focus-visible {
+      outline: 2px solid rgba(239, 68, 68, 0.5);
+      outline-offset: -2px;
+    }
+    .card-desc {
+      display: grid;
+      grid-template-rows: 0fr;
+      visibility: hidden;
+      transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  visibility 0s linear 0.35s;
+    }
+    .card-desc.open {
+      grid-template-rows: 1fr;
+      visibility: visible;
+      transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  visibility 0s linear 0s;
+    }
+    .card-desc-inner {
+      overflow: hidden;
+      min-height: 0;
+    }
+    .card-toggle[aria-expanded='true'] .chevron {
+      transform: rotate(180deg);
+      background: #fef2f2;
+      border-color: #fecaca;
+      color: #dc2626;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // ─── Intersection Observer for Reveal ───
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) {
+        document.querySelectorAll('.about-reveal').forEach((el) => el.classList.add('is-visible'));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+        );
+        document.querySelectorAll('.about-reveal').forEach((el) => observer.observe(el));
+      }
+
+      // ─── Expand / collapse card description ───
+      document.querySelectorAll<HTMLButtonElement>('.card-toggle').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('aria-controls');
+          const panel = targetId ? document.getElementById(targetId) : null;
+          if (!panel) return;
+          const isOpen = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!isOpen));
+          panel.classList.toggle('open', !isOpen);
+        });
+      });
+
+      // ─── Filtering & Search Logic ───
+      const searchInput = document.getElementById('search-input') as HTMLInputElement | null;
+      const countryFilter = document.getElementById('country-filter') as HTMLSelectElement | null;
+      const industryFilter = document.getElementById('industry-filter') as HTMLSelectElement | null;
+      const sectorFilter = document.getElementById('sector-filter') as HTMLSelectElement | null;
+      const resetFiltersBtn = document.getElementById('reset-filters-btn') as HTMLButtonElement | null;
+      const clearFilterBtn = document.getElementById('clear-filter-btn') as HTMLButtonElement | null;
+      const counterEl = document.getElementById('portfolio-counter');
+      const noResultsEl = document.getElementById('no-results');
+      const cards = document.querySelectorAll<HTMLElement>('.portfolio-card');
+      const totalCards = cards.length;
+      const countryPills = document.querySelectorAll<HTMLButtonElement>('.country-pill');
+
+      function filterCards() {
+        const query = (searchInput?.value || '').trim().toLowerCase();
+        const selectedCountry = countryFilter?.value || '';
+        const selectedIndustry = industryFilter?.value || '';
+        const selectedSector = sectorFilter?.value || '';
+
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+          const name = card.dataset.name || '';
+          const industry = card.dataset.industry || '';
+          const sector = card.dataset.sector || '';
+          const country = card.dataset.country || '';
+          const description = card.dataset.description || '';
+
+          const matchesQuery =
+            !query ||
+            name.includes(query) ||
+            industry.toLowerCase().includes(query) ||
+            sector.toLowerCase().includes(query) ||
+            country.toLowerCase().includes(query) ||
+            description.includes(query);
+
+          const matchesCountry = !selectedCountry || country === selectedCountry;
+          const matchesIndustry = !selectedIndustry || industry === selectedIndustry;
+          const matchesSector = !selectedSector || sector === selectedSector;
+
+          if (matchesQuery && matchesCountry && matchesIndustry && matchesSector) {
+            card.style.display = '';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Update counter text
+        if (counterEl) {
+          if (visibleCount === totalCards) {
+            counterEl.textContent = `Showing all ${totalCards} companies`;
+          } else {
+            counterEl.textContent = `Showing ${visibleCount} of ${totalCards} companies`;
+          }
+        }
+
+        // Show / hide no-results state
+        if (noResultsEl) {
+          if (visibleCount === 0) {
+            noResultsEl.classList.remove('hidden');
+          } else {
+            noResultsEl.classList.add('hidden');
+          }
+        }
+
+        // Show / hide reset button
+        const isFiltered = Boolean(query || selectedCountry || selectedIndustry || selectedSector);
+        if (resetFiltersBtn) {
+          if (isFiltered) {
+            resetFiltersBtn.classList.remove('hidden');
+          } else {
+            resetFiltersBtn.classList.add('hidden');
+          }
+        }
+
+        // Sync country pills
+        countryPills.forEach((pill) => {
+          const pillCountry = pill.getAttribute('data-filter-country') || '';
+          if (pillCountry === selectedCountry) {
+            pill.classList.add('active');
+          } else {
+            pill.classList.remove('active');
+          }
+        });
+      }
+
+      function resetAll() {
+        if (searchInput) searchInput.value = '';
+        if (countryFilter) countryFilter.value = '';
+        if (industryFilter) industryFilter.value = '';
+        if (sectorFilter) sectorFilter.value = '';
+        filterCards();
+      }
+
+      // Event listeners
+      searchInput?.addEventListener('input', filterCards);
+      countryFilter?.addEventListener('change', filterCards);
+      industryFilter?.addEventListener('change', filterCards);
+      sectorFilter?.addEventListener('change', filterCards);
+      resetFiltersBtn?.addEventListener('click', resetAll);
+      clearFilterBtn?.addEventListener('click', resetAll);
+
+      countryPills.forEach((pill) => {
+        pill.addEventListener('click', () => {
+          const countryVal = pill.getAttribute('data-filter-country') || '';
+          if (countryFilter) {
+            countryFilter.value = countryVal;
+            filterCards();
+          }
+        });
+      });
+    });
+  </script>
 </MainLayout>

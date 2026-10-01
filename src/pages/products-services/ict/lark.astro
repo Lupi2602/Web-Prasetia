@@ -70,7 +70,7 @@ const larkLetters = ['L', 'a', 'r', 'k'];
         <div class="lg:col-span-6" data-reveal>
           <h1
             id="lark-wordmark"
-            class="lark-logo font-display font-extrabold leading-[0.85] tracking-tight text-[clamp(3.25rem,8vw,6.5rem)]"
+            class="lark-logo font-sans text-hero-title font-extrabold leading-[1.1] tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-300"
             data-reveal data-delay="150" aria-label="Lark"
           >
             {larkLetters.map((letter) => (
@@ -78,7 +78,7 @@ const larkLetters = ['L', 'a', 'r', 'k'];
             ))}
           </h1>
 
-          <p class="mt-6 max-w-lg text-xl font-medium leading-snug text-white lg:text-2xl"
+          <p class="mt-6 max-w-lg text-body-lead font-medium leading-snug text-white text-body-lead"
              data-reveal data-delay="300">
             Super app yang mendorong kolaborasi produktif dan meningkatkan efisiensi kerja.
           </p>
@@ -144,7 +144,7 @@ const larkLetters = ['L', 'a', 'r', 'k'];
       <div class="grid grid-cols-1 gap-16 lg:grid-cols-12">
 
         <div class="lg:col-span-5" data-reveal>
-          <h2 class="font-display text-[clamp(1.75rem,3vw,2.75rem)] font-extrabold leading-[1.1] tracking-tight text-blue-600">
+          <h2 class="font-sans text-section-title font-extrabold leading-[1.1] tracking-tight text-blue-600">
             Semua pekerjaan Anda
             <br/>di satu tempat
           </h2>
@@ -225,7 +225,7 @@ const larkLetters = ['L', 'a', 'r', 'k'];
   <section id="story" class="relative bg-blue-50/50 py-24 lg:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <div class="mb-16 max-w-xl" data-reveal>
-        <h2 class="font-display text-[clamp(1.5rem,2.6vw,2.25rem)] font-extrabold leading-tight tracking-tight text-slate-900">
+        <h2 class="font-sans text-section-title font-extrabold leading-tight tracking-tight text-slate-900">
           Lark: Solusi untuk New Normal
         </h2>
       </div>
@@ -262,9 +262,9 @@ const larkLetters = ['L', 'a', 'r', 'k'];
               <button type="button"
                       class="story-nav-btn group relative flex w-full items-start gap-5 overflow-hidden rounded-xl border border-transparent px-4 py-5 text-left transition-all duration-300 hover:bg-white"
                       data-story-nav={i}>
-                <span class="story-nav-num text-2xl font-bold text-slate-300 transition-colors duration-300">{p.num}</span>
+                <span class="story-nav-num text-body-lead font-bold text-slate-300 transition-colors duration-300">{p.num}</span>
                 <span class="flex-1">
-                  <span class="story-nav-label block text-base font-semibold text-slate-400 transition-colors duration-300 sm:text-lg">{p.label}</span>
+                  <span class="story-nav-label block text-base font-semibold text-slate-400 transition-colors duration-300 text-body-lead">{p.label}</span>
                   <span class="story-nav-teaser mt-1 block text-sm leading-snug text-slate-400/80">{p.teaser}</span>
                 </span>
                 <span class="story-progress-track absolute inset-x-4 bottom-1.5 h-[3px] overflow-hidden rounded-full bg-slate-200">
@@ -284,7 +284,7 @@ const larkLetters = ['L', 'a', 'r', 'k'];
   <section class="relative overflow-hidden bg-white py-24 lg:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <div class="mb-10 flex flex-wrap items-end justify-between gap-6" data-reveal>
-        <h2 class="font-display text-[clamp(1.4rem,2.2vw,2rem)] font-extrabold leading-tight tracking-tight text-slate-900">
+        <h2 class="font-sans text-section-title font-extrabold leading-tight tracking-tight text-slate-900">
           Melihat lebih dekat platform Lark
         </h2>
         <div class="flex items-center gap-2">
@@ -341,7 +341,7 @@ const larkLetters = ['L', 'a', 'r', 'k'];
     </div>
 
     <div class="relative z-10 mx-auto max-w-3xl px-6 text-center lg:px-12" data-reveal>
-      <h2 class="font-display text-[clamp(1.6rem,2.8vw,2.5rem)] font-extrabold leading-[1.15] tracking-tight">
+      <h2 class="font-sans text-hero-title font-extrabold leading-[1.15] tracking-tight">
         Workspace favorit berikutnya untuk tim Anda hanya satu klik lagi
       </h2>
       <p class="mx-auto mt-5 max-w-lg text-white/85">
@@ -381,9 +381,7 @@ const larkLetters = ['L', 'a', 'r', 'k'];
 </MainLayout>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap');
-
-  .font-display { font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; }
+  .font-display {  }
 
   [data-reveal] {
     opacity: 0;

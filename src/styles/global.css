@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  /* Typography System based on Homepage */
+  .text-hero-title {
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.015em !important;
+  }
+  .text-hero-p {
+    font-size: 15.5px !important;
+    line-height: 1.8 !important;
+  }
+  .text-hero-label {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+  }
+  .text-section-title {
+    font-size: clamp(1.4rem, 2.2vw, 1.85rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.01em !important;
+  }
+  .text-section-title-emphasis {
+    font-size: clamp(1.5rem, 2.8vw, 2.1rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+  }
+  .text-body-lead {
+    font-size: 15.5px !important;
+    line-height: 1.8 !important;
+  }
+  .text-btn {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+  }
+  .text-label {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+  }
+}
