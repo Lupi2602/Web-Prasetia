@@ -120,7 +120,7 @@ const awardStats = [
     <title>PT Prasetia Dwidharma | Infrastruktur Telekomunikasi & Solusi Teknologi</title>
     <link rel="icon" type="image/png" href="/images/hero/logoweb.png" />
 
-    <!-- ============ GLOBAL: variabel warna + perbaikan NAVBAR ============ -->
+    <!-- ============ GLOBAL: variabel warna ============ -->
     <style is:global>
       *, *::before, *::after { box-sizing: border-box; }
 
@@ -130,6 +130,8 @@ const awardStats = [
         --red-2: #EF3B3F;
         --red-dark: #C8151E;
         --red-tint: #FDE8E8;
+        --red-hero: #FF2D37; /* merah lebih terang khusus di atas foto hero */
+        --tint: #FFF5F5;
         --ink: #1F2430;
         --text: #3D4452;
         --muted: #6B7280;
@@ -144,25 +146,6 @@ const awardStats = [
 
       html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
       img { max-width: 100%; }
-
-      /* NAVBAR: dibuat solid putih supaya menu selalu terbaca */
-      #site-navbar,
-      #site-navbar.nav-transparent,
-      #site-navbar.nav-solid {
-        background: #fff !important;
-        background-image: none !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        box-shadow: 0 1px 0 var(--line), 0 8px 24px rgba(31, 36, 48, 0.05) !important;
-      }
-      #site-navbar a,
-      #site-navbar button,
-      #site-navbar svg {
-        color: var(--ink) !important;
-        text-shadow: none !important;
-      }
-      #site-navbar a:hover,
-      #site-navbar button:hover { color: var(--red) !important; }
     </style>
 
     <!-- ============ STYLE HALAMAN ============ -->
@@ -273,7 +256,8 @@ const awardStats = [
         outline: 3px solid rgba(225, 29, 39, 0.4);
         outline-offset: 3px;
       }
-      .sec-red .btn:focus-visible, .sec-red .award-row:focus-visible, .sec-red .award-card:focus-visible { outline-color: rgba(255, 255, 255, 0.85); }
+      .sec-red .btn:focus-visible, .sec-red .award-row:focus-visible, .sec-red .award-card:focus-visible,
+      .hero .btn:focus-visible { outline-color: rgba(255, 255, 255, 0.85); }
 
       .tlink {
         display: inline-block;
@@ -301,33 +285,91 @@ const awardStats = [
 
       @media (prefers-reduced-motion: reduce) {
         .reveal { opacity: 1; transform: none; transition: none; }
-        .rise, .hero-photo, .hero-photo img, .marquee-track, .hero-dots i { animation: none !important; }
+        .rise, .hero-bg img, .marquee-track, .hero-dots i { animation: none !important; }
         .award-slide, .award-cap { transition: none !important; }
         html { scroll-behavior: auto; }
       }
 
 
-      /* 1. HERO (putih) */
+      /* ===== ANIMASI GAMBAR SERAGAM (semua gambar) ===== */
+      .about-intro-img img,
+      .intro-img img,
+      .feat-img img,
+      .about-img img,
+      .cta-media img {
+        transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .about-intro-img:hover img,
+      .intro-img:hover img,
+      .feat-img:hover img,
+      .about-img:hover img,
+      .cta-card:hover .cta-media img {
+        transform: scale(1.05);
+      }
+
+
+      /* 1. HERO (foto sebagai background section utama, bawahnya memudar ke putih) */
       .hero {
-        padding: 132px 0 var(--sec-y);
-        background: #fff;
-        overflow: hidden;
-      }
-      .hero-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-        gap: 56px;
+        position: relative;
+        display: flex;
         align-items: center;
-        padding-left: var(--edge);
-        padding-right: 0;
+        min-height: min(100svh, 780px);
+        padding: 140px 0 150px;
+        overflow: hidden;
+        background: #f3ecec;
+        color: #fff;
       }
-      .hero-text { max-width: 520px; padding-left: 24px; }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+      .hero-bg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        animation: heroZoom 2.4s ease-out both;
+      }
+      /* Overlay hitam tipis: cukup supaya navbar & teks putih terbaca, foto tetap terang */
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background:
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0) 200px),
+          linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.32) 55%, rgba(0, 0, 0, 0.16) 100%);
+      }
+      /* Dasar hero memudar bertahap ke putih supaya transisi ke section berikutnya halus */
+      .hero::after {
+        content: '';
+        position: absolute;
+        left: 0; right: 0; bottom: 0;
+        height: 190px;
+        z-index: 1;
+        pointer-events: none;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.35) 45%,
+          rgba(255, 255, 255, 0.8) 78%,
+          #fff 100%
+        );
+      }
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+      }
+      .hero-text { max-width: 600px; }
       .hero-dots { display: flex; gap: 7px; margin-bottom: 22px; }
       .hero-dots i {
         width: 9px;
         height: 9px;
         border-radius: 50%;
-        background: var(--red);
+        background: #fff;
         display: block;
         animation: dotPulse 2.4s ease-in-out infinite;
       }
@@ -337,13 +379,17 @@ const awardStats = [
         0%, 100% { transform: scale(1); }
         50% { transform: scale(1.35); }
       }
+      @keyframes heroZoom {
+        from { transform: scale(1.08); }
+        to   { transform: scale(1); }
+      }
 
-      /* Tulisan selamat datang: tegas, tanpa italic/serif */
+      /* Tulisan selamat datang */
       .hero-welcome {
         display: flex;
         flex-direction: column;
         gap: 8px;
-        margin: 0 0 22px;
+        margin: 0 0 20px;
       }
       .hw-small {
         display: inline-flex;
@@ -351,66 +397,53 @@ const awardStats = [
         gap: 14px;
         font-size: 12px;
         font-weight: 700;
-        letter-spacing: 0.28em;
+        letter-spacing: 0.26em;
         text-transform: uppercase;
-        color: var(--muted);
+        color: rgba(255, 255, 255, 0.92);
       }
       .hw-small::before {
         content: '';
         width: 36px;
         height: 2px;
-        background: var(--red);
+        background: #fff;
       }
       .hw-name {
         font-family: inherit;
         font-style: normal;
         font-weight: 800;
-        font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+        font-size: clamp(1.05rem, 1.9vw, 1.35rem);
         line-height: 1.2;
         letter-spacing: 0.06em;
         text-transform: uppercase;
-        color: var(--red);
+        color: #fff;
       }
 
       .hero h1 {
-        font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+        font-size: clamp(1.6rem, 2.8vw, 2.2rem);
         font-weight: 800;
-        line-height: 1.2;
-        letter-spacing: -0.02em;
-        color: var(--ink);
-        margin: 0 0 18px;
+        line-height: 1.25;
+        letter-spacing: -0.015em;
+        color: #fff;
+        margin: 0 0 16px;
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.25);
       }
-      .hero h1 em { font-style: normal; color: var(--red); }
+      /* "infrastruktur": merah terang, dikunci dengan !important supaya tidak tertimpa CSS lain */
+      .hero h1 em {
+        font-style: normal !important;
+        color: var(--red-hero) !important;
+        -webkit-text-fill-color: var(--red-hero);
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+      }
       .hero p {
-        font-size: 16px;
+        font-size: 15.5px;
         line-height: 1.8;
-        color: var(--text);
-        margin: 0 0 32px;
+        color: rgba(255, 255, 255, 0.95);
+        margin: 0 0 30px;
+        max-width: 520px;
+        text-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
       }
       .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-      .hero-photo {
-        width: 100%;
-        aspect-ratio: 5 / 4;
-        border-radius: 140px 0 0 140px;
-        overflow: hidden;
-        animation: photoReveal 1.3s cubic-bezier(0.22, 1, 0.36, 1) both 0.15s;
-      }
-      .hero-photo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        animation: photoZoom 2.4s ease-out both;
-      }
-      @keyframes photoReveal {
-        from { clip-path: inset(0 0 0 100%); }
-        to   { clip-path: inset(0 0 0 0); }
-      }
-      @keyframes photoZoom {
-        from { transform: scale(1.12); }
-        to   { transform: scale(1); }
-      }
       .rise { animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
       .rise.r1 { animation-delay: 0.05s; }
       .rise.r2 { animation-delay: 0.18s; }
@@ -423,8 +456,8 @@ const awardStats = [
       }
 
 
-      /* 2. PROFIL SINGKAT (merah) */
-      .about-intro { padding: var(--sec-y) 0; }
+      /* 2. PROFIL SINGKAT (putih, aksen merah) */
+      .about-intro { padding: var(--sec-y) 0; background: #fff !important; color: var(--text); }
       .about-intro-grid {
         display: grid;
         grid-template-columns: 1.05fr 0.95fr;
@@ -432,54 +465,52 @@ const awardStats = [
         align-items: center;
       }
       .about-intro .h2 {
-        font-size: clamp(1.7rem, 3vw, 2.4rem);
+        font-size: clamp(1.5rem, 2.6vw, 2rem);
         font-weight: 800;
-        line-height: 1.2;
+        line-height: 1.25;
         margin-bottom: 18px;
       }
       .about-intro .lead { max-width: 540px; margin-bottom: 28px; }
       .about-intro-img {
-        border-radius: 20px 20px 100px 20px;
+        border-radius: 20px;
         overflow: hidden;
         aspect-ratio: 4 / 3;
-        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.18);
+        box-shadow: 0 24px 50px rgba(31, 36, 48, 0.14);
       }
       .about-intro-img img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         display: block;
-        transition: transform 0.9s ease;
       }
-      .about-intro-img:hover img { transform: scale(1.04); }
 
       /* Statistik */
       .stats {
         display: flex;
         gap: 44px;
         padding: 24px 0 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        border-top: 1px solid var(--line);
       }
       .stat-num {
         font-size: 2rem;
         font-weight: 800;
         letter-spacing: -0.03em;
         line-height: 1;
-        color: #fff;
+        color: var(--ink);
         display: block;
         margin-bottom: 6px;
       }
-      .stat-num i { font-style: normal; color: #fff; opacity: 0.8; }
+      .stat-num i { font-style: normal; color: var(--red); }
       .stat-label {
         font-size: 12px;
         font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.92);
+        color: var(--muted);
       }
 
 
-      /* 3. KLIEN (putih, 2 baris) */
+      /* 3. KLIEN (putih kemerahan lembut, 2 baris) */
       .clients {
         padding: clamp(48px, 6vw, 72px) 0 clamp(52px, 7vw, 80px);
         background: #fff;
@@ -505,8 +536,8 @@ const awardStats = [
         z-index: 2;
         pointer-events: none;
       }
-      .marquee::before { left: 0; background: linear-gradient(to right, #fff, transparent); }
-      .marquee::after { right: 0; background: linear-gradient(to left, #fff, transparent); }
+      .marquee::before { left: 0; background: linear-gradient(to right, #fff, rgba(255, 245, 245, 0)); }
+      .marquee::after { right: 0; background: linear-gradient(to left, #fff, rgba(255, 245, 245, 0)); }
       .marquee-track {
         display: flex;
         align-items: center;
@@ -546,22 +577,20 @@ const awardStats = [
         gap: 56px;
         align-items: center;
       }
-      .intro-img {
-        border-radius: 80px 20px 20px 20px;
-        overflow: hidden;
-        aspect-ratio: 4 / 4.2;
-        max-height: 400px;
-        width: 100%;
-        box-shadow: 0 20px 44px rgba(0, 0, 0, 0.18);
-      }
+    .intro-img {
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4 / 4.2;
+      max-height: 400px;
+      width: 100%;
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.18);
+    }
       .intro-img img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         display: block;
-        transition: transform 0.9s ease;
       }
-      .intro-img:hover img { transform: scale(1.04); }
       .intro .h2 { font-size: clamp(1.3rem, 2vw, 1.65rem); margin-bottom: 10px; }
       .intro .lead { max-width: 480px; margin-bottom: 20px; font-size: 14.5px; line-height: 1.7; }
 
@@ -646,39 +675,44 @@ const awardStats = [
         scroll-margin-top: 110px;
       }
       .feat:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+      /* Semua gambar unggulan: rasio sama (16/10) supaya simetris */
       .feat-img {
         overflow: hidden;
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 16 / 10;
         border-radius: 20px;
         margin-bottom: 28px;
+        transform: translateZ(0);
       }
-      .feat-img.shape-a { border-radius: 20px 20px 90px 20px; }
-      .feat-img.shape-b { border-radius: 90px 20px 20px 20px; }
       .feat-img img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         display: block;
-        transition: transform 1s ease;
+        will-change: transform;
       }
-      .feat:hover .feat-img img { transform: scale(1.04); }
 
-      /* Gambar NetSuite: tetap beranimasi, tampil utuh, tidak terpotong */
+      /* Gambar Lark, SealSuite & NetSuite: tampil utuh (contain), tidak terpotong */
       .feat-img.contain {
-        aspect-ratio: 16 / 10;
         background: #fff;
         border: 1px solid var(--line);
         border-radius: 20px;
         box-shadow: 0 10px 30px rgba(31, 36, 48, 0.05);
-        transition: opacity 0.7s ease, transform 0.7s ease, box-shadow 0.5s ease;
+        transition: opacity 0.7s ease, transform 0.7s ease;
       }
       .feat-img.contain img {
         object-fit: contain;
         padding: 12px;
-        transition: transform 0.8s ease;
       }
-      .feat:hover .feat-img.contain { box-shadow: 0 18px 40px rgba(225, 29, 39, 0.14); }
-      .feat:hover .feat-img.contain img { transform: scale(1.025); }
+      
+      /* Khusus Lark: gambar memenuhi kotak, tanpa sisa putih */
+    #feat-2 .feat-img.contain {
+      aspect-ratio: 16 / 9;
+    }
+    #feat-2 .feat-img.contain img {
+      object-fit: cover;
+      padding: 0;
+    }
 
       .feat-cat {
         font-size: 12px;
@@ -915,7 +949,7 @@ const awardStats = [
       .about-img {
         aspect-ratio: 3 / 2;
         overflow: hidden;
-        border-radius: 20px 100px 20px 20px;
+        border-radius: 20px;
         box-shadow: 0 24px 50px rgba(0, 0, 0, 0.18);
       }
       .about-img img {
@@ -923,9 +957,7 @@ const awardStats = [
         height: 100%;
         object-fit: cover;
         display: block;
-        transition: transform 0.9s ease;
       }
-      .about-img:hover img { transform: scale(1.04); }
       .about .lead { margin-bottom: 30px; max-width: 500px; }
 
 
@@ -993,9 +1025,7 @@ const awardStats = [
         height: 100%;
         object-fit: cover;
         display: block;
-        transition: transform 1s ease;
       }
-      .cta-card:hover .cta-media img { transform: scale(1.04); }
 
 
       /* ================= RESPONSIF ================= */
@@ -1013,15 +1043,14 @@ const awardStats = [
       }
 
       @media (max-width: 900px) {
-        .hero { padding: 104px 0 var(--sec-y); }
-        .hero-grid { grid-template-columns: 1fr; gap: 36px; padding-left: 0; }
-        .hero-text { padding: 0 24px; max-width: none; }
-        .hero-photo {
-          border-radius: 28px;
-          margin: 0 24px;
-          width: auto;
-          aspect-ratio: 16 / 10;
+        .hero { min-height: 0; padding: 116px 0 124px; }
+        .hero::after { height: 150px; }
+        .hero-overlay {
+          background:
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0) 180px),
+            linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.32));
         }
+        .hero-text { max-width: none; }
         .about-intro-grid, .intro-grid, .about-grid, .why-head { grid-template-columns: 1fr; gap: 36px; }
         .about-intro-img { border-radius: 16px 16px 64px 16px; aspect-ratio: 16 / 10; }
         .intro-img { aspect-ratio: 16 / 9; max-height: none; border-radius: 56px 16px 16px 16px; }
@@ -1043,9 +1072,8 @@ const awardStats = [
 
       @media (max-width: 600px) {
         .wrap { padding: 0 20px; }
-        .hero { padding-top: 96px; }
-        .hero-text { padding: 0 20px; }
-        .hero-photo { margin: 0 20px; border-radius: 22px; aspect-ratio: 4 / 3; }
+        .hero { padding: 104px 0 112px; }
+        .hero::after { height: 130px; }
         .hero p, .lead { font-size: 15px; }
         .hw-small { font-size: 11px; letter-spacing: 0.22em; }
         .hw-small::before { width: 26px; }
@@ -1062,9 +1090,8 @@ const awardStats = [
         .div-row { grid-template-columns: 30px 1fr; gap: 12px; }
         .div-go { display: none; }
         .div-row:hover { padding-left: 0; }
-        .feat-img.shape-a { border-radius: 16px 16px 56px 16px; }
-        .feat-img.shape-b { border-radius: 56px 16px 16px 16px; }
-        .feat-img { margin-bottom: 22px; }
+        .feat-img { margin-bottom: 22px; border-radius: 16px; }
+        .feat-img.contain { border-radius: 16px; }
         .feat-cta .tlink { display: block; margin: 6px 0 0; }
         .why-list { grid-template-columns: 1fr; gap: 28px; }
 
@@ -1091,7 +1118,7 @@ const awardStats = [
       }
 
       @media (max-width: 380px) {
-        .hero h1 { font-size: 1.6rem; }
+        .hero h1 { font-size: 1.5rem; }
         .btn { padding: 12px 20px; font-size: 13.5px; }
         .stats { gap: 16px; }
         .stat-num { font-size: 1.4rem; }
@@ -1107,9 +1134,14 @@ const awardStats = [
 
     <main class="flex-grow">
 
-      <!-- 1. HERO -->
+      <!-- 1. HERO (foto sebagai background, bawah memudar ke putih) -->
       <section class="hero" aria-label="Beranda">
-        <div class="hero-grid">
+        <div class="hero-bg" aria-hidden="true">
+          <img src="/images/hero/heronew.jpg" alt="" fetchpriority="high" />
+        </div>
+        <div class="hero-overlay" aria-hidden="true"></div>
+
+        <div class="wrap hero-inner">
           <div class="hero-text">
             <div class="hero-dots rise r1" aria-hidden="true"><i></i><i></i><i></i></div>
 
@@ -1127,19 +1159,15 @@ const awardStats = [
             </p>
             <div class="hero-actions rise r5">
               <a href="#unggulan" class="btn">Lihat Solusi Kami</a>
-              <a href="/about/contact/" class="btn btn-line">Hubungi Kami</a>
+              <a href="/about/contact/" class="btn btn-outline-white">Hubungi Kami</a>
             </div>
-          </div>
-
-          <div class="hero-photo">
-            <img src="/images/hero/hero4.jpg" alt="Tim Prasetia Dwidharma" />
           </div>
         </div>
       </section>
 
 
-      <!-- 2. PROFIL SINGKAT PERUSAHAAN (merah) -->
-      <section class="about-intro sec-red" aria-label="Tentang PT Prasetia Dwidharma">
+      <!-- 2. PROFIL SINGKAT PERUSAHAAN (putih) -->
+      <section class="about-intro" aria-label="Tentang PT Prasetia Dwidharma">
         <div class="wrap about-intro-grid">
 
           <div>
@@ -1244,12 +1272,13 @@ const awardStats = [
             <div class="label reveal">Solusi Unggulan</div>
             <h2 class="h2 reveal d1">Yang paling sering dipercaya klien kami.</h2>
             <p class="lead reveal d2">
-              Tiga solusi yang jadi kekuatan utama Prasetia. Kalau ada yang menarik, langsung buka halamannya untuk lihat selengkapnya.
+              Empat solusi yang menjadi kekuatan utama Prasetia. Kalau ada yang menarik, langsung buka halamannya untuk lihat selengkapnya.
             </p>
             <ul class="feat-nav reveal d3">
               <li><a href="#feat-1" class="active" data-target="feat-1"><span>01</span>Telekomunikasi</a></li>
               <li><a href="#feat-2" data-target="feat-2"><span>02</span>Lark</a></li>
-              <li><a href="#feat-3" data-target="feat-3"><span>03</span>Oracle NetSuite</a></li>
+              <li><a href="#feat-3" data-target="feat-3"><span>03</span>SealSuite</a></li>
+              <li><a href="#feat-4" data-target="feat-4"><span>04</span>Oracle NetSuite</a></li>
             </ul>
           </aside>
 
@@ -1275,9 +1304,9 @@ const awardStats = [
               </p>
             </article>
 
-            <!-- Lark -->
+            <!-- Lark (gambar tampil utuh, sama seperti SealSuite & NetSuite) -->
             <article class="feat" id="feat-2">
-              <div class="feat-img shape-a reveal">
+              <div class="feat-img contain reveal">
                 <img src="/images/herolark/lark1.png" alt="Platform kolaborasi Lark" loading="lazy" />
               </div>
               <p class="feat-cat reveal">Enterprise Technology</p>
@@ -1291,12 +1320,32 @@ const awardStats = [
               </p>
               <p class="feat-cta reveal d3">
                 Ingin tahu lebih banyak?
-                <a href="/products-services/ict/lark/" class="tlink">Kenali Lark bersama Prasetia</a>
+                <a href="/products-services/ict/lark/" class="tlink">Lihat halaman Lark</a>
+              </p>
+            </article>
+
+            <!-- SealSuite -->
+            <article class="feat" id="feat-3">
+              <div class="feat-img contain reveal">
+                <img src="/images/reference/ICT/sealsuite/zero-trust-solution.png" alt="Platform keamanan SealSuite Zero Trust" loading="lazy" />
+              </div>
+              <p class="feat-cat reveal">Enterprise Technology</p>
+              <h3 class="reveal d1">SealSuite</h3>
+              <p class="feat-sub reveal d1">Keamanan Zero Trust dalam satu platform.</p>
+              <p class="feat-desc reveal d2">
+                Amankan identitas, perangkat kerja, jaringan, dan aplikasi SaaS perusahaan dalam satu platform terpusat berbasis Zero Trust untuk perlindungan menyeluruh.
+              </p>
+              <p class="feat-tags reveal d2">
+                Zero Trust<b>·</b>Identity & Access<b>·</b>Endpoint Security<b>·</b>Network Security
+              </p>
+              <p class="feat-cta reveal d3">
+                Ingin tahu lebih banyak?
+                <a href="/products-services/ict/sealsuite/" class="tlink">Lihat Halaman SealSuite</a>
               </p>
             </article>
 
             <!-- NetSuite -->
-            <article class="feat" id="feat-3">
+            <article class="feat" id="feat-4">
               <div class="feat-img contain reveal">
                 <img src="/images/heronetsuite/nethero1.jpg" alt="Oracle NetSuite cloud ERP" loading="lazy" />
               </div>
@@ -1413,7 +1462,7 @@ const awardStats = [
             <div class="why-item reveal d1">
               <span class="why-num">02</span>
               <h3>Partner resmi teknologi</h3>
-              <p>Kami adalah authorized partner untuk Lark dan Oracle NetSuite, dua platform yang sudah terbukti untuk bisnis.</p>
+              <p>Kami adalah authorized partner untuk Lark, Oracle NetSuite dan Sealsuite yaitu platform yang sudah terbukti untuk bisnis.</p>
             </div>
             <div class="why-item reveal d2">
               <span class="why-num">03</span>
@@ -1476,20 +1525,6 @@ const awardStats = [
     <Footer />
 
     <script>
-      // Navbar dipaksa solid dan dijaga agar tidak kembali transparan saat scroll
-      (function () {
-        const navbar = document.getElementById('site-navbar');
-        if (!navbar) return;
-        const solid = () => {
-          if (navbar.classList.contains('nav-transparent') || !navbar.classList.contains('nav-solid')) {
-            navbar.classList.remove('nav-transparent');
-            navbar.classList.add('nav-solid');
-          }
-        };
-        solid();
-        new MutationObserver(solid).observe(navbar, { attributes: true, attributeFilter: ['class'] });
-      })();
-
       // Animasi muncul saat scroll
       (function () {
         const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
