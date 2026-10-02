@@ -57,7 +57,7 @@ const divisions = [
     description: 'We provide Outsourcing Services for different sectors like telco and CRM by providing contact center solutions.',
     image: '/images/card-divisions/bpo.jpg',
     icon: '/images/icons/headset.svg',
-    href: '/products-services/bpo-crm-technology/call-center/',
+    href: '/products-services/bpo-crm-technology/qontak/',
   },
   {
     number: '04',
@@ -66,6 +66,7 @@ const divisions = [
     image: '/images/card-divisions/biotech.jpg',
     icon: '/images/icons/trending.svg',
     href: 'https://imagina.prasetia.co.id/',
+    target: '_blank',
   },
 ];
 ---
@@ -249,12 +250,14 @@ const divisions = [
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
-        {divisions.map((div, i) => (
-          <a
-            href={div.href}
-            class={`about-reveal about-reveal-d${Math.min(i + 1, 4)} division-entry group relative rounded-2xl overflow-hidden bg-slate-900 block`}
-            style="min-height: 320px;"
-          >
+      {divisions.map((div, i) => (
+        <a
+          href={div.href}
+          target={div.target}
+          rel={div.target === '_blank' ? 'noopener noreferrer' : undefined}
+          class={`about-reveal about-reveal-d${Math.min(i + 1, 4)} division-entry group relative rounded-2xl overflow-hidden bg-slate-900 block`}
+          style="min-height: 320px;"
+        >
             <img
               src={div.image}
               alt={div.title}
