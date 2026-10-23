@@ -678,7 +678,19 @@ const commitments = [
         });
 
         if (activeBadge && badgeTitles[index]) {
-          activeBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>${badgeTitles[index]}`;
+          // Use safe DOM manipulation instead of innerHTML
+          const dot = activeBadge.querySelector('span');
+          const textNode = activeBadge.lastChild;
+          if (dot && textNode && textNode.nodeType === Node.TEXT_NODE) {
+            textNode.textContent = badgeTitles[index];
+          } else {
+            // Fallback: clear and rebuild safely
+            while (activeBadge.firstChild) activeBadge.removeChild(activeBadge.firstChild);
+            const dotEl = document.createElement('span');
+            dotEl.className = 'w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse';
+            activeBadge.appendChild(dotEl);
+            activeBadge.appendChild(document.createTextNode(badgeTitles[index]));
+          }
         }
         if (activeName && fullTitles[index]) {
           activeName.textContent = fullTitles[index];
