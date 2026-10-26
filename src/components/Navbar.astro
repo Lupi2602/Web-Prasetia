@@ -26,6 +26,7 @@
           Home
         </a>
 
+        <!-- PRODUCTS & SERVICES -->
         <div class="relative group py-2">
           <button class="nav-link flex items-center gap-1.5">
             Products &amp; Services
@@ -34,29 +35,32 @@
             </svg>
           </button>
 
-          <div data-nav-group class="dropdown-panel absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[700px] max-w-[calc(100vw-2rem)]
+          <div data-nav-group class="dropdown-panel absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[640px] max-w-[calc(100vw-2rem)]
                       opacity-0 invisible translate-y-2
                       group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
                       transition-all duration-300 ease-out">
-            <div class="bg-white rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.25)] ring-1 ring-black/5 p-6 grid grid-cols-2 gap-x-8 items-start normal-case">
+            <div class="dd-card dd-card--wide">
 
-              <!-- KOLOM KIRI: ICT (6 produk) -->
-              <div class="dd-group">
-                <a href="https://www.virtuenet.id/" class="dropdown-heading" target="_blank" rel="noopener noreferrer">Virtuenet by Prasetia</a>
-                <div class="dd-list">
-                  <a href="/products-services/ict/lark/" class="dropdown-item">Lark</a>
-                  <a href="/products-services/ict/oracle-netsuite/" class="dropdown-item">NetSuite</a>
-                  <a href="/products-services/ict/sealsuite/" class="dropdown-item">SealSuite</a>
-                  <a href="https://www.virtuenet.id/mekari" class="dropdown-item" target="_blank" rel="noopener noreferrer">Mekari</a>
-                  <a href="https://www.virtuenet.id/qiscus" class="dropdown-item" target="_blank" rel="noopener noreferrer">Qiscus</a>
-                  <a href="https://www.virtuenet.id/oceanbase" class="dropdown-item" target="_blank" rel="noopener noreferrer">Oceanbase</a>
+              <!-- KOLOM KIRI: Virtuenet -->
+              <div class="dd-col">
+                <div class="dd-group">
+                  <a href="https://www.virtuenet.id/" class="dropdown-heading" target="_blank" rel="noopener noreferrer">Virtuenet by Prasetia</a>
+                  <!-- Kolom kiri: Lark, SealSuite, NetSuite | Kolom kanan: Qiscus, Mekari, Oceanbase -->
+                  <div class="dd-list dd-list--grid">
+                    <a href="/products-services/ict/lark/" class="dropdown-item">Lark</a>
+                    <a href="/products-services/ict/sealsuite/" class="dropdown-item">SealSuite</a>
+                    <a href="/products-services/ict/oracle-netsuite/" class="dropdown-item">NetSuite</a>
+                    <a href="https://www.virtuenet.id/qiscus" class="dropdown-item" target="_blank" rel="noopener noreferrer">Qiscus</a>
+                    <a href="https://www.virtuenet.id/mekari" class="dropdown-item" target="_blank" rel="noopener noreferrer">Mekari</a>
+                    <a href="https://www.virtuenet.id/oceanbase" class="dropdown-item" target="_blank" rel="noopener noreferrer">Oceanbase</a>
+                  </div>
                 </div>
               </div>
 
               <!-- KOLOM KANAN: Telecommunication + Biochem -->
-              <div class="flex flex-col gap-5">
+              <div class="dd-col dd-col--stack">
                 <div class="dd-group">
-                  <a href="/products-services/telecommunication-infrastructure/" class="dropdown-heading">Telecommunication Infrastructure</a>
+                  <a href="/products-services/telecommunication-infrastructure/" class="dropdown-heading">Telecommunication</a>
                   <div class="dd-list">
                     <a href="/products-services/telecommunication-infrastructure/" class="dropdown-item">Telecommunication Infrastructure</a>
                   </div>
@@ -79,6 +83,7 @@
           Investment
         </a>
 
+        <!-- GOVERNANCE -->
         <div class="relative group py-2">
           <button class="nav-link flex items-center gap-1.5">
             Governance
@@ -86,11 +91,11 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div data-nav-group class="dropdown-panel absolute right-0 top-full mt-3 w-64 max-w-[calc(100vw-2rem)]
+          <div data-nav-group class="dropdown-panel absolute right-0 top-full mt-3 w-60 max-w-[calc(100vw-2rem)]
                       opacity-0 invisible translate-y-2
                       group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
                       transition-all duration-300 ease-out">
-            <div class="bg-white rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.25)] ring-1 ring-black/5 p-3 flex flex-col gap-1 normal-case">
+            <div class="dd-card dd-card--list">
               <a href="/governance/core-value/" class="dropdown-item">Core Value</a>
               <a href="/governance/code-of-conduct/" class="dropdown-item">Code of Conduct</a>
               <a href="/governance/whistle-blowing/" class="dropdown-item">Whistle Blowing System</a>
@@ -98,6 +103,7 @@
           </div>
         </div>
 
+        <!-- ABOUT US -->
         <div class="relative group py-2">
           <button class="nav-link flex items-center gap-1.5">
             About Us
@@ -109,7 +115,7 @@
                       opacity-0 invisible translate-y-2
                       group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
                       transition-all duration-300 ease-out">
-            <div class="bg-white rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.25)] ring-1 ring-black/5 p-3 flex flex-col gap-1 normal-case">
+            <div class="dd-card dd-card--list">
               <a href="/about/" class="dropdown-item">About Us</a>
               <a href="/about/contact/" class="dropdown-item">Contact</a>
               <a href="/about/awards/" class="dropdown-item">Awards</a>
@@ -129,7 +135,7 @@
     </div>
   </div>
 
-  <!-- ================= MOBILE PANEL (accordion, bergulir ke bawah) ================= -->
+  <!-- ================= MOBILE PANEL (accordion, tanpa ikon panah) ================= -->
   <div id="mobile-menu" class="mm-panel lg:hidden" aria-hidden="true">
     <div class="mm-inner">
 
@@ -152,25 +158,24 @@
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="3" width="7" height="7" rx="1.5" /><rect x="3" y="14" width="7" height="7" rx="1.5" /><rect x="14" y="14" width="7" height="7" rx="1.5" /></svg>
             </span>
             <span class="mm-text">Products &amp; Services</span>
-            <svg class="mm-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
           </button>
           <div class="mm-collapse" id="mm-products">
             <div class="mm-collapse-inner">
               <div class="mm-sub">
-                <a href="https://www.virtuenet.id/" class="mm-label" target="_blank" rel="noopener noreferrer">ICT | Solution &amp; Smart City</a>
-                <a href="/products-services/ict/lark/" class="mm-sublink">Lark | Partner</a>
-                <a href="/products-services/ict/oracle-netsuite/" class="mm-sublink">NetSuite | Partner</a>
-                <a href="/products-services/ict/sealsuite/" class="mm-sublink">SealSuite | Partner</a>
-                <a href="https://www.virtuenet.id/mekari" class="mm-sublink mm-external" target="_blank" rel="noopener noreferrer">Mekari</a>
-                <a href="https://www.virtuenet.id/qiscus" class="mm-sublink mm-external" target="_blank" rel="noopener noreferrer">Qiscus</a>
-                <a href="https://www.virtuenet.id/oceanbase" class="mm-sublink mm-external" target="_blank" rel="noopener noreferrer">Oceanbase</a>
+                <a href="https://www.virtuenet.id/" class="mm-label" target="_blank" rel="noopener noreferrer">Virtuenet by Prasetia</a>
+                <a href="/products-services/ict/lark/" class="mm-sublink">Lark</a>
+                <a href="/products-services/ict/sealsuite/" class="mm-sublink">SealSuite</a>
+                <a href="/products-services/ict/oracle-netsuite/" class="mm-sublink">NetSuite</a>
+                <a href="https://www.virtuenet.id/qiscus" class="mm-sublink" target="_blank" rel="noopener noreferrer">Qiscus</a>
+                <a href="https://www.virtuenet.id/mekari" class="mm-sublink" target="_blank" rel="noopener noreferrer">Mekari</a>
+                <a href="https://www.virtuenet.id/oceanbase" class="mm-sublink" target="_blank" rel="noopener noreferrer">Oceanbase</a>
 
-                <a href="/products-services/telecommunication-infrastructure/" class="mm-label">Telecommunication Infrastructure</a>
+                <a href="/products-services/telecommunication-infrastructure/" class="mm-label">Telecommunication</a>
                 <a href="/products-services/telecommunication-infrastructure/" class="mm-sublink">Telecommunication Infrastructure</a>
 
                 <a href="https://www.biochem.id/" class="mm-label" target="_blank" rel="noopener noreferrer">Biochem by Prasetia</a>
-                <a href="https://imagina.prasetia.co.id/" class="mm-sublink mm-external" target="_blank" rel="noopener noreferrer">Imagina</a>
-                <a href="https://protecrop.prasetia.co.id/" class="mm-sublink mm-external" target="_blank" rel="noopener noreferrer">Protecrop</a>
+                <a href="https://imagina.prasetia.co.id/" class="mm-sublink" target="_blank" rel="noopener noreferrer">Imagina</a>
+                <a href="https://protecrop.prasetia.co.id/" class="mm-sublink" target="_blank" rel="noopener noreferrer">Protecrop</a>
               </div>
             </div>
           </div>
@@ -190,8 +195,7 @@
             <span class="mm-icon">
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3zM9 12l2 2 4-4" /></svg>
             </span>
-            <span class="mm-text">Good Corporate Governance</span>
-            <svg class="mm-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            <span class="mm-text">Governance</span>
           </button>
           <div class="mm-collapse" id="mm-governance">
             <div class="mm-collapse-inner">
@@ -211,7 +215,6 @@
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9" /><path stroke-linecap="round" d="M12 11v5M12 8h.01" /></svg>
             </span>
             <span class="mm-text">About Us</span>
-            <svg class="mm-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
           </button>
           <div class="mm-collapse" id="mm-about">
             <div class="mm-collapse-inner">
@@ -241,7 +244,11 @@
     --brand-red: #e3132a;          /* merah utama */
     --brand-red-dark: #c00f22;     /* hover / pressed */
     --brand-red-bright: #ff4d5a;   /* aksen di atas hero gelap */
-    --brand-red-soft: #fff1f2;     /* background tipis item aktif */
+    --brand-red-soft: #fff1f2;     /* merah muda tipis (hover & item aktif) */
+    --ink: #1a1a1a;
+    --ink-soft: #4b5563;
+    --ink-mute: #9ca3af;
+    --line: rgba(0, 0, 0, 0.06);
   }
 
   /* ===== State navbar: transparan di atas hero -> solid saat scroll ===== */
@@ -289,12 +296,11 @@
   }
   #site-navbar.nav-solid .nav-link,
   #site-navbar.nav-solid .nav-icon-btn {
-    color: #1a1a1a;
+    color: var(--ink);
   }
   #site-navbar.nav-solid .burger-line {
-    background-color: #1a1a1a;
+    background-color: var(--ink);
   }
-
 
   #site-navbar .flex.items-center.shrink-0 img {
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
@@ -344,70 +350,197 @@
 
   /* =====================================================
      DROPDOWN DESKTOP
-     Heading dan item memakai font, ukuran, tinggi baris,
-     dan padding yang sama supaya sejajar dan rapi.
+     - Kartu putih tipis dengan border halus
+     - Heading kecil kapital merah dengan aksen garis merah
+     - Item teks polos tanpa strip; hover & halaman aktif =
+       background merah muda tipis + teks merah
      ===================================================== */
+
+  /* Jembatan transparan supaya hover tidak putus di celah antara tombol dan panel */
+  .dropdown-panel::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -16px;
+    height: 16px;
+  }
+
+  .dd-card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    box-shadow:
+      0 24px 48px -24px rgba(0, 0, 0, 0.22),
+      0 2px 8px rgba(0, 0, 0, 0.04);
+    text-transform: none;
+  }
+
+  /* kartu daftar sederhana (Governance, About Us) */
+  .dd-card--list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    padding: 0.5rem;
+  }
+
+  /* kartu lebar (Products & Services): 2 kolom */
+  .dd-card--wide {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    column-gap: 1.5rem;
+    align-items: start;
+    padding: 1.25rem 1.25rem 1.1rem;
+  }
+  .dd-col { min-width: 0; }
+  .dd-col + .dd-col {
+    padding-left: 1.5rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  .dd-col--stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
   .dd-group {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
   }
   .dd-list {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.125rem;
   }
 
-  .dropdown-heading,
-  .dropdown-item {
+  /* daftar 2 kolom, item mengalir ke bawah dulu:
+     kiri  = Lark, SealSuite, NetSuite
+     kanan = Qiscus, Mekari, Oceanbase */
+  .dd-list--grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(3, auto);
+    grid-auto-flow: column;
+    column-gap: 0.25rem;
+    row-gap: 0.125rem;
+  }
+
+  /* heading kategori: teks merah, hover = background merah muda tipis */
+  .dropdown-heading {
     display: flex;
     align-items: center;
-    padding: 0.55rem 0.75rem;
-    border-radius: 0.6rem;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+    padding: 0.4rem 0.75rem 0.6rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 0.6rem 0.6rem 0 0;
     font-family: inherit;
-    font-size: 13px;
-    line-height: 1.35;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-    transition: background-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
-  }
-
-  /* heading kategori: merah, kapital, sedikit lebih tebal */
-  .dropdown-heading {
-    font-weight: 400;
+    font-size: 10.5px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
+    white-space: nowrap;
     color: var(--brand-red);
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+  .dropdown-heading::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 12px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: var(--brand-red);
   }
   .dropdown-heading:hover {
-    background-color: var(--brand-red-soft);
     color: var(--brand-red-dark);
-    padding-left: 1rem;
+    background-color: var(--brand-red-soft);
   }
 
-  /* item produk */
-  .dropdown-item {
-    font-weight: 500;
-    color: #333333;
-  }
+/* item: background merah muda menyapu dari kiri saat hover */
+.dropdown-item {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.6rem;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  color: #4b5563;
+  transition:
+    color 0.25s ease,
+    padding-left 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* lapisan merah muda (di belakang teks) */
+.dropdown-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background-color: var(--brand-red-soft);
+  opacity: 0;
+  transform: scaleX(0.6);
+  transform-origin: left center;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.25s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus-visible {
+  color: var(--brand-red);
+  padding-left: 1rem; /* teks geser halus ke kanan */
+  outline: none;
+}
+.dropdown-item:hover::before,
+.dropdown-item:focus-visible::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* halaman yang sedang dibuka */
+.dropdown-item.is-active {
+  color: var(--brand-red);
+  font-weight: 600;
+}
+.dropdown-item.is-active::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* animasi muncul berurutan saat dropdown dibuka */
+@keyframes ddItemIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.group:hover .dropdown-item,
+.group:focus-within .dropdown-item {
+  animation: ddItemIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.group:hover .dropdown-item:nth-child(1) { animation-delay: 0.04s; }
+.group:hover .dropdown-item:nth-child(2) { animation-delay: 0.08s; }
+.group:hover .dropdown-item:nth-child(3) { animation-delay: 0.12s; }
+.group:hover .dropdown-item:nth-child(4) { animation-delay: 0.16s; }
+.group:hover .dropdown-item:nth-child(5) { animation-delay: 0.20s; }
+.group:hover .dropdown-item:nth-child(6) { animation-delay: 0.24s; }
+  /* hover: merah muda tipis */
   .dropdown-item:hover {
-    background-color: var(--brand-red-soft);
     color: var(--brand-red);
-    padding-left: 1rem;
-  }
-  .dropdown-item.is-active {
     background-color: var(--brand-red-soft);
+  }
+
+  /* halaman yang sedang dibuka: merah muda tipis + teks merah */
+  .dropdown-item.is-active {
     color: var(--brand-red);
     font-weight: 600;
-  }
-  .dropdown-item.is-active::before {
-    content: "";
-    display: inline-block;
-    flex: 0 0 auto;
-    width: 6px;
-    height: 6px;
-    margin-right: 0.5rem;
-    border-radius: 9999px;
-    background-color: var(--brand-red);
+    background-color: var(--brand-red-soft);
   }
 
   /* ===== TOMBOL BACK DI NAVBAR (mobile only) ===== */
@@ -429,7 +562,7 @@
   }
 
   /* =====================================================
-     MOBILE MENU (accordion)
+     MOBILE MENU (accordion polos, tanpa ikon panah)
      ===================================================== */
   .mm-panel {
     position: fixed;
@@ -438,9 +571,9 @@
     height: 100vh;
     height: 100dvh;
     z-index: 60;
-    padding-top: 5rem;               /* ruang untuk bar atas (logo + burger) */
+    padding-top: 5rem;
     background:
-      radial-gradient(120% 60% at 100% 0%, rgba(227,19,42,0.07), transparent 60%),
+      radial-gradient(120% 60% at 100% 0%, rgba(227,19,42,0.06), transparent 60%),
       #ffffff;
     overflow-y: auto;
     overscroll-behavior: contain;
@@ -463,7 +596,7 @@
     display: flex;
     flex-direction: column;
     padding: 0.75rem 1.25rem calc(1.5rem + env(safe-area-inset-bottom, 0px));
-    border-top: 1px solid rgba(0,0,0,0.06);
+    border-top: 1px solid var(--line);
   }
 
   .mm-eyebrow {
@@ -475,7 +608,7 @@
     color: var(--brand-red);
   }
 
-  .mm-list { display: flex; flex-direction: column; gap: 0.35rem; }
+  .mm-list { display: flex; flex-direction: column; gap: 0.25rem; }
 
   /* item level 1 */
   .mm-item {
@@ -486,10 +619,10 @@
     width: 100%;
     padding: 0.8rem 0.9rem;
     border-radius: 1rem;
-    font-size: 16.5px;
+    font-size: 16px;
     font-weight: 600;
     text-align: left;
-    color: #1a1a1a;
+    color: var(--ink);
     background: transparent;
     transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
   }
@@ -506,19 +639,31 @@
     border-radius: 0.8rem;
     color: var(--brand-red);
     background: var(--brand-red-soft);
-    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
   .mm-icon svg { width: 20px; height: 20px; }
 
-  .mm-chevron {
+  /* HAPUS BLOK INI jika ingin accordion benar-benar tanpa indikator apa pun.
+     Indikator plus tipis yang berubah menjadi minus saat terbuka (bukan panah). */
+  .mm-toggle::after {
+    content: "";
     flex: 0 0 auto;
-    width: 18px; height: 18px;
-    color: #9ca3af;
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.25s ease;
+    width: 12px;
+    height: 12px;
+    margin-right: 0.25rem;
+    color: var(--ink-mute);
+    background:
+      linear-gradient(currentColor, currentColor) center / 100% 1.5px no-repeat,
+      linear-gradient(currentColor, currentColor) center / 1.5px 100% no-repeat;
+    transition: background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.25s ease;
   }
-  .mm-ext { flex: 0 0 auto; width: 16px; height: 16px; color: #9ca3af; }
+  .mm-acc.is-open > .mm-toggle::after {
+    color: var(--brand-red);
+    background-size: 100% 1.5px, 1.5px 0;
+  }
+  /* ---- akhir blok indikator ---- */
 
-  /* item aktif (halaman sekarang / induk dari halaman sekarang) */
+  /* item aktif */
   .mm-item.is-active {
     color: var(--brand-red);
     background-color: var(--brand-red-soft);
@@ -536,14 +681,12 @@
     color: #ffffff;
     box-shadow: 0 8px 18px -8px rgba(227,19,42,0.8);
   }
-  .mm-item.is-active .mm-chevron { color: var(--brand-red); }
 
   /* accordion terbuka */
   .mm-acc.is-open > .mm-toggle { background-color: #f9fafb; }
   .mm-acc.is-open > .mm-toggle.is-active { background-color: var(--brand-red-soft); }
-  .mm-acc.is-open > .mm-toggle .mm-chevron { transform: rotate(180deg); color: var(--brand-red); }
 
-  /* animasi buka-tutup: bergulir ke bawah */
+  /* animasi buka-tutup */
   .mm-collapse {
     display: grid;
     grid-template-rows: 0fr;
@@ -561,13 +704,14 @@
     transition-delay: 0s;
   }
 
+  /* sub-menu: garis kiri tipis, teks polos */
   .mm-sub {
     display: flex;
     flex-direction: column;
-    gap: 0.15rem;
-    margin: 0.35rem 0 0.5rem 1.35rem;
+    gap: 0;
+    margin: 0.25rem 0 0.5rem 2.1rem;
     padding: 0.25rem 0 0.25rem 1rem;
-    border-left: 2px solid rgba(227,19,42,0.18);
+    border-left: 1px solid rgba(0,0,0,0.08);
     opacity: 0;
     transform: translateY(-6px);
     transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -578,56 +722,54 @@
     transition-delay: 0.08s;
   }
 
-  /* heading kategori dan link produk di mobile: font dan ukuran sama */
-  .mm-label,
+  /* heading kategori mobile: merah, tekan = merah muda tipis (sama seperti desktop) */
+  .mm-label {
+    display: block;
+    margin-top: 1.1rem;
+    padding: 0.35rem 0.5rem;
+    margin-left: -0.5rem;
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 10.5px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brand-red);
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+  .mm-label:first-child { margin-top: 0.15rem; }
+  .mm-label:active,
+  .mm-label:hover {
+    color: var(--brand-red-dark);
+    background-color: var(--brand-red-soft);
+  }
+
+  /* link sub-menu: teks polos, hover/aktif merah muda tipis */
   .mm-sublink {
     position: relative;
     display: flex;
     align-items: center;
-    padding: 0.7rem 0.85rem;
-    border-radius: 0.75rem;
+    margin-left: -0.5rem;
+    padding: 0.6rem 0.5rem;
+    border-radius: 0.5rem;
     font-family: inherit;
     font-size: 14.5px;
-    line-height: 1.35;
-    transition: background-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
-  }
-
-  .mm-label {
-    margin-top: 0.6rem;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    color: var(--brand-red);
-  }
-  .mm-label:first-child { margin-top: 0; }
-  .mm-label:active,
-  .mm-label:hover {
-    background-color: var(--brand-red-soft);
-    color: var(--brand-red-dark);
-  }
-
-  .mm-sublink {
     font-weight: 500;
-    color: #374151;
+    line-height: 1.35;
+    color: var(--ink-soft);
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .mm-sublink:active,
   .mm-sublink:hover {
     color: var(--brand-red);
     background-color: var(--brand-red-soft);
+    transform: translateX(3px);
   }
-
   .mm-sublink.is-active {
     color: var(--brand-red);
-    background-color: var(--brand-red-soft);
     font-weight: 600;
-  }
-  .mm-sublink.is-active::before {
-    content: "";
-    flex: 0 0 auto;
-    width: 6px; height: 6px;
-    margin-right: 0.6rem;
-    border-radius: 9999px;
-    background-color: var(--brand-red);
+    background-color: var(--brand-red-soft);
   }
 
   /* footer panel */
@@ -657,7 +799,7 @@
     margin: 1rem 0 0;
     text-align: center;
     font-size: 11.5px;
-    color: #9ca3af;
+    color: var(--ink-mute);
   }
 
   /* animasi masuk berurutan (stagger) */
@@ -673,13 +815,18 @@
     animation-delay: calc(0.08s + var(--i, 0) * 0.05s);
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .mm-panel, .mm-collapse, .mm-sub, .mm-chevron { transition-duration: 0.01ms !important; }
-    .mm-panel.menu-open .mm-eyebrow,
-    .mm-panel.menu-open .mm-list > *,
-    .mm-panel.menu-open .mm-footer,
-    .mm-panel.menu-open .mm-copy { animation: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .mm-panel, .mm-collapse, .mm-sub, .mm-sublink, .mm-sublink::before,
+  .mm-toggle::after, .dropdown-item, .dropdown-item::before {
+    transition-duration: 0.01ms !important;
   }
+  .group:hover .dropdown-item,
+  .group:focus-within .dropdown-item { animation: none !important; }
+  .mm-panel.menu-open .mm-eyebrow,
+  .mm-panel.menu-open .mm-list > *,
+  .mm-panel.menu-open .mm-footer,
+  .mm-panel.menu-open .mm-copy { animation: none !important; }
+}
 </style>
 
 <script>
@@ -967,6 +1114,4 @@
   window.addEventListener('mousemove', handleMouseMove, { passive: true });
   window.addEventListener('resize', handleResize, { passive: true });
 
-  // Aktifkan baris ini hanya jika project memakai <ClientRouter /> (View Transitions)
-  // document.addEventListener('astro:page-load', markActiveNav);
 </script>

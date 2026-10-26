@@ -25,28 +25,28 @@ const clientRow2 = loop(clientLogos.slice(5));
 const divisions = [
   {
     num: '01',
-    title: 'Telekomunikasi & Infrastruktur',
+    title: 'Telecommunication Infrastructure',
     desc: 'Pembangunan tower, co-location, site acquisition, maintenance, dan fiber optic.',
     href: '/products-services/telecommunication-infrastructure/',
   },
   {
     num: '02',
-    title: 'Teknologi Informasi & Komunikasi',
-    desc: 'Solusi teknologi untuk perusahaan, seperti Lark, Oracle NetSuite, dan platform smart city.',
+    title: 'Virtuenet by Prasetia',
+    desc: 'Solusi teknologi untuk perusahaan seperti Lark, NetSuite, SealSuite, dan bermacam teknologi lainnya.',
     href: '/products-services/ict/lark/',
   },
   {
     num: '03',
-    title: 'Business Process Outsourcing',
-    desc: 'Layanan contact center dan teknologi CRM untuk operator telekomunikasi dan perusahaan.',
-    href: '/products-services/bpo-crm-technology/call-center/',
+    title: 'Biochem by Prasetia',
+    desc: 'Bisnis yang berfokus pada pengembangan solusi inovatif berbasis bahan-bahan alami.',
+    href: 'https://biochem.id/',
+    external: true,
   },
   {
     num: '04',
-    title: 'Biotech',
-    desc: 'Sebuah divisi bisnis yang berfokus pada pengembangan solusi inovatif berbasis bahan-bahan alami.',
-    href: 'https://imagina.prasetia.co.id/',
-    external: true,
+    title: 'Investments',
+    desc: 'Investasi dari PT Prasetia Dwidharma, mendukung perusahaan rintisan awal.',
+    href: '/investment/',
   },
 ];
 
@@ -253,11 +253,11 @@ const awardStats = [
       }
       .btn-outline-white::before { background: rgba(255, 255, 255, 0.2); }
 
-      .btn:focus-visible, .tlink:focus-visible, .award-row:focus-visible, .award-card:focus-visible {
+      .btn:focus-visible, .tlink:focus-visible, .award-row:focus-visible, .award-card:focus-visible, .award-mcard:focus-visible {
         outline: 3px solid rgba(225, 29, 39, 0.4);
         outline-offset: 3px;
       }
-      .sec-red .btn:focus-visible, .sec-red .award-row:focus-visible, .sec-red .award-card:focus-visible,
+      .sec-red .btn:focus-visible, .sec-red .award-row:focus-visible, .sec-red .award-card:focus-visible, .sec-red .award-mcard:focus-visible,
       .hero .btn:focus-visible { outline-color: rgba(255, 255, 255, 0.85); }
 
       .tlink {
@@ -287,7 +287,7 @@ const awardStats = [
       @media (prefers-reduced-motion: reduce) {
         .reveal { opacity: 1; transform: none; transition: none; }
         .rise, .hero-bg img, .marquee-track, .hero-dots i { animation: none !important; }
-        .award-slide, .award-cap { transition: none !important; }
+        .award-slide, .award-cap, .award-inline { transition: none !important; }
         html { scroll-behavior: auto; }
       }
 
@@ -839,7 +839,19 @@ const awardStats = [
       .award-row.active .award-arrow,
       .award-row:hover .award-arrow { opacity: 1; transform: none; }
 
-      /* Kartu preview sertifikat */
+      /* Elemen khusus mobile: disembunyikan di desktop */
+      .award-inline { display: none; }
+      .award-hint { display: none; }
+      .award-chev { display: none; }
+
+      @keyframes chevPulse {
+        0%   { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.65); }
+        100% { box-shadow: 0 0 0 12px rgba(255, 255, 255, 0); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .award-chev, .award-hint::before { animation: none !important; }
+      }
+      /* Kartu preview sertifikat (desktop) */
       .award-card {
         display: block;
         background: #fff;
@@ -1061,10 +1073,122 @@ const awardStats = [
         .logo-item { padding: 0 38px; height: 76px; }
         .logo-item img { max-height: 40px; max-width: 130px; }
 
-        /* Awards: preview di atas, daftar di bawah */
+        /* Awards (mobile): kartu preview besar disembunyikan,
+           gambar tampil langsung di bawah baris yang diklik */
         .awards-grid { grid-template-columns: 1fr; gap: 32px; }
-        .award-card { order: -1; }
+        .award-card { display: none; }
         .awards .lead { max-width: none; }
+
+        .award-hint {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin: 0 0 12px;
+          font-size: 13px;
+          font-weight: 600;
+          line-height: 1.4;
+          color: rgba(255, 255, 255, 0.96);
+        }
+        .award-hint::before {
+          content: '';
+          flex-shrink: 0;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #fff;
+          animation: dotPulse 2.4s ease-in-out infinite;
+        }
+
+        .award-item { border-bottom: 1px solid rgba(255, 255, 255, 0.4); }
+        .award-row {
+          grid-template-columns: 54px minmax(0, 1fr) 30px;
+          border-bottom: 0;
+          padding: 14px 0;
+          opacity: 1;
+          -webkit-tap-highlight-color: transparent;
+        }
+        .award-row::after { display: none; }
+        .award-row.active,
+        .award-row:hover { padding-left: 0; opacity: 1; }
+        .award-arrow { display: none; }
+
+        /* Tanda "bisa diklik": panah dalam lingkaran */
+        .award-chev {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          border: 1.5px solid rgba(255, 255, 255, 0.9);
+          transition: background 0.3s ease, transform 0.35s ease;
+        }
+        .award-chev::before {
+          content: '';
+          width: 7px;
+          height: 7px;
+          border-right: 2px solid #fff;
+          border-bottom: 2px solid #fff;
+          transform: rotate(45deg) translate(-1px, -1px);
+          transition: border-color 0.3s ease;
+        }
+        .award-row.active .award-chev { background: #fff; transform: rotate(180deg); }
+        .award-row.active .award-chev::before { border-color: var(--red); }
+
+        /* Baris pertama berdenyut sampai user menyentuh salah satu baris */
+        .award-list:not(.touched) .award-item:first-child .award-chev {
+          animation: chevPulse 1.8s ease-out infinite;
+        }
+
+        .award-inline {
+          display: grid;
+          grid-template-rows: 0fr;
+          visibility: hidden;
+          transition: grid-template-rows 0.45s ease, visibility 0s linear 0.45s;
+        }
+        .award-inline.open {
+          grid-template-rows: 1fr;
+          visibility: visible;
+          transition: grid-template-rows 0.45s ease, visibility 0s linear 0s;
+        }
+        .award-inline-inner { min-height: 0; overflow: hidden; }
+
+        .award-mcard {
+          display: block;
+          margin: 4px 0 18px;
+          background: #fff;
+          border-radius: 16px;
+          overflow: hidden;
+          text-decoration: none;
+          box-shadow: 0 16px 34px rgba(0, 0, 0, 0.2);
+        }
+        .award-mframe {
+          aspect-ratio: 4 / 3;
+          background: #FBF6F5;
+        }
+        .award-mframe img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          padding: 10px;
+        }
+        .award-mcap {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;
+          padding: 14px 18px 16px;
+          border-top: 3px solid var(--red);
+        }
+        .award-mcap small {
+          font-size: 11px;
+          font-weight: 800;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: var(--red);
+        }
+        .award-mcap strong { font-size: 15px; font-weight: 800; line-height: 1.3; color: var(--ink); }
+        .award-mcap span { font-size: 13px; color: var(--muted); line-height: 1.4; }
 
         .cta-card { grid-template-columns: 1fr; }
         .cta-media { order: 1; min-height: 240px; }
@@ -1096,20 +1220,15 @@ const awardStats = [
         .feat-cta .tlink { display: block; margin: 6px 0 0; }
         .why-list { grid-template-columns: 1fr; gap: 28px; }
 
-        .award-card { border-radius: 18px; }
-        .award-slide { padding: 10px; }
-        .award-caps { min-height: 88px; }
-        .award-cap { padding: 14px 18px; }
-        .award-cap strong { font-size: 15px; }
         .award-stats { gap: 12px 26px; }
         .award-stat b { font-size: 1.45rem; }
         .award-stat b.small { font-size: 1.05rem; padding-top: 0.3rem; }
-        .award-row { grid-template-columns: 46px minmax(0, 1fr); gap: 12px; padding: 13px 0; }
-        .award-row:hover { padding-left: 0; }
-        .award-row.active { padding-left: 8px; }
-        .award-arrow { display: none; }
+        .award-row { grid-template-columns: 46px minmax(0, 1fr) 30px; gap: 12px; padding: 13px 0; }
         .award-title { font-size: 14px; }
         .awards .btn { width: 100%; }
+        .award-mcard { border-radius: 14px; }
+        .award-mcap { padding: 12px 16px 14px; }
+        .award-mcap strong { font-size: 14.5px; }
 
         .cta-card { border-radius: 20px; }
         .cta-media { min-height: 200px; }
@@ -1123,7 +1242,7 @@ const awardStats = [
         .btn { padding: 12px 20px; font-size: 13.5px; }
         .stats { gap: 16px; }
         .stat-num { font-size: 1.4rem; }
-        .award-row { grid-template-columns: 40px minmax(0, 1fr); }
+        .award-row { grid-template-columns: 40px minmax(0, 1fr) 30px; }
         .award-year { font-size: 13.5px; }
       }
     </style>
@@ -1179,7 +1298,7 @@ const awardStats = [
             </h2>
             <p class="lead reveal d2">
               Didirikan pada tahun 2008. Sejak saat itu kami berkembang menjadi salah satu pemain penting di industri ini. Saat ini perusahaan kami memiliki empat divisi: 
-              Telekomunikasi &amp; Infrastruktur, ICT (Information &amp; Communication Technology), Call Center BPO (Business Process Outsourcing), dan Biotech.
+              Telekomunikasi &amp; Infrastruktur, ICT (Information &amp; Communication Technology), Biochem by Prasetia, dan Invesments.
             </p>
 
             <div class="stats reveal d3">
@@ -1242,7 +1361,7 @@ const awardStats = [
             <div class="label reveal">Apa yang Kami Kerjakan</div>
             <h2 class="h2 reveal d1">Satu perusahaan, empat bidang usaha.</h2>
             <p class="lead reveal d2">
-              Prasetia bergerak di infrastruktur telekomunikasi, teknologi untuk perusahaan, layanan business process, dan biotech. Semuanya kami jalankan supaya bisnis Anda punya fondasi yang kuat untuk tumbuh.
+              Prasetia bergerak di Infrastruktur Telekomunikasi, teknologi untuk perusahaan, Biochem by Prasetia, dan Invesments. Semuanya kami jalankan supaya bisnis Anda punya fondasi yang kuat untuk tumbuh.
             </p>
 
             <div class="div-list reveal d3">
@@ -1280,7 +1399,7 @@ const awardStats = [
               <li><a href="#feat-1" class="active" data-target="feat-1"><span>01</span>Telekomunikasi</a></li>
               <li><a href="#feat-2" data-target="feat-2"><span>02</span>Lark</a></li>
               <li><a href="#feat-3" data-target="feat-3"><span>03</span>SealSuite</a></li>
-              <li><a href="#feat-4" data-target="feat-4"><span>04</span>Oracle NetSuite</a></li>
+              <li><a href="#feat-4" data-target="feat-4"><span>04</span>NetSuite</a></li>
             </ul>
           </aside>
 
@@ -1371,7 +1490,9 @@ const awardStats = [
       </section>
 
 
-      <!-- 6. PENGHARGAAN (merah): sesuai sertifikat asli -->
+      <!-- 6. PENGHARGAAN (merah): sesuai sertifikat asli
+           Desktop: preview di kanan (award-card)
+           Mobile : gambar muncul tepat di bawah baris yang diklik (award-inline) -->
       <section class="awards sec-red" id="penghargaan" aria-label="Penghargaan">
         <div class="wrap awards-grid">
 
@@ -1391,22 +1512,44 @@ const awardStats = [
               ))}
             </div>
 
+            <!-- Petunjuk: hanya tampil di mobile -->
+            <p class="award-hint reveal d3">Ketuk salah satu baris untuk melihat sertifikatnya</p>
+
             <div class="award-list reveal d3" role="list">
               {awards.map((a, i) => (
-                <button
-                  type="button"
-                  class={`award-row${i === 0 ? ' active' : ''}`}
-                  data-index={i}
-                  role="listitem"
-                  aria-label={`${a.title}, ${a.issuer}, ${a.year}`}
-                >
-                  <span class="award-year">{a.year}</span>
-                  <span>
-                    <span class="award-issuer">{a.issuer}</span>
-                    <p class="award-title">{a.title}</p>
-                  </span>
-                  <span class="award-arrow" aria-hidden="true">→</span>
-                </button>
+                <div class="award-item" role="listitem">
+                  <button
+                    type="button"
+                    class={`award-row${i === 0 ? ' active' : ''}`}
+                    data-index={i}
+                    aria-controls={`award-panel-${i}`}
+                    aria-label={`${a.title}, ${a.issuer}, ${a.year}`}
+                  >
+                    <span class="award-year">{a.year}</span>
+                    <span>
+                      <span class="award-issuer">{a.issuer}</span>
+                      <p class="award-title">{a.title}</p>
+                    </span>
+                    <span class="award-arrow" aria-hidden="true">→</span>
+                    <span class="award-chev" aria-hidden="true"></span>
+                  </button>
+
+                  <!-- Panel gambar inline: hanya tampil di mobile -->
+                  <div class="award-inline" id={`award-panel-${i}`} data-index={i}>
+                    <div class="award-inline-inner">
+                      <a href="/about/awards/" class="award-mcard" aria-label={`Lihat semua penghargaan Prasetia, ${a.title}`}>
+                        <div class="award-mframe">
+                          <img src={a.src} alt={a.alt} loading="lazy" />
+                        </div>
+                        <div class="award-mcap">
+                          <small>{a.issuer} · {a.year}</small>
+                          <strong>{a.title}</strong>
+                          <span>{a.note}</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
 
@@ -1440,7 +1583,6 @@ const awardStats = [
 
         </div>
       </section>
-
 
       <!-- 7. KENAPA PRASETIA (putih) -->
       <section class="why" aria-label="Kenapa Prasetia">
@@ -1492,7 +1634,9 @@ const awardStats = [
             <div class="label reveal">Tentang Prasetia</div>
             <h2 class="h2 reveal d1">Berawal dari 2008, terus berkembang sampai sekarang.</h2>
             <p class="lead reveal d2">
-              Prasetia Dwidharma tumbuh di bidang infrastruktur telekomunikasi, teknologi, business process, dan biotech. Kini kami dipercaya perusahaan, operator telekomunikasi, dan instansi pemerintah di seluruh Indonesia.
+              Prasetia Dwidharma tumbuh di bidang Infrastruktur Telekomunikasi,
+               Teknologi Informasi, Biochem, dan Investasi. Kini kami dipercaya perusahaan,
+                operator telekomunikasi, dan instansi pemerintah di Indonesia.
             </p>
             <div class="reveal d3">
               <a href="/about/" class="btn btn-white">Kenali Prasetia Lebih Dekat</a>
@@ -1569,18 +1713,26 @@ const awardStats = [
         sections.forEach((s) => io.observe(s));
       })();
 
-      // Penghargaan: preview berganti otomatis, bisa di-hover / di-tap / difokus
+      // Penghargaan
+      // Desktop: preview di kanan berganti otomatis, bisa di-hover / di-klik / difokus
+      // Mobile : accordion, gambar muncul tepat di bawah baris yang diklik
       (function () {
         const rows = document.querySelectorAll<HTMLElement>('.award-row');
+        const panels = document.querySelectorAll<HTMLElement>('.award-inline');
         const slides = document.querySelectorAll<HTMLElement>('.award-slide');
         const caps = document.querySelectorAll<HTMLElement>('.award-cap');
         const card = document.querySelector<HTMLElement>('.award-card');
+        const list = document.querySelector<HTMLElement>('.award-list');
         if (!rows.length || !slides.length) return;
 
         const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        let current = 0;
+        const mq = window.matchMedia('(max-width: 900px)');
+        let current = 0;       // indeks aktif (desktop)
+        let openIndex = -1;    // indeks panel terbuka (mobile), -1 = semua tertutup
+        let inView = false;
         let timer: number | undefined;
 
+        /* ---------- DESKTOP ---------- */
         const setActive = (i: number) => {
           current = i;
           rows.forEach((r, n) => {
@@ -1598,33 +1750,93 @@ const awardStats = [
           }
         };
         const start = () => {
-          if (reduce) return;
+          if (reduce || mq.matches) return;
           stop();
           timer = window.setInterval(() => setActive((current + 1) % rows.length), 4500);
         };
 
+        /* ---------- MOBILE ---------- */
+        const closeAll = () => {
+          openIndex = -1;
+          rows.forEach((r) => {
+            r.classList.remove('active');
+            r.removeAttribute('aria-current');
+            r.setAttribute('aria-expanded', 'false');
+          });
+          panels.forEach((p) => p.classList.remove('open'));
+        };
+        const setOpen = (i: number) => {
+          // User sudah tahu barisnya bisa diklik: hentikan denyut penanda
+          list?.classList.add('touched');
+
+          openIndex = openIndex === i ? -1 : i;
+          rows.forEach((r, n) => {
+            const on = n === openIndex;
+            r.classList.toggle('active', on);
+            r.setAttribute('aria-expanded', on ? 'true' : 'false');
+          });
+          panels.forEach((p, n) => p.classList.toggle('open', n === openIndex));
+
+          // Setelah animasi buka/tutup selesai, pastikan panel yang terbuka terlihat penuh
+          if (openIndex > -1) {
+            const target = panels[openIndex];
+            window.setTimeout(() => {
+              target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
+            }, reduce ? 0 : 480);
+          }
+        };
+
+        /* ---------- GANTI MODE (resize / rotate) ---------- */
+        const applyMode = () => {
+          stop();
+          if (mq.matches) {
+            closeAll();
+          } else {
+            openIndex = -1;
+            panels.forEach((p) => p.classList.remove('open'));
+            rows.forEach((r) => r.removeAttribute('aria-expanded'));
+            setActive(current);
+            if (inView) start();
+          }
+        };
+
         rows.forEach((r, i) => {
-          r.addEventListener('mouseenter', () => { setActive(i); stop(); });
-          r.addEventListener('mouseleave', start);
-          r.addEventListener('focus', () => { setActive(i); stop(); });
-          r.addEventListener('blur', start);
-          r.addEventListener('click', () => { setActive(i); start(); });
+          r.addEventListener('mouseenter', () => { if (mq.matches) return; setActive(i); stop(); });
+          r.addEventListener('mouseleave', () => { if (mq.matches) return; start(); });
+          r.addEventListener('focus', () => { if (mq.matches) return; setActive(i); stop(); });
+          r.addEventListener('blur', () => { if (mq.matches) return; start(); });
+          r.addEventListener('click', () => {
+            if (mq.matches) { setOpen(i); return; }
+            setActive(i);
+            start();
+          });
         });
         card?.addEventListener('mouseenter', stop);
         card?.addEventListener('mouseleave', start);
 
-        // Hanya berjalan saat section terlihat
+        if (mq.addEventListener) mq.addEventListener('change', applyMode);
+        else if ((mq as any).addListener) (mq as any).addListener(applyMode);
+
+        applyMode();
+
+        // Slideshow desktop hanya berjalan saat section terlihat
         const section = document.getElementById('penghargaan');
         if (section && 'IntersectionObserver' in window) {
           new IntersectionObserver(
-            (entries) => entries.forEach((e) => (e.isIntersecting ? start() : stop())),
+            (entries) =>
+              entries.forEach((e) => {
+                inView = e.isIntersecting;
+                if (inView) start();
+                else stop();
+              }),
             { threshold: 0.2 }
           ).observe(section);
         } else {
+          inView = true;
           start();
         }
       })();
-    </script>
+          </script>
 
   </body>
 </html>
