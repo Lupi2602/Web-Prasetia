@@ -6,121 +6,344 @@
   },
   "vacancies": [
     {
-      "title": "ENGINEER ON SITE (EoS)",
-      "company": "PT PRASETIA DWIDHARMA TEKNOLOGI",
-      "location": "Jabodetabek Area",
-      "qualifications": [
-        "Minimum D3 Teknik Telekomunikasi",
-        "Mahir menggunakan alat ukur (Ampere Meter) dan perkakas (tang, obeng, dll)",
-        "Mampu melakukan splicing fiber optic core",
-        "Mampu membaca peta (Maps)",
-        "Terampil mengoperasikan OTDR (Optical Time Domain Reflectometry) dan OPM (Optical Power Meter)",
-        "Kompeten mengoperasikan perangkat GPS (Garmin)",
-        "Memahami konsep maintenance jaringan fiber optic",
-        "Familiar dengan jaringan fiber optic (ISP, OSP)",
-        "Nilai tambah jika memahami CME, sistem elektrikal AC/DC, dan genset",
-        "Mampu membaca flow chart, gambar teknis, dan prosedur",
-        "Bersedia ditempatkan di area Jabodetabek (Jakarta, Bogor, Depok, Tangerang, Bekasi, Karawang, Sukabumi)"
-      ],
-      "additionalSections": []
-    },
-    {
-      "title": "SALES SPECIALIST",
-      "company": "PT PRASETIA QUBE WELLNESS",
-      "location": "Bali",
-      "qualifications": [
-        "Pengalaman di bidang sales atau industri wellness minimal 2 tahun",
-        "Rekam jejak penjualan yang terbukti baik",
-        "Kemampuan komunikasi dan negosiasi yang baik",
-        "Mampu bekerja mandiri maupun dalam tim",
-        "Mampu berbahasa Inggris",
-        "Penempatan di Bali"
-      ],
-      "additionalSections": []
-    },
-    {
-      "title": "SALES ENGINEER IMAGINA",
+      "title": "SALES & MARKETING",
       "company": "PT PRASETIA DWIDHARMA",
       "location": "Jakarta",
+      "about": [
+        "PT Prasetia Dwidharma is a company established in 2008, specializing in telecommunications. Currently, Prasetia Group operates several business lines, such as telecommunication contractors, information and communication technology (ICT), investments, and internet infrastructure."
+      ],
       "qualifications": [
-        "Fresh graduate dari universitas terkemuka",
-        "Lulusan Kimia (lulusan bisnis menjadi nilai tambah)",
-        "Minimal IPK 3.5 dari skala 4.0",
-        "Minimal TOEFL IBT 90 / TOEFL PBT 550 / IELTS 7",
-        "Memiliki karya akademik menjadi nilai tambah",
-        "Bersedia melakukan perjalanan dinas",
-        "Penempatan: Jakarta"
+        "Bachelor's degree (S1) in Business, Marketing, Management, or a related field.",
+        "Minimum 5 years of sales experience, preferably in telecommunications, ICT, or infrastructure.",
+        "Proven leadership and team management skills.",
+        "Strong negotiation, communication, presentation, and relationship-building skills.",
+        "Proven ability to achieve sales targets and develop business opportunities.",
+        "Strong analytical, strategic thinking, and problem-solving skills."
       ],
       "additionalSections": [
         {
-          "heading": "Kemampuan Kerja Tambahan",
+          "heading": "Responsibilities",
           "items": [
-            "Table manner dan sikap profesional yang baik",
-            "Kemampuan presentasi yang baik",
-            "Mahir dalam analisis data"
-          ]
-        },
-        {
-          "heading": "Ciri Kepribadian",
-          "items": [
-            "Ekstrovert, senang berinteraksi dengan orang lain",
-            "Cerdas dan cepat belajar",
-            "Komunikatif dan mudah bergaul",
-            "Mampu membangun kepercayaan dan hubungan baik",
-            "Persuasif dalam berkomunikasi"
+            "Achieve sales order (SO) targets through existing account management and new client acquisition.",
+            "Develop and execute sales strategies to expand market penetration and generate new business opportunities.",
+            "Build and maintain strong relationships with key accounts and corporate clients.",
+            "Supervise, coach, and evaluate sales team performance to achieve individual and team targets.",
+            "Review sales pipelines, proposals, quotations, and commercial documents.",
+            "Monitor sales performance and prepare regular reports on achievements, forecasts, and business opportunities."
           ]
         }
       ]
     },
     {
-      "title": "MARKETING SUPERVISOR",
-      "company": "PT PRASETIA DWIDHARMA",
+      "title": "SALES SPECIALIST (VIRTUENET)",
+      "company": "PT PRASETIA DWIDHARMA (VIRTUENET)",
       "location": "Jakarta",
-      "qualifications": [
-        "Minimal S1 di bidang Marketing, Komunikasi, Manajemen Bisnis, atau bidang terkait",
-        "Minimal 2 tahun pengalaman kerja di bidang terkait, seperti perusahaan SaaS, teknologi, atau digital, lebih disukai pada posisi supervisor atau setara",
-        "Kemampuan analisis kuat untuk membaca data pasar, mengidentifikasi peluang, dan mengukur performa marketing",
-        "Menguasai perencanaan dan strategi marketing, branding, pengembangan produk, promosi, penjualan, dan brand management",
-        "Berpengalaman dalam Event Management"
+      "about": [
+        "Virtuenet is the Information & Communication Technology (ICT) division of PT Prasetia Dwidharma. Virtuenet is a SaaS (Software as a Service) company, stands as the answer to all business technology needs. As one of the leading Business Solution Partners in Indonesia, Virtuenet strives to present the latest information on the digital technology landscape, and support you in making a digital transformation. Virtuenet is a leading Tier 1 Partner for ByteDance, Jedox, NetSuite, Mekari and Qiscus. As a Sales Specialist, you will play a vital role in driving the adoption of innovative collaboration tools in a dynamic and forward-thinking ecosystem."
       ],
-      "additionalSections": []
+      "qualifications": [
+        "Fluent in Mandarin and English (written and spoken).",
+        "At least 1 year of B2B software sales experience, ideally selling: Collaboration tools (e.g., Lark, Google Workspace, Microsoft 365, Zoom); Project management platforms (e.g., Monday.com, Asana, Trello); CRM systems (e.g., Salesforce, HubSpot, Zoho CRM); ERP systems (e.g., Oracle NetSuite, SAP, Odoo, Microsoft Dynamics).",
+        "Demonstrated skills in consultative selling and achieving targets.",
+        "Ability to think ahead and position solutions for long-term value.",
+        "Confident in using and explaining SaaS tools.",
+        "Bachelor's degree in Business, Marketing, IT, or a related field is preferred."
+      ],
+      "additionalSections": [
+        {
+          "heading": "Job Description",
+          "items": [
+            "Identify, qualify, and convert prospects across industries.",
+            "Conduct personalized product demos and articulate how Lark meets client needs.",
+            "Manage the full sales cycle—from lead generation to deal closing and handover to onboarding teams.",
+            "Analyze customer workflows and propose tailored collaboration solutions.",
+            "Serve as a trusted advisor to clients, addressing objections and aligning Lark with their goals.",
+            "Collaborate with marketing and channel teams to generate leads and run outreach campaigns.",
+            "Build and maintain strong relationships with key decision-makers (C-level, IT, HR, Ops).",
+            "Keep CRM and pipeline data accurate and up to date.",
+            "Provide timely reporting to the Supervisor Sales on sales performance, forecasts, and customer feedback."
+          ]
+        }
+      ]
     },
     {
-      "title": "SALES SUPERVISOR",
-      "company": "PT PRASETIA DWIDHARMA TEKNOLOGI (PDT)",
-      "location": "Bali",
-      "qualifications": [
-        "Minimal pendidikan S1",
-        "Minimal 3-4 tahun pengalaman di bidang yang sama",
-        "Usia maksimal 40 tahun",
-        "Menguasai Microsoft Office, terutama Excel",
-        "Memiliki minat di bidang sales",
-        "Berorientasi pada target",
-        "Mampu membangun hubungan baik dengan pelanggan",
-        "Memiliki kemampuan leadership yang baik",
-        "Penempatan di Bali"
+      "title": "SITE ACQUISITION/PARTNERSHIP",
+      "company": "PT PRASETIA DWIDHARMA TEKNOLOGI",
+      "location": "Jakarta",
+      "about": [
+        "PT Prasetia Dwidharma Teknologi is a subsidiary company of Prasetia Dwidharma, concentrating on providing technology through network infrastructure and ICT solutions. With our customer-centric mindset, we facilitate business in four core services: business process automation, providing information, connecting with customers, and productivity tools."
       ],
-      "additionalSections": []
+      "qualifications": [
+        "Minimum Bachelor's degree (S1)",
+        "Strong communication and negotiation skills",
+        "Ability to analyze market trends and customer needs",
+        "Proactive and goal-driven",
+        "Experience in customer engagement is a plus",
+        "Placement in Jakarta"
+      ],
+      "additionalSections": [
+        {
+          "heading": "Job Description",
+          "items": [
+            "Actively seek new opportunities by meeting potential customers in person or through social media",
+            "Arrange meetings with potential customers and listen to their needs and concerns",
+            "Prepare and deliver presentations about products and services to potential customers",
+            "Participate on behalf of the company in exhibitions or events",
+            "Negotiate agreements with customers",
+            "Collaborate with other team members to achieve better results",
+            "Conduct surveys with customers regarding performance/sales and share the feedback with the internal team",
+            "Build and maintain strong relationships with clients, contractors, and suppliers to ensure project success.",
+            "The target market focuses on collaboration/partnerships with property owners, building management, developers, cluster owners, and area managers."
+          ]
+        }
+      ]
     },
     {
-      "title": "BUSINESS DEVELOPMENT",
-      "company": "PT PRASETIA DWIDHARMA",
-      "location": "Jakarta / Regional",
-      "qualifications": [
-        "Gelar universitas atau pengalaman setara. MBA menjadi nilai tambah",
-        "Berpengalaman menjual dan mengembangkan portofolio bisnis di APAC, dengan fokus pasar Indonesia",
-        "Pengalaman relevan di bidang sales atau business development bersama SMB, enterprise, dan/atau startup tahap pertumbuhan untuk produk SaaS/IT",
-        "Kemampuan problem solving dalam lingkungan sales, termasuk kemampuan qualify dan closing bisnis",
-        "Kemampuan layanan pelanggan dan people management yang sangat baik",
-        "Memahami lanskap kompetitif untuk mengembangkan strategi/program peningkatan revenue",
-        "Detail oriented, mampu melacak dan mengorganisir informasi, data, dan komunikasi secara efisien",
-        "Mampu bernegosiasi dan mencapai kesepakatan dengan berbagai level dan posisi dalam organisasi",
-        "Memiliki pengetahuan luas tentang tren dan best practice terkini",
-        "Pengalaman di bisnis F&B dan Hospitality menjadi nilai tambah",
-        "Kemampuan komunikasi tulisan dan lisan yang sangat baik",
-        "Fasih berbahasa Inggris & Indonesia menjadi nilai tambah untuk menjembatani komunikasi dengan klien/mitra lokal"
+      "title": "GENERAL AFFAIR STAFF",
+      "company": "PT PRASETIA QUBE WELLNESS",
+      "location": "Jakarta",
+      "about": [
+        "Technogym is the world's leading wellness company, known for its Italian design, advanced technology, and premium quality fitness solutions. Trusted by top athletes and chosen as the Official Supplier of the Olympic Games since 2000, Technogym promotes a holistic lifestyle of exercise, balanced nutrition, and mental well-being.",
+        "In Indonesia, PT Prasetia Qube Wellness proudly serves as the sole and official distributor of Technogym. Committed to advancing health and wellness nationwide, we deliver high-quality equipment, personalized services, and holistic solutions that empower individuals and communities to live healthier, more balanced lives."
       ],
-      "additionalSections": []
+      "qualifications": [
+        "Minimum SMK/Diploma degree in Electrical, Mechanical, Civil Engineering, or related fields.",
+        "Minimum 1–2 years of experience in General Affairs or Building Maintenance.",
+        "Basic knowledge of electrical systems, air conditioning (AC), and plumbing.",
+        "Good troubleshooting, problem-solving, and coordination skills.",
+        "Familiar with asset inventory management and administrative tasks.",
+        "Detail-oriented, proactive, and able to work independently or in a team."
+      ],
+      "additionalSections": [
+        {
+          "heading": "Job Description",
+          "items": [
+            "Perform routine building maintenance and minor repairs.",
+            "Monitor office facilities to ensure smooth daily operations.",
+            "Coordinate with external vendors for maintenance and repair works.",
+            "Manage office supplies, assets, and operational facilities.",
+            "Ensure workplace cleanliness, safety, and comfort.",
+            "Maintain asset inventory records and prepare periodic reports."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "SENIOR PROJECT CONTROLLER",
+      "company": "PT PRASETIA DWIDHARMA TEKNOLOGI",
+      "location": "Jakarta",
+      "about": [
+        "PT Prasetia Dwidharma Teknologi is a subsidiary company of Prasetia Dwidharma, concentrating on providing technology through network infrastructure and ICT solutions. With our customer-centric mindset, we facilitate business in four core services: business process automation, providing information, connecting with customers, and productivity tools."
+      ],
+      "qualifications": [
+        "Minimum Bachelor's degree (S1)",
+        "5–8 years of total working experience in the telecommunications industry, ISPs, TechCo, or IT/Telco Managed Services.",
+        "Minimum of 3 years at the Supervisor level or holding a key role in Project Control / PMO (Project Management Office).",
+        "Strong understanding of Project Management and Project Management Office (PMO) practices, including Agile and Waterfall methodologies.",
+        "Strong analytical and problem-solving skills, with proven ability to work with data and derive actionable insights.",
+        "Ability to analyze project pipelines, assess project feasibility, develop forecasts, and evaluate project performance.",
+        "Understanding of budgeting, cash advances, financial control, and Accounts Receivable (AR) monitoring.",
+        "Excellent communication, coordination, and negotiation skills, with the ability to collaborate effectively across multiple functions."
+      ],
+      "additionalSections": [
+        {
+          "heading": "Job Description",
+          "items": [
+            "Oversee and control the entire project lifecycle, including timelines, milestones, deliverables, and the achievement of project targets.",
+            "Monitor project progress and identify potential risks, issues, and delays, ensuring timely mitigation and resolution.",
+            "Reporting, Analysis & Forecasting",
+            "Monitor and control the utilization of cash advances to support project operational requirements and Sales-related activities.",
+            "Monitor and reconcile transactions related to project operations to ensure accurate, transparent, and accountable financial records."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "SENIOR SALES EXECUTIVE",
+      "company": "PT PRASETIA DWIDHARMA TEKNOLOGI",
+      "location": "Pekanbaru",
+      "about": [
+        "PT Prasetia Dwidharma Teknologi, bagian dari Prasetia Dwidharma Group, bergerak di bidang infrastruktur jaringan dan solusi ICT (Information and Communication Technology). Kami mencari talenta yang proaktif, komunikatif, dan bersemangat mengembangkan peluang bisnis bersama tim kami!"
+      ],
+      "qualifications": [
+        "Pendidikan minimal D3 dari semua jurusan",
+        "Memiliki pengalaman minimal 3 tahun di bidang Sales atau Business Development, khususnya B2B atau B2G",
+        "Diutamakan memiliki pengalaman di industri ICT, telekomunikasi, atau solusi teknologi",
+        "Memiliki kemampuan komunikasi, negosiasi, dan presentasi yang baik",
+        "Mampu menganalisis pasar, mengembangkan peluang bisnis, dan mencapai target penjualan",
+        "Mampu membangun serta menjaga hubungan baik dengan pelanggan dan mitra bisnis",
+        "Proaktif, berorientasi pada target, dan mampu bekerja mandiri maupun dalam tim",
+        "Domisili Pekanbaru"
+      ],
+      "additionalSections": [
+        {
+          "heading": "Job Description",
+          "items": [
+            "Menyusun strategi penjualan untuk mencapai target bisnis perusahaan",
+            "Menganalisis pasar dan mengidentifikasi peluang bisnis baru",
+            "Mencari pelanggan potensial serta mengembangkan hubungan bisnis",
+            "Melakukan presentasi, menyusun penawaran, dan negosiasi dengan pelanggan",
+            "Mengelola proses penjualan serta memantau pencapaian target",
+            "Menyusun laporan penjualan dan berkoordinasi dengan tim internal",
+            "Menjaga kepuasan pelanggan serta mengembangkan peluang kerja sama jangka panjang"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "SALES EXECUTIVE",
+      "company": "PT PRASETIA DWIDHARMA TEKNOLOGI",
+      "location": "Head Office, Jakarta",
+      "about": [
+        "PT Prasetia Dwidharma Teknologi is a subsidiary company of Prasetia Dwidharma, concentrating on providing technology through network infrastructure and ICT solutions. With our customer-centric mindset, we facilitate business in four core services: business process automation, providing information, connecting with customers, and productivity tools."
+      ],
+      "qualifications": [
+        "Minimum Bachelor's degree (S1).",
+        "Strong communication and negotiation skills.",
+        "Ability to analyze market trends and customer needs.",
+        "Proactive and goal-driven.",
+        "Experience in customer engagement is a plus.",
+        "Placement in Head Office, Jakarta."
+      ],
+      "additionalSections": [
+        {
+          "heading": "Job Description",
+          "items": [
+            "Conduct market analysis to identify customer needs.",
+            "Actively seek new business.",
+            "Arrange and attend meetings with potential customers.",
+            "Deliver presentations on products and services.",
+            "Create sales reports and encourage product trials.",
+            "Represent the company at events and exhibitions.",
+            "Negotiate agreements with customers.",
+            "Collaborate with the team to achieve goals.",
+            "Conduct customer surveys to gather feedback."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "INTERNSHIP PROGRAM (IT - CYBERSECURITY)",
+      "company": "PRASETIA GROUP",
+      "location": "Jakarta (Graha Aruna, Pasar Baru)",
+      "about": [
+        "Prasetia Group is a company established in 2008, specializing in telecommunications. Currently, Prasetia Group operates several business lines, such as telecommunication contractors, information and communication technology (ICT), exclusive import and distribution of Technogym products, and internet infrastructure."
+      ],
+      "qualifications": [
+        "Active undergraduate student (currently enrolled).",
+        "Students who are required by their university to complete an internship program as part of their academic curriculum or graduation requirements.",
+        "Eager to learn and willing to gain hands-on experience.",
+        "Good communication and teamwork skills.",
+        "Able to commit to the internship period."
+      ],
+      "additionalSections": [
+        {
+          "heading": "Available Internship Opportunities",
+          "items": [
+            "IT (Cybersecurity)"
+          ]
+        },
+        {
+          "heading": "What's in it for you?",
+          "items": [
+            "Practical work experience at a leading company",
+            "Free lunch",
+            "Transportation allowance"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "CUSTOMER CARE",
+      "company": "PT PRASETIA QUBE WELLNESS",
+      "location": "Sunset Road, Bali",
+      "about": [
+        "Technogym is the world's leading wellness company, known for its Italian design, advanced technology, and premium quality fitness solutions. Trusted by top athletes and chosen as the Official Supplier of the Olympic Games since 2000, Technogym promotes a holistic lifestyle of exercise, balanced nutrition, and mental well-being.",
+        "In Indonesia, PT Prasetia Qube Wellness proudly serves as the sole and official distributor of Technogym. Committed to advancing health and wellness nationwide, we deliver high-quality equipment, personalized services, and holistic solutions that empower individuals and communities to live healthier, more balanced lives."
+      ],
+      "qualifications": [
+        "1–2 years of experience in Customer Service / Call Center.",
+        "Excellent communication and problem-solving skills.",
+        "Patient, empathetic, and detail-oriented.",
+        "Proficient in Microsoft Office.",
+        "Able to communicate well in English (spoken and written).",
+        "Placement: Sunset Road, Bali."
+      ],
+      "additionalSections": [
+        {
+          "heading": "Job Description",
+          "items": [
+            "Coordinate delivery & installation schedules.",
+            "Liaise with clients to confirm site readiness.",
+            "Communicate with logistics and installation teams for post-sales issues.",
+            "Follow up with clients and handle after-sales feedback.",
+            "Manage Meta leads and ensure quick responses.",
+            "Record client interactions in Lark.",
+            "Support After Sales process improvements."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "SALES SPECIALIST",
+      "company": "PT PRASETIA QUBE WELLNESS",
+      "location": "Sunset Road, Bali",
+      "about": [
+        "Technogym is the world's leading wellness company, known for its Italian design, advanced technology, and premium quality fitness solutions. Trusted by top athletes and chosen as the Official Supplier of the Olympic Games since 2000, Technogym promotes a holistic lifestyle of exercise, balanced nutrition, and mental well-being.",
+        "In Indonesia, PT Prasetia Qube Wellness proudly serves as the sole and official distributor of Technogym. Committed to advancing health and wellness nationwide, we deliver high-quality equipment, personalized services, and holistic solutions that empower individuals and communities to live healthier, more balanced lives."
+      ],
+      "qualifications": [
+        "Bachelor's degree in Business, Marketing, or related field.",
+        "Min. 2 years experience in sales or business development.",
+        "Strong communication, negotiation & presentation skills.",
+        "Fluent in English (spoken & written).",
+        "Target-driven, proactive, and able to work independently or in a team.",
+        "Familiar with CRM tools & Microsoft Office.",
+        "Willing to travel if needed.",
+        "Placement: Sunset Road, Bali."
+      ],
+      "additionalSections": [
+        {
+          "heading": "Job Description",
+          "items": [
+            "Identify, evaluate, and develop new business opportunities within the gym and fitness club market to drive growth and expand market presence.",
+            "Build and maintain strong client relationships through visits, meetings, and presentations.",
+            "Promote Technogym Indonesia and provide tailored wellness solutions to clients.",
+            "Prepare proposals, quotations, and close sales to meet targets.",
+            "Collaborate with internal teams to ensure smooth delivery and customer satisfaction.",
+            "Monitor market trends and competitor activities to support sales strategy."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "TECHNOGYM EDUCATOR",
+      "company": "PT PRASETIA QUBE WELLNESS",
+      "location": "Jakarta",
+      "about": [
+        "Technogym is the world's leading wellness company, known for its Italian design, advanced technology, and premium quality fitness solutions. Trusted by top athletes and chosen as the Official Supplier of the Olympic Games since 2000, Technogym promotes a holistic lifestyle of exercise, balanced nutrition, and mental well-being.",
+        "In Indonesia, PT Prasetia Qube Wellness proudly serves as the sole and official distributor of Technogym. Committed to advancing health and wellness nationwide, we deliver high-quality equipment, personalized services, and holistic solutions that empower individuals and communities to live healthier, more balanced lives."
+      ],
+      "qualifications": [
+        "Bachelor's degree in Sports Science, Physical Education, Physiotherapy, or related field",
+        "Experience in fitness training or wellness education is a plus",
+        "Excellent communication and presentation skills",
+        "Passionate about health, fitness, and technology",
+        "Fluent in English (spoken & written)",
+        "Willing to travel when required"
+      ],
+      "additionalSections": [
+        {
+          "heading": "Job Description",
+          "items": [
+            "Conduct Technogym product & wellness training for clients (gyms, hotels, corporate wellness, etc.)",
+            "Deliver engaging product knowledge and coaching sessions",
+            "Support the sales team with technical product education",
+            "Develop training materials and reports",
+            "Collaborate with marketing & project teams for events, demos, and product launches"
+          ]
+        }
+      ]
     }
   ]
 }

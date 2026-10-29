@@ -12,6 +12,7 @@ interface Vacancy {
   title: string;
   company: string;
   location: string;
+  about?: string[];
   qualifications: string[];
   additionalSections?: AdditionalSection[];
 }
@@ -219,7 +220,7 @@ const { application, vacancies } = careerData as CareerData;
       transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .career-detail-panel.is-open {
-      max-height: 1400px;
+      max-height: 2400px;
     }
     .career-detail-inner {
       padding-bottom: 1.75rem;
@@ -263,6 +264,13 @@ const { application, vacancies } = careerData as CareerData;
       text-transform: uppercase;
       color: #b91c1c;
     }
+    .career-about-text {
+      font-size: 0.84rem;
+      color: #555;
+      line-height: 1.65;
+      margin: 0 0 0.6rem;
+    }
+    .career-about-text:last-child { margin-bottom: 0; }
 
     /* ─── CTA / Apply section — center, tanpa container, tanpa efek neon ─── */
     .career-apply-section {
@@ -356,7 +364,7 @@ const { application, vacancies } = careerData as CareerData;
           class="career-reveal career-reveal-d1 text-white font-bold leading-tight mb-4"
           style="font-size: clamp(1.6rem, 3.4vw, 2.6rem); letter-spacing: -0.02em; text-shadow: 0 2px 16px rgba(0,0,0,0.4);"
         >
-          Bangun Babak<br/>Karier Berikutnya <span class="text-white/50">Bersama Kami.</span>
+          Bangun Karier Berikutnya <span>Bersama Kami.</span>
         </h1>
         <p class="career-reveal career-reveal-d2 text-white/80 text-sm md:text-base font-light max-w-lg leading-relaxed" style="text-shadow: 0 1px 8px rgba(0,0,0,0.35);">
           Kami mencari individu yang tepat dan sesuai harapan, yang ingin tumbuh, belajar, dan memberi dampak nyata.
@@ -408,7 +416,7 @@ const { application, vacancies } = careerData as CareerData;
             Posisi Tersedia
           </h2>
         </div>
-        <p class="text-gray-400 text-xs md:text-sm">Klik posisi untuk melihat kualifikasi</p>
+        <p class="text-gray-400 text-xs md:text-sm">Klik posisi untuk melihat detail lowongan</p>
       </div>
 
       <div class="career-accordion">
@@ -446,7 +454,16 @@ const { application, vacancies } = careerData as CareerData;
                   {job.location}
                 </p>
 
-                <p class="career-section-label mb-3">Kualifikasi</p>
+                {job.about && job.about.length > 0 && (
+                  <div class="mb-5 max-w-2xl">
+                    <p class="career-section-label mb-2.5">About</p>
+                    {job.about.map(p => (
+                      <p class="career-about-text">{p}</p>
+                    ))}
+                  </div>
+                )}
+
+                <p class="career-section-label mb-3">Qualifications</p>
                 <ul class="career-qual-list max-w-2xl">
                   {job.qualifications.map(q => (
                     <li>
